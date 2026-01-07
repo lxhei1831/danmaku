@@ -119,6 +119,30 @@
       orb: { history: [] }
     };
 
+    const interactionStats = {
+      侧边栏打开次数: 0,
+      溯源点击次数: 0,
+      '信息检索/跳转次数': 0,
+      语义簇展开次数: 0,
+      AI对话深度: 0
+    };
+
+    if (typeof window !== 'undefined') {
+      window.__interactionStats = interactionStats;
+    }
+
+    function logInteractionStats(reason = '') {
+      if (typeof console === 'undefined') return;
+      const label = reason ? `[metrics] ${reason}` : '[metrics]';
+      console.log(label, { ...interactionStats });
+    }
+
+    function bumpInteractionStat(key, reason) {
+      if (!Object.prototype.hasOwnProperty.call(interactionStats, key)) return;
+      interactionStats[key] += 1;
+      logInteractionStats(reason);
+    }
+
     let videoContextInitPromise = null;
 
     const CONNECTION_COLORS = ['rgb(149,225,211)', 'rgb(234,255,208)', 'rgb(252,227,138)', 'rgb(243,129,129)'];
@@ -840,7 +864,10 @@
 
           if (parentDanmakuIds.has(danmakuObj.id)) {
             danmakuElement.classList.add('is-parent-danmaku');
-            danmakuElement.addEventListener('click', () => showSidebarAndHighlight(danmakuObj.groupId));
+            danmakuElement.addEventListener('click', () => {
+              bumpInteractionStat('溯源点击次数', 'parent danmaku click');
+              showSidebarAndHighlight(danmakuObj.groupId);
+            });
           } else if (danmakuObj.groupId) {
             danmakuElement.addEventListener('click', () => showSidebarAndHighlight(danmakuObj.groupId));
           }
@@ -1095,8 +1122,10 @@
         const dialogueSidebarToggle = dialogueSidebar.querySelector('.sidebar-toggle-button');
         if (dialogueSidebarToggle) {
           dialogueSidebarToggle.addEventListener('click', () => {
+            const willOpen = !dialogueSidebar.classList.contains('sidebar-open');
             dialogueSidebar.classList.toggle('sidebar-open');
             document.body.classList.toggle('sidebar-is-open');
+            if (willOpen) bumpInteractionStat('侧边栏打开次数', 'dialogue sidebar open');
             requestConnectorLayoutRefresh();
           });
         }
@@ -1491,13 +1520,18 @@
         const toggle = e.target.closest('.cluster-expand-toggle');
         if (toggle) {
           const clusterNode = toggle.closest('.cluster-node');
-          if (clusterNode) clusterNode.classList.toggle('collapsed');
+          if (clusterNode) {
+            const wasCollapsed = clusterNode.classList.contains('collapsed');
+            clusterNode.classList.toggle('collapsed');
+            if (wasCollapsed) bumpInteractionStat('语义簇展开次数', 'cluster expand');
+          }
           return;
         }
         const targetLi = e.target.closest('li[data-time]');
         if (targetLi && targetLi.dataset.time) {
           const seekTime = parseFloat(targetLi.dataset.time);
           if (!Number.isNaN(seekTime)) {
+            bumpInteractionStat('信息检索/跳转次数', 'sidebar jump');
             video.currentTime = seekTime - 0.2;
             video.play();
           }
@@ -1794,6 +1828,13 @@
           { role: 'user', content: question },
           { role: 'assistant', content: fullResponse }
         ]);
+
+        if (context === 'sidebar') {
+          const session = getChatSession(context);
+          if (session.history.length > 2) {
+            bumpInteractionStat('AI对话深度', 'ai follow-up');
+          }
+        }
       } catch (error) {
         console.error('AI 请求过程中发生错误:', error);
         assistantBubble.textContent = `抱歉，请求出错了: ${error.message}`;
