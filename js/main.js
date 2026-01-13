@@ -12,6 +12,7 @@
     const AI_RESPONSE_GUIDELINE = "请用不超过60字的中文简短回答，避免长段落。"; 
     const AI_RESPONSE_GUIDELINE_LONG = "请详细回答，必要时可以展开论述，无需长度限制。"; 
     const AI_SIDEBAR_DEFAULT_HINT = "输入弹幕问题，AI 已预先读取视频上下文。";
+    const ENABLE_AUTO_VIDEO_CONTEXT = false; // true 自动上传视频截图，false 不自动上传
 
     let danmakuData = [], dialogueGroups = [], danmakuIndex = 0, dialogueIndex = 0;
     const SCROLL_THRESHOLD = 5;
@@ -1141,6 +1142,7 @@
       updateAiSidebarUI();
       resetAiSidebarConversation();
       const startVideoUnderstanding = () => {
+        if (!ENABLE_AUTO_VIDEO_CONTEXT) return;
         ensureVideoContextInitialized().catch(err => console.warn('视频理解初始化失败:', err));
       };
       if (video.readyState >= 2) {
