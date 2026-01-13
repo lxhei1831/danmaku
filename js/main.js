@@ -682,7 +682,7 @@
         return mergedData;
       } catch (error) {
         console.error("加载或解析弹幕文件失败:", error);
-        alert("弹幕文件加载失败，请确保 'replay_2.xml' 文件存在。");
+        alert("弹幕文件加载失败，请确保 'replay_3.xml' 文件存在。");
         return [];
       }
     }
@@ -1044,7 +1044,7 @@
 
     // ===== 初始化与事件绑定 =====
     async function initializePlayer() {
-      danmakuData = await loadAndProcessDanmaku('./assets/data/replay_2.xml');
+      danmakuData = await loadAndProcessDanmaku('./assets/data/replay_3.xml');
       danmakuManager = new DanmakuManager(danmakuScreen, NUM_TOTAL_TRACKS, NUM_DIALOGUE_TRACKS);
       await preloadSubtitleFile();
 
@@ -1937,8 +1937,18 @@
     let heatmapZoom = 1;
 
     /**
-     * 渲染底部热度图：分离“人气”(背景)与“内容”(线条)
+     * 渲染底部热度图：分离“人气”(背景)与“回复集”(线条)
      */
+    function getReplyClusterType(item) {
+      const clusterId = (item.replyClusterId || '').toLowerCase();
+      if (clusterId.startsWith('emotion_')) return 'emotion';
+      if (clusterId.startsWith('answer_')) return 'answer';
+
+      const label = (item.replyClusterLabel || '').toLowerCase();
+      if (label.includes('情感') || label.includes('emotion')) return 'emotion';
+      if (label.includes('解答') || label.includes('answer')) return 'answer';
+      return null;
+    }
     function getHeatmapAxisStep(duration) {
       if (duration <= 60) return 5;
       if (duration <= 180) return 10;
@@ -1969,7 +1979,10 @@
         : 60;
       const duration = totalDuration;
       if (duration <= 0) return;
-      const width = baseWidth * heatmapZoom;
+      const fullWidth = baseWidth * heatmapZoom;
+      const edgePadding = 14;
+      const plotWidth = Math.max(1, fullWidth - edgePadding * 2);
+      const svgWidth = plotWidth + edgePadding * 2;
       const axisHeight = 24;
       const chartHeight = height - axisHeight;
       if (chartHeight <= 0) return;
@@ -1979,9 +1992,10 @@
       const binSize = 0.5;
       const binCount = Math.max(2, Math.ceil(duration / binSize));
       
-      // 初始化两个数组：全量热度(背景) & 对话热度(前景)
+      // 初始化数组：全量热度(背景) & 回复集热度(前景)
       const allDanmakuBins = new Array(binCount).fill(0);
-      const dialogueBins = new Array(binCount).fill(0);
+      const answerBins = new Array(binCount).fill(0);
+      const emotionBins = new Array(binCount).fill(0);
 
       // 遍历数据进行统计
       danmakuData.forEach(d => {
@@ -1991,30 +2005,36 @@
           // 统计全量 (人气)
           allDanmakuBins[idx]++;
           
-          // 统计对话 (讨论)
-          // 判断依据：属于某个对话组 (有groupId) 或是父弹幕/子弹幕
-          if (d.groupId || d.replyTo || (d.replies && d.replies.length > 0)) {
-            dialogueBins[idx]++;
+          // 统计回复集 (answer / emotion)
+          const replyType = getReplyClusterType(d);
+          if (replyType === 'answer') {
+            answerBins[idx]++;
+          } else if (replyType === 'emotion') {
+            emotionBins[idx]++;
           }
         }
       });
 
       // 计算最大值用于归一化
       const maxAll = Math.max(...allDanmakuBins, 1);
-      // 【关键】基于对话数据的最大值归一化，而不是全局最大值。
-      // 这样即使对话很少，线条也能占满屏幕，体现相对的激烈程度。
-      const maxDialogue = Math.max(...dialogueBins, 1);
+      // 【关键】基于各自回复集的最大值归一化，而不是全局最大值。
+      // 这样即使数据很少，线条也能占满屏幕，体现相对的激烈程度。
+      const maxAnswer = Math.max(...answerBins, 1);
+      const maxEmotion = Math.max(...emotionBins, 1);
 
       // --- 2. 创建 SVG ---
       const svgNS = "http://www.w3.org/2000/svg";
       const svg = document.createElementNS(svgNS, "svg");
       svg.classList.add("heatmap-svg");
-      svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
+      svg.setAttribute("viewBox", `0 0 ${svgWidth} ${height}`);
       svg.setAttribute("preserveAspectRatio", "none");
-      svg.setAttribute("width", width);
+      svg.setAttribute("width", svgWidth);
       svg.setAttribute("height", height);
 
-      const centerY = chartHeight / 2;
+      const bandHeight = chartHeight / 2;
+      const answerCenterY = bandHeight * 0.5;
+      const emotionCenterY = bandHeight * 1.5;
+      const crowdCenterY = chartHeight / 2;
 
       // --- 3. 绘制背景层 (The Crowd) - 绿色 Area Chart ---
       // 视觉表现：类似声波图的对称阴影
@@ -2022,13 +2042,13 @@
       let areaPathPointsBottom = [];
 
       for (let i = 0; i < binCount; i++) {
-        const x = (i / (binCount - 1)) * width;
+        const x = edgePadding + (i / (binCount - 1)) * plotWidth;
         // 归一化高度，最大占画面的 90%
         const intensity = allDanmakuBins[i] / maxAll; 
         const halfHeight = intensity * (chartHeight / 2 * 0.9);
         
-        areaPathPointsTop.push({ x, y: centerY - halfHeight });
-        areaPathPointsBottom.push({ x, y: centerY + halfHeight });
+        areaPathPointsTop.push({ x, y: crowdCenterY - halfHeight });
+        areaPathPointsBottom.push({ x, y: crowdCenterY + halfHeight });
       }
 
       // 构建闭合路径
@@ -2046,59 +2066,59 @@
       areaPath.setAttribute("d", areaD);
       svg.appendChild(areaPath); // 先添加背景，使其位于底层
 
-      // --- 4. 绘制前景层 (The Discussion) - 橙色 Zig-Zag Line ---
-      // 视觉表现：上下摆动的脉搏线
-      let linePoints = [];
+      // --- 4. 绘制前景层 (Reply Clusters) - 双线 Zig-Zag ---
+      // 视觉表现：上下分区的双脉搏线
+      const buildLinePoints = (bins, maxValue, centerY) => {
+        const points = [];
+        for (let i = 0; i < binCount; i++) {
+          const x = edgePadding + (i / (binCount - 1)) * plotWidth;
+          const intensity = maxValue > 0 ? bins[i] / maxValue : 0;
+          const amplitude = intensity * (bandHeight / 2 * 0.8); // 留一点边距
+          const direction = (i % 2 === 0) ? -1 : 1;
+          const y = centerY + (amplitude * direction);
+          points.push({ x, y });
+        }
+        return points;
+      };
 
-      for (let i = 0; i < binCount; i++) {
-        const x = (i / (binCount - 1)) * width;
-        
-        // 核心 Zig-Zag 逻辑
-        // 1. 振幅：由对话热度决定
-        const intensity = dialogueBins[i] / maxDialogue;
-        const amplitude = intensity * (chartHeight / 2 * 0.8); // 留一点边距
-        
-        // 2. 方向：奇偶交替 (逢单向上，逢双向下)
-        // 如果热度为0，振幅为0，自然就是直线
-        const direction = (i % 2 === 0) ? -1 : 1; 
-        const y = centerY + (amplitude * direction);
-        
-        linePoints.push({ x, y });
-      }
+      const answerLinePoints = buildLinePoints(answerBins, maxAnswer, answerCenterY);
+      const emotionLinePoints = buildLinePoints(emotionBins, maxEmotion, emotionCenterY);
 
-      // 使用折线连接，保证节点落在曲线上
-      if (linePoints.length > 1) {
-        let lineD = `M ${linePoints[0].x} ${linePoints[0].y}`;
-        
-        for (let i = 1; i < linePoints.length; i++) {
-          const curr = linePoints[i];
+      const drawLinePath = (points, className) => {
+        if (points.length <= 1) return;
+        let lineD = `M ${points[0].x} ${points[0].y}`;
+        for (let i = 1; i < points.length; i++) {
+          const curr = points[i];
           lineD += ` L ${curr.x} ${curr.y}`;
         }
-        
         const linePath = document.createElementNS(svgNS, "path");
-        linePath.classList.add("heatmap-line");
+        linePath.classList.add("heatmap-line", className);
         linePath.setAttribute("d", lineD);
         svg.appendChild(linePath);
-      }
+      };
+
+      drawLinePath(answerLinePoints, "heatmap-line-answer");
+      drawLinePath(emotionLinePoints, "heatmap-line-emotion");
 
       // --- 5. 绘制节点 (Nodes) ---
-      // 规则：橙色(首), 绿色(中), 蓝色(尾)。仅对话弹幕显示。
+      // 规则：橙色(首), 绿色(中), 蓝色(尾)。仅回复集弹幕显示。
       const processedDialogueIds = new Set(); // 防止重复绘制
       
       danmakuData.forEach(d => {
-        // 仅处理对话弹幕
-        if (!d.groupId && !d.replyTo && (!d.replies || d.replies.length === 0)) return;
+        const replyType = getReplyClusterType(d);
+        if (!replyType) return;
         if (d.time > duration) return;
         if (processedDialogueIds.has(d.id)) return;
         
         // 计算位置
-        const x = (d.time / duration) * width;
+        const x = edgePadding + (d.time / duration) * plotWidth;
         
         // Y轴位置：我们需要找到它对应在 Zig-Zag 线上的大概位置
         // 简化计算：重新计算该时间点对应的 Zig-Zag Y坐标
         const binFloat = d.time / binSize;
         const leftIdx = Math.min(binCount - 1, Math.max(0, Math.floor(binFloat)));
         const rightIdx = Math.min(binCount - 1, leftIdx + 1);
+        const linePoints = replyType === 'answer' ? answerLinePoints : emotionLinePoints;
         const leftPoint = linePoints[leftIdx];
         const rightPoint = linePoints[rightIdx] || leftPoint;
         const segmentWidth = rightPoint.x - leftPoint.x;
@@ -2147,8 +2167,8 @@
       axisGroup.classList.add("heatmap-axis");
       const axisLine = document.createElementNS(svgNS, "line");
       axisLine.classList.add("heatmap-axis-line");
-      axisLine.setAttribute("x1", "0");
-      axisLine.setAttribute("x2", String(width));
+      axisLine.setAttribute("x1", String(edgePadding));
+      axisLine.setAttribute("x2", String(edgePadding + plotWidth));
       axisLine.setAttribute("y1", String(chartHeight + 0.5));
       axisLine.setAttribute("y2", String(chartHeight + 0.5));
       axisGroup.appendChild(axisLine);
@@ -2163,7 +2183,7 @@
       }
 
       tickTimes.forEach((time) => {
-        const tickX = (time / duration) * width;
+        const tickX = edgePadding + (time / duration) * plotWidth;
         const tick = document.createElementNS(svgNS, "line");
         tick.classList.add("heatmap-axis-tick");
         tick.setAttribute("x1", String(tickX));
@@ -2176,7 +2196,13 @@
         label.classList.add("heatmap-axis-text");
         label.setAttribute("x", String(tickX));
         label.setAttribute("y", String(chartHeight + axisHeight - 6));
-        label.setAttribute("text-anchor", "middle");
+        if (time <= 0) {
+          label.setAttribute("text-anchor", "start");
+        } else if (time >= duration) {
+          label.setAttribute("text-anchor", "end");
+        } else {
+          label.setAttribute("text-anchor", "middle");
+        }
         label.textContent = formatTime(time);
         axisGroup.appendChild(label);
       });
@@ -2188,7 +2214,8 @@
         // 获取点击相对于 SVG 的 X 坐标
         const rect = heatmapContent.getBoundingClientRect();
         const clickX = e.clientX - rect.left + heatmapContent.scrollLeft;
-        const percent = Math.max(0, Math.min(1, clickX / width));
+        const normalizedX = Math.max(0, Math.min(plotWidth, clickX - edgePadding));
+        const percent = plotWidth > 0 ? normalizedX / plotWidth : 0;
         
         // 跳转视频
         video.currentTime = percent * duration;

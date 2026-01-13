@@ -638,7 +638,7 @@
     /* ===== 底部热度面板 (Heatmap Panel) ===== */
     .heatmap-panel {
       width: 100%;
-      height: 240px;
+      height: 300px;
       background-color: #fff;
       border: 1px solid #ddd;
       border-radius: 6px;
@@ -656,6 +656,41 @@
       font-weight: 700;
       text-align: center;
       background-color: #fafafa;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .heatmap-title {
+      pointer-events: none;
+    }
+    .heatmap-legend {
+      position: absolute;
+      right: 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 12px;
+      font-weight: 500;
+      color: #555;
+      white-space: nowrap;
+    }
+    .heatmap-legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .heatmap-legend-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .heatmap-legend-dot-emotion {
+      background-color: #1E88E5;
+    }
+    .heatmap-legend-dot-answer {
+      background-color: #FF8C00;
     }
 
     #heatmap-content {
@@ -687,14 +722,20 @@
       transition: d 0.3s ease;
     }
 
-    /* 2. 前景层：讨论 (The Discussion) - 之字形线条 */
+    /* 2. 前景层：回复集 (Reply Clusters) - 之字形线条 */
     .heatmap-line {
       fill: none;
-      stroke: #FF8C00; /* 橙色脉搏 */
       stroke-width: 2px;
       stroke-linecap: round;
       stroke-linejoin: round;
-      filter: drop-shadow(0 2px 4px rgba(255, 140, 0, 0.3));
+    }
+    .heatmap-line-answer {
+      stroke: #FF8C00; /* 解答线 */
+      filter: drop-shadow(0 2px 4px rgba(255, 140, 0, 0.35));
+    }
+    .heatmap-line-emotion {
+      stroke: #1E88E5; /* 情感线 */
+      filter: drop-shadow(0 2px 4px rgba(30, 136, 229, 0.35));
     }
 
     /* 3. 节点 (Nodes) */

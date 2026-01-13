@@ -37,7 +37,19 @@
     </div>
 
     <div class="heatmap-panel" id="heatmap-panel">
-      <div class="heatmap-header">热度图</div>
+      <div class="heatmap-header">
+        <span class="heatmap-title">热度图</span>
+        <div class="heatmap-legend" aria-label="热度图图注">
+          <span class="heatmap-legend-item">
+            <span class="heatmap-legend-dot heatmap-legend-dot-emotion" aria-hidden="true"></span>
+            情感类
+          </span>
+          <span class="heatmap-legend-item">
+            <span class="heatmap-legend-dot heatmap-legend-dot-answer" aria-hidden="true"></span>
+            解答类
+          </span>
+        </div>
+      </div>
       <div id="heatmap-content"></div>
       <div class="heatmap-controls">
         <label for="heatmap-zoom">时间缩放</label>
