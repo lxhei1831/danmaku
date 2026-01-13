@@ -1,0 +1,121 @@
+﻿<!--
+    新增AI弹幕按钮
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Danmaku Unified Player - Dialogue Connectors</title>
+  <link rel="stylesheet" href="./css/main.css" />
+</head>
+<body>
+  <div class="main-content">
+    <div class="danmaku-container" id="player-container">
+      <video
+        id="my-video"
+        src="./assets/videos/100dianlu.mp4"
+        controls
+        controlsList="nodownload noplaybackrate nofullscreen noremoteplayback"
+        disablepictureinpicture
+        playsinline
+        webkit-playsinline
+      ></video>
+
+      <svg id="dialogue-connector-svg" class="dialogue-connector-svg"></svg>
+      <div class="danmaku-screen" id="danmaku-screen"></div>
+      <div id="tap-indicator" class="tap-indicator" aria-hidden="true"></div>
+    </div>
+
+    <div class="danmaku-controls">
+      <div class="danmaku-input-wrapper">
+        <input type="text" id="danmaku-input" placeholder="输入弹幕内容..." />
+        <button type="button" id="danmaku-ai-toggle" class="danmaku-ai-toggle" aria-pressed="false" title="开启AI自动回复">AI</button>
+      </div>
+      <button id="send-danmaku-btn">发送</button>
+      <button class="btn" id="fs-toggle-2">全屏</button>
+    </div>
+
+    <div class="heatmap-panel" id="heatmap-panel">
+      <div class="heatmap-header">热度图</div>
+      <div id="heatmap-content"></div>
+      <div class="heatmap-controls">
+        <label for="heatmap-zoom">时间缩放</label>
+        <input type="range" id="heatmap-zoom" min="1" max="20" step="0.1" value="1" />
+        <span id="heatmap-zoom-value">1.0x</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="sidebar sidebar-left" id="dialogue-sidebar">
+    <div class="sidebar-toggle-button">对&nbsp;话&nbsp;集</div>
+    <div class="sidebar-header">对话集</div>
+    <div id="sidebar-content"></div>
+  </div>
+
+  <div class="sidebar sidebar-right" id="ai-sidebar">
+    <div class="sidebar-toggle-button">AI 问答</div>
+    <div class="sidebar-header ai-sidebar-header">
+      <div class="ai-sidebar-title">AI 问答</div>
+    </div>
+    <div class="ai-chat">
+      <div class="ai-chat-messages" id="ai-chat-messages">
+        <div class="ai-message system" id="ai-system-message">
+          弹幕内容
+        </div>
+      </div>
+      <div class="ai-reply-mode">
+        <label for="ai-reply-mode">回复长度：</label>
+        <select id="ai-reply-mode">
+          <option value="short" selected>短回复</option>
+          <option value="long">长回复</option>
+        </select>
+      </div>
+      <div class="ai-chat-input">
+        <textarea id="ai-question-input" placeholder="输入区域"></textarea>
+        <div class="ai-chat-input-actions">
+          <button type="button" id="ai-video-node-btn" class="ai-video-node-btn">提问视频</button>
+          <button type="button" id="ai-send-btn">发送</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ai-orb-wrapper" aria-hidden="false">
+    <button id="ai-orb" class="ai-orb" aria-label="AI精灵球">
+      <img src="./assets/images/AI助手.svg" alt="AI助手" class="ai-orb-icon" />
+    </button>
+  </div>
+
+  <div id="ai-popover" class="ai-popover" aria-hidden="true">
+    <div class="ai-popover-header">
+      <span class="ai-popover-title">AI 多模态助手</span>
+    </div>
+    <div class="ai-popover-body">
+      <div id="ai-popover-status" class="ai-popover-status">点击精灵球即可发送字幕与截图给 AI。</div>
+      <div class="ai-chat ai-popover-chat">
+        <div class="ai-chat-messages" id="ai-orb-chat-messages">
+          <div class="ai-message system" id="ai-orb-system-message">
+            多模态问答会在这里展示，您也可以直接输入问题。
+          </div>
+        </div>
+        <div class="ai-reply-mode">
+          <label for="ai-orb-reply-mode">回复长度：</label>
+          <select id="ai-orb-reply-mode">
+            <option value="short" selected>短回复</option>
+            <option value="long">长回复</option>
+          </select>
+        </div>
+        <div class="ai-chat-input">
+          <textarea id="ai-orb-question-input" placeholder="输入问题，或点击精灵球发送截图"></textarea>
+          <button id="ai-orb-send-btn">发送</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="./js/main.js"></script>
+</body>
+</html>
