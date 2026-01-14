@@ -610,6 +610,7 @@
           const replyClusterLabel = d.getAttribute('reply_cluster_label');
           const replyClusterOrderRaw = d.getAttribute('reply_cluster_order');
           const replyClusterOrder = replyClusterOrderRaw !== null ? parseInt(replyClusterOrderRaw, 10) : NaN;
+          const opinionSet = d.getAttribute('opinion_set');
 
           const danmakuObj = {
             id,
@@ -621,6 +622,7 @@
             replyClusterId: replyClusterId || null,
             replyClusterLabel: replyClusterLabel || null,
             replyClusterOrder: Number.isFinite(replyClusterOrder) ? replyClusterOrder : null,
+            opinionSet: opinionSet || null,
           };
           parsedData.push(danmakuObj);
           if (id) tempMap.set(id, danmakuObj);
@@ -636,15 +638,40 @@
           }
         });
 
+        const getClusterKey = (item) => item?.replyClusterId || item?.opinionSet || null;
+        const getTopClusterParentId = (item) => {
+          if (!item || !item.replyTo) return item?.id || null;
+          const clusterKey = getClusterKey(item);
+          if (!clusterKey) return item?.id || null;
+          let current = item;
+          let topId = item.id || null;
+          while (current.replyTo && tempMap.has(current.replyTo)) {
+            const parent = tempMap.get(current.replyTo);
+            const parentKey = getClusterKey(parent);
+            if (parentKey && parentKey === clusterKey) {
+              topId = parent.id || topId;
+              current = parent;
+            } else {
+              break;
+            }
+          }
+          return topId;
+        };
+
         parentDanmakuIds.forEach(parentId => {
           const parent = tempMap.get(parentId);
           if (!parent) return;
+          const clusterRootId = getTopClusterParentId(parent);
+          const isNestedParent = clusterRootId && clusterRootId !== parent.id;
           const repliesSorted = [...parent.replies].sort((a, b) => a.time - b.time);
           const allMessages = [parent, ...repliesSorted].sort((a, b) => a.time - b.time);
           const structure = buildDialogueStructure(parent, repliesSorted);
           dialogueGroups.push({
             id: `group_${parent.id}`,
             parentId: parent.id,
+            rootParentId: clusterRootId || parent.id,
+            rootGroupId: clusterRootId ? `group_${clusterRootId}` : `group_${parent.id}`,
+            isNestedParent,
             startTime: parent.time,
             title: parent.text,
             messages: allMessages,
@@ -1490,7 +1517,9 @@
             dialogueSidebar.classList.add('sidebar-open');
             document.body.classList.add('sidebar-is-open');
         }
-        const card = document.getElementById(groupId);
+        const group = dialogueGroups.find(g => g.id === groupId);
+        const targetGroupId = (group && group.isNestedParent && group.rootGroupId) ? group.rootGroupId : groupId;
+        const card = document.getElementById(targetGroupId);
         if (!card) return;
         card.scrollIntoView({ behavior: 'smooth', block: 'center' });
         if (!card.classList.contains('expanded')) card.querySelector('.card-header').click();
@@ -1543,7 +1572,7 @@
     }
 
     function reconcileSidebar(currentTime) {
-      const groupsToShow = dialogueGroups.filter(g => g.parentLaunched && g.startTime <= currentTime);
+      const groupsToShow = dialogueGroups.filter(g => g.parentLaunched && g.startTime <= currentTime && !g.isNestedParent);
       const idsToShow = new Set(groupsToShow.map(g => g.id));
       const currentCards = Array.from(sidebarContent.children);
       currentCards.forEach(card => { if (!idsToShow.has(card.id)) card.remove(); });
@@ -2161,7 +2190,7 @@
       drawLinePath(emotionLinePoints, "heatmap-line-emotion");
 
       // --- 5. 绘制节点 (Nodes) ---
-      // 规则：翠绿(首), 浅紫(回复)。仅回复集弹幕显示。
+      // 规则：深绿(首), 浅绿(中), 浅紫(回复)。仅回复集弹幕显示。
       const processedDialogueIds = new Set(); // 防止重复绘制
       
       danmakuData.forEach(d => {
@@ -2188,21 +2217,25 @@
 
         // 颜色判定逻辑
         let color = '#C7A4FF'; // 默认浅紫 (Reply)
+        let strokeColor = '#9B78E6';
         let radius = 3;
 
         // 1. Root (橙色)
         // 判定：它是某个组的 parentId，或者它自身没有 replyTo 但有 replies
-        const isRoot = dialogueGroups.some(g => g.parentId === d.id);
+        const isRoot = dialogueGroups.some(g => !g.isNestedParent && g.parentId === d.id);
         
         // 2. Bridge (绿色)
         // 判定：不是Root，但它有回复 (replyTo 别人，且别人 replyTo 它 [在数据结构里通常表现为它有replies])
         const hasReplies = d.replies && d.replies.length > 0;
         
         if (isRoot) {
-          color = '#2ECC71';
-          radius = 4.5;
+          color = '#1B7A2E';
+          strokeColor = '#145C22';
+          radius = 6;
         } else if (hasReplies) {
-          radius = 3.5;
+          color = '#9BE38E';
+          strokeColor = '#6FBF63';
+          radius = 5;
         }
 
         const circle = document.createElementNS(svgNS, "circle");
@@ -2211,6 +2244,8 @@
         circle.setAttribute("cy", y);
         circle.setAttribute("r", radius);
         circle.setAttribute("fill", color);
+        circle.setAttribute("stroke", strokeColor);
+        circle.setAttribute("stroke-width", "2");
         
         // Tooltip
         const title = document.createElementNS(svgNS, "title");
