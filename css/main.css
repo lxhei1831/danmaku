@@ -638,7 +638,7 @@
     /* ===== 底部热度面板 (Heatmap Panel) ===== */
     .heatmap-panel {
       width: 100%;
-      height: 300px;
+      height: var(--heatmap-expanded-height, 300px);
       background-color: #fff;
       border: 1px solid #ddd;
       border-radius: 6px;
@@ -647,6 +647,22 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.08);
       margin: 12px 0 0;
       overflow: hidden;
+      transition: height 0.35s ease;
+      will-change: height;
+    }
+
+    .heatmap-panel.is-collapsed {
+      height: var(--heatmap-collapsed-height, 48px);
+    }
+    #heatmap-content,
+    .heatmap-controls {
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+    .heatmap-panel.is-collapsed #heatmap-content,
+    .heatmap-panel.is-collapsed .heatmap-controls {
+      opacity: 0;
+      transform: translateY(-6px);
+      pointer-events: none;
     }
 
     .heatmap-header {
@@ -660,6 +676,21 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      cursor: pointer;
+    }
+    .heatmap-header:focus-visible {
+      outline: 2px solid #4d90fe;
+      outline-offset: -2px;
+    }
+    .heatmap-header::after {
+      content: "-";
+      position: absolute;
+      left: 12px;
+      font-size: 16px;
+      color: #666;
+    }
+    .heatmap-panel.is-collapsed .heatmap-header::after {
+      content: "+";
     }
     .heatmap-title {
       pointer-events: none;
@@ -674,6 +705,12 @@
       font-weight: 500;
       color: #555;
       white-space: nowrap;
+      transition: opacity 0.2s ease;
+    }
+    .heatmap-panel.is-collapsed .heatmap-legend {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
     }
     .heatmap-legend-item {
       display: inline-flex;

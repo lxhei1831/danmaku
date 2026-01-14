@@ -1936,6 +1936,55 @@
     const HEATMAP_ZOOM_MAX = 20;
     let heatmapZoom = 1;
 
+    const heatmapPanel = document.getElementById('heatmap-panel');
+    const heatmapHeader = heatmapPanel ? heatmapPanel.querySelector('.heatmap-header') : null;
+    const HEATMAP_COLLAPSED_CLASS = 'is-collapsed';
+    let heatmapRenderTimeout = null;
+
+    function updateHeatmapCollapsedHeight() {
+      if (!heatmapPanel || !heatmapHeader) return;
+      const headerHeight = heatmapHeader.getBoundingClientRect().height;
+      if (headerHeight) {
+        heatmapPanel.style.setProperty('--heatmap-collapsed-height', `${headerHeight + 2}px`);
+      }
+    }
+
+    function setHeatmapCollapsed(collapsed) {
+      if (!heatmapPanel) return;
+      updateHeatmapCollapsedHeight();
+      heatmapPanel.classList.toggle(HEATMAP_COLLAPSED_CLASS, collapsed);
+      if (heatmapHeader) {
+        heatmapHeader.setAttribute('aria-expanded', (!collapsed).toString());
+      }
+      if (!collapsed) {
+        scheduleHeatmapRender();
+      }
+    }
+
+    function toggleHeatmapPanel() {
+      if (!heatmapPanel) return;
+      const nextCollapsed = !heatmapPanel.classList.contains(HEATMAP_COLLAPSED_CLASS);
+      setHeatmapCollapsed(nextCollapsed);
+    }
+
+    function scheduleHeatmapRender() {
+      renderBottomHeatmap();
+      if (!heatmapPanel) return;
+      if (heatmapRenderTimeout) {
+        clearTimeout(heatmapRenderTimeout);
+        heatmapRenderTimeout = null;
+      }
+      const onTransitionEnd = (event) => {
+        if (event.propertyName !== 'height') return;
+        renderBottomHeatmap();
+      };
+      heatmapPanel.addEventListener('transitionend', onTransitionEnd, { once: true });
+      heatmapRenderTimeout = setTimeout(() => {
+        renderBottomHeatmap();
+        heatmapRenderTimeout = null;
+      }, 380);
+    }
+
     /**
      * 渲染底部热度图：分离“人气”(背景)与“回复集”(线条)
      */
@@ -1961,6 +2010,7 @@
     function renderBottomHeatmap() {
       if (!danmakuData.length) return;
       if (!heatmapContent) return;
+      if (heatmapPanel && heatmapPanel.classList.contains(HEATMAP_COLLAPSED_CLASS)) return;
 
       const previousScrollWidth = heatmapContent.scrollWidth;
       const previousScrollLeft = heatmapContent.scrollLeft;
@@ -2232,12 +2282,33 @@
       }
     }
 
+    function handleHeatmapResize() {
+      updateHeatmapCollapsedHeight();
+      renderBottomHeatmap();
+    }
+
     // 监听窗口大小变化和视频加载，重绘热度图
+    if (heatmapHeader) {
+      heatmapHeader.setAttribute('role', 'button');
+      heatmapHeader.setAttribute('tabindex', '0');
+      heatmapHeader.addEventListener('click', toggleHeatmapPanel);
+      heatmapHeader.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggleHeatmapPanel();
+        }
+      });
+    }
+
+    if (heatmapPanel) {
+      setHeatmapCollapsed(heatmapPanel.classList.contains(HEATMAP_COLLAPSED_CLASS));
+    }
+
     if (heatmapContent) {
-      window.addEventListener('resize', renderBottomHeatmap);
-      video.addEventListener('loadedmetadata', renderBottomHeatmap);
+      window.addEventListener('resize', handleHeatmapResize);
+      video.addEventListener('loadedmetadata', handleHeatmapResize);
       // 初始化时尝试渲染一次
-      setTimeout(renderBottomHeatmap, 1000);
+      setTimeout(handleHeatmapResize, 1000);
     }
 
     function updateHeatmapZoom(value) {
