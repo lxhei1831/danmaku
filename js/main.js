@@ -2229,8 +2229,8 @@
         const hasReplies = d.replies && d.replies.length > 0;
         
         if (isRoot) {
-          color = '#1B7A2E';
-          strokeColor = '#145C22';
+          color = '#F6B6C8';
+          strokeColor = '#D889A2';
           radius = 6;
         } else if (hasReplies) {
           color = '#9BE38E';
