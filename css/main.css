@@ -637,6 +637,7 @@
 
     /* ===== 底部热度面板 (Heatmap Panel) ===== */
     .heatmap-panel {
+      --heatmap-expanded-height: 300px;
       width: 100%;
       height: var(--heatmap-expanded-height, 300px);
       background-color: #fff;
@@ -654,11 +655,19 @@
     .heatmap-panel.is-collapsed {
       height: var(--heatmap-collapsed-height, 48px);
     }
-    #heatmap-content,
+    #heatmap-content {
+      transition: opacity 0.3s ease, transform 0.35s ease;
+      transform-origin: center;
+      will-change: transform, opacity;
+    }
     .heatmap-controls {
       transition: opacity 0.25s ease, transform 0.25s ease;
     }
-    .heatmap-panel.is-collapsed #heatmap-content,
+    .heatmap-panel.is-collapsed #heatmap-content {
+      opacity: 0;
+      transform: scaleY(0.12);
+      pointer-events: none;
+    }
     .heatmap-panel.is-collapsed .heatmap-controls {
       opacity: 0;
       transform: translateY(-6px);
@@ -754,7 +763,7 @@
 
     /* 1. 背景层：人气 (The Crowd) */
     .heatmap-area {
-      fill: rgba(76, 175, 80, 0.25); /* T-Cal 绿色半透明 */
+      fill: rgba(160, 160, 160, 0.4); /* 灰色半透明 */
       stroke: none;
       transition: d 0.3s ease;
     }
@@ -762,7 +771,7 @@
     /* 2. 前景层：回复集 (Reply Clusters) - 之字形线条 */
     .heatmap-line {
       fill: none;
-      stroke-width: 2px;
+      stroke-width: 2.5px;
       stroke-linecap: round;
       stroke-linejoin: round;
     }
@@ -781,7 +790,7 @@
       cursor: pointer;
     }
     .heatmap-node:hover {
-      r: 6 !important;
+      r: 7 !important;
       stroke: #fff;
       stroke-width: 2px;
       z-index: 10;

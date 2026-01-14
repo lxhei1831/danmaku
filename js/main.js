@@ -1967,6 +1967,16 @@
       setHeatmapCollapsed(nextCollapsed);
     }
 
+    function getHeatmapRenderHeight() {
+      if (!heatmapPanel) return heatmapContent ? heatmapContent.clientHeight : 0;
+      const expandedValue = getComputedStyle(heatmapPanel).getPropertyValue('--heatmap-expanded-height').trim();
+      const expandedHeight = parseFloat(expandedValue);
+      if (Number.isFinite(expandedHeight) && expandedHeight > 0) {
+        return expandedHeight;
+      }
+      return heatmapContent ? heatmapContent.clientHeight : 0;
+    }
+
     function scheduleHeatmapRender() {
       renderBottomHeatmap();
       if (!heatmapPanel) return;
@@ -2021,7 +2031,7 @@
       heatmapContent.innerHTML = ''; // 清空旧图表
 
       const baseWidth = heatmapContent.clientWidth;
-      const height = heatmapContent.clientHeight;
+      const height = getHeatmapRenderHeight();
       if (!baseWidth || !height) return;
 
       const totalDuration = Number.isFinite(video.duration) && video.duration > 0
@@ -2079,7 +2089,7 @@
       svg.setAttribute("viewBox", `0 0 ${svgWidth} ${height}`);
       svg.setAttribute("preserveAspectRatio", "none");
       svg.setAttribute("width", svgWidth);
-      svg.setAttribute("height", height);
+      svg.setAttribute("height", "100%");
 
       const bandHeight = chartHeight / 2;
       const answerCenterY = bandHeight * 0.5;
@@ -2151,7 +2161,7 @@
       drawLinePath(emotionLinePoints, "heatmap-line-emotion");
 
       // --- 5. 绘制节点 (Nodes) ---
-      // 规则：橙色(首), 绿色(中), 蓝色(尾)。仅回复集弹幕显示。
+      // 规则：翠绿(首), 浅紫(回复)。仅回复集弹幕显示。
       const processedDialogueIds = new Set(); // 防止重复绘制
       
       danmakuData.forEach(d => {
@@ -2177,8 +2187,8 @@
         const y = leftPoint.y + (rightPoint.y - leftPoint.y) * clampedT;
 
         // 颜色判定逻辑
-        let color = '#2196F3'; // 默认蓝 (Leaf)
-        let radius = 2.5;
+        let color = '#C7A4FF'; // 默认浅紫 (Reply)
+        let radius = 3;
 
         // 1. Root (橙色)
         // 判定：它是某个组的 parentId，或者它自身没有 replyTo 但有 replies
@@ -2189,11 +2199,10 @@
         const hasReplies = d.replies && d.replies.length > 0;
         
         if (isRoot) {
-          color = '#FF8C00'; 
-          radius = 4;
+          color = '#2ECC71';
+          radius = 4.5;
         } else if (hasReplies) {
-          color = '#4CAF50';
-          radius = 3;
+          radius = 3.5;
         }
 
         const circle = document.createElementNS(svgNS, "circle");
