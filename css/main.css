@@ -733,10 +733,10 @@
       display: inline-block;
     }
     .heatmap-legend-dot-emotion {
-      background-color: #1E88E5;
+      background-color: #f4a9c6;
     }
     .heatmap-legend-dot-answer {
-      background-color: #FF8C00;
+      background-color: #e28a1b;
     }
 
     #heatmap-content {
@@ -831,5 +831,81 @@
       min-width: 44px;
       text-align: right;
       font-variant-numeric: tabular-nums;
+    }
+
+    /* ===== Thread River 风格底部视图 ===== */
+    .threadriver-link {
+      fill: none;
+      stroke: rgba(0,0,0,0.35);
+      stroke-width: 1.2;
+    }
+
+    .threadriver-rail {
+      stroke: rgba(0,0,0,0.25);
+      stroke-width: 2;
+    }
+
+    .threadriver-arrowhead {
+      fill: rgba(0,0,0,0.35);
+    }
+
+    .threadriver-hatch-line {
+      stroke: rgba(0,0,0,0.35);
+      stroke-width: 1.6;
+      stroke-linecap: round;
+    }
+
+    .threadriver-play {
+      fill: rgba(0,0,0,0.75);
+      cursor: pointer;
+      transition: transform 0.15s ease;
+    }
+    .threadriver-play:hover {
+      transform: scale(1.06);
+    }
+
+    /* 节点通用 */
+    .threadriver-node {
+      cursor: pointer;
+      stroke: rgba(0,0,0,0.65);
+      stroke-width: 1.2;
+    }
+
+    /* 普通：空心（视觉上接近论文里的空心圈/空心胶囊） */
+    .threadriver-node-leaf {
+      fill: #ffffff;
+    }
+
+    /* 聚合节点：浅色胶囊（可按你喜好改色） */
+    .threadriver-node-cluster {
+      fill: rgba(125, 183, 255, 0.65);
+    }
+
+    /* 中间节点：阴影圆（斜杠） */
+    .threadriver-node-mid {
+      fill: url(#threadriver-hatch);
+      stroke: #4a90e2;
+    }
+    .threadriver-node-mid.threadriver-node-answer,
+    .threadriver-node-mid.threadriver-node-emotion {
+      stroke: #4a90e2;
+    }
+
+    .threadriver-node-root {
+      fill: #3b3b3b;
+    }
+    .threadriver-node-root.threadriver-node-answer {
+      fill: #e28a1b;
+    }
+    .threadriver-node-root.threadriver-node-emotion {
+      fill: #f4a9c6;
+    }
+
+    /* 回复类型颜色 */
+    .threadriver-node-answer {
+      stroke: #e28a1b;
+    }
+    .threadriver-node-emotion {
+      stroke: #f4a9c6;
     }
 

@@ -722,7 +722,7 @@
         return mergedData;
       } catch (error) {
         console.error("加载或解析弹幕文件失败:", error);
-        alert("弹幕文件加载失败，请确保 'replay_3.xml' 文件存在。");
+        alert("弹幕文件加载失败，请确保 'replay_7.xml' 文件存在。");
         return [];
       }
     }
@@ -818,33 +818,52 @@
         return { timeline, clusters, hasClusters: false };
       }
 
-      const collectDescendants = (root) => {
-        const collected = [];
-        const queue = [...(root.replies || [])];
-        while (queue.length) {
-          const node = queue.shift();
-          collected.push(node);
-          if (node.replies && node.replies.length) queue.push(...node.replies);
-        }
-        collected.sort((a, b) => a.time - b.time);
-        return collected;
+      const getNodeKey = (item) => item?.id ? `id_${item.id}` : `t_${item?.time}_${item?.text || ''}`;
+      const allNodes = [];
+      const seen = new Set();
+      const addNode = (item) => {
+        if (!item || !Number.isFinite(item.time)) return;
+        const key = getNodeKey(item);
+        if (seen.has(key)) return;
+        seen.add(key);
+        allNodes.push(item);
       };
 
-      directReplies.forEach(reply => {
-        const descendants = collectDescendants(reply);
-        const entry = { ...reply };
+      const queue = [...directReplies];
+      queue.forEach(addNode);
+      while (queue.length) {
+        const node = queue.shift();
+        const children = Array.isArray(node.replies) ? node.replies : [];
+        children.forEach(child => {
+          addNode(child);
+          queue.push(child);
+        });
+      }
+
+      const directReplyKeys = new Set(directReplies.map(getNodeKey));
+      const timelineNodes = allNodes
+        .filter(node => {
+          const hasReplies = Array.isArray(node.replies) && node.replies.length > 0;
+          return hasReplies || directReplyKeys.has(getNodeKey(node));
+        })
+        .sort((a, b) => a.time - b.time);
+
+      timelineNodes.forEach(node => {
+        const entry = { ...node };
         entry.replyClusterLabel = entry.replyClusterLabel || entry.text;
-        if (descendants.length > 0) {
+        const hasReplies = Array.isArray(entry.replies) && entry.replies.length > 0;
+        if (hasReplies) {
+          const leafReplies = entry.replies.filter(child => !(child.replies && child.replies.length));
           entry.isClusterNode = true;
-          entry.clusterMessages = descendants;
-          entry.clusterSize = descendants.length;
-          entry.remainingCount = descendants.length;
+          entry.clusterMessages = leafReplies;
+          entry.clusterSize = leafReplies.length;
+          entry.remainingCount = leafReplies.length;
           clusters.push({
-            id: `cluster_${parent.id || 'root'}_${reply.id || reply.time}`,
+            id: `cluster_${parent.id || 'root'}_${entry.id || entry.time}`,
             label: entry.replyClusterLabel,
-            count: descendants.length,
-            time: reply.time,
-            messages: descendants,
+            count: leafReplies.length,
+            time: entry.time,
+            messages: leafReplies,
           });
         } else {
           entry.isClusterNode = false;
@@ -1084,7 +1103,7 @@
 
     // ===== 初始化与事件绑定 =====
     async function initializePlayer() {
-      danmakuData = await loadAndProcessDanmaku('./assets/data/replay_3.xml');
+      danmakuData = await loadAndProcessDanmaku('./assets/data/replay_7.xml');
       danmakuManager = new DanmakuManager(danmakuScreen, NUM_TOTAL_TRACKS, NUM_DIALOGUE_TRACKS);
       await preloadSubtitleFile();
 
@@ -1975,8 +1994,8 @@
     const heatmapZoomInput = document.getElementById('heatmap-zoom');
     const heatmapZoomValue = document.getElementById('heatmap-zoom-value');
     const HEATMAP_ZOOM_MIN = 1;
-    const HEATMAP_ZOOM_MAX = 20;
-    let heatmapZoom = 1;
+    const HEATMAP_ZOOM_MAX = 100;
+    let heatmapZoom = 100;
 
     const heatmapPanel = document.getElementById('heatmap-panel');
     const heatmapHeader = heatmapPanel ? heatmapPanel.querySelector('.heatmap-header') : null;
@@ -2060,71 +2079,45 @@
     }
 
     function renderBottomHeatmap() {
-      if (!danmakuData.length) return;
+      if (!dialogueGroups.length) return;
       if (!heatmapContent) return;
       if (heatmapPanel && heatmapPanel.classList.contains(HEATMAP_COLLAPSED_CLASS)) return;
 
+      // 记住横向滚动位置（缩放时尽量保持中心不跳）
       const previousScrollWidth = heatmapContent.scrollWidth;
       const previousScrollLeft = heatmapContent.scrollLeft;
       const previousScrollRatio = previousScrollWidth
         ? (previousScrollLeft + heatmapContent.clientWidth / 2) / previousScrollWidth
         : 0;
 
-      heatmapContent.innerHTML = ''; // 清空旧图表
+      heatmapContent.innerHTML = '';
 
       const baseWidth = heatmapContent.clientWidth;
       const height = getHeatmapRenderHeight();
       if (!baseWidth || !height) return;
 
-      const totalDuration = Number.isFinite(video.duration) && video.duration > 0
-        ? video.duration
-        : 60;
+      const totalDuration = Number.isFinite(video.duration) && video.duration > 0 ? video.duration : 60;
       const duration = totalDuration;
       if (duration <= 0) return;
+
+      // 横向缩放（复用你原来的 zoom）
       const fullWidth = baseWidth * heatmapZoom;
+
       const edgePadding = 14;
       const plotWidth = Math.max(1, fullWidth - edgePadding * 2);
       const svgWidth = plotWidth + edgePadding * 2;
-      const axisHeight = 24;
+
+      const axisHeight = 26;
       const chartHeight = height - axisHeight;
       if (chartHeight <= 0) return;
 
-      // --- 1. 数据分箱 (Binning) ---
-      // 针对短视频优化：使用 0.5秒 作为高灵敏度分箱单位
-      const binSize = 0.5;
-      const binCount = Math.max(2, Math.ceil(duration / binSize));
-      
-      // 初始化数组：全量热度(背景) & 回复集热度(前景)
-      const allDanmakuBins = new Array(binCount).fill(0);
-      const answerBins = new Array(binCount).fill(0);
-      const emotionBins = new Array(binCount).fill(0);
+      // === 1) 挑选要展示的回复串 ===
+      const threads = dialogueGroups
+        .filter(g => !g.isNestedParent)               // 主串（可按你需求改）
+        .sort((a, b) => a.startTime - b.startTime);  // 从早到晚
 
-      // 遍历数据进行统计
-      danmakuData.forEach(d => {
-        if (d.time > duration) return;
-        const idx = Math.floor(d.time / binSize);
-        if (idx >= 0 && idx < binCount) {
-          // 统计全量 (人气)
-          allDanmakuBins[idx]++;
-          
-          // 统计回复集 (answer / emotion)
-          const replyType = getReplyClusterType(d);
-          if (replyType === 'answer') {
-            answerBins[idx]++;
-          } else if (replyType === 'emotion') {
-            emotionBins[idx]++;
-          }
-        }
-      });
+      if (!threads.length) return;
 
-      // 计算最大值用于归一化
-      const maxAll = Math.max(...allDanmakuBins, 1);
-      // 【关键】基于各自回复集的最大值归一化，而不是全局最大值。
-      // 这样即使数据很少，线条也能占满屏幕，体现相对的激烈程度。
-      const maxAnswer = Math.max(...answerBins, 1);
-      const maxEmotion = Math.max(...emotionBins, 1);
-
-      // --- 2. 创建 SVG ---
       const svgNS = "http://www.w3.org/2000/svg";
       const svg = document.createElementNS(svgNS, "svg");
       svg.classList.add("heatmap-svg");
@@ -2133,145 +2126,351 @@
       svg.setAttribute("width", svgWidth);
       svg.setAttribute("height", "100%");
 
-      const bandHeight = chartHeight / 2;
-      const answerCenterY = bandHeight * 0.5;
-      const emotionCenterY = bandHeight * 1.5;
-      const crowdCenterY = chartHeight / 2;
+      // === defs：箭头 marker + 斜杠填充 pattern ===
+      const defs = document.createElementNS(svgNS, "defs");
 
-      // --- 3. 绘制背景层 (The Crowd) - 绿色 Area Chart ---
-      // 视觉表现：类似声波图的对称阴影
-      let areaPathPointsTop = [];
-      let areaPathPointsBottom = [];
+      // arrow marker
+      const marker = document.createElementNS(svgNS, "marker");
+      marker.setAttribute("id", "threadriver-arrow");
+      marker.setAttribute("markerWidth", "8");
+      marker.setAttribute("markerHeight", "8");
+      marker.setAttribute("refX", "8");
+      marker.setAttribute("refY", "4");
+      marker.setAttribute("orient", "auto");
+      const arrowPath = document.createElementNS(svgNS, "path");
+      arrowPath.setAttribute("d", "M0,0 L8,4 L0,8 Z");
+      arrowPath.setAttribute("class", "threadriver-arrowhead");
+      marker.appendChild(arrowPath);
+      defs.appendChild(marker);
 
-      for (let i = 0; i < binCount; i++) {
-        const x = edgePadding + (i / (binCount - 1)) * plotWidth;
-        // 归一化高度，最大占画面的 90%
-        const intensity = allDanmakuBins[i] / maxAll; 
-        const halfHeight = intensity * (chartHeight / 2 * 0.9);
-        
-        areaPathPointsTop.push({ x, y: crowdCenterY - halfHeight });
-        areaPathPointsBottom.push({ x, y: crowdCenterY + halfHeight });
-      }
+      // hatch pattern (斜杠阴影)
+      const pattern = document.createElementNS(svgNS, "pattern");
+      pattern.setAttribute("id", "threadriver-hatch");
+      pattern.setAttribute("patternUnits", "userSpaceOnUse");
+      pattern.setAttribute("width", "8");
+      pattern.setAttribute("height", "8");
+      const hatchLine = document.createElementNS(svgNS, "path");
+      hatchLine.setAttribute("d", "M0,8 L8,0");
+      hatchLine.setAttribute("class", "threadriver-hatch-line");
+      pattern.appendChild(hatchLine);
+      defs.appendChild(pattern);
 
-      // 构建闭合路径
-      let areaD = `M ${areaPathPointsTop[0].x} ${areaPathPointsTop[0].y}`;
-      // 上边缘
-      areaPathPointsTop.forEach(p => { areaD += ` L ${p.x} ${p.y}`; });
-      // 下边缘 (反向连接)
-      for (let i = areaPathPointsBottom.length - 1; i >= 0; i--) {
-        areaD += ` L ${areaPathPointsBottom[i].x} ${areaPathPointsBottom[i].y}`;
-      }
-      areaD += " Z"; // 闭合
+      svg.appendChild(defs);
 
-      const areaPath = document.createElementNS(svgNS, "path");
-      areaPath.classList.add("heatmap-area");
-      areaPath.setAttribute("d", areaD);
-      svg.appendChild(areaPath); // 先添加背景，使其位于底层
+      const railLayer = document.createElementNS(svgNS, "g");
+      railLayer.setAttribute("class", "threadriver-rails");
+      svg.appendChild(railLayer);
 
-      // --- 4. 绘制前景层 (Reply Clusters) - 双线 Zig-Zag ---
-      // 视觉表现：上下分区的双脉搏线
-      const buildLinePoints = (bins, maxValue, centerY) => {
-        const points = [];
-        for (let i = 0; i < binCount; i++) {
-          const x = edgePadding + (i / (binCount - 1)) * plotWidth;
-          const intensity = maxValue > 0 ? bins[i] / maxValue : 0;
-          const amplitude = intensity * (bandHeight / 2 * 0.8); // 留一点边距
-          const direction = (i % 2 === 0) ? -1 : 1;
-          const y = centerY + (amplitude * direction);
-          points.push({ x, y });
-        }
-        return points;
+      const linkLayer = document.createElementNS(svgNS, "g");
+      linkLayer.setAttribute("class", "threadriver-links");
+      svg.appendChild(linkLayer);
+
+      const nodeLayer = document.createElementNS(svgNS, "g");
+      nodeLayer.setAttribute("class", "threadriver-nodes");
+      svg.appendChild(nodeLayer);
+
+      // === 工具：time  x ===
+      const timeToX = (t) => edgePadding + (t / duration) * plotWidth;
+
+      // === 工具：节点宽度（文本越长越胖） ===
+      const getNodeW = (text = "") => {
+        const len = Math.max(1, text.trim().length);
+        const minW = 10;
+        const maxW = 64;
+        const capped = Math.min(40, len); // 40字以上都当作最长
+        return minW + (capped / 40) * (maxW - minW);
       };
 
-      const answerLinePoints = buildLinePoints(answerBins, maxAnswer, answerCenterY);
-      const emotionLinePoints = buildLinePoints(emotionBins, maxEmotion, emotionCenterY);
-
-      const drawLinePath = (points, className) => {
-        if (points.length <= 1) return;
-        let lineD = `M ${points[0].x} ${points[0].y}`;
-        for (let i = 1; i < points.length; i++) {
-          const curr = points[i];
-          lineD += ` L ${curr.x} ${curr.y}`;
+      const getNodeLabel = (node) => {
+        if (!node) return "";
+        const text = (node.text || "").trim();
+        if (text) return text;
+        const label = (node.replyClusterLabel || "").trim();
+        if (label) return label;
+        if (Array.isArray(node.clusterMessages)) {
+          const fallback = node.clusterMessages.find(item => item && item.text);
+          if (fallback && fallback.text) return fallback.text;
         }
-        const linePath = document.createElementNS(svgNS, "path");
-        linePath.classList.add("heatmap-line", className);
-        linePath.setAttribute("d", lineD);
-        svg.appendChild(linePath);
+        return "";
       };
 
-      drawLinePath(answerLinePoints, "heatmap-line-answer");
-      drawLinePath(emotionLinePoints, "heatmap-line-emotion");
+      const getNodeTitle = (node) => {
+        const label = getNodeLabel(node);
+        if (label) return `[${formatTime(node.time)}] ${label}`;
+        return `[${formatTime(node.time)}]`;
+      };
 
-      // --- 5. 绘制节点 (Nodes) ---
-      // 规则：深绿(首), 浅绿(中), 浅紫(回复)。仅回复集弹幕显示。
-      const processedDialogueIds = new Set(); // 防止重复绘制
-      
-      danmakuData.forEach(d => {
-        const replyType = getReplyClusterType(d);
-        if (!replyType) return;
-        if (d.time > duration) return;
-        if (processedDialogueIds.has(d.id)) return;
-        
-        // 计算位置
-        const x = edgePadding + (d.time / duration) * plotWidth;
-        
-        // Y轴位置：我们需要找到它对应在 Zig-Zag 线上的大概位置
-        // 简化计算：重新计算该时间点对应的 Zig-Zag Y坐标
-        const binFloat = d.time / binSize;
-        const leftIdx = Math.min(binCount - 1, Math.max(0, Math.floor(binFloat)));
-        const rightIdx = Math.min(binCount - 1, leftIdx + 1);
-        const linePoints = replyType === 'answer' ? answerLinePoints : emotionLinePoints;
-        const leftPoint = linePoints[leftIdx];
-        const rightPoint = linePoints[rightIdx] || leftPoint;
-        const segmentWidth = rightPoint.x - leftPoint.x;
-        const t = segmentWidth > 0 ? (x - leftPoint.x) / segmentWidth : 0;
-        const clampedT = Math.max(0, Math.min(1, t));
-        const y = leftPoint.y + (rightPoint.y - leftPoint.y) * clampedT;
+      const getThreadNodes = (group) => {
+        const timeline = group.timeline || [];
+        const hasClusterNodes = timeline.some(item => item && item.isClusterNode);
+        if (!hasClusterNodes) {
+          const nodes = (group.messages || []).filter(item => item && Number.isFinite(item.time));
+          return nodes;
+        }
+        const nodes = [];
+        const seen = new Set();
+        const addNode = (item) => {
+          if (!item || !Number.isFinite(item.time)) return;
+          const key = item.id ? `id_${item.id}` : `t_${item.time}_${item.text || ''}`;
+          if (seen.has(key)) return;
+          seen.add(key);
+          nodes.push(item);
+        };
+        timeline.forEach(item => {
+          addNode(item);
+          if (item && item.isClusterNode && Array.isArray(item.clusterMessages)) {
+            item.clusterMessages.forEach(addNode);
+          }
+        });
+        return nodes;
+      };
 
-        // 颜色判定逻辑
-        let color = '#C7A4FF'; // 默认浅紫 (Reply)
-        let strokeColor = '#9B78E6';
-        let radius = 3;
+      // === 2) 行分配：不重叠时优先塞回上方行 ===
+      const layouts = [];
+      const rowSlots = [];
+      const minGap = 6;
+      const rowSpanGap = 8;
 
-        // 1. Root (橙色)
-        // 判定：它是某个组的 parentId，或者它自身没有 replyTo 但有 replies
-        const isRoot = dialogueGroups.some(g => !g.isNestedParent && g.parentId === d.id);
-        
-        // 2. Bridge (绿色)
-        // 判定：不是Root，但它有回复 (replyTo 别人，且别人 replyTo 它 [在数据结构里通常表现为它有replies])
-        const hasReplies = d.replies && d.replies.length > 0;
-        
-        if (isRoot) {
-          color = '#F6B6C8';
-          strokeColor = '#D889A2';
-          radius = 6;
-        } else if (hasReplies) {
-          color = '#9BE38E';
-          strokeColor = '#6FBF63';
-          radius = 5;
+      threads.forEach((group) => {
+        const nodes = getThreadNodes(group);
+        if (!nodes.length) return;
+
+        const orderedNodes = nodes.slice().sort((a, b) => a.time - b.time);
+        const rootId = group.parentId || group.rootParentId || null;
+        const replyTargetIds = new Set();
+        orderedNodes.forEach((node) => {
+          if (node && node.replyTo) replyTargetIds.add(node.replyTo);
+        });
+        const anchorNode = orderedNodes[0];
+        const anchorId = anchorNode ? anchorNode.id : null;
+        const anchorTime = anchorNode && Number.isFinite(anchorNode.time)
+          ? anchorNode.time
+          : group.startTime;
+
+        const coord = new Map();
+        let lastX = null;
+        let lastHalfW = 0;
+        let minX = Infinity;
+        let maxX = -Infinity;
+
+        orderedNodes.forEach((node) => {
+          if (!node.id) return;
+
+          const hasReplies = Array.isArray(node.replies) && node.replies.length > 0;
+          const isRoot = !!node.isParent || (!!rootId && node.id === rootId);
+          const isMidNode = (hasReplies || replyTargetIds.has(node.id)) && !isRoot;
+          const isCluster = !!node.isClusterNode;
+          const isCircleNode = isMidNode || isRoot;
+          const nodeW = isCircleNode ? 14 : getNodeW(node.text || "");
+          const nodeH = isCircleNode ? nodeW : 12;
+          const halfW = nodeW / 2;
+
+          const isAnchor = node.id === anchorId;
+          let x = isAnchor ? timeToX(anchorTime) : timeToX(node.time);
+          if (!isAnchor && lastX !== null) {
+            const minAllowedX = lastX + lastHalfW + halfW + minGap;
+            if (x < minAllowedX) x = minAllowedX;
+          }
+          if (!isAnchor) {
+            x = Math.max(edgePadding + halfW, Math.min(edgePadding + plotWidth - halfW, x));
+          }
+
+          coord.set(node.id, { x, node, isRoot, isMidNode, isCluster, nodeW, nodeH });
+          lastX = x;
+          lastHalfW = halfW;
+          minX = Math.min(minX, x - halfW);
+          maxX = Math.max(maxX, x + halfW);
+        });
+
+        if (!Number.isFinite(minX) || !Number.isFinite(maxX)) return;
+
+        let rowIdx = -1;
+        for (let i = 0; i < rowSlots.length; i += 1) {
+          if (minX >= rowSlots[i].endX + rowSpanGap) {
+            rowIdx = i;
+            break;
+          }
+        }
+        if (rowIdx === -1) {
+          rowIdx = rowSlots.length;
+          rowSlots.push({ endX: maxX });
+        } else {
+          rowSlots[rowIdx].endX = Math.max(rowSlots[rowIdx].endX, maxX);
         }
 
-        const circle = document.createElementNS(svgNS, "circle");
-        circle.classList.add("heatmap-node");
-        circle.setAttribute("cx", x);
-        circle.setAttribute("cy", y);
-        circle.setAttribute("r", radius);
-        circle.setAttribute("fill", color);
-        circle.setAttribute("stroke", strokeColor);
-        circle.setAttribute("stroke-width", "2");
-        
-        // Tooltip
-        const title = document.createElementNS(svgNS, "title");
-        title.textContent = `[${formatTime(d.time)}] ${d.text}`;
-        circle.appendChild(title);
-        
-        svg.appendChild(circle);
-        processedDialogueIds.add(d.id);
+        layouts.push({ group, nodes: orderedNodes, coord, rowIdx });
       });
 
-      // --- 6. 时间轴 (Axis) ---
+      if (!layouts.length) return;
+
+      // === 3) 计算行高（让它能自适应显示尽可能多） ===
+      const minRowH = 22;
+      const maxRowH = 40;
+      const rowGap = 6;
+      const neededRows = rowSlots.length;
+      const rawRowH = Math.floor((chartHeight - rowGap * (neededRows - 1)) / neededRows);
+      const rowH = Math.max(minRowH, Math.min(maxRowH, rawRowH));
+      const rowStep = rowH + rowGap;
+      const rowCount = Math.min(neededRows, Math.floor((chartHeight + rowGap) / rowStep));
+      if (rowCount <= 0) return;
+      const visibleLayouts = layouts.filter(layout => layout.rowIdx < rowCount);
+
+      // === 4) 绘制每一行 thread ===
+      visibleLayouts.forEach((layout) => {
+        const { group, nodes: orderedNodes, coord, rowIdx } = layout;
+        const rowTop = rowIdx * rowStep;
+        const cy = rowTop + rowH * 0.55; // 让节点偏居中一点
+        const baselineY = cy;
+
+        // 4.1 先画节点（根节点也画，但播放键单独画）
+        orderedNodes.forEach((node) => {
+          if (!node.id) return;
+          const nodeLayout = coord.get(node.id);
+          if (!nodeLayout) return;
+          const { x, isRoot, isMidNode, isCluster, nodeW, nodeH } = nodeLayout;
+
+          // 播放键：只画一次（thread 起点）
+          // 你说串开头是播放键：对齐 group.startTime
+          if (isRoot) {
+            const playX = timeToX(group.startTime) - 6;
+            const play = document.createElementNS(svgNS, "path");
+            play.setAttribute("d", `M ${playX - 10} ${baselineY - 6} L ${playX - 10} ${baselineY + 6} L ${playX - 1} ${baselineY} Z`);
+            play.setAttribute("class", "threadriver-play");
+            const title = document.createElementNS(svgNS, "title");
+            title.textContent = ` 跳转到 ${formatTime(group.startTime)}\n${group.title || ""}`;
+            play.appendChild(title);
+
+            play.addEventListener("click", (e) => {
+              e.stopPropagation();
+              video.currentTime = group.startTime;
+              video.play();
+            });
+            nodeLayer.appendChild(play);
+          }
+
+          // 节点形状：
+          // - 中间节点：阴影圆（斜杠填充）
+          // - 普通节点：空心胶囊（宽度映射 text 长度）
+          // - cluster 节点：浅色胶囊（也按长度）
+          if (isMidNode || isRoot) {
+            // 阴影圆
+            const r = nodeH / 2;
+            const circle = document.createElementNS(svgNS, "circle");
+            circle.setAttribute("cx", x);
+            circle.setAttribute("cy", baselineY);
+            circle.setAttribute("r", r);
+            const replyType = getReplyClusterType(node);
+            const typeClass = replyType === 'emotion'
+              ? 'threadriver-node-emotion'
+              : replyType === 'answer'
+                ? 'threadriver-node-answer'
+                : '';
+            const rootClass = isRoot ? 'threadriver-node-root' : 'threadriver-node-mid';
+            circle.setAttribute(
+              "class",
+              `threadriver-node ${rootClass}${typeClass ? ` ${typeClass}` : ''}`
+            );
+            const title = document.createElementNS(svgNS, "title");
+            title.textContent = getNodeTitle(node);
+            circle.appendChild(title);
+
+            circle.addEventListener("click", (e) => {
+              e.stopPropagation();
+              if (group.id) showSidebarAndHighlight(group.id);
+            });
+
+            nodeLayer.appendChild(circle);
+          } else {
+            // 空心胶囊 / cluster 胶囊
+            const h = nodeH;
+            const w = nodeW;
+            const rect = document.createElementNS(svgNS, "rect");
+            rect.setAttribute("x", x - w / 2);
+            rect.setAttribute("y", baselineY - h / 2);
+            rect.setAttribute("width", w);
+            rect.setAttribute("height", h);
+            rect.setAttribute("rx", h / 2);
+            rect.setAttribute("ry", h / 2);
+            rect.setAttribute("class", isCluster
+              ? "threadriver-node threadriver-node-cluster"
+              : "threadriver-node threadriver-node-leaf"
+            );
+
+            const title = document.createElementNS(svgNS, "title");
+            title.textContent = getNodeTitle(node);
+            rect.appendChild(title);
+
+            rect.addEventListener("click", (e) => {
+              e.stopPropagation();
+              if (group.id) showSidebarAndHighlight(group.id);
+            });
+
+            nodeLayer.appendChild(rect);
+          }
+        });
+
+        // 4.1.1 同一回复串的时间连线（不带箭头）
+        for (let i = 0; i < orderedNodes.length - 1; i += 1) {
+          const curr = orderedNodes[i];
+          const next = orderedNodes[i + 1];
+          if (!curr || !next || !curr.id || !next.id) continue;
+          const currLayout = coord.get(curr.id);
+          const nextLayout = coord.get(next.id);
+          if (!currLayout || !nextLayout) continue;
+          const railClearance = 2;
+          const startX = currLayout.x + currLayout.nodeW / 2 + railClearance;
+          const endX = nextLayout.x - nextLayout.nodeW / 2 - railClearance;
+          if (endX <= startX) continue;
+
+          const rail = document.createElementNS(svgNS, "line");
+          rail.setAttribute("x1", String(startX));
+          rail.setAttribute("y1", String(baselineY));
+          rail.setAttribute("x2", String(endX));
+          rail.setAttribute("y2", String(baselineY));
+          rail.setAttribute("class", "threadriver-rail");
+          railLayer.appendChild(rail);
+        }
+
+        // 4.2 再画回复关系（带箭头曲线）
+        orderedNodes.forEach((node) => {
+          if (!node.id || !node.replyTo) return;
+          const from = coord.get(node.replyTo);
+          const to = coord.get(node.id);
+          if (!from || !to) return;
+
+          const x1 = from.x;
+          const x2 = to.x;
+          if (x2 <= x1) return;
+
+          const arrowClearance = 4;
+          const startOffset = (from.nodeW ? from.nodeW / 2 : 6) + arrowClearance;
+          const endYOffset = (to.nodeH ? to.nodeH / 2 : 6) + arrowClearance;
+          const startX = x1 + startOffset;
+          const endX = x2;
+          const replyToIsRoot = !!from.isRoot || !!(from.node && from.node.isParent);
+          const arrowDirection = replyToIsRoot ? -1 : 1;
+          const endY = baselineY + arrowDirection * endYOffset;
+          if (endX <= startX) return;
+
+          const dx = endX - startX;
+          const arcH = Math.min(rowH * 0.7, Math.max(8, dx * 0.12)); // 距离越远弧度越高
+          const arcOffset = arcH * arrowDirection;
+
+          const path = document.createElementNS(svgNS, "path");
+          path.setAttribute(
+            "d",
+            `M ${startX} ${baselineY} C ${startX + dx * 0.25} ${baselineY + arcOffset}, ${startX + dx * 0.75} ${endY + arcOffset}, ${endX} ${endY}`
+          );
+          path.setAttribute("class", "threadriver-link");
+          path.setAttribute("marker-end", "url(#threadriver-arrow)");
+          linkLayer.appendChild(path);
+        });
+      });
+
+      // === 5) 时间轴（底部） ===
       const axisGroup = document.createElementNS(svgNS, "g");
       axisGroup.classList.add("heatmap-axis");
+
       const axisLine = document.createElementNS(svgNS, "line");
       axisLine.classList.add("heatmap-axis-line");
       axisLine.setAttribute("x1", String(edgePadding));
@@ -2282,15 +2481,12 @@
 
       const tickStep = getHeatmapAxisStep(duration);
       const tickTimes = [];
-      for (let t = 0; t <= duration; t += tickStep) {
-        tickTimes.push(t);
-      }
-      if (tickTimes[tickTimes.length - 1] < duration) {
-        tickTimes.push(duration);
-      }
+      for (let t = 0; t <= duration; t += tickStep) tickTimes.push(t);
+      if (tickTimes[tickTimes.length - 1] < duration) tickTimes.push(duration);
 
       tickTimes.forEach((time) => {
         const tickX = edgePadding + (time / duration) * plotWidth;
+
         const tick = document.createElementNS(svgNS, "line");
         tick.classList.add("heatmap-axis-tick");
         tick.setAttribute("x1", String(tickX));
@@ -2303,34 +2499,26 @@
         label.classList.add("heatmap-axis-text");
         label.setAttribute("x", String(tickX));
         label.setAttribute("y", String(chartHeight + axisHeight - 6));
-        if (time <= 0) {
-          label.setAttribute("text-anchor", "start");
-        } else if (time >= duration) {
-          label.setAttribute("text-anchor", "end");
-        } else {
-          label.setAttribute("text-anchor", "middle");
-        }
+        label.setAttribute("text-anchor", time <= 0 ? "start" : time >= duration ? "end" : "middle");
         label.textContent = formatTime(time);
         axisGroup.appendChild(label);
       });
 
       svg.appendChild(axisGroup);
 
-      // --- 7. 交互：点击跳转 ---
+      // === 6) 空白点击：跳转视频时间 ===
       svg.addEventListener('click', (e) => {
-        // 获取点击相对于 SVG 的 X 坐标
         const rect = heatmapContent.getBoundingClientRect();
         const clickX = e.clientX - rect.left + heatmapContent.scrollLeft;
         const normalizedX = Math.max(0, Math.min(plotWidth, clickX - edgePadding));
         const percent = plotWidth > 0 ? normalizedX / plotWidth : 0;
-        
-        // 跳转视频
         video.currentTime = percent * duration;
         video.play();
       });
 
       heatmapContent.appendChild(svg);
 
+      // 恢复横向滚动中心
       if (heatmapZoom > 1 && heatmapContent.scrollWidth > heatmapContent.clientWidth) {
         const nextScrollCenter = heatmapContent.scrollWidth * previousScrollRatio;
         heatmapContent.scrollLeft = Math.max(0, nextScrollCenter - heatmapContent.clientWidth / 2);
