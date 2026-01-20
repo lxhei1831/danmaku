@@ -605,6 +605,8 @@
           const id = d.getAttribute('id');
           const replyTo = d.getAttribute('reply_to');
           const time = parseFloat(params[0]);
+          const sendTimeRaw = params[4];
+          const sendTime = sendTimeRaw !== undefined ? parseInt(sendTimeRaw, 10) : NaN;
           const colorHex = '#' + parseInt(params[3], 10).toString(16).padStart(6, '0');
           const replyClusterId = d.getAttribute('reply_cluster');
           const replyClusterLabel = d.getAttribute('reply_cluster_label');
@@ -617,6 +619,7 @@
             replyTo,
             text,
             time,
+            sendTime: Number.isFinite(sendTime) ? sendTime : null,
             color: colorHex,
             replies: [],
             replyClusterId: replyClusterId || null,
@@ -630,11 +633,20 @@
 
         parsedData.sort((a, b) => a.time - b.time);
 
+        const isValidReplyLink = (reply, parent) => {
+          if (!reply || !parent) return false;
+          if (!Number.isFinite(reply.time) || !Number.isFinite(parent.time)) return false;
+          if (!Number.isFinite(reply.sendTime) || !Number.isFinite(parent.sendTime)) return false;
+          return reply.time >= parent.time && reply.sendTime >= parent.sendTime;
+        };
+
         parsedData.forEach(d => {
           if (d.replyTo && tempMap.has(d.replyTo)) {
             const parent = tempMap.get(d.replyTo);
-            parent.replies.push(d);
-            if (parent.id) parentDanmakuIds.add(parent.id);
+            if (isValidReplyLink(d, parent)) {
+              parent.replies.push(d);
+              if (parent.id) parentDanmakuIds.add(parent.id);
+            }
           }
         });
 
@@ -647,6 +659,7 @@
           let topId = item.id || null;
           while (current.replyTo && tempMap.has(current.replyTo)) {
             const parent = tempMap.get(current.replyTo);
+            if (!isValidReplyLink(current, parent)) break;
             const parentKey = getClusterKey(parent);
             if (parentKey && parentKey === clusterKey) {
               topId = parent.id || topId;
