@@ -4,7 +4,7 @@
     const MULTIMODAL_API_URL = "https://api.siliconflow.cn/v1/chat/completions";
     const MULTIMODAL_MODEL = "Qwen/Qwen3-VL-32B-Instruct";
     const MAX_SUBTITLE_SNIPPET_CHARS = 20000;
-    const CAPTION_FILE_PATH = "./assets/data/caption.srt";
+    const CAPTION_FILE_PATH = "./assets/data/100dianlu/caption.srt";
     const AUTO_SEND_AI_ON_RIGHT_CLICK = true; // 右键弹幕后是否直接自动提问
     const AI_QUESTION_TEMPLATE = "请围绕这条弹幕进行分析并给出回复建议：{text}"; // 自定义提问模板，保留 {text} 作为弹幕占位符
     const AI_GROUP_QUESTION_TEMPLATE = "请结合以下整组对话弹幕，给出总结和回复建议：{text}";
@@ -722,7 +722,7 @@
         return mergedData;
       } catch (error) {
         console.error("加载或解析弹幕文件失败:", error);
-        alert("弹幕文件加载失败，请确保 'replay_7.xml' 文件存在。");
+        alert("弹幕文件加载失败，请确保 'assets/data/100dianlu/replay_7.xml' 文件存在。");
         return [];
       }
     }
@@ -1103,7 +1103,7 @@
 
     // ===== 初始化与事件绑定 =====
     async function initializePlayer() {
-      danmakuData = await loadAndProcessDanmaku('./assets/data/replay_7.xml');
+      danmakuData = await loadAndProcessDanmaku('./assets/data/100dianlu/replay_7.xml');
       danmakuManager = new DanmakuManager(danmakuScreen, NUM_TOTAL_TRACKS, NUM_DIALOGUE_TRACKS);
       await preloadSubtitleFile();
 
