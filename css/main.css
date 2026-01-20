@@ -746,14 +746,18 @@
       padding: 10px 0;
       box-sizing: border-box;
       overflow-x: auto;
-      overflow-y: hidden;
+      overflow-y: auto;
       position: relative;
       background-color: #fcfcfc;
+    }
+    #heatmap-content.heatmap-panning,
+    #heatmap-content.heatmap-panning .heatmap-svg {
+      cursor: grabbing;
     }
 
     /* SVG 图表样式 */
     .heatmap-svg {
-      height: 100%;
+      height: auto;
       display: block;
       overflow: visible;
       cursor: crosshair;

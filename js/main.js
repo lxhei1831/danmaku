@@ -1993,9 +1993,18 @@
     const heatmapContent = document.getElementById('heatmap-content');
     const heatmapZoomInput = document.getElementById('heatmap-zoom');
     const heatmapZoomValue = document.getElementById('heatmap-zoom-value');
-    const HEATMAP_ZOOM_MIN = 1;
-    const HEATMAP_ZOOM_MAX = 100;
-    let heatmapZoom = 100;
+    const HEATMAP_ZOOM_STEP = 10;
+    const HEATMAP_ZOOM_MIN = 10;
+    const HEATMAP_ZOOM_MAX = 200;
+    const HEATMAP_ZOOM_VERTICAL_THRESHOLD = 100;
+    let heatmapZoom = 20;
+    let heatmapZoomAnchor = null;
+    let heatmapZoomLocked = false;
+    let heatmapPanActive = false;
+    let heatmapPanStartX = 0;
+    let heatmapPanStartScrollLeft = 0;
+    let heatmapPanStartY = 0;
+    let heatmapPanStartScrollTop = 0;
 
     const heatmapPanel = document.getElementById('heatmap-panel');
     const heatmapHeader = heatmapPanel ? heatmapPanel.querySelector('.heatmap-header') : null;
@@ -2086,28 +2095,43 @@
       // 记住横向滚动位置（缩放时尽量保持中心不跳）
       const previousScrollWidth = heatmapContent.scrollWidth;
       const previousScrollLeft = heatmapContent.scrollLeft;
+      const previousScrollHeight = heatmapContent.scrollHeight;
+      const previousScrollTop = heatmapContent.scrollTop;
       const previousScrollRatio = previousScrollWidth
         ? (previousScrollLeft + heatmapContent.clientWidth / 2) / previousScrollWidth
         : 0;
+      const anchorInfo = heatmapZoomAnchor;
+      const anchorRect = anchorInfo ? heatmapContent.getBoundingClientRect() : null;
+      const anchorLocalX = anchorInfo ? (anchorInfo.clientX - anchorRect.left) : 0;
+      const anchorLocalY = anchorInfo ? (anchorInfo.clientY - anchorRect.top) : 0;
+      const anchorRatio = (anchorInfo && previousScrollWidth)
+        ? (previousScrollLeft + anchorLocalX) / previousScrollWidth
+        : null;
+      const anchorRatioY = (anchorInfo && previousScrollHeight)
+        ? (previousScrollTop + anchorLocalY) / previousScrollHeight
+        : null;
 
       heatmapContent.innerHTML = '';
 
       const baseWidth = heatmapContent.clientWidth;
-      const height = getHeatmapRenderHeight();
-      if (!baseWidth || !height) return;
+      const baseHeight = getHeatmapRenderHeight();
+      if (!baseWidth || !baseHeight) return;
 
       const totalDuration = Number.isFinite(video.duration) && video.duration > 0 ? video.duration : 60;
       const duration = totalDuration;
       if (duration <= 0) return;
 
-      // 横向缩放（复用你原来的 zoom）
-      const fullWidth = baseWidth * heatmapZoom;
+      const getZoomScale = (zoom) => (
+        zoom > HEATMAP_ZOOM_VERTICAL_THRESHOLD
+          ? zoom / HEATMAP_ZOOM_VERTICAL_THRESHOLD
+          : 1
+      );
+      const zoomScale = getZoomScale(heatmapZoom);
+      const compactMode = !heatmapZoomLocked;
 
       const edgePadding = 14;
-      const plotWidth = Math.max(1, fullWidth - edgePadding * 2);
-      const svgWidth = plotWidth + edgePadding * 2;
-
-      const axisHeight = 26;
+      const axisHeight = 26 * zoomScale;
+      const height = baseHeight * zoomScale;
       const chartHeight = height - axisHeight;
       if (chartHeight <= 0) return;
 
@@ -2118,61 +2142,6 @@
 
       if (!threads.length) return;
 
-      const svgNS = "http://www.w3.org/2000/svg";
-      const svg = document.createElementNS(svgNS, "svg");
-      svg.classList.add("heatmap-svg");
-      svg.setAttribute("viewBox", `0 0 ${svgWidth} ${height}`);
-      svg.setAttribute("preserveAspectRatio", "none");
-      svg.setAttribute("width", svgWidth);
-      svg.setAttribute("height", "100%");
-
-      // === defs：箭头 marker + 斜杠填充 pattern ===
-      const defs = document.createElementNS(svgNS, "defs");
-
-      // arrow marker
-      const marker = document.createElementNS(svgNS, "marker");
-      marker.setAttribute("id", "threadriver-arrow");
-      marker.setAttribute("markerWidth", "8");
-      marker.setAttribute("markerHeight", "8");
-      marker.setAttribute("refX", "8");
-      marker.setAttribute("refY", "4");
-      marker.setAttribute("orient", "auto");
-      const arrowPath = document.createElementNS(svgNS, "path");
-      arrowPath.setAttribute("d", "M0,0 L8,4 L0,8 Z");
-      arrowPath.setAttribute("class", "threadriver-arrowhead");
-      marker.appendChild(arrowPath);
-      defs.appendChild(marker);
-
-      // hatch pattern (斜杠阴影)
-      const pattern = document.createElementNS(svgNS, "pattern");
-      pattern.setAttribute("id", "threadriver-hatch");
-      pattern.setAttribute("patternUnits", "userSpaceOnUse");
-      pattern.setAttribute("width", "8");
-      pattern.setAttribute("height", "8");
-      const hatchLine = document.createElementNS(svgNS, "path");
-      hatchLine.setAttribute("d", "M0,8 L8,0");
-      hatchLine.setAttribute("class", "threadriver-hatch-line");
-      pattern.appendChild(hatchLine);
-      defs.appendChild(pattern);
-
-      svg.appendChild(defs);
-
-      const railLayer = document.createElementNS(svgNS, "g");
-      railLayer.setAttribute("class", "threadriver-rails");
-      svg.appendChild(railLayer);
-
-      const linkLayer = document.createElementNS(svgNS, "g");
-      linkLayer.setAttribute("class", "threadriver-links");
-      svg.appendChild(linkLayer);
-
-      const nodeLayer = document.createElementNS(svgNS, "g");
-      nodeLayer.setAttribute("class", "threadriver-nodes");
-      svg.appendChild(nodeLayer);
-
-      // === 工具：time  x ===
-      const timeToX = (t) => edgePadding + (t / duration) * plotWidth;
-
-      // === 工具：节点宽度（文本越长越胖） ===
       const getNodeW = (text = "") => {
         const len = Math.max(1, text.trim().length);
         const minW = 10;
@@ -2225,14 +2194,179 @@
         return nodes;
       };
 
+      const MIN_GAP_BASE = compactMode ? 4 : 6;
+      const ROW_SPAN_GAP_BASE = compactMode ? 6 : 8;
+      const MIN_ROW_H_BASE = compactMode ? 10 : 22;
+      const MAX_ROW_H_BASE = compactMode ? 28 : 40;
+      const ROW_GAP_BASE = compactMode ? 2 : 6;
+      const NODE_CIRCLE_BASE = compactMode ? 10 : 14;
+      const NODE_CAPSULE_H_BASE = compactMode ? 8 : 12;
+      const ARROW_CLEARANCE_BASE = compactMode ? 2 : 4;
+      const RAIL_CLEARANCE_BASE = compactMode ? 1 : 2;
+
+      const minGap = MIN_GAP_BASE * zoomScale;
+      const rowSpanGap = ROW_SPAN_GAP_BASE * zoomScale;
+      const minRowH = MIN_ROW_H_BASE * zoomScale;
+      const maxRowH = MAX_ROW_H_BASE * zoomScale;
+      const rowGap = ROW_GAP_BASE * zoomScale;
+
+      const threadNodes = threads
+        .map(group => ({ group, nodes: getThreadNodes(group) }))
+        .filter(entry => entry.nodes.length > 0);
+
+      if (!threadNodes.length) return;
+
+      const getRowCount = (neededRows, scale) => {
+        if (neededRows <= 0) return 0;
+        const scaledMinRowH = MIN_ROW_H_BASE * scale;
+        const scaledMaxRowH = MAX_ROW_H_BASE * scale;
+        const scaledRowGap = ROW_GAP_BASE * scale;
+        const scaledAxisHeight = 26 * scale;
+        const scaledChartHeight = baseHeight * scale - scaledAxisHeight;
+        const rawRowH = Math.floor((scaledChartHeight - scaledRowGap * (neededRows - 1)) / neededRows);
+        const rowH = compactMode
+          ? Math.max(1, Math.min(scaledMaxRowH, rawRowH))
+          : Math.max(scaledMinRowH, Math.min(scaledMaxRowH, rawRowH));
+        const rowStep = rowH + scaledRowGap;
+        return Math.min(neededRows, Math.floor((scaledChartHeight + scaledRowGap) / rowStep));
+      };
+
+      const getNeededRowsForZoom = (zoom) => {
+        const scale = getZoomScale(zoom);
+        const fullWidth = baseWidth * zoom;
+        const plotWidth = Math.max(1, fullWidth - edgePadding * 2);
+        const timeToX = (t) => edgePadding + (t / duration) * plotWidth;
+        const rowSlots = [];
+        const scaledMinGap = MIN_GAP_BASE * scale;
+        const scaledRowSpanGap = ROW_SPAN_GAP_BASE * scale;
+
+        threadNodes.forEach(({ group, nodes }) => {
+          if (!nodes.length) return;
+          const orderedNodes = nodes.slice().sort((a, b) => a.time - b.time);
+          const rootId = group.parentId || group.rootParentId || null;
+          const replyTargetIds = new Set();
+          orderedNodes.forEach((node) => {
+            if (node && node.replyTo) replyTargetIds.add(node.replyTo);
+          });
+          const anchorNode = orderedNodes[0];
+          const anchorId = anchorNode ? anchorNode.id : null;
+          const anchorTime = anchorNode && Number.isFinite(anchorNode.time)
+            ? anchorNode.time
+            : group.startTime;
+          let lastX = null;
+          let lastHalfW = 0;
+          let minX = Infinity;
+          let maxX = -Infinity;
+
+          orderedNodes.forEach((node) => {
+            if (!node.id) return;
+            const hasReplies = Array.isArray(node.replies) && node.replies.length > 0;
+            const isRoot = !!node.isParent || (!!rootId && node.id === rootId);
+            const isMidNode = (hasReplies || replyTargetIds.has(node.id)) && !isRoot;
+            const isCircleNode = isMidNode || isRoot;
+            const nodeW = (isCircleNode ? NODE_CIRCLE_BASE : getNodeW(node.text || "")) * scale;
+            const halfW = nodeW / 2;
+
+            const isAnchor = node.id === anchorId;
+            let x = isAnchor ? timeToX(anchorTime) : timeToX(node.time);
+            if (!isAnchor && lastX !== null) {
+              const minAllowedX = lastX + lastHalfW + halfW + scaledMinGap;
+              if (x < minAllowedX) x = minAllowedX;
+            }
+            if (!isAnchor) {
+              x = Math.max(edgePadding + halfW, Math.min(edgePadding + plotWidth - halfW, x));
+            }
+            lastX = x;
+            lastHalfW = halfW;
+            minX = Math.min(minX, x - halfW);
+            maxX = Math.max(maxX, x + halfW);
+          });
+
+          if (!Number.isFinite(minX) || !Number.isFinite(maxX)) return;
+
+          let rowIdx = -1;
+          for (let i = 0; i < rowSlots.length; i += 1) {
+            if (minX >= rowSlots[i].endX + scaledRowSpanGap) {
+              rowIdx = i;
+              break;
+            }
+          }
+          if (rowIdx === -1) {
+            rowSlots.push({ endX: maxX });
+          } else {
+            rowSlots[rowIdx].endX = Math.max(rowSlots[rowIdx].endX, maxX);
+          }
+        });
+
+        return rowSlots.length;
+      };
+
+      // 横向缩放（复用你原来的 zoom）
+      const fullWidth = baseWidth * heatmapZoom;
+      const plotWidth = Math.max(1, fullWidth - edgePadding * 2);
+      const svgWidth = plotWidth + edgePadding * 2;
+
+      const svgNS = "http://www.w3.org/2000/svg";
+      const svg = document.createElementNS(svgNS, "svg");
+      svg.classList.add("heatmap-svg");
+      svg.setAttribute("viewBox", `0 0 ${svgWidth} ${height}`);
+      svg.setAttribute("preserveAspectRatio", "none");
+      svg.setAttribute("width", svgWidth);
+      svg.setAttribute("height", String(height));
+
+      // === defs：箭头 marker + 斜杠填充 pattern ===
+      const defs = document.createElementNS(svgNS, "defs");
+
+      // arrow marker
+      const arrowSize = 8 * zoomScale;
+      const arrowHalf = arrowSize / 2;
+      const marker = document.createElementNS(svgNS, "marker");
+      marker.setAttribute("id", "threadriver-arrow");
+      marker.setAttribute("markerWidth", String(arrowSize));
+      marker.setAttribute("markerHeight", String(arrowSize));
+      marker.setAttribute("refX", String(arrowSize));
+      marker.setAttribute("refY", String(arrowHalf));
+      marker.setAttribute("orient", "auto");
+      const arrowPath = document.createElementNS(svgNS, "path");
+      arrowPath.setAttribute("d", `M0,0 L${arrowSize},${arrowHalf} L0,${arrowSize} Z`);
+      arrowPath.setAttribute("class", "threadriver-arrowhead");
+      marker.appendChild(arrowPath);
+      defs.appendChild(marker);
+
+      // hatch pattern (斜杠阴影)
+      const pattern = document.createElementNS(svgNS, "pattern");
+      pattern.setAttribute("id", "threadriver-hatch");
+      pattern.setAttribute("patternUnits", "userSpaceOnUse");
+      pattern.setAttribute("width", "8");
+      pattern.setAttribute("height", "8");
+      const hatchLine = document.createElementNS(svgNS, "path");
+      hatchLine.setAttribute("d", "M0,8 L8,0");
+      hatchLine.setAttribute("class", "threadriver-hatch-line");
+      pattern.appendChild(hatchLine);
+      defs.appendChild(pattern);
+
+      svg.appendChild(defs);
+
+      const railLayer = document.createElementNS(svgNS, "g");
+      railLayer.setAttribute("class", "threadriver-rails");
+      svg.appendChild(railLayer);
+
+      const linkLayer = document.createElementNS(svgNS, "g");
+      linkLayer.setAttribute("class", "threadriver-links");
+      svg.appendChild(linkLayer);
+
+      const nodeLayer = document.createElementNS(svgNS, "g");
+      nodeLayer.setAttribute("class", "threadriver-nodes");
+      svg.appendChild(nodeLayer);
+
+      // === 工具：time  x ===
+      const timeToX = (t) => edgePadding + (t / duration) * plotWidth;
+
       // === 2) 行分配：不重叠时优先塞回上方行 ===
       const layouts = [];
       const rowSlots = [];
-      const minGap = 6;
-      const rowSpanGap = 8;
 
-      threads.forEach((group) => {
-        const nodes = getThreadNodes(group);
+      threadNodes.forEach(({ group, nodes }) => {
         if (!nodes.length) return;
 
         const orderedNodes = nodes.slice().sort((a, b) => a.time - b.time);
@@ -2261,8 +2395,8 @@
           const isMidNode = (hasReplies || replyTargetIds.has(node.id)) && !isRoot;
           const isCluster = !!node.isClusterNode;
           const isCircleNode = isMidNode || isRoot;
-          const nodeW = isCircleNode ? 14 : getNodeW(node.text || "");
-          const nodeH = isCircleNode ? nodeW : 12;
+          const nodeW = (isCircleNode ? NODE_CIRCLE_BASE : getNodeW(node.text || "")) * zoomScale;
+          const nodeH = isCircleNode ? nodeW : NODE_CAPSULE_H_BASE * zoomScale;
           const halfW = nodeW / 2;
 
           const isAnchor = node.id === anchorId;
@@ -2304,12 +2438,11 @@
       if (!layouts.length) return;
 
       // === 3) 计算行高（让它能自适应显示尽可能多） ===
-      const minRowH = 22;
-      const maxRowH = 40;
-      const rowGap = 6;
       const neededRows = rowSlots.length;
       const rawRowH = Math.floor((chartHeight - rowGap * (neededRows - 1)) / neededRows);
-      const rowH = Math.max(minRowH, Math.min(maxRowH, rawRowH));
+      const rowH = compactMode
+        ? Math.max(1, Math.min(maxRowH, rawRowH))
+        : Math.max(minRowH, Math.min(maxRowH, rawRowH));
       const rowStep = rowH + rowGap;
       const rowCount = Math.min(neededRows, Math.floor((chartHeight + rowGap) / rowStep));
       if (rowCount <= 0) return;
@@ -2332,9 +2465,15 @@
           // 播放键：只画一次（thread 起点）
           // 你说串开头是播放键：对齐 group.startTime
           if (isRoot) {
-            const playX = timeToX(group.startTime) - 6;
+            const playScale = zoomScale;
+            const playX = timeToX(group.startTime) - 6 * playScale;
             const play = document.createElementNS(svgNS, "path");
-            play.setAttribute("d", `M ${playX - 10} ${baselineY - 6} L ${playX - 10} ${baselineY + 6} L ${playX - 1} ${baselineY} Z`);
+            play.setAttribute(
+              "d",
+              `M ${playX - 10 * playScale} ${baselineY - 6 * playScale} ` +
+              `L ${playX - 10 * playScale} ${baselineY + 6 * playScale} ` +
+              `L ${playX - 1 * playScale} ${baselineY} Z`
+            );
             play.setAttribute("class", "threadriver-play");
             const title = document.createElementNS(svgNS, "title");
             title.textContent = ` 跳转到 ${formatTime(group.startTime)}\n${group.title || ""}`;
@@ -2417,7 +2556,7 @@
           const currLayout = coord.get(curr.id);
           const nextLayout = coord.get(next.id);
           if (!currLayout || !nextLayout) continue;
-          const railClearance = 2;
+        const railClearance = RAIL_CLEARANCE_BASE * zoomScale;
           const startX = currLayout.x + currLayout.nodeW / 2 + railClearance;
           const endX = nextLayout.x - nextLayout.nodeW / 2 - railClearance;
           if (endX <= startX) continue;
@@ -2442,7 +2581,7 @@
           const x2 = to.x;
           if (x2 <= x1) return;
 
-          const arrowClearance = 4;
+          const arrowClearance = ARROW_CLEARANCE_BASE * zoomScale;
           const startOffset = (from.nodeW ? from.nodeW / 2 : 6) + arrowClearance;
           const endYOffset = (to.nodeH ? to.nodeH / 2 : 6) + arrowClearance;
           const startX = x1 + startOffset;
@@ -2518,12 +2657,30 @@
 
       heatmapContent.appendChild(svg);
 
-      // 恢复横向滚动中心
-      if (heatmapZoom > 1 && heatmapContent.scrollWidth > heatmapContent.clientWidth) {
-        const nextScrollCenter = heatmapContent.scrollWidth * previousScrollRatio;
-        heatmapContent.scrollLeft = Math.max(0, nextScrollCenter - heatmapContent.clientWidth / 2);
+      // 恢复横向滚动中心/指向点
+      if (anchorRatio !== null || anchorRatioY !== null) {
+        if (anchorRatio !== null) {
+          const target = anchorRatio * heatmapContent.scrollWidth - anchorLocalX;
+          const maxScroll = Math.max(0, heatmapContent.scrollWidth - heatmapContent.clientWidth);
+          heatmapContent.scrollLeft = Math.max(0, Math.min(maxScroll, target));
+        }
+        if (anchorRatioY !== null) {
+          const targetY = anchorRatioY * heatmapContent.scrollHeight - anchorLocalY;
+          const maxScrollY = Math.max(0, heatmapContent.scrollHeight - heatmapContent.clientHeight);
+          heatmapContent.scrollTop = Math.max(0, Math.min(maxScrollY, targetY));
+        }
+        heatmapZoomAnchor = null;
+      } else if (heatmapZoom > 1 && heatmapContent.scrollWidth > heatmapContent.clientWidth) {
+        if (!heatmapZoomLocked && previousScrollLeft <= 1) {
+          heatmapContent.scrollLeft = 0;
+          heatmapContent.scrollTop = 0;
+        } else {
+          const nextScrollCenter = heatmapContent.scrollWidth * previousScrollRatio;
+          heatmapContent.scrollLeft = Math.max(0, nextScrollCenter - heatmapContent.clientWidth / 2);
+        }
       } else {
         heatmapContent.scrollLeft = 0;
+        heatmapContent.scrollTop = 0;
       }
     }
 
@@ -2552,17 +2709,51 @@
     if (heatmapContent) {
       window.addEventListener('resize', handleHeatmapResize);
       video.addEventListener('loadedmetadata', handleHeatmapResize);
+      heatmapContent.addEventListener('contextmenu', (e) => {
+        e.preventDefault();
+      });
+      heatmapContent.addEventListener('mousedown', (e) => {
+        if (e.button !== 2) return;
+        e.preventDefault();
+        heatmapPanActive = true;
+        heatmapPanStartX = e.clientX;
+        heatmapPanStartScrollLeft = heatmapContent.scrollLeft;
+        heatmapPanStartY = e.clientY;
+        heatmapPanStartScrollTop = heatmapContent.scrollTop;
+        heatmapContent.classList.add('heatmap-panning');
+      });
+      window.addEventListener('mousemove', (e) => {
+        if (!heatmapPanActive) return;
+        const dx = e.clientX - heatmapPanStartX;
+        const dy = e.clientY - heatmapPanStartY;
+        heatmapContent.scrollLeft = heatmapPanStartScrollLeft - dx;
+        heatmapContent.scrollTop = heatmapPanStartScrollTop - dy;
+      });
+      window.addEventListener('mouseup', () => {
+        if (!heatmapPanActive) return;
+        heatmapPanActive = false;
+        heatmapContent.classList.remove('heatmap-panning');
+      });
+      heatmapContent.addEventListener('wheel', (e) => {
+        if (!e.ctrlKey) return;
+        e.preventDefault();
+        heatmapZoomAnchor = { clientX: e.clientX, clientY: e.clientY };
+        const step = e.deltaY > 0 ? -HEATMAP_ZOOM_STEP : HEATMAP_ZOOM_STEP;
+        updateHeatmapZoom(heatmapZoom + step, { lock: true });
+      }, { passive: false });
       // 初始化时尝试渲染一次
       setTimeout(handleHeatmapResize, 1000);
     }
 
-    function updateHeatmapZoom(value) {
+    function updateHeatmapZoom(value, { lock = false } = {}) {
       const nextZoom = Number(value);
       if (Number.isFinite(nextZoom)) {
-        heatmapZoom = Math.min(HEATMAP_ZOOM_MAX, Math.max(HEATMAP_ZOOM_MIN, nextZoom));
+        const snapped = Math.round(nextZoom / HEATMAP_ZOOM_STEP) * HEATMAP_ZOOM_STEP;
+        heatmapZoom = Math.min(HEATMAP_ZOOM_MAX, Math.max(HEATMAP_ZOOM_MIN, snapped));
       } else {
         heatmapZoom = HEATMAP_ZOOM_MIN;
       }
+      if (lock) heatmapZoomLocked = true;
       if (heatmapZoomInput && Number(heatmapZoomInput.value) !== heatmapZoom) {
         heatmapZoomInput.value = heatmapZoom.toString();
       }
@@ -2574,7 +2765,7 @@
 
     if (heatmapZoomInput) {
       heatmapZoomInput.addEventListener('input', (e) => {
-        updateHeatmapZoom(e.target.value);
+        updateHeatmapZoom(e.target.value, { lock: true });
       });
       updateHeatmapZoom(heatmapZoomInput.value);
     }
