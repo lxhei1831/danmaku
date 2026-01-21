@@ -1251,9 +1251,24 @@
       if (video.readyState >= 1) handleVideoMetadata();
 
       window.addEventListener('resize', () => { syncLayoutHeight(); rebuildFromTime(video.currentTime); });
-      video.addEventListener('play', () => { danmakuManager.resume(); startLineAnimation(); removeInteractionMenu(); });
-      video.addEventListener('pause', () => { danmakuManager.pause(); stopLineAnimation(); });
+      video.addEventListener('play', () => {
+        danmakuManager.resume();
+        startLineAnimation();
+        removeInteractionMenu();
+        startHeatmapPlayheadLoop();
+      });
+      video.addEventListener('pause', () => {
+        danmakuManager.pause();
+        stopLineAnimation();
+        stopHeatmapPlayheadLoop();
+        updateHeatmapPlayhead(video.currentTime);
+      });
+      video.addEventListener('ended', () => {
+        stopHeatmapPlayheadLoop();
+        updateHeatmapPlayhead(video.currentTime);
+      });
       video.addEventListener('seeking', () => rebuildFromTime(video.currentTime));
+      video.addEventListener('seeked', () => updateHeatmapPlayhead(video.currentTime));
 
       video.addEventListener('timeupdate', () => {
         const currentTime = video.currentTime;
@@ -2225,6 +2240,43 @@
       return 300;
     }
 
+    function updateHeatmapPlayhead(time = video?.currentTime || 0) {
+      if (!heatmapContent) return;
+      const svg = heatmapContent.querySelector('.heatmap-svg');
+      if (!svg) return;
+      const duration = parseFloat(svg.dataset.duration || '');
+      const plotWidth = parseFloat(svg.dataset.plotWidth || '');
+      const edgePadding = parseFloat(svg.dataset.edgePadding || '');
+      const chartHeight = parseFloat(svg.dataset.chartHeight || '');
+      if (!Number.isFinite(duration) || duration <= 0) return;
+      if (!Number.isFinite(plotWidth) || !Number.isFinite(edgePadding) || !Number.isFinite(chartHeight)) return;
+      const safeTime = Number.isFinite(time) ? time : 0;
+      const clampedTime = Math.max(0, Math.min(duration, safeTime));
+      const x = edgePadding + (clampedTime / duration) * plotWidth;
+      const playhead = svg.querySelector('#heatmap-playhead-line');
+      if (!playhead) return;
+      playhead.setAttribute('transform', `translate(${x}, 0)`);
+      playhead.setAttribute('y1', '0');
+      playhead.setAttribute('y2', String(chartHeight));
+    }
+
+    let heatmapPlayheadRaf = null;
+    function startHeatmapPlayheadLoop() {
+      if (!video) return;
+      if (heatmapPlayheadRaf) return;
+      const tick = () => {
+        updateHeatmapPlayhead(video.currentTime);
+        heatmapPlayheadRaf = requestAnimationFrame(tick);
+      };
+      heatmapPlayheadRaf = requestAnimationFrame(tick);
+    }
+
+    function stopHeatmapPlayheadLoop() {
+      if (!heatmapPlayheadRaf) return;
+      cancelAnimationFrame(heatmapPlayheadRaf);
+      heatmapPlayheadRaf = null;
+    }
+
     function renderBottomHeatmap() {
       if (!dialogueGroups.length) return;
       if (!heatmapContent) return;
@@ -2457,6 +2509,10 @@
       svg.setAttribute("preserveAspectRatio", "none");
       svg.setAttribute("width", svgWidth);
       svg.setAttribute("height", String(height));
+      svg.dataset.duration = String(duration);
+      svg.dataset.plotWidth = String(plotWidth);
+      svg.dataset.edgePadding = String(edgePadding);
+      svg.dataset.chartHeight = String(chartHeight);
 
       // === defs：箭头 marker + 斜杠填充 pattern ===
       const defs = document.createElementNS(svgNS, "defs");
@@ -2502,6 +2558,18 @@
       const nodeLayer = document.createElementNS(svgNS, "g");
       nodeLayer.setAttribute("class", "threadriver-nodes");
       svg.appendChild(nodeLayer);
+
+      const playheadLayer = document.createElementNS(svgNS, "g");
+      playheadLayer.setAttribute("class", "heatmap-playhead-layer");
+      const playheadLine = document.createElementNS(svgNS, "line");
+      playheadLine.setAttribute("id", "heatmap-playhead-line");
+      playheadLine.setAttribute("class", "heatmap-playhead");
+      playheadLine.setAttribute("x1", "0");
+      playheadLine.setAttribute("x2", "0");
+      playheadLine.setAttribute("y1", "0");
+      playheadLine.setAttribute("y2", String(chartHeight));
+      playheadLayer.appendChild(playheadLine);
+      svg.appendChild(playheadLayer);
 
       // === 工具：time  x ===
       const timeToX = (t) => edgePadding + (t / duration) * plotWidth;
@@ -2800,6 +2868,7 @@
       });
 
       heatmapContent.appendChild(svg);
+      updateHeatmapPlayhead(video.currentTime);
 
       // 恢复横向滚动中心/指向点
       if (anchorTime !== null || anchorRatioY !== null) {

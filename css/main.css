@@ -852,6 +852,12 @@
       dominant-baseline: middle;
       pointer-events: none;
     }
+    .heatmap-playhead-layer { pointer-events: none; }
+    .heatmap-playhead {
+      stroke: rgba(235, 87, 87, 0.85);
+      stroke-width: 2;
+      filter: drop-shadow(0 0 4px rgba(235, 87, 87, 0.45));
+    }
 
     .heatmap-controls {
       display: flex;
