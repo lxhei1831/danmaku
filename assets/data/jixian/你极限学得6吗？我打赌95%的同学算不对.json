@@ -1,0 +1,2506 @@
+[
+  {
+    "from": 1.88,
+    "to": 2.63,
+    "sid": 1,
+    "location": 2,
+    "content": "同学们好",
+    "music": 0
+  },
+  {
+    "from": 2.63,
+    "to": 4.55,
+    "sid": 2,
+    "location": 2,
+    "content": "我是心一学长长",
+    "music": 0
+  },
+  {
+    "from": 4.55,
+    "to": 6.859,
+    "sid": 3,
+    "location": 2,
+    "content": "同学们请看屏幕这个题",
+    "music": 0
+  },
+  {
+    "from": 7.06,
+    "to": 10.37,
+    "sid": 4,
+    "location": 2,
+    "content": "这个题是我在我的QQ群里边",
+    "music": 0
+  },
+  {
+    "from": 10.37,
+    "to": 13.31,
+    "sid": 5,
+    "location": 2,
+    "content": "有一个自称考了130多分的学霸",
+    "music": 0
+  },
+  {
+    "from": 13.31,
+    "to": 14.78,
+    "sid": 6,
+    "location": 2,
+    "content": "分享他笔记的时候",
+    "music": 0
+  },
+  {
+    "from": 14.78,
+    "to": 18.23,
+    "sid": 7,
+    "location": 2,
+    "content": "我无意当中看到他笔记里面写的一个式子",
+    "music": 0
+  },
+  {
+    "from": 18.23,
+    "to": 19.19,
+    "sid": 8,
+    "location": 2,
+    "content": "他在算完之后",
+    "music": 0
+  },
+  {
+    "from": 19.19,
+    "to": 21.34,
+    "sid": 9,
+    "location": 2,
+    "content": "他说这个式子等于多少多少多少",
+    "music": 0
+  },
+  {
+    "from": 21.34,
+    "to": 22.72,
+    "sid": 10,
+    "location": 2,
+    "content": "然后我看完了之后呢",
+    "music": 0
+  },
+  {
+    "from": 22.72,
+    "to": 23.98,
+    "sid": 11,
+    "location": 2,
+    "content": "我就给他发个私信",
+    "music": 0
+  },
+  {
+    "from": 23.98,
+    "to": 24.16,
+    "sid": 12,
+    "location": 2,
+    "content": "说",
+    "music": 0
+  },
+  {
+    "from": 24.16,
+    "to": 25.439,
+    "sid": 13,
+    "location": 2,
+    "content": "你这里边可能有问题",
+    "music": 0
+  },
+  {
+    "from": 25.439,
+    "to": 27.329,
+    "sid": 14,
+    "location": 2,
+    "content": "我们俩讨论了半天诶",
+    "music": 0
+  },
+  {
+    "from": 27.329,
+    "to": 28.71,
+    "sid": 15,
+    "location": 2,
+    "content": "终于给他讲明白了",
+    "music": 0
+  },
+  {
+    "from": 28.71,
+    "to": 30.15,
+    "sid": 16,
+    "location": 2,
+    "content": "他这意识到自己错误",
+    "music": 0
+  },
+  {
+    "from": 30.15,
+    "to": 31.71,
+    "sid": 17,
+    "location": 2,
+    "content": "最后把这个改正过来了",
+    "music": 0
+  },
+  {
+    "from": 31.71,
+    "to": 33.81,
+    "sid": 18,
+    "location": 2,
+    "content": "所以咱们今天把这个素材拿过来",
+    "music": 0
+  },
+  {
+    "from": 33.81,
+    "to": 35.13,
+    "sid": 19,
+    "location": 2,
+    "content": "给同学们讲解一下",
+    "music": 0
+  },
+  {
+    "from": 35.13,
+    "to": 37.9,
+    "sid": 20,
+    "location": 2,
+    "content": "看看它到底是错在哪儿了",
+    "music": 0
+  },
+  {
+    "from": 37.9,
+    "to": 40.58,
+    "sid": 21,
+    "location": 2,
+    "content": "考到130多分的也会在这犯错误吗",
+    "music": 0
+  },
+  {
+    "from": 40.58,
+    "to": 41.81,
+    "sid": 22,
+    "location": 2,
+    "content": "我们也可以这么说",
+    "music": 0
+  },
+  {
+    "from": 41.81,
+    "to": 42.56,
+    "sid": 23,
+    "location": 2,
+    "content": "说得亏呢",
+    "music": 0
+  },
+  {
+    "from": 42.56,
+    "to": 44.78,
+    "sid": 24,
+    "location": 2,
+    "content": "这个细节他没考着考着了呀",
+    "music": 0
+  },
+  {
+    "from": 44.78,
+    "to": 47.18,
+    "sid": 25,
+    "location": 2,
+    "content": "那个学霸可能就考不了130了",
+    "music": 0
+  },
+  {
+    "from": 47.18,
+    "to": 50.6,
+    "sid": 26,
+    "location": 2,
+    "content": "如果他的没注意别的细节又再考到了",
+    "music": 0
+  },
+  {
+    "from": 50.6,
+    "to": 52.22,
+    "sid": 27,
+    "location": 2,
+    "content": "可能他连120都上不了",
+    "music": 0
+  },
+  {
+    "from": 52.22,
+    "to": 53.27,
+    "sid": 28,
+    "location": 2,
+    "content": "就很注意",
+    "music": 0
+  },
+  {
+    "from": 53.27,
+    "to": 56.23,
+    "sid": 29,
+    "location": 2,
+    "content": "该知道同学们每个同学都注意的细节",
+    "music": 0
+  },
+  {
+    "from": 56.23,
+    "to": 57.55,
+    "sid": 30,
+    "location": 2,
+    "content": "我们来看一看",
+    "music": 0
+  },
+  {
+    "from": 57.55,
+    "to": 59.74,
+    "sid": 31,
+    "location": 2,
+    "content": "说这个有同学说这有啥难的",
+    "music": 0
+  },
+  {
+    "from": 59.74,
+    "to": 60.67,
+    "sid": 32,
+    "location": 2,
+    "content": "这题还用算",
+    "music": 0
+  },
+  {
+    "from": 60.67,
+    "to": 62.56,
+    "sid": 33,
+    "location": 2,
+    "content": "这不就等于一不就完了吗",
+    "music": 0
+  },
+  {
+    "from": 62.56,
+    "to": 63.76,
+    "sid": 34,
+    "location": 2,
+    "content": "那我告诉同学们",
+    "music": 0
+  },
+  {
+    "from": 63.76,
+    "to": 66.19,
+    "sid": 35,
+    "location": 2,
+    "content": "你直接判定这个式子等于E的话",
+    "music": 0
+  },
+  {
+    "from": 66.19,
+    "to": 67.57,
+    "sid": 36,
+    "location": 2,
+    "content": "你直接就错了",
+    "music": 0
+  },
+  {
+    "from": 67.57,
+    "to": 68.84,
+    "sid": 37,
+    "location": 2,
+    "content": "那就零分",
+    "music": 0
+  },
+  {
+    "from": 69.36,
+    "to": 71.7,
+    "sid": 38,
+    "location": 2,
+    "content": "那你还不如那个考130多分",
+    "music": 0
+  },
+  {
+    "from": 71.7,
+    "to": 72.96,
+    "sid": 39,
+    "location": 2,
+    "content": "笔记写错的那个人",
+    "music": 0
+  },
+  {
+    "from": 72.96,
+    "to": 74.28,
+    "sid": 40,
+    "location": 2,
+    "content": "那个人最起码还能得点分",
+    "music": 0
+  },
+  {
+    "from": 74.28,
+    "to": 75.43,
+    "sid": 41,
+    "location": 2,
+    "content": "你这直接不对了",
+    "music": 0
+  },
+  {
+    "from": 75.43,
+    "to": 76.21,
+    "sid": 42,
+    "location": 2,
+    "content": "等于E的",
+    "music": 0
+  },
+  {
+    "from": 76.21,
+    "to": 77.53,
+    "sid": 43,
+    "location": 2,
+    "content": "又不是他等于E的",
+    "music": 0
+  },
+  {
+    "from": 77.53,
+    "to": 79.74,
+    "sid": 44,
+    "location": 2,
+    "content": "人家是这个同学们仔细看",
+    "music": 0
+  },
+  {
+    "from": 84.96,
+    "to": 87.35,
+    "sid": 45,
+    "location": 2,
+    "content": "那是它如果你非想趋近于零",
+    "music": 0
+  },
+  {
+    "from": 87.35,
+    "to": 88.78,
+    "sid": 46,
+    "location": 2,
+    "content": "那应该是这个",
+    "music": 0
+  },
+  {
+    "from": 92.72,
+    "to": 94.09,
+    "sid": 47,
+    "location": 2,
+    "content": "这个是等于E的",
+    "music": 0
+  },
+  {
+    "from": 94.09,
+    "to": 95.77,
+    "sid": 48,
+    "location": 2,
+    "content": "说明这个一看哦不对",
+    "music": 0
+  },
+  {
+    "from": 95.77,
+    "to": 97.08,
+    "sid": 49,
+    "location": 2,
+    "content": "凑不成这样的形式",
+    "music": 0
+  },
+  {
+    "from": 97.22,
+    "to": 98.84,
+    "sid": 50,
+    "location": 2,
+    "content": "那那那这个怎么算呢",
+    "music": 0
+  },
+  {
+    "from": 98.84,
+    "to": 99.68,
+    "sid": 51,
+    "location": 2,
+    "content": "有同学想说哦",
+    "music": 0
+  },
+  {
+    "from": 99.68,
+    "to": 100.46,
+    "sid": 52,
+    "location": 2,
+    "content": "那既然不等于",
+    "music": 0
+  },
+  {
+    "from": 100.46,
+    "to": 101.06,
+    "sid": 53,
+    "location": 2,
+    "content": "那我明白了",
+    "music": 0
+  },
+  {
+    "from": 101.06,
+    "to": 102.8,
+    "sid": 54,
+    "location": 2,
+    "content": "老师他是幂指函数",
+    "music": 0
+  },
+  {
+    "from": 102.8,
+    "to": 104.259,
+    "sid": 55,
+    "location": 2,
+    "content": "我用幂指恒等式去做",
+    "music": 0
+  },
+  {
+    "from": 104.259,
+    "to": 105.609,
+    "sid": 56,
+    "location": 2,
+    "content": "我知道幂指恒等式",
+    "music": 0
+  },
+  {
+    "from": 105.609,
+    "to": 106.239,
+    "sid": 57,
+    "location": 2,
+    "content": "幂指恒等式",
+    "music": 0
+  },
+  {
+    "from": 106.239,
+    "to": 110.62,
+    "sid": 58,
+    "location": 2,
+    "content": "就这个式子X的Y次幂等于E的YLNX次幂",
+    "music": 0
+  },
+  {
+    "from": 110.62,
+    "to": 114.25,
+    "sid": 59,
+    "location": 2,
+    "content": "关于幂指恒等式的计算极限的巧妙方法",
+    "music": 0
+  },
+  {
+    "from": 114.25,
+    "to": 116.26,
+    "sid": 60,
+    "location": 2,
+    "content": "我之前有视频给同学们讲过",
+    "music": 0
+  },
+  {
+    "from": 116.26,
+    "to": 117.46,
+    "sid": 61,
+    "location": 2,
+    "content": "感兴趣的可以翻一翻",
+    "music": 0
+  },
+  {
+    "from": 117.46,
+    "to": 118.31,
+    "sid": 62,
+    "location": 2,
+    "content": "往前翻一翻",
+    "music": 0
+  },
+  {
+    "from": 118.31,
+    "to": 119.39,
+    "sid": 63,
+    "location": 2,
+    "content": "所以那我可以这么干呢",
+    "music": 0
+  },
+  {
+    "from": 119.39,
+    "to": 120.11,
+    "sid": 64,
+    "location": 2,
+    "content": "你就这么想的了",
+    "music": 0
+  },
+  {
+    "from": 120.11,
+    "to": 120.98,
+    "sid": 65,
+    "location": 2,
+    "content": "我这么干",
+    "music": 0
+  },
+  {
+    "from": 121.16,
+    "to": 123.32,
+    "sid": 66,
+    "location": 2,
+    "content": "我上来我幂指恒等式啊",
+    "music": 0
+  },
+  {
+    "from": 123.32,
+    "to": 125.89,
+    "sid": 67,
+    "location": 2,
+    "content": "你说这一步这一步是可以啊",
+    "music": 0
+  },
+  {
+    "from": 125.89,
+    "to": 127.39,
+    "sid": 68,
+    "location": 2,
+    "content": "你可以这么来来再再算",
+    "music": 0
+  },
+  {
+    "from": 127.39,
+    "to": 128.95,
+    "sid": 69,
+    "location": 2,
+    "content": "他单独算指数上",
+    "music": 0
+  },
+  {
+    "from": 128.95,
+    "to": 130.03,
+    "sid": 70,
+    "location": 2,
+    "content": "指数上他算这个",
+    "music": 0
+  },
+  {
+    "from": 130.03,
+    "to": 132.1,
+    "sid": 71,
+    "location": 2,
+    "content": "他把这个X除到LN底下",
+    "music": 0
+  },
+  {
+    "from": 132.1,
+    "to": 134.38,
+    "sid": 72,
+    "location": 2,
+    "content": "然后他就发现了X趋近于零的时候呢",
+    "music": 0
+  },
+  {
+    "from": 134.38,
+    "to": 135.9,
+    "sid": 73,
+    "location": 2,
+    "content": "这个是趋近于无穷的",
+    "music": 0
+  },
+  {
+    "from": 136.94,
+    "to": 138.7,
+    "sid": 74,
+    "location": 2,
+    "content": "然后这个是趋近于无穷的",
+    "music": 0
+  },
+  {
+    "from": 138.7,
+    "to": 141.22,
+    "sid": 75,
+    "location": 2,
+    "content": "然后这个无穷呢浪漫无穷和无穷",
+    "music": 0
+  },
+  {
+    "from": 141.22,
+    "to": 143.62,
+    "sid": 76,
+    "location": 2,
+    "content": "无穷无穷无穷比无穷",
+    "music": 0
+  },
+  {
+    "from": 143.62,
+    "to": 144.04,
+    "sid": 77,
+    "location": 2,
+    "content": "无穷比无穷",
+    "music": 0
+  },
+  {
+    "from": 144.04,
+    "to": 145.18,
+    "sid": 78,
+    "location": 2,
+    "content": "那咱就洛必达吧",
+    "music": 0
+  },
+  {
+    "from": 145.18,
+    "to": 150.559,
+    "sid": 79,
+    "location": 2,
+    "content": "洛必达这个一摞出来X分之一括号的导数",
+    "music": 0
+  },
+  {
+    "from": 150.559,
+    "to": 151.279,
+    "sid": 80,
+    "location": 2,
+    "content": "那我也不求了",
+    "music": 0
+  },
+  {
+    "from": 151.279,
+    "to": 152.119,
+    "sid": 81,
+    "location": 2,
+    "content": "反正放在这吧",
+    "music": 0
+  },
+  {
+    "from": 152.119,
+    "to": 155.599,
+    "sid": 82,
+    "location": 2,
+    "content": "那这个求和导数分母出来一个一加X分之一",
+    "music": 0
+  },
+  {
+    "from": 155.599,
+    "to": 157.099,
+    "sid": 83,
+    "location": 2,
+    "content": "再乘以一个X分之一的导数",
+    "music": 0
+  },
+  {
+    "from": 157.099,
+    "to": 157.999,
+    "sid": 84,
+    "location": 2,
+    "content": "他俩导数还能约掉",
+    "music": 0
+  },
+  {
+    "from": 157.999,
+    "to": 159.05,
+    "sid": 85,
+    "location": 2,
+    "content": "所以我就不求了",
+    "music": 0
+  },
+  {
+    "from": 159.05,
+    "to": 160.13,
+    "sid": 86,
+    "location": 2,
+    "content": "算完之后啊",
+    "music": 0
+  },
+  {
+    "from": 160.13,
+    "to": 160.97,
+    "sid": 87,
+    "location": 2,
+    "content": "就等于这个",
+    "music": 0
+  },
+  {
+    "from": 160.97,
+    "to": 163.12,
+    "sid": 88,
+    "location": 2,
+    "content": "然后再分子分母同时乘以一个X",
+    "music": 0
+  },
+  {
+    "from": 163.12,
+    "to": 165.49,
+    "sid": 89,
+    "location": 2,
+    "content": "所以能得到这个式子有X趋近于零哦",
+    "music": 0
+  },
+  {
+    "from": 165.49,
+    "to": 166.51,
+    "sid": 90,
+    "location": 2,
+    "content": "算完之后等于零",
+    "music": 0
+  },
+  {
+    "from": 166.51,
+    "to": 167.44,
+    "sid": 91,
+    "location": 2,
+    "content": "但注意这个等于零",
+    "music": 0
+  },
+  {
+    "from": 167.44,
+    "to": 169.73,
+    "sid": 92,
+    "location": 2,
+    "content": "那是哪是指数上极限等于零",
+    "music": 0
+  },
+  {
+    "from": 169.73,
+    "to": 171.54,
+    "sid": 93,
+    "location": 2,
+    "content": "所以他说的原始等于一",
+    "music": 0
+  },
+  {
+    "from": 171.54,
+    "to": 173.34,
+    "sid": 94,
+    "location": 2,
+    "content": "他觉得老师我觉得应该这么算",
+    "music": 0
+  },
+  {
+    "from": 173.34,
+    "to": 174.99,
+    "sid": 95,
+    "location": 2,
+    "content": "这么算是正确的过程",
+    "music": 0
+  },
+  {
+    "from": 174.99,
+    "to": 178.42,
+    "sid": 96,
+    "location": 2,
+    "content": "那我告诉你这么做的话也会扣分不妥",
+    "music": 0
+  },
+  {
+    "from": 178.799,
+    "to": 181.589,
+    "sid": 97,
+    "location": 2,
+    "content": "那这个题应该怎么做",
+    "music": 0
+  },
+  {
+    "from": 181.589,
+    "to": 184.199,
+    "sid": 98,
+    "location": 2,
+    "content": "这个题我先告诉同学们答案",
+    "music": 0
+  },
+  {
+    "from": 184.199,
+    "to": 186.96,
+    "sid": 99,
+    "location": 2,
+    "content": "这个题极限不存在",
+    "music": 0
+  },
+  {
+    "from": 188.98,
+    "to": 190.8,
+    "sid": 100,
+    "location": 2,
+    "content": "哎这是这个题的正确答案",
+    "music": 0
+  },
+  {
+    "from": 190.8,
+    "to": 191.58,
+    "sid": 101,
+    "location": 2,
+    "content": "最后的结果",
+    "music": 0
+  },
+  {
+    "from": 191.58,
+    "to": 192.66,
+    "sid": 102,
+    "location": 2,
+    "content": "但为什么不存在呀",
+    "music": 0
+  },
+  {
+    "from": 192.66,
+    "to": 194.16,
+    "sid": 103,
+    "location": 2,
+    "content": "如果这个题考了十分",
+    "music": 0
+  },
+  {
+    "from": 194.16,
+    "to": 195.15,
+    "sid": 104,
+    "location": 2,
+    "content": "让你再说明",
+    "music": 0
+  },
+  {
+    "from": 195.15,
+    "to": 196.76,
+    "sid": 105,
+    "location": 2,
+    "content": "那你就得说明一下",
+    "music": 0
+  },
+  {
+    "from": 196.76,
+    "to": 197.36,
+    "sid": 106,
+    "location": 2,
+    "content": "同学们",
+    "music": 0
+  },
+  {
+    "from": 197.36,
+    "to": 199.55,
+    "sid": 107,
+    "location": 2,
+    "content": "你看这个极限X趋近于零",
+    "music": 0
+  },
+  {
+    "from": 199.55,
+    "to": 201.2,
+    "sid": 108,
+    "location": 2,
+    "content": "要想使得极限存在",
+    "music": 0
+  },
+  {
+    "from": 201.2,
+    "to": 203.9,
+    "sid": 109,
+    "location": 2,
+    "content": "还记得去极限存在的充要条件吗",
+    "music": 0
+  },
+  {
+    "from": 203.9,
+    "to": 205.36,
+    "sid": 110,
+    "location": 2,
+    "content": "就研究X趋近于零了",
+    "music": 0
+  },
+  {
+    "from": 205.36,
+    "to": 208.15,
+    "sid": 111,
+    "location": 2,
+    "content": "那么我们就是X趋于零的时候",
+    "music": 0
+  },
+  {
+    "from": 208.15,
+    "to": 211.26,
+    "sid": 112,
+    "location": 2,
+    "content": "左极限和右极限存在且相等",
+    "music": 0
+  },
+  {
+    "from": 211.399,
+    "to": 212.479,
+    "sid": 113,
+    "location": 2,
+    "content": "左右极限存在",
+    "music": 0
+  },
+  {
+    "from": 212.479,
+    "to": 212.779,
+    "sid": 114,
+    "location": 2,
+    "content": "极限等于",
+    "music": 0
+  },
+  {
+    "from": 212.779,
+    "to": 214.489,
+    "sid": 115,
+    "location": 2,
+    "content": "这就是极限存在的充要条件",
+    "music": 0
+  },
+  {
+    "from": 214.489,
+    "to": 216.439,
+    "sid": 116,
+    "location": 2,
+    "content": "所以我们要想X趋近于零的时候",
+    "music": 0
+  },
+  {
+    "from": 216.439,
+    "to": 217.589,
+    "sid": 117,
+    "location": 2,
+    "content": "极限存在怎么办呢",
+    "music": 0
+  },
+  {
+    "from": 217.589,
+    "to": 218.609,
+    "sid": 118,
+    "location": 2,
+    "content": "X趋近于零",
+    "music": 0
+  },
+  {
+    "from": 218.609,
+    "to": 219.389,
+    "sid": 119,
+    "location": 2,
+    "content": "正极限存在",
+    "music": 0
+  },
+  {
+    "from": 219.389,
+    "to": 220.049,
+    "sid": 120,
+    "location": 2,
+    "content": "X趋近于零",
+    "music": 0
+  },
+  {
+    "from": 220.049,
+    "to": 220.949,
+    "sid": 121,
+    "location": 2,
+    "content": "负极限存在",
+    "music": 0
+  },
+  {
+    "from": 220.949,
+    "to": 223.47,
+    "sid": 122,
+    "location": 2,
+    "content": "唉这才可以X趋近于零",
+    "music": 0
+  },
+  {
+    "from": 223.47,
+    "to": 224.43,
+    "sid": 123,
+    "location": 2,
+    "content": "正怎么算呢",
+    "music": 0
+  },
+  {
+    "from": 224.43,
+    "to": 225.39,
+    "sid": 124,
+    "location": 2,
+    "content": "X趋近于零正",
+    "music": 0
+  },
+  {
+    "from": 225.39,
+    "to": 226.89,
+    "sid": 125,
+    "location": 2,
+    "content": "实际上刚才已经算过了",
+    "music": 0
+  },
+  {
+    "from": 226.89,
+    "to": 227.37,
+    "sid": 126,
+    "location": 2,
+    "content": "同学们",
+    "music": 0
+  },
+  {
+    "from": 227.37,
+    "to": 230.07,
+    "sid": 127,
+    "location": 2,
+    "content": "你看到的这个过程其实就是X趋近于零",
+    "music": 0
+  },
+  {
+    "from": 230.07,
+    "to": 231.92,
+    "sid": 128,
+    "location": 2,
+    "content": "正的点X趋近于零正",
+    "music": 0
+  },
+  {
+    "from": 233.24,
+    "to": 235.46,
+    "sid": 129,
+    "location": 2,
+    "content": "但是X趋近于零负不是这么算",
+    "music": 0
+  },
+  {
+    "from": 235.6,
+    "to": 237.25,
+    "sid": 130,
+    "location": 2,
+    "content": "趋近于零负怎么算呢",
+    "music": 0
+  },
+  {
+    "from": 237.25,
+    "to": 237.82,
+    "sid": 131,
+    "location": 2,
+    "content": "你看看啊",
+    "music": 0
+  },
+  {
+    "from": 237.82,
+    "to": 240.07,
+    "sid": 132,
+    "location": 2,
+    "content": "如果要X趋近于零负",
+    "music": 0
+  },
+  {
+    "from": 240.07,
+    "to": 241.459,
+    "sid": 133,
+    "location": 2,
+    "content": "它会出现什么状况",
+    "music": 0
+  },
+  {
+    "from": 241.479,
+    "to": 245.25,
+    "sid": 134,
+    "location": 2,
+    "content": "X分之一是不是趋近于负无穷了",
+    "music": 0
+  },
+  {
+    "from": 245.25,
+    "to": 246.21,
+    "sid": 135,
+    "location": 2,
+    "content": "这没毛病吧",
+    "music": 0
+  },
+  {
+    "from": 246.21,
+    "to": 247.02,
+    "sid": 136,
+    "location": 2,
+    "content": "这很显然",
+    "music": 0
+  },
+  {
+    "from": 247.02,
+    "to": 251.22,
+    "sid": 137,
+    "location": 2,
+    "content": "那么一加上X分之一是不是也趋近于负无穷呢",
+    "music": 0
+  },
+  {
+    "from": 251.22,
+    "to": 252.51,
+    "sid": 138,
+    "location": 2,
+    "content": "哎也没毛病",
+    "music": 0
+  },
+  {
+    "from": 252.51,
+    "to": 253.8,
+    "sid": 139,
+    "location": 2,
+    "content": "那问题就来了",
+    "music": 0
+  },
+  {
+    "from": 253.88,
+    "to": 256.82,
+    "sid": 140,
+    "location": 2,
+    "content": "如果底数的极限是负无穷",
+    "music": 0
+  },
+  {
+    "from": 256.82,
+    "to": 259.22,
+    "sid": 141,
+    "location": 2,
+    "content": "那我们意味着这个东西它一定是负的",
+    "music": 0
+  },
+  {
+    "from": 259.22,
+    "to": 262.37,
+    "sid": 142,
+    "location": 2,
+    "content": "以为X足够和零靠近的时候",
+    "music": 0
+  },
+  {
+    "from": 262.37,
+    "to": 264.62,
+    "sid": 143,
+    "location": 2,
+    "content": "那么一加上X分之一",
+    "music": 0
+  },
+  {
+    "from": 264.62,
+    "to": 266.5,
+    "sid": 144,
+    "location": 2,
+    "content": "这个东西一定会被拉成负的",
+    "music": 0
+  },
+  {
+    "from": 266.539,
+    "to": 268.219,
+    "sid": 145,
+    "location": 2,
+    "content": "以为这个一才多大呀",
+    "music": 0
+  },
+  {
+    "from": 268.219,
+    "to": 269.659,
+    "sid": 146,
+    "location": 2,
+    "content": "我这个X主要足够小的话",
+    "music": 0
+  },
+  {
+    "from": 269.659,
+    "to": 271.339,
+    "sid": 147,
+    "location": 2,
+    "content": "早就把这个一拉成负的了",
+    "music": 0
+  },
+  {
+    "from": 271.339,
+    "to": 273.73,
+    "sid": 148,
+    "location": 2,
+    "content": "所以指数是一个负值",
+    "music": 0
+  },
+  {
+    "from": 273.73,
+    "to": 274.21,
+    "sid": 149,
+    "location": 2,
+    "content": "同学们",
+    "music": 0
+  },
+  {
+    "from": 274.21,
+    "to": 276.07,
+    "sid": 150,
+    "location": 2,
+    "content": "你想指数是一个负值",
+    "music": 0
+  },
+  {
+    "from": 276.07,
+    "to": 278.41,
+    "sid": 151,
+    "location": 2,
+    "content": "指数上咱们要是趋近于零",
+    "music": 0
+  },
+  {
+    "from": 278.41,
+    "to": 279.07,
+    "sid": 152,
+    "location": 2,
+    "content": "负是什么意思",
+    "music": 0
+  },
+  {
+    "from": 279.07,
+    "to": 280.66,
+    "sid": 153,
+    "location": 2,
+    "content": "就是从零的左边趋近于零",
+    "music": 0
+  },
+  {
+    "from": 280.66,
+    "to": 282.51,
+    "sid": 154,
+    "location": 2,
+    "content": "它最终是趋近于零的",
+    "music": 0
+  },
+  {
+    "from": 282.51,
+    "to": 283.89,
+    "sid": 155,
+    "location": 2,
+    "content": "但趋近于零负的",
+    "music": 0
+  },
+  {
+    "from": 283.89,
+    "to": 288.51,
+    "sid": 156,
+    "location": 2,
+    "content": "那也就是说是从负的1/2到负的1/4",
+    "music": 0
+  },
+  {
+    "from": 288.51,
+    "to": 289.47,
+    "sid": 157,
+    "location": 2,
+    "content": "负的1/8",
+    "music": 0
+  },
+  {
+    "from": 289.47,
+    "to": 291.58,
+    "sid": 158,
+    "location": 2,
+    "content": "最终慢慢去慢慢慢慢趋近于零了",
+    "music": 0
+  },
+  {
+    "from": 291.58,
+    "to": 292.69,
+    "sid": 159,
+    "location": 2,
+    "content": "是这个意思吗",
+    "music": 0
+  },
+  {
+    "from": 292.69,
+    "to": 293.65,
+    "sid": 160,
+    "location": 2,
+    "content": "那你琢磨琢磨",
+    "music": 0
+  },
+  {
+    "from": 293.65,
+    "to": 297.07,
+    "sid": 161,
+    "location": 2,
+    "content": "如果我就刚好选择的就是这些值",
+    "music": 0
+  },
+  {
+    "from": 297.07,
+    "to": 300.7,
+    "sid": 162,
+    "location": 2,
+    "content": "你琢磨琢磨一个复数的负大1/2次幂",
+    "music": 0
+  },
+  {
+    "from": 300.7,
+    "to": 301.75,
+    "sid": 163,
+    "location": 2,
+    "content": "它能有值吗",
+    "music": 0
+  },
+  {
+    "from": 301.75,
+    "to": 303.44,
+    "sid": 164,
+    "location": 2,
+    "content": "比方说我给你写一个三",
+    "music": 0
+  },
+  {
+    "from": 303.44,
+    "to": 305.78,
+    "sid": 165,
+    "location": 2,
+    "content": "那你告诉我三的负大1/2等于多少",
+    "music": 0
+  },
+  {
+    "from": 305.78,
+    "to": 307.07,
+    "sid": 166,
+    "location": 2,
+    "content": "我说老师我知道",
+    "music": 0
+  },
+  {
+    "from": 307.07,
+    "to": 309.97,
+    "sid": 167,
+    "location": 2,
+    "content": "但是三的1/2次幂",
+    "music": 0
+  },
+  {
+    "from": 309.97,
+    "to": 313.88,
+    "sid": 168,
+    "location": 2,
+    "content": "1/3底道直反密之不变",
+    "music": 0
+  },
+  {
+    "from": 314.28,
+    "to": 317.34,
+    "sid": 169,
+    "location": 2,
+    "content": "唉有这个他说这个你看他对吗",
+    "music": 0
+  },
+  {
+    "from": 317.34,
+    "to": 318.93,
+    "sid": 170,
+    "location": 2,
+    "content": "他也没有意义",
+    "music": 0
+  },
+  {
+    "from": 318.93,
+    "to": 322.09,
+    "sid": 171,
+    "location": 2,
+    "content": "我们研究极限都是研究实数范围内的",
+    "music": 0
+  },
+  {
+    "from": 322.09,
+    "to": 325.15,
+    "sid": 172,
+    "location": 2,
+    "content": "唉所以你看这个呢根号里面是负的",
+    "music": 0
+  },
+  {
+    "from": 325.15,
+    "to": 328.22,
+    "sid": 173,
+    "location": 2,
+    "content": "说这个呢如果要研究它是属于复数极限",
+    "music": 0
+  },
+  {
+    "from": 328.22,
+    "to": 329.14,
+    "sid": 174,
+    "location": 2,
+    "content": "不存在呀",
+    "music": 0
+  },
+  {
+    "from": 329.38,
+    "to": 333.82,
+    "sid": 175,
+    "location": 2,
+    "content": "那所以呢我们如果从零负趋近于零的过程当中",
+    "music": 0
+  },
+  {
+    "from": 333.82,
+    "to": 337.3,
+    "sid": 176,
+    "location": 2,
+    "content": "会遇到这种分母为偶数的这种",
+    "music": 0
+  },
+  {
+    "from": 337.3,
+    "to": 339.37,
+    "sid": 177,
+    "location": 2,
+    "content": "也就是开偶次根号的这种",
+    "music": 0
+  },
+  {
+    "from": 339.37,
+    "to": 341.08,
+    "sid": 178,
+    "location": 2,
+    "content": "你别管正负负得放分母",
+    "music": 0
+  },
+  {
+    "from": 341.08,
+    "to": 341.5,
+    "sid": 179,
+    "location": 2,
+    "content": "放分母",
+    "music": 0
+  },
+  {
+    "from": 341.5,
+    "to": 343.38,
+    "sid": 180,
+    "location": 2,
+    "content": "它也开一个负的",
+    "music": 0
+  },
+  {
+    "from": 343.38,
+    "to": 345.36,
+    "sid": 181,
+    "location": 2,
+    "content": "开偶次根肯定是不行的",
+    "music": 0
+  },
+  {
+    "from": 345.36,
+    "to": 347.9,
+    "sid": 182,
+    "location": 2,
+    "content": "你更何况这事就跑到负无穷去了",
+    "music": 0
+  },
+  {
+    "from": 347.9,
+    "to": 349.1,
+    "sid": 183,
+    "location": 2,
+    "content": "反正它是个负的",
+    "music": 0
+  },
+  {
+    "from": 349.1,
+    "to": 350.21,
+    "sid": 184,
+    "location": 2,
+    "content": "你开不了偶次根",
+    "music": 0
+  },
+  {
+    "from": 350.21,
+    "to": 353.95,
+    "sid": 185,
+    "location": 2,
+    "content": "所以这些值啊都是使得它没有意义的点",
+    "music": 0
+  },
+  {
+    "from": 353.95,
+    "to": 356.74,
+    "sid": 186,
+    "location": 2,
+    "content": "同学们想这些值能是有限个吗",
+    "music": 0
+  },
+  {
+    "from": 356.74,
+    "to": 359.059,
+    "sid": 187,
+    "location": 2,
+    "content": "是不是这些值是无穷多个呀",
+    "music": 0
+  },
+  {
+    "from": 359.059,
+    "to": 361.009,
+    "sid": 188,
+    "location": 2,
+    "content": "你无论多么靠近零",
+    "music": 0
+  },
+  {
+    "from": 361.009,
+    "to": 362.6,
+    "sid": 189,
+    "location": 2,
+    "content": "都有这种质",
+    "music": 0
+  },
+  {
+    "from": 362.6,
+    "to": 364.79,
+    "sid": 190,
+    "location": 2,
+    "content": "那这不就相等于2N分之一吗",
+    "music": 0
+  },
+  {
+    "from": 364.79,
+    "to": 365.6,
+    "sid": 191,
+    "location": 2,
+    "content": "负大2N分之一",
+    "music": 0
+  },
+  {
+    "from": 365.6,
+    "to": 367.1,
+    "sid": 192,
+    "location": 2,
+    "content": "你只要足够大",
+    "music": 0
+  },
+  {
+    "from": 367.1,
+    "to": 369.57,
+    "sid": 193,
+    "location": 2,
+    "content": "那我就足够的靠近零对吧",
+    "music": 0
+  },
+  {
+    "from": 369.57,
+    "to": 372.33,
+    "sid": 194,
+    "location": 2,
+    "content": "所以就是说无论零的邻域有多小",
+    "music": 0
+  },
+  {
+    "from": 372.33,
+    "to": 374.1,
+    "sid": 195,
+    "location": 2,
+    "content": "总能有无穷多个",
+    "music": 0
+  },
+  {
+    "from": 374.1,
+    "to": 377.45,
+    "sid": 196,
+    "location": 2,
+    "content": "这种使得这个极限式子无意义的点",
+    "music": 0
+  },
+  {
+    "from": 377.45,
+    "to": 380.15,
+    "sid": 197,
+    "location": 2,
+    "content": "那这就不满足极限的定义了",
+    "music": 0
+  },
+  {
+    "from": 381.17,
+    "to": 383.32,
+    "sid": 198,
+    "location": 2,
+    "content": "唉你看咱们极限定义是怎么说的呀",
+    "music": 0
+  },
+  {
+    "from": 383.34,
+    "to": 386.13,
+    "sid": 199,
+    "location": 2,
+    "content": "我把极限定义原封不动的给你搬在这里",
+    "music": 0
+  },
+  {
+    "from": 386.13,
+    "to": 387.03,
+    "sid": 200,
+    "location": 2,
+    "content": "你刚刚才说了",
+    "music": 0
+  },
+  {
+    "from": 387.03,
+    "to": 389.14,
+    "sid": 201,
+    "location": 2,
+    "content": "要想计算这个极限",
+    "music": 0
+  },
+  {
+    "from": 389.14,
+    "to": 392.62,
+    "sid": 202,
+    "location": 2,
+    "content": "要想使得它极限存在有一个大的先决条件",
+    "music": 0
+  },
+  {
+    "from": 392.62,
+    "to": 396.44,
+    "sid": 203,
+    "location": 2,
+    "content": "等于是在X0的某一去心邻域内有定义",
+    "music": 0
+  },
+  {
+    "from": 396.62,
+    "to": 399.44,
+    "sid": 204,
+    "location": 2,
+    "content": "也就是说在一个去心邻域之内",
+    "music": 0
+  },
+  {
+    "from": 399.44,
+    "to": 401.09,
+    "sid": 205,
+    "location": 2,
+    "content": "假如说这就是零啊",
+    "music": 0
+  },
+  {
+    "from": 401.09,
+    "to": 402.41,
+    "sid": 206,
+    "location": 2,
+    "content": "在这个去心邻域",
+    "music": 0
+  },
+  {
+    "from": 402.41,
+    "to": 404.09,
+    "sid": 207,
+    "location": 2,
+    "content": "你这里结成开的吗",
+    "music": 0
+  },
+  {
+    "from": 404.09,
+    "to": 408.299,
+    "sid": 208,
+    "location": 2,
+    "content": "那咱们写成开去减掉去心邻域内有定义",
+    "music": 0
+  },
+  {
+    "from": 408.299,
+    "to": 410.36,
+    "sid": 209,
+    "location": 2,
+    "content": "就是说这里边必须都得有定义",
+    "music": 0
+  },
+  {
+    "from": 410.58,
+    "to": 413.52,
+    "sid": 210,
+    "location": 2,
+    "content": "你不能说这里面这里面有些个别的点他没定义",
+    "music": 0
+  },
+  {
+    "from": 413.52,
+    "to": 414.15,
+    "sid": 211,
+    "location": 2,
+    "content": "那不行",
+    "music": 0
+  },
+  {
+    "from": 414.15,
+    "to": 415.68,
+    "sid": 212,
+    "location": 2,
+    "content": "那你必须得找一个邻",
+    "music": 0
+  },
+  {
+    "from": 415.68,
+    "to": 417.48,
+    "sid": 213,
+    "location": 2,
+    "content": "取到去心邻域的范围之内的",
+    "music": 0
+  },
+  {
+    "from": 417.48,
+    "to": 418.11,
+    "sid": 214,
+    "location": 2,
+    "content": "都有定义",
+    "music": 0
+  },
+  {
+    "from": 418.11,
+    "to": 418.86,
+    "sid": 215,
+    "location": 2,
+    "content": "这才可以",
+    "music": 0
+  },
+  {
+    "from": 418.86,
+    "to": 421.47,
+    "sid": 216,
+    "location": 2,
+    "content": "但像刚才这个这些点它就没有定义",
+    "music": 0
+  },
+  {
+    "from": 421.47,
+    "to": 425.07,
+    "sid": 217,
+    "location": 2,
+    "content": "而且这些点它无论你选的离有多小",
+    "music": 0
+  },
+  {
+    "from": 425.07,
+    "to": 427.58,
+    "sid": 218,
+    "location": 2,
+    "content": "总能有这些无定义的点",
+    "music": 0
+  },
+  {
+    "from": 427.58,
+    "to": 429.74,
+    "sid": 219,
+    "location": 2,
+    "content": "那这个如果你要是感觉不清晰",
+    "music": 0
+  },
+  {
+    "from": 429.74,
+    "to": 430.73,
+    "sid": 220,
+    "location": 2,
+    "content": "你就看看这个图",
+    "music": 0
+  },
+  {
+    "from": 430.73,
+    "to": 433.4,
+    "sid": 221,
+    "location": 2,
+    "content": "这个图呢我就特意选了一个-1~1这个范围",
+    "music": 0
+  },
+  {
+    "from": 433.4,
+    "to": 435.62,
+    "sid": 222,
+    "location": 2,
+    "content": "而且这些值那就是负大1/2",
+    "music": 0
+  },
+  {
+    "from": 435.62,
+    "to": 436.76,
+    "sid": 223,
+    "location": 2,
+    "content": "这是1/2",
+    "music": 0
+  },
+  {
+    "from": 436.76,
+    "to": 437.84,
+    "sid": 224,
+    "location": 2,
+    "content": "这是负的1/4",
+    "music": 0
+  },
+  {
+    "from": 437.84,
+    "to": 438.56,
+    "sid": 225,
+    "location": 2,
+    "content": "后边我就不写了",
+    "music": 0
+  },
+  {
+    "from": 438.56,
+    "to": 439.33,
+    "sid": 226,
+    "location": 2,
+    "content": "写不下了",
+    "music": 0
+  },
+  {
+    "from": 439.33,
+    "to": 440.11,
+    "sid": 227,
+    "location": 2,
+    "content": "你想想",
+    "music": 0
+  },
+  {
+    "from": 440.11,
+    "to": 442.24,
+    "sid": 228,
+    "location": 2,
+    "content": "无论你选的领域有多小",
+    "music": 0
+  },
+  {
+    "from": 442.24,
+    "to": 444.91,
+    "sid": 229,
+    "location": 2,
+    "content": "他总能有这种奇葩的",
+    "music": 0
+  },
+  {
+    "from": 444.91,
+    "to": 447.13,
+    "sid": 230,
+    "location": 2,
+    "content": "我特意画出线的这些地方",
+    "music": 0
+  },
+  {
+    "from": 447.13,
+    "to": 450.84,
+    "sid": 231,
+    "location": 2,
+    "content": "这些地方呢就是使得那个极限式子无意义的点",
+    "music": 0
+  },
+  {
+    "from": 450.84,
+    "to": 452.16,
+    "sid": 232,
+    "location": 2,
+    "content": "你再往下数就负的1/8",
+    "music": 0
+  },
+  {
+    "from": 452.16,
+    "to": 452.88,
+    "sid": 233,
+    "location": 2,
+    "content": "再往下越靠近",
+    "music": 0
+  },
+  {
+    "from": 452.88,
+    "to": 453.96,
+    "sid": 234,
+    "location": 2,
+    "content": "这就画不出来了",
+    "music": 0
+  },
+  {
+    "from": 453.96,
+    "to": 454.61,
+    "sid": 235,
+    "location": 2,
+    "content": "太密集了",
+    "music": 0
+  },
+  {
+    "from": 454.61,
+    "to": 456.11,
+    "sid": 236,
+    "location": 2,
+    "content": "中间都是一坨红了",
+    "music": 0
+  },
+  {
+    "from": 456.11,
+    "to": 456.89,
+    "sid": 237,
+    "location": 2,
+    "content": "就这个样子",
+    "music": 0
+  },
+  {
+    "from": 456.89,
+    "to": 458.48,
+    "sid": 238,
+    "location": 2,
+    "content": "而且如果你把这个式子",
+    "music": 0
+  },
+  {
+    "from": 458.48,
+    "to": 459.71,
+    "sid": 239,
+    "location": 2,
+    "content": "你把这个区域你给它",
+    "music": 0
+  },
+  {
+    "from": 459.71,
+    "to": 461.63,
+    "sid": 240,
+    "location": 2,
+    "content": "哪怕你就是用放大镜给他放大",
+    "music": 0
+  },
+  {
+    "from": 461.63,
+    "to": 463.61,
+    "sid": 241,
+    "location": 2,
+    "content": "你放大了它也是这种情况",
+    "music": 0
+  },
+  {
+    "from": 463.61,
+    "to": 465.36,
+    "sid": 242,
+    "location": 2,
+    "content": "咱们来放大一下看看吧",
+    "music": 0
+  },
+  {
+    "from": 466.1,
+    "to": 466.66,
+    "sid": 243,
+    "location": 2,
+    "content": "同学们",
+    "music": 0
+  },
+  {
+    "from": 466.66,
+    "to": 468.67,
+    "sid": 244,
+    "location": 2,
+    "content": "我们来看题目当中这个图像",
+    "music": 0
+  },
+  {
+    "from": 468.67,
+    "to": 471.92,
+    "sid": 245,
+    "location": 2,
+    "content": "这个图像当中呢你会发现有很多红色的线",
+    "music": 0
+  },
+  {
+    "from": 471.92,
+    "to": 474.68,
+    "sid": 246,
+    "location": 2,
+    "content": "这个线对应的X值呢就是刚才咱们所说的",
+    "music": 0
+  },
+  {
+    "from": 474.68,
+    "to": 476.72,
+    "sid": 247,
+    "location": 2,
+    "content": "使得那个极限式怎么有意义的点",
+    "music": 0
+  },
+  {
+    "from": 476.72,
+    "to": 478.81,
+    "sid": 248,
+    "location": 2,
+    "content": "比如说X等于负大12啊",
+    "music": 0
+  },
+  {
+    "from": 478.81,
+    "to": 480.31,
+    "sid": 249,
+    "location": 2,
+    "content": "X等于负的14",
+    "music": 0
+  },
+  {
+    "from": 480.31,
+    "to": 480.91,
+    "sid": 250,
+    "location": 2,
+    "content": "-1/6",
+    "music": 0
+  },
+  {
+    "from": 480.91,
+    "to": 481.51,
+    "sid": 251,
+    "location": 2,
+    "content": "-1/8",
+    "music": 0
+  },
+  {
+    "from": 481.51,
+    "to": 482.29,
+    "sid": 252,
+    "location": 2,
+    "content": "1/0啊",
+    "music": 0
+  },
+  {
+    "from": 482.29,
+    "to": 483.05,
+    "sid": 253,
+    "location": 2,
+    "content": "等等等等",
+    "music": 0
+  },
+  {
+    "from": 483.05,
+    "to": 485.48,
+    "sid": 254,
+    "location": 2,
+    "content": "相当于都是负的2N分之一",
+    "music": 0
+  },
+  {
+    "from": 485.48,
+    "to": 488.43,
+    "sid": 255,
+    "location": 2,
+    "content": "复数开偶次幂实数范围之内没有意义",
+    "music": 0
+  },
+  {
+    "from": 488.43,
+    "to": 491.19,
+    "sid": 256,
+    "location": 2,
+    "content": "咱们计算极限必须得是在实数范围之内呀",
+    "music": 0
+  },
+  {
+    "from": 491.19,
+    "to": 492.6,
+    "sid": 257,
+    "location": 2,
+    "content": "那都没有意义了",
+    "music": 0
+  },
+  {
+    "from": 492.6,
+    "to": 493.62,
+    "sid": 258,
+    "location": 2,
+    "content": "极限当然就不存在了",
+    "music": 0
+  },
+  {
+    "from": 493.62,
+    "to": 496.83,
+    "sid": 259,
+    "location": 2,
+    "content": "而且这些点呢无论距离多近都有",
+    "music": 0
+  },
+  {
+    "from": 496.83,
+    "to": 498.63,
+    "sid": 260,
+    "location": 2,
+    "content": "而且距离零越近",
+    "music": 0
+  },
+  {
+    "from": 498.63,
+    "to": 499.56,
+    "sid": 261,
+    "location": 2,
+    "content": "它越密集",
+    "music": 0
+  },
+  {
+    "from": 499.56,
+    "to": 500.97,
+    "sid": 262,
+    "location": 2,
+    "content": "咱们来看看这个动画",
+    "music": 0
+  },
+  {
+    "from": 500.97,
+    "to": 502.26,
+    "sid": 263,
+    "location": 2,
+    "content": "你看它越放大",
+    "music": 0
+  },
+  {
+    "from": 502.26,
+    "to": 503.79,
+    "sid": 264,
+    "location": 2,
+    "content": "在陵的这附近呢",
+    "music": 0
+  },
+  {
+    "from": 503.79,
+    "to": 505.11,
+    "sid": 265,
+    "location": 2,
+    "content": "左边呢它都更密集",
+    "music": 0
+  },
+  {
+    "from": 505.11,
+    "to": 506.35,
+    "sid": 266,
+    "location": 2,
+    "content": "它都变成一坨红了",
+    "music": 0
+  },
+  {
+    "from": 506.35,
+    "to": 509.41,
+    "sid": 267,
+    "location": 2,
+    "content": "所以这些点都使得极限式子没有意义",
+    "music": 0
+  },
+  {
+    "from": 509.41,
+    "to": 511.4,
+    "sid": 268,
+    "location": 2,
+    "content": "从而极限也就不存在了",
+    "music": 0
+  },
+  {
+    "from": 511.84,
+    "to": 514.27,
+    "sid": 269,
+    "location": 2,
+    "content": "所以咱们回过来",
+    "music": 0
+  },
+  {
+    "from": 514.27,
+    "to": 518.2,
+    "sid": 270,
+    "location": 2,
+    "content": "limit x趋近于零负",
+    "music": 0
+  },
+  {
+    "from": 518.2,
+    "to": 523.039,
+    "sid": 271,
+    "location": 2,
+    "content": "这个极限它是不存在的",
+    "music": 0
+  },
+  {
+    "from": 523.94,
+    "to": 525.88,
+    "sid": 272,
+    "location": 2,
+    "content": "所以能理解X趋于零负",
+    "music": 0
+  },
+  {
+    "from": 525.88,
+    "to": 526.96,
+    "sid": 273,
+    "location": 2,
+    "content": "为什么极限不存在了",
+    "music": 0
+  },
+  {
+    "from": 526.96,
+    "to": 529.06,
+    "sid": 274,
+    "location": 2,
+    "content": "唉这就是出现了一个负的",
+    "music": 0
+  },
+  {
+    "from": 529.26,
+    "to": 531.06,
+    "sid": 275,
+    "location": 2,
+    "content": "然后呢你选择这些值的时候",
+    "music": 0
+  },
+  {
+    "from": 531.06,
+    "to": 531.48,
+    "sid": 276,
+    "location": 2,
+    "content": "他没定义",
+    "music": 0
+  },
+  {
+    "from": 531.48,
+    "to": 532.68,
+    "sid": 277,
+    "location": 2,
+    "content": "而且跟同学们说一下啊",
+    "music": 0
+  },
+  {
+    "from": 532.68,
+    "to": 533.58,
+    "sid": 278,
+    "location": 2,
+    "content": "他没定义的点",
+    "music": 0
+  },
+  {
+    "from": 533.58,
+    "to": 536.55,
+    "sid": 279,
+    "location": 2,
+    "content": "不光是他你取到负的无理数的时候",
+    "music": 0
+  },
+  {
+    "from": 536.55,
+    "to": 537.39,
+    "sid": 280,
+    "location": 2,
+    "content": "它也没有定义",
+    "music": 0
+  },
+  {
+    "from": 537.39,
+    "to": 539.01,
+    "sid": 281,
+    "location": 2,
+    "content": "但是这个就太深入了",
+    "music": 0
+  },
+  {
+    "from": 539.01,
+    "to": 539.61,
+    "sid": 282,
+    "location": 2,
+    "content": "你就不用管",
+    "music": 0
+  },
+  {
+    "from": 539.61,
+    "to": 542.47,
+    "sid": 283,
+    "location": 2,
+    "content": "你就只记住这个就由它无定义的点",
+    "music": 0
+  },
+  {
+    "from": 542.47,
+    "to": 543.91,
+    "sid": 284,
+    "location": 2,
+    "content": "不管你选择的邻域多少",
+    "music": 0
+  },
+  {
+    "from": 543.91,
+    "to": 544.69,
+    "sid": 285,
+    "location": 2,
+    "content": "都有无定义的点",
+    "music": 0
+  },
+  {
+    "from": 544.69,
+    "to": 545.74,
+    "sid": 286,
+    "location": 2,
+    "content": "这就足够了",
+    "music": 0
+  },
+  {
+    "from": 545.74,
+    "to": 549.14,
+    "sid": 287,
+    "location": 2,
+    "content": "哎所以这个题嗯应该是这样的去理解",
+    "music": 0
+  },
+  {
+    "from": 549.14,
+    "to": 550.98,
+    "sid": 288,
+    "location": 2,
+    "content": "我们看看这个题的正确的过程吧",
+    "music": 0
+  },
+  {
+    "from": 550.98,
+    "to": 552.18,
+    "sid": 289,
+    "location": 2,
+    "content": "正确过程是这个样子的",
+    "music": 0
+  },
+  {
+    "from": 552.18,
+    "to": 554.76,
+    "sid": 290,
+    "location": 2,
+    "content": "我们分成零正零负去研究零正的时候",
+    "music": 0
+  },
+  {
+    "from": 554.76,
+    "to": 555.72,
+    "sid": 291,
+    "location": 2,
+    "content": "我们之前已经算过了",
+    "music": 0
+  },
+  {
+    "from": 555.72,
+    "to": 556.44,
+    "sid": 292,
+    "location": 2,
+    "content": "他是等于一的",
+    "music": 0
+  },
+  {
+    "from": 556.44,
+    "to": 556.92,
+    "sid": 293,
+    "location": 2,
+    "content": "没有问题",
+    "music": 0
+  },
+  {
+    "from": 556.92,
+    "to": 558.24,
+    "sid": 294,
+    "location": 2,
+    "content": "就是把原来X趋近于零",
+    "music": 0
+  },
+  {
+    "from": 558.24,
+    "to": 559.77,
+    "sid": 295,
+    "location": 2,
+    "content": "改成X趋近于零正就可以了",
+    "music": 0
+  },
+  {
+    "from": 559.77,
+    "to": 561.33,
+    "sid": 296,
+    "location": 2,
+    "content": "剩余的过程完全一样",
+    "music": 0
+  },
+  {
+    "from": 561.33,
+    "to": 562.59,
+    "sid": 297,
+    "location": 2,
+    "content": "X趋近于零负的时候",
+    "music": 0
+  },
+  {
+    "from": 562.59,
+    "to": 563.31,
+    "sid": 298,
+    "location": 2,
+    "content": "极限不存在",
+    "music": 0
+  },
+  {
+    "from": 563.31,
+    "to": 566.08,
+    "sid": 299,
+    "location": 2,
+    "content": "所以零正和零负并不满足",
+    "music": 0
+  },
+  {
+    "from": 566.08,
+    "to": 567.34,
+    "sid": 300,
+    "location": 2,
+    "content": "极限存在且相等",
+    "music": 0
+  },
+  {
+    "from": 567.34,
+    "to": 568.33,
+    "sid": 301,
+    "location": 2,
+    "content": "所以我们就下结论",
+    "music": 0
+  },
+  {
+    "from": 568.33,
+    "to": 569.71,
+    "sid": 302,
+    "location": 2,
+    "content": "极限是不存在的",
+    "music": 0
+  },
+  {
+    "from": 569.71,
+    "to": 571.48,
+    "sid": 303,
+    "location": 2,
+    "content": "所以这个题正确的结果",
+    "music": 0
+  },
+  {
+    "from": 571.48,
+    "to": 573.73,
+    "sid": 304,
+    "location": 2,
+    "content": "正确的分析应该是这个样子",
+    "music": 0
+  },
+  {
+    "from": 573.73,
+    "to": 576.55,
+    "sid": 305,
+    "location": 2,
+    "content": "但是我们先先得知道为什么不存在",
+    "music": 0
+  },
+  {
+    "from": 576.55,
+    "to": 578.38,
+    "sid": 306,
+    "location": 2,
+    "content": "给同学们详细的分析了一下",
+    "music": 0
+  },
+  {
+    "from": 578.38,
+    "to": 581.16,
+    "sid": 307,
+    "location": 2,
+    "content": "所以这个呢也是同学们容易犯的错误",
+    "music": 0
+  },
+  {
+    "from": 581.16,
+    "to": 582.6,
+    "sid": 308,
+    "location": 2,
+    "content": "稍微深入了一点",
+    "music": 0
+  },
+  {
+    "from": 582.6,
+    "to": 585.6,
+    "sid": 309,
+    "location": 2,
+    "content": "建议同学们有一定的基础之后再来看这个题目",
+    "music": 0
+  },
+  {
+    "from": 585.6,
+    "to": 587.58,
+    "sid": 310,
+    "location": 2,
+    "content": "有一点点难度好",
+    "music": 0
+  },
+  {
+    "from": 587.58,
+    "to": 588.75,
+    "sid": 311,
+    "location": 2,
+    "content": "这是这个题目",
+    "music": 0
+  },
+  {
+    "from": 588.75,
+    "to": 592.02,
+    "sid": 312,
+    "location": 2,
+    "content": "同学们如果对屏幕当中这些视频内容感兴趣",
+    "music": 0
+  },
+  {
+    "from": 592.02,
+    "to": 594.16,
+    "sid": 313,
+    "location": 2,
+    "content": "欢迎关注我的B站心一学长",
+    "music": 0
+  }
+]

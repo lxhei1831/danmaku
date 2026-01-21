@@ -10,14 +10,14 @@
   <link rel="stylesheet" href="./css/main.css" />
 </head>
 <body>
-  <div class="main-content">
-    <div class="video-toolbar">
-      <div class="video-toolbar-count">共 <span id="video-count">0</span> 个视频</div>
-      <div class="video-toolbar-select">
-        <label for="video-selector">切换：</label>
-        <select id="video-selector" aria-label="选择视频"></select>
-      </div>
+  <div class="video-shelf" id="video-shelf" aria-label="视频列表">
+    <div class="video-shelf-header">
+      <div class="video-shelf-title">视频列表</div>
+      <div class="video-shelf-count">共 <span id="video-count">0</span> 个</div>
     </div>
+    <div class="video-shelf-list" id="video-shelf-list"></div>
+  </div>
+  <div class="main-content">
     <div class="danmaku-container" id="player-container">
       <video
         id="my-video"

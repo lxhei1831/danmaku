@@ -16,8 +16,15 @@
         id: 'zhengzhi',
         title: '中美关系、中法关系、中俄关系、中欧关系，全部考点区别，10分钟搞定！',
         videoSrc: './assets/videos/中美关系、中法关系、中俄关系、中欧关系，全部考点区别，10分钟搞定！.flv',
-        danmakuSrc: './assets/data/zhengzhi/replay_8.xml',
+        danmakuSrc: './assets/data/zhengzhi/replay_10.xml',
         captionSrc: './assets/data/zhengzhi/中美关系、中法关系、中俄关系、中欧关系，全部考点区别，10分钟搞定！.srt'
+      },
+      {
+        id: 'jixian',
+        title: '你极限学得6吗？我打赌95%的同学算不对',
+        videoSrc: './assets/videos/你极限学得6吗？我打赌95%的同学算不对.mp4',
+        danmakuSrc: './assets/data/jixian/你极限学得6吗？我打赌95%的同学算不对.xml',
+        captionSrc: './assets/data/jixian/你极限学得6吗？我打赌95%的同学算不对.json'
       }
     ];
     let activeVideoIndex = 0;
@@ -65,7 +72,9 @@
     const danmakuInput = document.getElementById('danmaku-input');
     const sendDanmakuBtn = document.getElementById('send-danmaku-btn');
     const danmakuAiToggle = document.getElementById('danmaku-ai-toggle');
-    const videoSelect = document.getElementById('video-selector');
+    const videoShelf = document.getElementById('video-shelf');
+    const videoShelfList = document.getElementById('video-shelf-list');
+    const videoShelfHeader = document.querySelector('.video-shelf-header');
     const videoCount = document.getElementById('video-count');
     
     const connectorSvg = document.getElementById('dialogue-connector-svg');
@@ -191,6 +200,7 @@
           if (panel) panel.style.height = `${playerHeight}px`;
         });
       }
+      scheduleVideoShelfLayout();
     }
 
     function getVideoLabel(item, index) {
@@ -200,26 +210,85 @@
       return `视频 ${index + 1}`;
     }
 
-    function syncVideoToolbar() {
+    function syncVideoShelfLayout() {
+      if (!videoShelf || !container) return;
+      const rect = container.getBoundingClientRect();
+      const gap = 16;
+      const rightGap = 30;
+      const availableRight = window.innerWidth - rect.right - gap - rightGap;
+      const maxWidth = 220;
+      const targetWidth = Math.min(maxWidth, Math.max(0, availableRight));
+      if (targetWidth <= 0) {
+        videoShelf.classList.add('is-hidden');
+        return;
+      }
+
+      videoShelf.classList.remove('is-hidden');
+      videoShelf.style.width = `${targetWidth}px`;
+      videoShelf.style.left = `${rect.right + gap}px`;
+      videoShelf.style.top = `${rect.top}px`;
+      videoShelf.style.maxHeight = `${rect.height}px`;
+      videoShelf.style.height = 'auto';
+      if (videoShelfList) {
+        const headerHeight = videoShelfHeader ? videoShelfHeader.getBoundingClientRect().height : 0;
+        const listMax = Math.max(0, rect.height - headerHeight - 20);
+        videoShelfList.style.maxHeight = `${listMax}px`;
+      }
+    }
+
+    let videoShelfLayoutTimeout = null;
+    function scheduleVideoShelfLayout() {
+      syncVideoShelfLayout();
+      if (videoShelfLayoutTimeout) {
+        clearTimeout(videoShelfLayoutTimeout);
+        videoShelfLayoutTimeout = null;
+      }
+      videoShelfLayoutTimeout = setTimeout(() => {
+        syncVideoShelfLayout();
+        videoShelfLayoutTimeout = null;
+      }, 450);
+    }
+
+    function syncVideoShelf() {
       const total = VIDEO_CATALOG.length;
       if (videoCount) {
         videoCount.textContent = `${total}`;
       }
-      if (videoSelect) {
-        videoSelect.innerHTML = '';
-        if (total === 0) {
-          videoSelect.disabled = true;
-          return;
-        }
-        VIDEO_CATALOG.forEach((item, index) => {
-          const option = document.createElement('option');
-          option.value = String(index);
-          option.textContent = getVideoLabel(item, index);
-          videoSelect.appendChild(option);
-        });
-        videoSelect.value = String(activeVideoIndex);
-        videoSelect.disabled = total <= 1;
+      if (!videoShelfList) return;
+      videoShelfList.innerHTML = '';
+      if (total === 0) {
+        const empty = document.createElement('div');
+        empty.className = 'video-shelf-empty';
+        empty.textContent = '暂无视频';
+        videoShelfList.appendChild(empty);
+        return;
       }
+      VIDEO_CATALOG.forEach((item, index) => {
+        const card = document.createElement('button');
+        card.type = 'button';
+        card.className = 'video-shelf-card';
+        if (index === activeVideoIndex) card.classList.add('is-active');
+        card.dataset.index = String(index);
+
+        const thumb = document.createElement('video');
+        thumb.className = 'video-shelf-thumb';
+        thumb.src = item.videoSrc || '';
+        thumb.preload = 'metadata';
+        thumb.muted = true;
+        thumb.playsInline = true;
+        thumb.setAttribute('aria-hidden', 'true');
+        thumb.tabIndex = -1;
+
+        const title = document.createElement('div');
+        title.className = 'video-shelf-name';
+        title.textContent = getVideoLabel(item, index);
+
+        card.appendChild(thumb);
+        card.appendChild(title);
+        card.addEventListener('click', () => switchVideoByIndex(index));
+        videoShelfList.appendChild(card);
+      });
+      syncVideoShelfLayout();
     }
 
     function resetVideoState() {
@@ -295,7 +364,7 @@
       activeVideoConfig = VIDEO_CATALOG[activeVideoIndex];
       captionFilePath = activeVideoConfig ? activeVideoConfig.captionSrc : '';
       danmakuFilePath = activeVideoConfig ? activeVideoConfig.danmakuSrc : '';
-      if (videoSelect) videoSelect.value = String(activeVideoIndex);
+      syncVideoShelf();
       await loadVideoBundle(activeVideoConfig, { autoPlay });
     }
 
@@ -1237,13 +1306,7 @@
     }
 
     async function initializePlayer() {
-      syncVideoToolbar();
-      if (videoSelect) {
-        videoSelect.addEventListener('change', () => {
-          const nextIndex = parseInt(videoSelect.value, 10);
-          switchVideoByIndex(nextIndex);
-        });
-      }
+      syncVideoShelf();
 
       await loadVideoBundle(activeVideoConfig);
 
@@ -1251,6 +1314,11 @@
       if (video.readyState >= 1) handleVideoMetadata();
 
       window.addEventListener('resize', () => { syncLayoutHeight(); rebuildFromTime(video.currentTime); });
+      if (mainContent) {
+        mainContent.addEventListener('transitionend', (event) => {
+          if (event.propertyName === 'width') scheduleVideoShelfLayout();
+        });
+      }
       video.addEventListener('play', () => {
         danmakuManager.resume();
         startLineAnimation();
@@ -1338,6 +1406,7 @@
             const willOpen = !dialogueSidebar.classList.contains('sidebar-open');
             dialogueSidebar.classList.toggle('sidebar-open');
             document.body.classList.toggle('sidebar-is-open');
+            scheduleVideoShelfLayout();
             if (willOpen) bumpInteractionStat('侧边栏打开次数', 'dialogue sidebar open');
             requestConnectorLayoutRefresh();
           });
@@ -1500,6 +1569,7 @@
         if (!aiSidebar) return;
         aiSidebar.classList.toggle('sidebar-open', open);
         document.body.classList.toggle('ai-sidebar-is-open', open);
+        scheduleVideoShelfLayout();
       }
 
       function toggleAiSidebarPanel() {
