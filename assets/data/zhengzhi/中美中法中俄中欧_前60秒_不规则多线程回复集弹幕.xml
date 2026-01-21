@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i>
+  <chatserver>chat.bilibili.com</chatserver>
+  <chatid>27226933846</chatid>
+  <mission>0</mission>
+  <maxlimit>3239</maxlimit>
+  <state>0</state>
+  <real_name>0</real_name>
+  <source>k-v</source>
+  <d p="0.25,1,25,16777215,1733570250,0,8187b96c,958236888415548216" id="N001">考点对比来了！先别眨眼👀</d>
+  <d p="0.75,1,25,16777215,1733570750,0,3b367bca,648654202684239084" id="N002">四组关系=高频主观题素材</d>
+  <d p="1,1,25,16777215,1733571000,0,178babe6,22286732996999020" id="N003">开局四组关系一锅端？冲！</d>
+  <d p="1.3,1,25,16777215,1733571300,0,5e7c395b,402777644472018383" id="N004">我已经把笔记本打开了📒</d>
+  <d p="1.64,1,25,16777215,1733571640,0,79ac0b8d,190034678864272995" id="N005">这节课太适合考前速记了</d>
+  <d p="1.73,1,25,16777215,1733571730,0,c035ed64,293386573936954662" id="N006">我愿称之为救命课</d>
+  <d p="1.82,1,25,16777215,1733571820,0,34ee86e1,416727921532823252" id="A01_P01" reply_cluster="answer_01" reply_cluster_label="解答类" reply_cluster_order="1">中美考点：一句话定位怎么写？</d>
+  <d p="1.91,1,25,16777215,1733571910,0,39ba3f03,916223504128910402" id="A01_R01" reply_cluster="answer_01" reply_cluster_label="解答类" reply_cluster_order="2" reply_to="A01_P01">答：世界上最重要的双边关系之一</d>
+  <d p="2,1,25,16777215,1733572000,0,c215fd76,938849163564950494" id="A01_R02" reply_cluster="answer_01" reply_cluster_label="解答类" reply_cluster_order="3" reply_to="A01_P01">重点是“竞合并存”，别只写对抗</d>
+  <d p="2.09,1,25,16777215,1733572090,0,db4079a2,656713126294687590" id="N007">救命，我终于不混了</d>
+  <d p="2.18,1,25,16777215,1733572180,0,df4d8907,664886763436107368" id="A01_M01" reply_cluster="answer_01" reply_cluster_label="解答类" reply_cluster_order="4" reply_to="A01_P01">中间：主线抓什么？</d>
+  <d p="2.2,1,25,16777215,1733572200,0,c0ca0dec,235759100330864805" id="A01_R11" reply_cluster="answer_01" reply_cluster_label="解答类" reply_cluster_order="5" reply_to="A01_M01">主线=竞争，但合作点要写出来</d>
+  <d p="2.27,1,25,16777215,1733572270,0,f02a2c58,151173569914979048" id="A01_R12" reply_cluster="answer_01" reply_cluster_label="解答类" reply_cluster_order="6" reply_to="A01_M01">合作举例：气候、经贸、公共卫生</d>
+  <d p="2.36,1,25,16777215,1733572360,0,57e452cc,554696976673279837" id="A01_R13" reply_cluster="answer_01" reply_cluster_label="解答类" reply_cluster_order="7" reply_to="A01_M01">还有底线：台湾、发展权等核心利益</d>
+  <d p="2.45,1,25,16777215,1733572450,0,e2453434,748207266428771873" id="A01_M02" reply_cluster="answer_01" reply_cluster_label="解答类" reply_cluster_order="8" reply_to="A01_P01">中间2：答题结构别乱</d>
+  <d p="2.95,1,25,16777215,1733572950,0,e0719249,241301141632618285" id="N008">中美：竞合并存（重点！）</d>
+  <d p="4,1,25,16777215,1733574000,0,1f038149,594119427503614423" id="E01_P01" reply_cluster="emotion_01" reply_cluster_label="情感类" reply_cluster_order="1">这节课太顶了，四组关系终于分清了！</d>
+  <d p="4.3,1,25,16776960,1733574300,0,455d5325,17238885577361747" id="A02_P01" reply_cluster="answer_02" reply_cluster_label="解答类" reply_cluster_order="1">中美关系主观题怎么不扣分？</d>
+  <d p="4.64,1,25,16777215,1733574640,0,1b767c40,558125445842642547" id="E01_R01" reply_cluster="emotion_01" reply_cluster_label="情感类" reply_cluster_order="2" reply_to="E01_P01">我之前一直把中法和中欧混着写😭</d>
+  <d p="4.73,1,25,16777215,1733574729,0,86eaa158,418793838863892488" id="E01_R02" reply_cluster="emotion_01" reply_cluster_label="情感类" reply_cluster_order="3" reply_to="E01_P01">终于知道“法国≠欧盟”了哈哈</d>
+  <d p="4.82,1,25,16777215,1733574820,0,b3efc79d,364086771359569971" id="A02_R01" reply_cluster="answer_02" reply_cluster_label="解答类" reply_cluster_order="2" reply_to="A02_P01">关键词要全：竞争+合作+底线+管控</d>
+  <d p="4.91,1,25,16777215,1733574910,0,60fbc667,602604377395002753" id="A01_R21" reply_cluster="answer_01" reply_cluster_label="解答类" reply_cluster_order="9" reply_to="A01_M02">模板：定位→特点→合作→分歧→态度</d>
+  <d p="5,1,25,16777215,1733575000,0,3a124633,8852000852976860" id="A02_R02" reply_cluster="answer_02" reply_cluster_label="解答类" reply_cluster_order="3" reply_to="A02_P01">别只堆形容词，要写“领域+举例”</d>
+  <d p="5.09,1,25,16777215,1733575090,0,0e6b863a,585653060080808835" id="E01_M01" reply_cluster="emotion_01" reply_cluster_label="情感类" reply_cluster_order="4" reply_to="E01_P01">中间：老师节奏好舒服</d>
+  <d p="5.18,1,25,16777215,1733575180,0,6e9dea82,226908564773802542" id="A01_R22" reply_cluster="answer_01" reply_cluster_label="解答类" reply_cluster_order="10" reply_to="A01_M02">态度：相互尊重、和平共处、合作共赢</d>
+  <d p="5.27,1,25,16777215,1733575270,0,a0d9f9d0,895984592169999313" id="A02_M01" reply_cluster="answer_02" reply_cluster_label="解答类" reply_cluster_order="4" reply_to="A02_P01">中间：分歧怎么写更稳？</d>
+  <d p="5.36,1,25,16777215,1733575359,0,31d8a8c5,792489757478173470" id="A01_R23" reply_cluster="answer_01" reply_cluster_label="解答类" reply_cluster_order="11" reply_to="A01_M02">最后一句：管控分歧，避免冲突对抗</d>
+  <d p="5.45,1,25,16777215,1733575449,0,db58f453,425137983693552783" id="E01_R11" reply_cluster="emotion_01" reply_cluster_label="情感类" reply_cluster_order="5" reply_to="E01_M01">对比讲法=脑子开灯✨</d>
+  <d p="5.5,1,25,16777215,1733575500,0,26d3162d,960333422387757594" id="E01_R12" reply_cluster="emotion_01" reply_cluster_label="情感类" reply_cluster_order="6" reply_to="E01_M01">我疯狂截图，回头打印成表</d>
+  <d p="6.2,1,25,16777215,1733576200,0,dcde8a91,715014026783365443" id="E01_R13" reply_cluster="emotion_01" reply_cluster_label="情感类" reply_cluster_order="7" reply_to="E01_M01">考前救命课！</d>
+  <d p="7,1,25,16777215,1733577000,0,aed87eb0,273749983528750031" id="E01_M02" reply_cluster="emotion_01" reply_cluster_label="情感类" reply_cluster_order="8" reply_to="E01_P01">中间2：一起背口诀</d>
+  <d p="7.3,1,25,16777215,1733577300,0,6315728b,220502019775088570" id="A02_R11" reply_cluster="answer_02" reply_cluster_label="解答类" reply_cluster_order="5" reply_to="A02_M01">写“分歧长期存在”，强调管控风险</d>
+  <d p="7.64,1,25,16777215,1733577640,0,1c311f19,811593464023409472" id="A02_R12" reply_cluster="answer_02" reply_cluster_label="解答类" reply_cluster_order="6" reply_to="A02_M01">避免用情绪词：用“摩擦/矛盾/风险”</d>
+  <d p="7.73,1,25,16777215,1733577729,0,1fbcbcf8,452603723016110090" id="A02_R13" reply_cluster="answer_02" reply_cluster_label="解答类" reply_cluster_order="7" reply_to="A02_M01">再补：加强对话，增进战略互信</d>
+  <d p="7.82,1,25,16777215,1733577820,0,333b7c46,613162986601735539" id="E01_R21" reply_cluster="emotion_01" reply_cluster_label="情感类" reply_cluster_order="9" reply_to="E01_M02">中美竞合！中法多边！中俄协作！中欧压舱！</d>
+  <d p="7.91,1,25,16777215,1733577910,0,71edf8c9,956018852256529171" id="A02_M02" reply_cluster="answer_02" reply_cluster_label="解答类" reply_cluster_order="8" reply_to="A02_P01">中间2：态度句万能收尾</d>
+  <d p="8,1,25,16777215,1733578000,0,0de61d51,24351181544017341" id="N009">感觉脑子开窍了🤣</d>
+  <d p="8.09,1,25,16777215,1733578090,0,88c9e2fa,110117605963227206" id="A02_R21" reply_cluster="answer_02" reply_cluster_label="解答类" reply_cluster_order="9" reply_to="A02_M02">坚持相互尊重、和平共处、合作共赢</d>
+  <d p="8.18,1,25,16777215,1733578180,0,ee48d30f,283063186408628629" id="A02_R22" reply_cluster="answer_02" reply_cluster_label="解答类" reply_cluster_order="10" reply_to="A02_M02">推进稳定、健康、可持续发展</d>
+  <d p="8.27,1,25,16777215,1733578270,0,7180692e,923956761167235250" id="A02_R23" reply_cluster="answer_02" reply_cluster_label="解答类" reply_cluster_order="11" reply_to="A02_M02">这三句背下来=稳过！</d>
+  <d p="8.36,1,25,16777215,1733578360,0,2f1894d7,138802621512172920" id="E01_R22" reply_cluster="emotion_01" reply_cluster_label="情感类" reply_cluster_order="10" reply_to="E01_M02">背到这句我就安心了</d>
+  <d p="8.45,1,25,16777215,1733578450,0,0b5d403d,73011655149643366" id="E01_R23" reply_cluster="emotion_01" reply_cluster_label="情感类" reply_cluster_order="11" reply_to="E01_M02">冲冲冲，主观题稳了！</d>
+  <d p="8.6,1,25,16777215,1733578600,0,dc79f0a6,50590667009656983" id="E02_P01" reply_cluster="emotion_02" reply_cluster_label="情感类" reply_cluster_order="1">笔记党集合📒我手已经写酸了</d>
+  <d p="9.25,1,25,16777215,1733579250,0,0f2ee8ec,515139589831931008" id="A03_P01" reply_cluster="answer_03" reply_cluster_label="解答类" reply_cluster_order="1">中法关系高频关键词是什么？</d>
+  <d p="10,1,25,16777215,1733580000,0,500cb87f,585491283117969604" id="E03_P01" reply_cluster="emotion_03" reply_cluster_label="情感类" reply_cluster_order="1">10分钟搞定？我不信…结果真行😂</d>
+  <d p="10.3,1,25,16776960,1733580300,0,1da6fcbb,878061829467472163" id="A04_P01" reply_cluster="answer_04" reply_cluster_label="解答类" reply_cluster_order="1">中法关系答题怎么写出“亮点”？</d>
+  <d p="10.64,1,25,16777215,1733580640,0,096f359a,534932289517227063" id="E03_R01" reply_cluster="emotion_03" reply_cluster_label="情感类" reply_cluster_order="2" reply_to="E03_P01">这种对比太适合冲刺期</d>
+  <d p="10.73,1,25,16777215,1733580730,0,0256f4f9,317714093108253703" id="A03_R01" reply_cluster="answer_03" reply_cluster_label="解答类" reply_cluster_order="2" reply_to="A03_P01">全面战略伙伴关系（必写）</d>
+  <d p="10.82,1,25,16777215,1733580820,0,128cdd6e,708624160023064528" id="E02_R01" reply_cluster="emotion_02" reply_cluster_label="情感类" reply_cluster_order="2" reply_to="E02_P01">但是真的值！信息量爆炸</d>
+  <d p="10.91,1,25,16777215,1733580910,0,9d6387cb,955192126831842802" id="A04_R01" reply_cluster="answer_04" reply_cluster_label="解答类" reply_cluster_order="2" reply_to="A04_P01">写“多边主义”和“全球治理”就加分</d>
+  <d p="11,1,25,16777215,1733581000,0,7fb2d731,233252268893093195" id="E03_R02" reply_cluster="emotion_03" reply_cluster_label="情感类" reply_cluster_order="3" reply_to="E03_P01">看完立刻想去做题</d>
+  <d p="11.09,1,25,16777215,1733581090,0,03084347,39674050478888747" id="A03_R02" reply_cluster="answer_03" reply_cluster_label="解答类" reply_cluster_order="3" reply_to="A03_P01">法国：独立自主外交传统（易考）</d>
+  <d p="11.18,1,25,16777215,1733581180,0,106ef760,599967573123690526" id="A03_M01" reply_cluster="answer_03" reply_cluster_label="解答类" reply_cluster_order="4" reply_to="A03_P01">中间：特点怎么概括？</d>
+  <d p="11.27,1,25,16777215,1733581270,0,c7cd4ec2,248522278266353597" id="E04_P01" reply_cluster="emotion_04" reply_cluster_label="情感类" reply_cluster_order="1">我宣布：这就是主观题救星🆘</d>
+  <d p="11.36,1,25,16777215,1733581360,0,f1736d9f,310780156037531022" id="E04_R01" reply_cluster="emotion_04" reply_cluster_label="情感类" reply_cluster_order="2" reply_to="E04_P01">之前写中美只会“竞争激烈”😂</d>
+  <d p="11.45,1,25,16777215,1733581450,0,618467ba,67905367829859966" id="E03_M01" reply_cluster="emotion_03" reply_cluster_label="情感类" reply_cluster_order="4" reply_to="E03_P01">中间：最怕考场卡壳</d>
+  <d p="12.4,1,25,16777215,1733582400,0,3de5aeed,98356456982425335" id="A03_R11" reply_cluster="answer_03" reply_cluster_label="解答类" reply_cluster_order="5" reply_to="A03_M01">多边主义同向同行，共担大国责任</d>
+  <d p="13,1,25,16777215,1733583000,0,698aa0cb,910570492646800579" id="E03_R11" reply_cluster="emotion_03" reply_cluster_label="情感类" reply_cluster_order="5" reply_to="E03_M01">现在有模板就不慌了</d>
+  <d p="13.1,1,25,16777215,1733583100,0,e66a2908,264573411846650837" id="E04_R02" reply_cluster="emotion_04" reply_cluster_label="情感类" reply_cluster_order="3" reply_to="E04_P01">现在知道要写“竞合并存”了</d>
+  <d p="13.3,1,25,16777215,1733583300,0,f4eb7ec7,453847059723353867" id="E03_R12" reply_cluster="emotion_03" reply_cluster_label="情感类" reply_cluster_order="6" reply_to="E03_M01">关键词一套就能写满格</d>
+  <d p="13.64,1,25,16777215,1733583640,0,d15088b5,794626439462156118" id="E02_R02" reply_cluster="emotion_02" reply_cluster_label="情感类" reply_cluster_order="3" reply_to="E02_P01">这就是考前高效复盘吧</d>
+  <d p="13.73,1,25,16777215,1733583730,0,b70c23ad,199746392736793346" id="A03_R12" reply_cluster="answer_03" reply_cluster_label="解答类" reply_cluster_order="6" reply_to="A03_M01">合作点：核能、航空、经贸、人文</d>
+  <d p="13.82,1,25,16777215,1733583820,0,360a2645,57377583860786198" id="E04_M01" reply_cluster="emotion_04" reply_cluster_label="情感类" reply_cluster_order="4" reply_to="E04_P01">中间：感觉老师是出题人</d>
+  <d p="13.91,1,25,16777215,1733583910,0,e58e8e38,449698269757867193" id="E03_R13" reply_cluster="emotion_03" reply_cluster_label="情感类" reply_cluster_order="7" reply_to="E03_M01">感谢老师🙏</d>
+  <d p="14,1,25,16777215,1733584000,0,01988d1b,437579424759384459" id="A03_R13" reply_cluster="answer_03" reply_cluster_label="解答类" reply_cluster_order="7" reply_to="A03_M01">还可以写：第三方市场合作</d>
+  <d p="14.09,1,25,16777215,1733584090,0,f1d3ad00,834829397919549040" id="A03_M02" reply_cluster="answer_03" reply_cluster_label="解答类" reply_cluster_order="8" reply_to="A03_P01">中间2：法 vs 欧别混</d>
+  <d p="14.18,1,25,16777215,1733584180,0,54728601,781752512113878985" id="E04_R11" reply_cluster="emotion_04" reply_cluster_label="情感类" reply_cluster_order="5" reply_to="E04_M01">每句话都像标准答案</d>
+  <d p="14.27,1,25,16777215,1733584270,0,fbe91129,521182870516586562" id="A03_R21" reply_cluster="answer_03" reply_cluster_label="解答类" reply_cluster_order="9" reply_to="A03_M02">法国=单一国家；欧盟=整体机制</d>
+  <d p="14.36,1,25,16777215,1733584360,0,a5e5b404,887683794677157406" id="A03_R22" reply_cluster="answer_03" reply_cluster_label="解答类" reply_cluster_order="10" reply_to="A03_M02">中法强调战略自主/多边协调</d>
+  <d p="14.45,1,25,16777215,1733584450,0,d5f3847c,693000703157251211" id="A03_R23" reply_cluster="answer_03" reply_cluster_label="解答类" reply_cluster_order="11" reply_to="A03_M02">中欧更多是经贸规则与治理议题</d>
+  <d p="15.8,1,25,16777215,1733585800,0,ab24ba9a,256746254738966126" id="A04_R02" reply_cluster="answer_04" reply_cluster_label="解答类" reply_cluster_order="3" reply_to="A04_P01">记住：中法共担大国责任</d>
+  <d p="16,1,25,16777215,1733586000,0,22c7d76d,164123389696126449" id="E02_M01" reply_cluster="emotion_02" reply_cluster_label="情感类" reply_cluster_order="4" reply_to="E02_P01">中间：听完感觉能默写模板</d>
+  <d p="16.3,1,25,16776960,1733586300,0,ed4566ee,352728612572061691" id="A04_M01" reply_cluster="answer_04" reply_cluster_label="解答类" reply_cluster_order="4" reply_to="A04_P01">中间：合作举例怎么选？</d>
+  <d p="16.55,1,25,16777215,1733586550,0,42c1d689,79240679548659313" id="E03_M02" reply_cluster="emotion_03" reply_cluster_label="情感类" reply_cluster_order="8" reply_to="E03_P01">中间2：同学们别快进！</d>
+  <d p="16.64,1,25,16777215,1733586640,0,756dec04,488326126952494044" id="E03_R21" reply_cluster="emotion_03" reply_cluster_label="情感类" reply_cluster_order="9" reply_to="E03_M02">这一分钟全是高频点</d>
+  <d p="16.73,1,25,16777215,1733586730,0,7e76abc5,711647909874062291" id="E02_R11" reply_cluster="emotion_02" reply_cluster_label="情感类" reply_cluster_order="5" reply_to="E02_M01">定位-特点-合作-分歧-态度✅</d>
+  <d p="16.82,1,25,16777215,1733586820,0,bd9ca80d,18048360116699380" id="E03_R22" reply_cluster="emotion_03" reply_cluster_label="情感类" reply_cluster_order="10" reply_to="E03_M02">听懂=少丢10分</d>
+  <d p="16.91,1,25,16777215,1733586910,0,3ad80fed,333439835890397505" id="E02_R12" reply_cluster="emotion_02" reply_cluster_label="情感类" reply_cluster_order="6" reply_to="E02_M01">救命，我终于知道怎么收尾了</d>
+  <d p="17,1,25,16777215,1733587000,0,1fba41dd,472832574686339025" id="E02_R13" reply_cluster="emotion_02" reply_cluster_label="情感类" reply_cluster_order="7" reply_to="E02_M01">“稳定健康可持续”背起来！</d>
+  <d p="17.09,1,25,16777215,1733587090,0,5ac693ff,335648355903353043" id="E02_M02" reply_cluster="emotion_02" reply_cluster_label="情感类" reply_cluster_order="8" reply_to="E02_P01">中间2：弹幕一起记</d>
+  <d p="17.18,1,25,16777215,1733587180,0,e70f1712,303463197299431714" id="E04_R12" reply_cluster="emotion_04" reply_cluster_label="情感类" reply_cluster_order="6" reply_to="E04_M01">多写举例真的加分</d>
+  <d p="17.27,1,25,16777215,1733587270,0,4527f3a0,198202370619285357" id="E04_R13" reply_cluster="emotion_04" reply_cluster_label="情感类" reply_cluster_order="7" reply_to="E04_M01">弹幕记重点=效率翻倍</d>
+  <d p="17.36,1,25,16777215,1733587360,0,28d8b507,161704496389383453" id="E02_R21" reply_cluster="emotion_02" reply_cluster_label="情感类" reply_cluster_order="9" reply_to="E02_M02">中欧=经贸压舱石！</d>
+  <d p="17.45,1,25,16777215,1733587450,0,0a0c3b10,507937673927014156" id="A04_R11" reply_cluster="answer_04" reply_cluster_label="解答类" reply_cluster_order="5" reply_to="A04_M01">核能合作/空客订单/文化交流都能写</d>
+  <d p="18.9,1,25,16777215,1733588900,0,0fb64d7b,658012850372991661" id="E03_R23" reply_cluster="emotion_03" reply_cluster_label="情感类" reply_cluster_order="11" reply_to="E03_M02">收藏+三连走起</d>
+  <d p="19,1,25,16777215,1733589000,0,70d89aa1,65371465222247206" id="A04_R12" reply_cluster="answer_04" reply_cluster_label="解答类" reply_cluster_order="6" reply_to="A04_M01">再加一条：气候变化合作</d>
+  <d p="19.3,1,25,16777215,1733589300,0,df7f1ee2,296243885451246331" id="E04_M02" reply_cluster="emotion_04" reply_cluster_label="情感类" reply_cluster_order="8" reply_to="E04_P01">中间2：给我来个对比表</d>
+  <d p="19.64,1,25,16777215,1733589640,0,3336a28e,358629817144228399" id="A04_R13" reply_cluster="answer_04" reply_cluster_label="解答类" reply_cluster_order="7" reply_to="A04_M01">法方常提“战略自主”，可点到为止</d>
+  <d p="19.73,1,25,16777215,1733589730,0,d14723e5,635077018115173956" id="E04_R21" reply_cluster="emotion_04" reply_cluster_label="情感类" reply_cluster_order="9" reply_to="E04_M02">中法=多边主义同向同行</d>
+  <d p="19.82,1,25,16777215,1733589820,0,694515f4,679268841003238298" id="N010">这节课太适合考前速记了</d>
+  <d p="19.91,1,25,16777215,1733589910,0,4c661c30,712139575208661424" id="A04_M02" reply_cluster="answer_04" reply_cluster_label="解答类" reply_cluster_order="8" reply_to="A04_P01">中间2：分歧怎么写？</d>
+  <d p="20,1,25,16777215,1733590000,0,b479c3c5,805201797043556515" id="E02_R22" reply_cluster="emotion_02" reply_cluster_label="情感类" reply_cluster_order="10" reply_to="E02_M02">中俄=不结盟不对抗不针对第三方！</d>
+  <d p="20.09,1,25,16777215,1733590090,0,98a9f1bc,301504235254403544" id="E04_R22" reply_cluster="emotion_04" reply_cluster_label="情感类" reply_cluster_order="10" reply_to="E04_M02">中欧=伙伴+竞争并存</d>
+  <d p="20.18,1,25,16777215,1733590180,0,145a7928,815932606876991015" id="A04_R21" reply_cluster="answer_04" reply_cluster_label="解答类" reply_cluster_order="9" reply_to="A04_M02">写“具体问题上存在分歧”，别展开骂</d>
+  <d p="20.2,1,25,16777215,1733590200,0,d09f9296,671551023124559340" id="E04_R23" reply_cluster="emotion_04" reply_cluster_label="情感类" reply_cluster_order="11" reply_to="E04_M02">狠狠爱住！</d>
+  <d p="20.27,1,25,16777215,1733590270,0,5404d437,601826693250844099" id="A04_R22" reply_cluster="answer_04" reply_cluster_label="解答类" reply_cluster_order="10" reply_to="A04_M02">强调对话协商、扩大共同利益</d>
+  <d p="20.36,1,25,16777215,1733590360,0,d26462b4,552836519169977957" id="A04_R23" reply_cluster="answer_04" reply_cluster_label="解答类" reply_cluster_order="11" reply_to="A04_M02">落点：维护世界和平与发展</d>
+  <d p="20.45,1,25,16777215,1733590450,0,0c616c48,566269198732416761" id="E02_R23" reply_cluster="emotion_02" reply_cluster_label="情感类" reply_cluster_order="11" reply_to="E02_M02">老师别停，我还能记！</d>
+  <d p="22,1,25,16777215,1733592000,0,f34e9ea7,596337908694720631" id="N011">中欧关系为什么又合作又摩擦？</d>
+  <d p="22.1,1,25,16777215,1733592100,0,836b8517,295478405480066386" id="N012">我先暂停做笔记…</d>
+  <d p="22.3,1,25,16776960,1733592300,0,b4f68377,148278185643786386" id="N013">经贸互补+制度差异，抓住“求同存异”</d>
+  <d p="22.64,1,25,16777215,1733592640,0,cd5774bd,962274376757653943" id="N014">定位：全面战略伙伴关系（考点）</d>
+  <d p="22.73,1,25,16777215,1733592730,0,4736da0b,825078904127541418" id="N015">合作：经贸往来最密切之一</d>
+  <d p="22.82,1,25,16777215,1733592820,0,e78fe84f,636545920815626157" id="A05_P01" reply_cluster="answer_05" reply_cluster_label="解答类" reply_cluster_order="1">中俄关系最核心考点？</d>
+  <d p="22.91,1,25,16777215,1733592910,0,c21a3ebb,79967686627079193" id="A05_R01" reply_cluster="answer_05" reply_cluster_label="解答类" reply_cluster_order="2" reply_to="A05_P01">新时代全面战略协作伙伴关系</d>
+  <d p="23,1,25,16777215,1733593000,0,77e0b9df,366539123330225272" id="A05_R02" reply_cluster="answer_05" reply_cluster_label="解答类" reply_cluster_order="3" reply_to="A05_P01">不结盟、不对抗、不针对第三方（背）</d>
+  <d p="23.09,1,25,16777215,1733593090,0,63aab90a,949918326606332516" id="A05_M01" reply_cluster="answer_05" reply_cluster_label="解答类" reply_cluster_order="4" reply_to="A05_P01">中间：特点怎么写？</d>
+  <d p="23.18,1,25,16777215,1733593180,0,71845c23,208241116177979420" id="A05_R11" reply_cluster="answer_05" reply_cluster_label="解答类" reply_cluster_order="5" reply_to="A05_M01">高度互信+互利共赢+战略协作</d>
+  <d p="23.27,1,25,16777215,1733593270,0,737f95a3,863312339069506366" id="N016">一句话：合作是主基调</d>
+  <d p="23.36,1,25,16777215,1733593360,0,797b2717,404802082231738079" id="A05_R12" reply_cluster="answer_05" reply_cluster_label="解答类" reply_cluster_order="6" reply_to="A05_M01">合作点：能源、经贸、科技、人文</d>
+  <d p="23.45,1,25,16777215,1733593450,0,751dfeff,60888560193059045" id="A05_R13" reply_cluster="answer_05" reply_cluster_label="解答类" reply_cluster_order="7" reply_to="A05_M01">别忘：反对霸权主义和强权政治</d>
+  <d p="24.4,1,25,16777215,1733594400,0,b9af908b,159866311693515129" id="N017">重点：相互尊重+平等协商</d>
+  <d p="25,1,25,16777215,1733595000,0,e545eeb7,654711851802724842" id="A05_M02" reply_cluster="answer_05" reply_cluster_label="解答类" reply_cluster_order="8" reply_to="A05_P01">中间2：和中美的区别？</d>
+  <d p="25.3,1,25,16777215,1733595300,0,7385b0e2,21879645468099011" id="A05_R21" reply_cluster="answer_05" reply_cluster_label="解答类" reply_cluster_order="9" reply_to="A05_M02">中俄=战略协作更突出“安全与互信”</d>
+  <d p="25.64,1,25,16777215,1733595640,0,0f30b1aa,17673572679193418" id="N018">救命，我终于不混了</d>
+  <d p="25.73,1,25,16777215,1733595730,0,d6030191,212546335229627296" id="A05_R22" reply_cluster="answer_05" reply_cluster_label="解答类" reply_cluster_order="10" reply_to="A05_M02">中美=竞争主线更突出“管控分歧”</d>
+  <d p="25.82,1,25,16777215,1733595820,0,b0d10770,766482337319586984" id="A05_R23" reply_cluster="answer_05" reply_cluster_label="解答类" reply_cluster_order="11" reply_to="A05_M02">一句话：对手不同，任务不同</d>
+  <d p="25.91,1,25,16777215,1733595910,0,6940b543,334737033682845327" id="E05_P01" reply_cluster="emotion_05" reply_cluster_label="情感类" reply_cluster_order="1">我靠这节课能把我从50分拉到70分吧</d>
+  <d p="26,1,25,16777215,1733596000,0,203817fb,473174850530280449" id="E05_R01" reply_cluster="emotion_05" reply_cluster_label="情感类" reply_cluster_order="2" reply_to="E05_P01">写题不再瞎编了😭</d>
+  <d p="26.09,1,25,16777215,1733596090,0,e988efeb,24844723164609779" id="N019">建议反复听三遍</d>
+  <d p="26.15,1,25,16777215,1733596150,0,99f38222,48404322076413177" id="A06_P01" reply_cluster="answer_06" reply_cluster_label="解答类" reply_cluster_order="1">中俄关系材料题怎么提炼？</d>
+  <d p="26.18,1,25,16777215,1733596180,0,73dfd722,603823354817503005" id="E06_P01" reply_cluster="emotion_06" reply_cluster_label="情感类" reply_cluster_order="1">老师讲中欧的时候我突然通透了</d>
+  <d p="26.27,1,25,16777215,1733596270,0,16ce08b3,349286538068701032" id="A06_R01" reply_cluster="answer_06" reply_cluster_label="解答类" reply_cluster_order="2" reply_to="A06_P01">抓“稳定器”“压舱石”这些表述</d>
+  <d p="26.36,1,25,16777215,1733596360,0,d6a8cf5d,131833924869515320" id="E06_R01" reply_cluster="emotion_06" reply_cluster_label="情感类" reply_cluster_order="2" reply_to="E06_P01">原来“压舱石”必须写</d>
+  <d p="26.45,1,25,16777215,1733596450,0,8c3995d8,687835744616685000" id="A06_R02" reply_cluster="answer_06" reply_cluster_label="解答类" reply_cluster_order="3" reply_to="A06_P01">写“共同维护国际公平正义”</d>
+  <d p="28,1,25,16777215,1733598000,0,06e0f8b6,947148967477189794" id="A06_M01" reply_cluster="answer_06" reply_cluster_label="解答类" reply_cluster_order="4" reply_to="A06_P01">中间：合作怎么写具体？</d>
+  <d p="28.3,1,25,16776960,1733598300,0,383595c9,166935808415732526" id="A07_P01" reply_cluster="answer_07" reply_cluster_label="解答类" reply_cluster_order="1">中欧关系一句话定位？</d>
+  <d p="28.35,1,25,16777215,1733598350,0,aac52a35,824507040707032684" id="E06_R02" reply_cluster="emotion_06" reply_cluster_label="情感类" reply_cluster_order="3" reply_to="E06_P01">经贸合作=永远不会错</d>
+  <d p="28.64,1,25,16777215,1733598640,0,fbc75ba1,540216281623549266" id="A07_R01" reply_cluster="answer_07" reply_cluster_label="解答类" reply_cluster_order="2" reply_to="A07_P01">全面战略伙伴关系（常考）</d>
+  <d p="28.73,1,25,16777215,1733598730,0,08309072,732211456352174205" id="E06_M01" reply_cluster="emotion_06" reply_cluster_label="情感类" reply_cluster_order="4" reply_to="E06_P01">中间：弹幕全是学霸</d>
+  <d p="28.82,1,25,16777215,1733598820,0,414cb300,448807249491460884" id="A07_R02" reply_cluster="answer_07" reply_cluster_label="解答类" reply_cluster_order="3" reply_to="A07_P01">经贸合作是“压舱石”（必背）</d>
+  <d p="28.91,1,25,16777215,1733598910,0,c0c40d10,84361185985272495" id="E06_R11" reply_cluster="emotion_06" reply_cluster_label="情感类" reply_cluster_order="5" reply_to="E06_M01">我在这补课ing</d>
+  <d p="29,1,25,16777215,1733599000,0,fd2727ff,342807835816231756" id="E06_R12" reply_cluster="emotion_06" reply_cluster_label="情感类" reply_cluster_order="6" reply_to="E06_M01">别笑我，我真分不清中法中欧</d>
+  <d p="29.09,1,25,16777215,1733599090,0,df40f357,303268848697661030" id="A06_R11" reply_cluster="answer_06" reply_cluster_label="解答类" reply_cluster_order="5" reply_to="A06_M01">能源合作=重点，管道/贸易都可写</d>
+  <d p="29.18,1,25,16777215,1733599180,0,887b6818,808507091329572118" id="A07_M01" reply_cluster="answer_07" reply_cluster_label="解答类" reply_cluster_order="4" reply_to="A07_P01">中间：合作领域怎么列？</d>
+  <d p="29.27,1,25,16777215,1733599270,0,22ea8bff,404988048302411474" id="E06_R13" reply_cluster="emotion_06" reply_cluster_label="情感类" reply_cluster_order="7" reply_to="E06_M01">今天终于会了！</d>
+  <d p="29.36,1,25,16777215,1733599360,0,63bc2b01,716167401679827995" id="E06_M02" reply_cluster="emotion_06" reply_cluster_label="情感类" reply_cluster_order="8" reply_to="E06_P01">中间2：这节课适合反复刷</d>
+  <d p="29.45,1,25,16777215,1733599450,0,f70f41a4,493248713538902166" id="E06_R21" reply_cluster="emotion_06" reply_cluster_label="情感类" reply_cluster_order="9" reply_to="E06_M02">考前一天再听一次</d>
+  <d p="30.65,1,25,16777215,1733600650,0,7e478955,819735745369695525" id="E06_R22" reply_cluster="emotion_06" reply_cluster_label="情感类" reply_cluster_order="10" reply_to="E06_M02">边听边默写模板</d>
+  <d p="31,1,25,16777215,1733601000,0,61b1e0d0,443534533203188812" id="E06_R23" reply_cluster="emotion_06" reply_cluster_label="情感类" reply_cluster_order="11" reply_to="E06_M02">稳！</d>
+  <d p="31.3,1,25,16777215,1733601300,0,2b4866f4,994120685407721600" id="A07_R11" reply_cluster="answer_07" reply_cluster_label="解答类" reply_cluster_order="5" reply_to="A07_M01">绿色转型、数字经济、产业链供应链</d>
+  <d p="31.64,1,25,16777215,1733601640,0,7a5eced3,664999170269177471" id="A06_R12" reply_cluster="answer_06" reply_cluster_label="解答类" reply_cluster_order="6" reply_to="A06_M01">再加：地方合作、边境合作</d>
+  <d p="31.73,1,25,16777215,1733601730,0,161042dc,549518064354591518" id="A06_R13" reply_cluster="answer_06" reply_cluster_label="解答类" reply_cluster_order="7" reply_to="A06_M01">人文：教育/旅游/青年交流</d>
+  <d p="31.82,1,25,16777215,1733601820,0,7443da7c,13369062252245506" id="A06_M02" reply_cluster="answer_06" reply_cluster_label="解答类" reply_cluster_order="8" reply_to="A06_P01">中间2：分歧处理怎么写？</d>
+  <d p="31.91,1,25,16777215,1733601910,0,1258c536,452310871790344065" id="A07_R12" reply_cluster="answer_07" reply_cluster_label="解答类" reply_cluster_order="6" reply_to="A07_M01">还有：人文交流、教育科研</d>
+  <d p="32,1,25,16777215,1733602000,0,b5a43b66,478679761715404058" id="A06_R21" reply_cluster="answer_06" reply_cluster_label="解答类" reply_cluster_order="9" reply_to="A06_M02">强调不受第三方干扰，独立自主</d>
+  <d p="32.09,1,25,16777215,1733602090,0,5c47ef88,550327755340124592" id="A07_R13" reply_cluster="answer_07" reply_cluster_label="解答类" reply_cluster_order="7" reply_to="A07_M01">写“共同维护多边贸易体制”</d>
+  <d p="32.18,1,25,16777215,1733602180,0,e9513bd4,416624626035232187" id="A06_R22" reply_cluster="answer_06" reply_cluster_label="解答类" reply_cluster_order="10" reply_to="A06_M02">坚持相互尊重、照顾彼此关切</d>
+  <d p="32.27,1,25,16777215,1733602270,0,c6ce7241,167227903432697713" id="A07_M02" reply_cluster="answer_07" reply_cluster_label="解答类" reply_cluster_order="8" reply_to="A07_P01">中间2：分歧怎么表述？</d>
+  <d p="32.36,1,25,16777215,1733602360,0,47c1abda,172539904019568474" id="A07_R21" reply_cluster="answer_07" reply_cluster_label="解答类" reply_cluster_order="9" reply_to="A07_M02">有竞争也有合作，关键在管控分歧</d>
+  <d p="32.45,1,25,16777215,1733602450,0,59eea821,453261901574066926" id="A06_R23" reply_cluster="answer_06" reply_cluster_label="解答类" reply_cluster_order="11" reply_to="A06_M02">结尾：为世界多极化注入稳定性</d>
+  <d p="33.2,1,25,16777215,1733603200,0,06bd4f39,689495861642516078" id="A07_R22" reply_cluster="answer_07" reply_cluster_label="解答类" reply_cluster_order="10" reply_to="A07_M02">坚持对话协商，反对脱钩断链</d>
+  <d p="34,1,25,16777215,1733604000,0,ae9e2c7f,265984054836013095" id="A07_R23" reply_cluster="answer_07" reply_cluster_label="解答类" reply_cluster_order="11" reply_to="A07_M02">一句收束：互利共赢、共同发展</d>
+  <d p="34.3,1,25,16776960,1733604300,0,dcba9676,518187277483089707" id="N020">三段式：定性→合作→分歧与展望</d>
+  <d p="34.64,1,25,16777215,1733604640,0,a73f3892,255475102724017923" id="E05_R02" reply_cluster="emotion_05" reply_cluster_label="情感类" reply_cluster_order="3" reply_to="E05_P01">关键词像拼积木一样</d>
+  <d p="34.73,1,25,16777215,1733604730,0,273b84ee,925494185521452405" id="E05_M01" reply_cluster="emotion_05" reply_cluster_label="情感类" reply_cluster_order="4" reply_to="E05_P01">中间：思路真的清晰</d>
+  <d p="34.82,1,25,16777215,1733604820,0,412609cb,514061093627192096" id="E05_R11" reply_cluster="emotion_05" reply_cluster_label="情感类" reply_cluster_order="5" reply_to="E05_M01">定位一句+特点两句+合作两句</d>
+  <d p="34.91,1,25,16777215,1733604910,0,065673f3,299052704887523778" id="E05_R12" reply_cluster="emotion_05" reply_cluster_label="情感类" reply_cluster_order="6" reply_to="E05_M01">分歧一句+态度收尾一句</d>
+  <d p="35,1,25,16777215,1733605000,0,26743d07,622282887124749953" id="N021">写“相互尊重”不易错</d>
+  <d p="35.09,1,25,16777215,1733605089,0,e21c0ce3,396381219025989917" id="N022">写“和平共处”更稳</d>
+  <d p="35.18,1,25,16777215,1733605180,0,d192460b,299477324635176504" id="E07_P01" reply_cluster="emotion_07" reply_cluster_label="情感类" reply_cluster_order="1">求一个“十分钟速记版”截图😂</d>
+  <d p="35.27,1,25,16777215,1733605269,0,3af84504,165113548243852050" id="E07_R01" reply_cluster="emotion_07" reply_cluster_label="情感类" reply_cluster_order="2" reply_to="E07_P01">这对比太像押题了</d>
+  <d p="35.36,1,25,16777215,1733605360,0,999caa22,426182681950151922" id="E05_R13" reply_cluster="emotion_05" reply_cluster_label="情感类" reply_cluster_order="7" reply_to="E05_M01">一段就出来了！</d>
+  <d p="35.45,1,25,16777215,1733605449,0,5fbd157c,785396443643980620" id="N023">这一套任何关系都能套（考点）</d>
+  <d p="36.1,1,25,16777215,1733606100,0,7c70b24f,318338295651865081" id="E07_R02" reply_cluster="emotion_07" reply_cluster_label="情感类" reply_cluster_order="3" reply_to="E07_P01">我已经开始背句子了</d>
+  <d p="37,1,25,16777215,1733607000,0,16156d94,921203521045476213" id="E05_M02" reply_cluster="emotion_05" reply_cluster_label="情感类" reply_cluster_order="8" reply_to="E05_P01">中间2：同学们一起背</d>
+  <d p="37.3,1,25,16777215,1733607300,0,73d65fb2,824658262933673998" id="E07_M01" reply_cluster="emotion_07" reply_cluster_label="情感类" reply_cluster_order="4" reply_to="E07_P01">中间：老师语速刚刚好</d>
+  <d p="37.64,1,25,16777215,1733607640,0,d65abc35,621644836677875804" id="E07_R11" reply_cluster="emotion_07" reply_cluster_label="情感类" reply_cluster_order="5" reply_to="E07_M01">不像有的课越讲越乱</d>
+  <d p="37.73,1,25,16777215,1733607730,0,a9ac762c,398297072422706136" id="E05_R21" reply_cluster="emotion_05" reply_cluster_label="情感类" reply_cluster_order="9" reply_to="E05_M02">相互尊重、和平共处、合作共赢</d>
+  <d p="37.82,1,25,16777215,1733607820,0,6892d529,697983407098001275" id="E05_R22" reply_cluster="emotion_05" reply_cluster_label="情感类" reply_cluster_order="10" reply_to="E05_M02">背完就能抄到卷子上</d>
+  <d p="37.91,1,25,16777215,1733607910,0,c87a8357,231198624527490719" id="E05_R23" reply_cluster="emotion_05" reply_cluster_label="情感类" reply_cluster_order="11" reply_to="E05_M02">爽！</d>
+  <d p="38,1,25,16777215,1733608000,0,b1d9c7e4,491330736231320351" id="E07_R12" reply_cluster="emotion_07" reply_cluster_label="情感类" reply_cluster_order="6" reply_to="E07_M01">这里是越讲越清楚</d>
+  <d p="38.09,1,25,16777215,1733608089,0,8ec4e573,541313974813469989" id="N024">同感！我也在疯狂截图📸</d>
+  <d p="38.18,1,25,16777215,1733608180,0,8f834481,1007279714739824" id="E07_R13" reply_cluster="emotion_07" reply_cluster_label="情感类" reply_cluster_order="7" reply_to="E07_M01">大脑：收到✅</d>
+  <d p="38.27,1,25,16777215,1733608269,0,62a85efc,451378877301793270" id="E07_M02" reply_cluster="emotion_07" reply_cluster_label="情感类" reply_cluster_order="8" reply_to="E07_P01">中间2：提醒自己别跑神</d>
+  <d p="38.36,1,25,16777215,1733608360,0,de0591b2,809245260464017755" id="E07_R21" reply_cluster="emotion_07" reply_cluster_label="情感类" reply_cluster_order="9" reply_to="E07_M02">中美：底线思维要写</d>
+  <d p="38.45,1,25,16777215,1733608449,0,4e39a960,227694523558356435" id="N025">收藏了，考前再刷</d>
+  <d p="39.35,1,25,16777215,1733609350,0,9c8ebc59,913938865131239626" id="E07_R22" reply_cluster="emotion_07" reply_cluster_label="情感类" reply_cluster_order="10" reply_to="E07_M02">中俄：战略协作要写</d>
+  <d p="40,1,25,16777215,1733610000,0,95ed1971,467028854836780712" id="E07_R23" reply_cluster="emotion_07" reply_cluster_label="情感类" reply_cluster_order="11" reply_to="E07_M02">记住就赢了</d>
+  <d p="40.3,1,25,16776960,1733610300,0,a64fe8f9,572825224648987723" id="A08_P01" reply_cluster="answer_08" reply_cluster_label="解答类" reply_cluster_order="1">中欧材料题：怎么区分“伙伴/竞争/对手”？</d>
+  <d p="40.64,1,25,16777215,1733610640,0,a01dd7e3,822876310160046245" id="E08_P01" reply_cluster="emotion_08" reply_cluster_label="情感类" reply_cluster_order="1">哈哈哈弹幕比课堂还热闹</d>
+  <d p="40.73,1,25,16777215,1733610730,0,2e539862,231707938489394935" id="E08_R01" reply_cluster="emotion_08" reply_cluster_label="情感类" reply_cluster_order="2" reply_to="E08_P01">但每条都像知识点</d>
+  <d p="40.82,1,25,16777215,1733610820,0,d07bd4fb,22708126875843376" id="E08_R02" reply_cluster="emotion_08" reply_cluster_label="情感类" reply_cluster_order="3" reply_to="E08_P01">这就是学习型弹幕吧</d>
+  <d p="40.91,1,25,16777215,1733610910,0,34453b12,363053725745828032" id="E08_M01" reply_cluster="emotion_08" reply_cluster_label="情感类" reply_cluster_order="4" reply_to="E08_P01">中间：我感觉我在刷题解析</d>
+  <d p="41,1,25,16777215,1733611000,0,bb8417a1,881266979418959679" id="A08_R01" reply_cluster="answer_08" reply_cluster_label="解答类" reply_cluster_order="2" reply_to="A08_P01">欧盟文件常出现“三重定位”</d>
+  <d p="41.09,1,25,16777215,1733611089,0,e000ea9a,381069206413529773" id="N026">中法：人文交流更突出</d>
+  <d p="41.18,1,25,16777215,1733611180,0,3e7e96c1,989556936768122755" id="A08_R02" reply_cluster="answer_08" reply_cluster_label="解答类" reply_cluster_order="3" reply_to="A08_P01">答题：既是伙伴也有竞争（平衡写）</d>
+  <d p="41.27,1,25,16777215,1733611269,0,798ac436,353274187703071799" id="E08_R11" reply_cluster="emotion_08" reply_cluster_label="情感类" reply_cluster_order="5" reply_to="E08_M01">看弹幕也能巩固</d>
+  <d p="41.36,1,25,16777215,1733611360,0,d1d4c49f,554682961495160156" id="A08_M01" reply_cluster="answer_08" reply_cluster_label="解答类" reply_cluster_order="4" reply_to="A08_P01">中间：怎么写不踩雷？</d>
+  <d p="41.45,1,25,16777215,1733611449,0,d77eefcf,416064789067368188" id="E08_R12" reply_cluster="emotion_08" reply_cluster_label="情感类" reply_cluster_order="6" reply_to="E08_M01">同学们太会总结了</d>
+  <d p="42.6,1,25,16777215,1733612600,0,da5b777e,642412068037365921" id="E08_R13" reply_cluster="emotion_08" reply_cluster_label="情感类" reply_cluster_order="7" reply_to="E08_M01">点赞点赞👍</d>
+  <d p="43,1,25,16777215,1733613000,0,fc2a8728,314514941802674667" id="A08_R11" reply_cluster="answer_08" reply_cluster_label="解答类" reply_cluster_order="5" reply_to="A08_M01">强调共同利益大于分歧</d>
+  <d p="43.3,1,25,16777215,1733613300,0,be67b8f6,89994486714306785" id="E08_M02" reply_cluster="emotion_08" reply_cluster_label="情感类" reply_cluster_order="8" reply_to="E08_P01">中间2：我最喜欢这种对比</d>
+  <d p="43.64,1,25,16777215,1733613640,0,386c4152,739046473434674291" id="E08_R21" reply_cluster="emotion_08" reply_cluster_label="情感类" reply_cluster_order="9" reply_to="E08_M02">一句话就能区分四组关系</d>
+  <d p="43.73,1,25,16777215,1733613730,0,8fba3068,978773130770945551" id="A08_R12" reply_cluster="answer_08" reply_cluster_label="解答类" reply_cluster_order="6" reply_to="A08_M01">合作=经贸+气候+全球治理</d>
+  <d p="43.82,1,25,16777215,1733613820,0,e55dadcf,158027430778095595" id="A08_R13" reply_cluster="answer_08" reply_cluster_label="解答类" reply_cluster_order="7" reply_to="A08_M01">分歧=规则标准/市场准入等（点到）</d>
+  <d p="43.91,1,25,16777215,1733613910,0,5cda3bce,208415275420787205" id="E08_R22" reply_cluster="emotion_08" reply_cluster_label="情感类" reply_cluster_order="10" reply_to="E08_M02">考试就怕写串了</d>
+  <d p="44,1,25,16777215,1733614000,0,1cc0bcb5,459559756074699055" id="E08_R23" reply_cluster="emotion_08" reply_cluster_label="情感类" reply_cluster_order="11" reply_to="E08_M02">现在不会了</d>
+  <d p="44.09,1,25,16777215,1733614089,0,d1acd7bf,129123116975837921" id="A08_M02" reply_cluster="answer_08" reply_cluster_label="解答类" reply_cluster_order="8" reply_to="A08_P01">中间2：态度句怎么收尾？</d>
+  <d p="44.18,1,25,16777215,1733614180,0,f666f9d5,986441180971816439" id="A08_R21" reply_cluster="answer_08" reply_cluster_label="解答类" reply_cluster_order="9" reply_to="A08_M02">坚持相互尊重、求同存异</d>
+  <d p="44.27,1,25,16777215,1733614269,0,a65222ac,556864198793446652" id="A08_R22" reply_cluster="answer_08" reply_cluster_label="解答类" reply_cluster_order="10" reply_to="A08_M02">推进中欧关系健康稳定发展</d>
+  <d p="44.36,1,25,16777215,1733614360,0,7edeaf34,860867202850661649" id="A08_R23" reply_cluster="answer_08" reply_cluster_label="解答类" reply_cluster_order="11" reply_to="A08_M02">别忘：欧洲不是一个国家！</d>
+  <d p="44.45,1,25,16777215,1733614449,0,fa83e77b,945825622636768751" id="A09_P01" reply_cluster="answer_09" reply_cluster_label="解答类" reply_cluster_order="1">法国和欧盟关系考点怎么区分？</d>
+  <d p="46,1,25,16777215,1733616000,0,bed6da75,806415711005927888" id="N027">有哪些必背关键词？</d>
+  <d p="46.3,1,25,16776960,1733616300,0,40a26e3c,132139054773581431" id="N028">竞合、互利共赢、战略协作、伙伴关系、求同存异</d>
+  <d p="46.64,1,25,16777215,1733616640,0,82a06b46,304380663131219413" id="A09_R01" reply_cluster="answer_09" reply_cluster_label="解答类" reply_cluster_order="2" reply_to="A09_P01">法国=中法双边；欧盟=机制性伙伴</d>
+  <d p="46.73,1,25,16777215,1733616730,0,dcadb4b7,697521076560323280" id="N029">必背：相互尊重✅</d>
+  <d p="46.8,1,25,16777215,1733616800,0,e16d5af3,276701625594668189" id="A09_R02" reply_cluster="answer_09" reply_cluster_label="解答类" reply_cluster_order="3" reply_to="A09_P01">中法更突出“战略自主+多边主义”</d>
+  <d p="46.82,1,25,16777215,1733616820,0,0de43521,100301694560108426" id="N030">必背：求同存异✅</d>
+  <d p="46.91,1,25,16777215,1733616910,0,0b98b8af,803099047475971163" id="A09_M01" reply_cluster="answer_09" reply_cluster_label="解答类" reply_cluster_order="4" reply_to="A09_P01">中间：中欧更突出什么？</d>
+  <d p="47,1,25,16777215,1733617000,0,dc52f5eb,651513136693028423" id="N031">必背：竞合并存✅</d>
+  <d p="47.09,1,25,16777215,1733617089,0,eadf0356,859487452245396655" id="A09_R11" reply_cluster="answer_09" reply_cluster_label="解答类" reply_cluster_order="5" reply_to="A09_M01">经贸规则、产业合作、全球治理议题</d>
+  <d p="47.18,1,25,16777215,1733617180,0,2d324735,207939096448920837" id="E09_P01" reply_cluster="emotion_09" reply_cluster_label="情感类" reply_cluster_order="1">这课一开口就是重点，太狠了</d>
+  <d p="47.27,1,25,16777215,1733617269,0,3b529d31,679605509726808078" id="A09_R12" reply_cluster="answer_09" reply_cluster_label="解答类" reply_cluster_order="6" reply_to="A09_M01">中欧合作更大盘，但也更复杂</d>
+  <d p="47.36,1,25,16777215,1733617360,0,10ce266e,238875692441326887" id="E09_R01" reply_cluster="emotion_09" reply_cluster_label="情感类" reply_cluster_order="2" reply_to="E09_P01">我刚进来就听到竞合并存</d>
+  <d p="47.45,1,25,16777215,1733617449,0,00b4c4e6,872533365749591855" id="E09_R02" reply_cluster="emotion_09" reply_cluster_label="情感类" reply_cluster_order="3" reply_to="E09_P01">已经开始记了✍️</d>
+  <d p="49,1,25,16777215,1733619000,0,0a78f446,229787867926509593" id="A09_R13" reply_cluster="answer_09" reply_cluster_label="解答类" reply_cluster_order="7" reply_to="A09_M01">写法：中法用具体项目举例更好写</d>
+  <d p="49.3,1,25,16777215,1733619300,0,61be660d,269937487836571896" id="N032">今晚就去做真题验证</d>
+  <d p="49.64,1,25,16777215,1733619640,0,7949afd5,64231404333484161" id="A09_M02" reply_cluster="answer_09" reply_cluster_label="解答类" reply_cluster_order="8" reply_to="A09_P01">中间2：踩坑提醒</d>
+  <d p="49.73,1,25,16777215,1733619730,0,b9504b02,894154805031370095" id="A09_R21" reply_cluster="answer_09" reply_cluster_label="解答类" reply_cluster_order="9" reply_to="A09_M02">别把“中法核能合作”写到中欧里</d>
+  <d p="49.82,1,25,16777215,1733619820,0,2fc01824,756726380959108237" id="N033">跟着老师写就会</d>
+  <d p="49.91,1,25,16777215,1733619910,0,fecb2ca2,901176910913122296" id="A09_R22" reply_cluster="answer_09" reply_cluster_label="解答类" reply_cluster_order="10" reply_to="A09_M02">也别把“欧盟政策”当法国立场</d>
+  <d p="50,1,25,16777215,1733620000,0,c6ffc2f2,885942256196444075" id="N034">我愿称之为救命课（考点）</d>
+  <d p="50.09,1,25,16777215,1733620089,0,24be72ad,560811689773427586" id="N035">这对比表太香了</d>
+  <d p="50.18,1,25,16777215,1733620180,0,161c8ce9,34922811675976963" id="N036">感觉脑子开窍了🤣</d>
+  <d p="50.27,1,25,16777215,1733620269,0,c0cfd284,933482891438509844" id="A09_R23" reply_cluster="answer_09" reply_cluster_label="解答类" reply_cluster_order="11" reply_to="A09_M02">一句话：主体不同→考点不同</d>
+  <d p="50.36,1,25,16777215,1733620360,0,8d9fcdc9,566264846521783665" id="E09_M01" reply_cluster="emotion_09" reply_cluster_label="情感类" reply_cluster_order="4" reply_to="E09_P01">中间：老师别停！</d>
+  <d p="50.45,1,25,16777215,1733620449,0,cde13a2a,67798649821647769" id="N037">一听就懂，狠狠爱住</d>
+  <d p="52,1,25,16777215,1733622000,0,123939fb,545366651908241039" id="E09_R11" reply_cluster="emotion_09" reply_cluster_label="情感类" reply_cluster_order="5" reply_to="E09_M01">讲完中法讲中俄，逻辑太顺</d>
+  <d p="52.3,1,25,16776960,1733622300,0,daf57a83,142429704084026817" id="N038">用“构建人类命运共同体、维护多边主义”收尾</d>
+  <d p="52.4,1,25,16777215,1733622400,0,fa30f075,473993617398290953" id="E09_R12" reply_cluster="emotion_09" reply_cluster_label="情感类" reply_cluster_order="6" reply_to="E09_M01">每一组都能套模板</d>
+  <d p="52.64,1,25,16777215,1733622640,0,8c96bb58,326496208268285296" id="E09_R13" reply_cluster="emotion_09" reply_cluster_label="情感类" reply_cluster_order="7" reply_to="E09_M01">我给跪了🙇</d>
+  <d p="52.73,1,25,16777215,1733622730,0,7dde5dc8,199726315511745151" id="N039">高分句：维护以国际法为基础的国际秩序（考点）</d>
+  <d p="52.82,1,25,16777215,1733622820,0,18296271,993389036667808166" id="E09_M02" reply_cluster="emotion_09" reply_cluster_label="情感类" reply_cluster_order="8" reply_to="E09_P01">中间2：考前焦虑被治好了</d>
+  <d p="52.91,1,25,16777215,1733622910,0,afd6e0a0,251763946850118527" id="N040">高分句：反对单边主义和保护主义</d>
+  <d p="53,1,25,16777215,1733623000,0,ed95aac6,811261940880546174" id="N041">高分句：坚持真正的多边主义</d>
+  <d p="53.09,1,25,16777215,1733623089,0,663c522e,812414273387502418" id="N042">高分句：推动全球治理体系改革完善</d>
+  <d p="53.18,1,25,16777215,1733623180,0,50b7d255,334779301771140572" id="N043">高分句：为世界注入稳定性确定性</d>
+  <d p="53.27,1,25,16777215,1733623269,0,d35554ff,808393456769877231" id="E09_R21" reply_cluster="emotion_09" reply_cluster_label="情感类" reply_cluster_order="9" reply_to="E09_M02">有框架就有安全感</d>
+  <d p="53.36,1,25,16777215,1733623360,0,51ec6157,843579657459509825" id="E09_R22" reply_cluster="emotion_09" reply_cluster_label="情感类" reply_cluster_order="10" reply_to="E09_M02">冲刺加油！</d>
+  <d p="53.45,1,25,16777215,1733623449,0,fd4ed71a,105186756327903301" id="E09_R23" reply_cluster="emotion_09" reply_cluster_label="情感类" reply_cluster_order="11" reply_to="E09_M02">一起上岸！</d>
+  <d p="55,1,25,16777215,1733625000,0,f2557824,554474790844085272" id="N044">10分钟真的能搞定！</d>
+  <d p="55.3,1,25,16777215,1733625300,0,53e1b5c1,455259004473450460" id="N045">给我一个表格我能背到考场</d>
+  <d p="55.64,1,25,16777215,1733625640,0,9cdcff49,344044876818859567" id="A10_P01" reply_cluster="answer_10" reply_cluster_label="解答类" reply_cluster_order="1">四组关系考点怎么一眼区分？</d>
+  <d p="55.73,1,25,16777215,1733625730,0,6fcb8b49,735641745937484915" id="A10_R01" reply_cluster="answer_10" reply_cluster_label="解答类" reply_cluster_order="2" reply_to="A10_P01">口诀：中美竞合、中法多边、中俄协作、中欧压舱</d>
+  <d p="55.82,1,25,16777215,1733625820,0,d6b2ab98,632733978046614177" id="A10_R02" reply_cluster="answer_10" reply_cluster_label="解答类" reply_cluster_order="3" reply_to="A10_P01">先写定位，再写特点，最后写态度</d>
+  <d p="55.91,1,25,16777215,1733625910,0,8dc414f6,235730475167874336" id="A10_M01" reply_cluster="answer_10" reply_cluster_label="解答类" reply_cluster_order="4" reply_to="A10_P01">中间：共同句怎么写？</d>
+  <d p="56,1,25,16777215,1733626000,0,148c1b50,144928938007649843" id="A10_R11" reply_cluster="answer_10" reply_cluster_label="解答类" reply_cluster_order="5" reply_to="A10_M01">都能写：维护和平发展、反对霸权强权</d>
+  <d p="56.09,1,25,16777215,1733626089,0,e417a752,71649033436274208" id="E10_P01" reply_cluster="emotion_10" reply_cluster_label="情感类" reply_cluster_order="1">说真的，这种课多来点</d>
+  <d p="56.18,1,25,16777215,1733626180,0,79c91f5c,910285682839302025" id="E10_R01" reply_cluster="emotion_10" reply_cluster_label="情感类" reply_cluster_order="2" reply_to="E10_P01">10分钟=4道大题素材</d>
+  <d p="56.27,1,25,16777215,1733626269,0,c44bfc7d,737123874008419037" id="E10_R02" reply_cluster="emotion_10" reply_cluster_label="情感类" reply_cluster_order="3" reply_to="E10_P01">相当于压缩笔记本</d>
+  <d p="56.36,1,25,16777215,1733626360,0,3055d184,161831746573629822" id="A10_R12" reply_cluster="answer_10" reply_cluster_label="解答类" reply_cluster_order="6" reply_to="A10_M01">再写：扩大共同利益，管控分歧</d>
+  <d p="56.45,1,25,16777215,1733626449,0,6f1750d3,920413429204731047" id="A10_R13" reply_cluster="answer_10" reply_cluster_label="解答类" reply_cluster_order="7" reply_to="A10_M01">这就是“稳定健康可持续”三连</d>
+  <d p="58,1,25,16777215,1733628000,0,4b704548,885654630779481530" id="E10_M01" reply_cluster="emotion_10" reply_cluster_label="情感类" reply_cluster_order="4" reply_to="E10_P01">中间：收藏是必须的</d>
+  <d p="58.3,1,25,16776960,1733628300,0,08b7663d,678556698239934024" id="A10_M02" reply_cluster="answer_10" reply_cluster_label="解答类" reply_cluster_order="8" reply_to="A10_P01">中间2：考场快速展开</d>
+  <d p="58.64,1,25,16777215,1733628640,0,ba3280c3,819349544915904708" id="E10_R11" reply_cluster="emotion_10" reply_cluster_label="情感类" reply_cluster_order="5" reply_to="E10_M01">我已经转发同桌了</d>
+  <d p="58.73,1,25,16777215,1733628730,0,b6c1556f,679134515618054237" id="E10_R12" reply_cluster="emotion_10" reply_cluster_label="情感类" reply_cluster_order="6" reply_to="E10_M01">怕他还在乱写…</d>
+  <d p="58.82,1,25,16777215,1733628820,0,0f7a3721,664787901424337155" id="A10_R21" reply_cluster="answer_10" reply_cluster_label="解答类" reply_cluster_order="9" reply_to="A10_M02">每段3-4行：关键词+例子+态度</d>
+  <d p="58.91,1,25,16777215,1733628910,0,69101c73,666000739239815168" id="A10_R22" reply_cluster="answer_10" reply_cluster_label="解答类" reply_cluster_order="10" reply_to="A10_M02">例子：中美气候/中法核能/中俄能源/中欧经贸</d>
+  <d p="59,1,25,16777215,1733629000,0,fe62414f,50563548346395326" id="E10_R13" reply_cluster="emotion_10" reply_cluster_label="情感类" reply_cluster_order="7" reply_to="E10_M01">哈哈哈</d>
+  <d p="59.09,1,25,16777215,1733629089,0,5602bae4,33123661256232460" id="A10_R23" reply_cluster="answer_10" reply_cluster_label="解答类" reply_cluster_order="11" reply_to="A10_M02">背熟=10分钟搞定✅</d>
+  <d p="59.18,1,25,16777215,1733629180,0,d31b1ca3,882470681465303394" id="E10_M02" reply_cluster="emotion_10" reply_cluster_label="情感类" reply_cluster_order="8" reply_to="E10_P01">中间2：弹幕帮我复述</d>
+  <d p="59.27,1,25,16777215,1733629269,0,a2b3b9d5,251001188954781248" id="E10_R21" reply_cluster="emotion_10" reply_cluster_label="情感类" reply_cluster_order="9" reply_to="E10_M02">中法：多边主义+战略自主</d>
+  <d p="59.36,1,25,16777215,1733629360,0,36788429,211449639770006283" id="E10_R22" reply_cluster="emotion_10" reply_cluster_label="情感类" reply_cluster_order="10" reply_to="E10_M02">中欧：压舱石+全球治理</d>
+  <d p="59.45,1,25,16777215,1733629449,0,cde79096,221009490348828563" id="E10_R23" reply_cluster="emotion_10" reply_cluster_label="情感类" reply_cluster_order="11" reply_to="E10_M02">OK我会了！</d>
+</i>

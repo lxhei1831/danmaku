@@ -16,14 +16,14 @@
         id: 'zhengzhi',
         title: '中美关系、中法关系、中俄关系、中欧关系，全部考点区别，10分钟搞定！',
         videoSrc: './assets/videos/中美关系、中法关系、中俄关系、中欧关系，全部考点区别，10分钟搞定！.flv',
-        danmakuSrc: './assets/data/zhengzhi/replay_10.xml',
+        danmakuSrc: './assets/data/zhengzhi/中美中法中俄中欧_前60秒_不规则多线程回复集弹幕.xml',
         captionSrc: './assets/data/zhengzhi/中美关系、中法关系、中俄关系、中欧关系，全部考点区别，10分钟搞定！.srt'
       },
       {
         id: 'jixian',
         title: '你极限学得6吗？我打赌95%的同学算不对',
         videoSrc: './assets/videos/你极限学得6吗？我打赌95%的同学算不对.mp4',
-        danmakuSrc: './assets/data/jixian/你极限学得6吗？我打赌95%的同学算不对.xml',
+        danmakuSrc: './assets/data/jixian/极限学得6_前60秒_多线程回复集弹幕.xml',
         captionSrc: './assets/data/jixian/你极限学得6吗？我打赌95%的同学算不对.json'
       }
     ];
@@ -193,6 +193,10 @@
     function formatTime(seconds) {
       return `${Math.floor(seconds / 60).toString().padStart(2,'0')}:${Math.floor(seconds % 60).toString().padStart(2,'0')}`;
     }
+    function encodeAssetPath(path = '') {
+      if (!path) return '';
+      return path.split('/').map(segment => encodeURIComponent(segment)).join('/');
+    }
     function syncLayoutHeight() {
       const playerHeight = mainContent.clientHeight;
       if (playerHeight > 0) {
@@ -272,7 +276,7 @@
 
         const thumb = document.createElement('video');
         thumb.className = 'video-shelf-thumb';
-        thumb.src = item.videoSrc || '';
+        thumb.src = encodeAssetPath(item.videoSrc || '');
         thumb.preload = 'metadata';
         thumb.muted = true;
         thumb.playsInline = true;
@@ -327,7 +331,7 @@
       if (!config || !video) return;
       resetVideoState();
 
-      const nextSource = config.videoSrc || '';
+      const nextSource = encodeAssetPath(config.videoSrc || '');
       if (nextSource) {
         video.pause();
         video.src = nextSource;
@@ -405,7 +409,8 @@
     async function preloadSubtitleFile(path = captionFilePath) {
       try {
         if (!path) throw new Error('字幕路径为空');
-        const response = await fetch(path);
+        const encodedPath = encodeAssetPath(path);
+        const response = await fetch(encodedPath);
         if (!response.ok) throw new Error(`字幕文件请求失败: ${response.status}`);
         const text = await response.text();
         subtitleFileText = text;
@@ -785,7 +790,8 @@
 
     async function loadAndProcessDanmaku(url) {
       try {
-        const response = await fetch(url);
+        const encodedUrl = encodeAssetPath(url);
+        const response = await fetch(encodedUrl);
         const xmlString = await response.text();
         const parser = new DOMParser();
         const xmlDoc = parser.parseFromString(xmlString, "application/xml");
