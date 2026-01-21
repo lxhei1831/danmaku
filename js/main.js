@@ -4,7 +4,26 @@
     const MULTIMODAL_API_URL = "https://api.siliconflow.cn/v1/chat/completions";
     const MULTIMODAL_MODEL = "Qwen/Qwen3-VL-32B-Instruct";
     const MAX_SUBTITLE_SNIPPET_CHARS = 20000;
-    const CAPTION_FILE_PATH = "./assets/data/100dianlu/caption.srt";
+    const VIDEO_CATALOG = [
+      {
+        id: '100dianlu',
+        title: '100个电路图',
+        videoSrc: './assets/videos/100dianlu.mp4',
+        danmakuSrc: './assets/data/100dianlu/replay_7.xml',
+        captionSrc: './assets/data/100dianlu/caption.srt'
+      },
+      {
+        id: 'zhengzhi',
+        title: '中美关系、中法关系、中俄关系、中欧关系，全部考点区别，10分钟搞定！',
+        videoSrc: './assets/videos/中美关系、中法关系、中俄关系、中欧关系，全部考点区别，10分钟搞定！.flv',
+        danmakuSrc: './assets/data/zhengzhi/replay_8.xml',
+        captionSrc: './assets/data/zhengzhi/中美关系、中法关系、中俄关系、中欧关系，全部考点区别，10分钟搞定！.srt'
+      }
+    ];
+    let activeVideoIndex = 0;
+    let activeVideoConfig = VIDEO_CATALOG[0];
+    let captionFilePath = activeVideoConfig ? activeVideoConfig.captionSrc : '';
+    let danmakuFilePath = activeVideoConfig ? activeVideoConfig.danmakuSrc : '';
     const AUTO_SEND_AI_ON_RIGHT_CLICK = true; // 右键弹幕后是否直接自动提问
     const AI_QUESTION_TEMPLATE = "请围绕这条弹幕进行分析并给出回复建议：{text}"; // 自定义提问模板，保留 {text} 作为弹幕占位符
     const AI_GROUP_QUESTION_TEMPLATE = "请结合以下整组对话弹幕，给出总结和回复建议：{text}";
@@ -46,6 +65,8 @@
     const danmakuInput = document.getElementById('danmaku-input');
     const sendDanmakuBtn = document.getElementById('send-danmaku-btn');
     const danmakuAiToggle = document.getElementById('danmaku-ai-toggle');
+    const videoSelect = document.getElementById('video-selector');
+    const videoCount = document.getElementById('video-count');
     
     const connectorSvg = document.getElementById('dialogue-connector-svg');
     const aiOrbButton = document.getElementById('ai-orb');
@@ -172,6 +193,112 @@
       }
     }
 
+    function getVideoLabel(item, index) {
+      if (!item) return `视频 ${index + 1}`;
+      if (item.title) return item.title;
+      if (item.id) return item.id;
+      return `视频 ${index + 1}`;
+    }
+
+    function syncVideoToolbar() {
+      const total = VIDEO_CATALOG.length;
+      if (videoCount) {
+        videoCount.textContent = `${total}`;
+      }
+      if (videoSelect) {
+        videoSelect.innerHTML = '';
+        if (total === 0) {
+          videoSelect.disabled = true;
+          return;
+        }
+        VIDEO_CATALOG.forEach((item, index) => {
+          const option = document.createElement('option');
+          option.value = String(index);
+          option.textContent = getVideoLabel(item, index);
+          videoSelect.appendChild(option);
+        });
+        videoSelect.value = String(activeVideoIndex);
+        videoSelect.disabled = total <= 1;
+      }
+    }
+
+    function resetVideoState() {
+      stopLineAnimation();
+      if (danmakuManager) danmakuManager.clear();
+      if (danmakuScreen) danmakuScreen.innerHTML = '';
+      if (connectorSvg) connectorSvg.innerHTML = '';
+      if (sidebarContent) sidebarContent.innerHTML = '';
+      if (heatmapContent) heatmapContent.innerHTML = '';
+
+      danmakuData = [];
+      dialogueGroups = [];
+      danmakuIndex = 0;
+      dialogueIndex = 0;
+      parentDanmakuIds = new Set();
+      dialogueDanmakuIds = new Set();
+      activeDialogueDanmaku = new Map();
+      dialogueLaunchQueue = [];
+      dialogueTracks = [];
+
+      subtitleFileBlob = null;
+      subtitleFileText = '';
+      subtitleFileName = 'caption.srt';
+      videoContextInitPromise = null;
+
+      if (captureVideoElement) {
+        captureVideoElement.remove();
+        captureVideoElement = null;
+      }
+      captureVideoReadyPromise = null;
+
+      resetAiSidebarConversation();
+    }
+
+    async function loadVideoBundle(config, { autoPlay = false } = {}) {
+      if (!config || !video) return;
+      resetVideoState();
+
+      const nextSource = config.videoSrc || '';
+      if (nextSource) {
+        video.pause();
+        video.src = nextSource;
+        video.load();
+        try {
+          video.currentTime = 0;
+        } catch (error) {
+          console.warn('视频尚未就绪，稍后再重置时间轴', error);
+        }
+      }
+
+      danmakuData = await loadAndProcessDanmaku(config.danmakuSrc || danmakuFilePath);
+      danmakuManager = new DanmakuManager(danmakuScreen, NUM_TOTAL_TRACKS, NUM_DIALOGUE_TRACKS);
+      await preloadSubtitleFile(config.captionSrc || captionFilePath);
+
+      dialogueTracks = Array.from({ length: NUM_DIALOGUE_TRACKS }, () => ({ reservedForGroupId: null, releaseAt: 0 }));
+
+      rebuildFromTime(0);
+      renderBottomHeatmap();
+
+      if (autoPlay) {
+        video.play().catch(() => {});
+      }
+    }
+
+    async function switchVideoByIndex(nextIndex, { autoPlay = false } = {}) {
+      if (!VIDEO_CATALOG.length) return;
+      const safeIndex = Number.isFinite(nextIndex)
+        ? Math.max(0, Math.min(VIDEO_CATALOG.length - 1, nextIndex))
+        : 0;
+      if (safeIndex === activeVideoIndex && activeVideoConfig) return;
+
+      activeVideoIndex = safeIndex;
+      activeVideoConfig = VIDEO_CATALOG[activeVideoIndex];
+      captionFilePath = activeVideoConfig ? activeVideoConfig.captionSrc : '';
+      danmakuFilePath = activeVideoConfig ? activeVideoConfig.danmakuSrc : '';
+      if (videoSelect) videoSelect.value = String(activeVideoIndex);
+      await loadVideoBundle(activeVideoConfig, { autoPlay });
+    }
+
     function buildAiQuestionFromDanmaku(text) {
       if (!text) return "";
       const trimmed = text.trim();
@@ -206,14 +333,15 @@
       return null;
     }
 
-    async function preloadSubtitleFile() {
+    async function preloadSubtitleFile(path = captionFilePath) {
       try {
-        const response = await fetch(CAPTION_FILE_PATH);
+        if (!path) throw new Error('字幕路径为空');
+        const response = await fetch(path);
         if (!response.ok) throw new Error(`字幕文件请求失败: ${response.status}`);
         const text = await response.text();
         subtitleFileText = text;
         subtitleFileBlob = new Blob([text], { type: 'text/plain' });
-        subtitleFileName = CAPTION_FILE_PATH.split('/').pop() || 'caption.srt';
+        subtitleFileName = path.split('/').pop() || 'caption.srt';
         console.log(`字幕文件已加载: ${subtitleFileName}`);
       } catch (error) {
         console.error('加载字幕文件失败:', error);
@@ -722,7 +850,7 @@
         return mergedData;
       } catch (error) {
         console.error("加载或解析弹幕文件失败:", error);
-        alert("弹幕文件加载失败，请确保 'assets/data/100dianlu/replay_7.xml' 文件存在。");
+        alert(`弹幕文件加载失败，请确保 '${url}' 文件存在。`);
         return [];
       }
     }
@@ -1062,6 +1190,7 @@
     }
     
     function rebuildFromTime(seekTime) {
+      if (!danmakuManager) return;
       danmakuManager.clear();
       stopLineAnimation();
       connectorSvg.innerHTML = '';
@@ -1102,15 +1231,24 @@
     }
 
     // ===== 初始化与事件绑定 =====
+    function handleVideoMetadata() {
+      syncLayoutHeight();
+      renderBottomHeatmap();
+    }
+
     async function initializePlayer() {
-      danmakuData = await loadAndProcessDanmaku('./assets/data/100dianlu/replay_7.xml');
-      danmakuManager = new DanmakuManager(danmakuScreen, NUM_TOTAL_TRACKS, NUM_DIALOGUE_TRACKS);
-      await preloadSubtitleFile();
+      syncVideoToolbar();
+      if (videoSelect) {
+        videoSelect.addEventListener('change', () => {
+          const nextIndex = parseInt(videoSelect.value, 10);
+          switchVideoByIndex(nextIndex);
+        });
+      }
 
-      dialogueTracks = Array.from({ length: NUM_DIALOGUE_TRACKS }, () => ({ reservedForGroupId: null, releaseAt: 0 }));
+      await loadVideoBundle(activeVideoConfig);
 
-      video.addEventListener('loadedmetadata', syncLayoutHeight, { once: true });
-      if (video.readyState >= 1) syncLayoutHeight();
+      video.addEventListener('loadedmetadata', handleVideoMetadata);
+      if (video.readyState >= 1) handleVideoMetadata();
 
       window.addEventListener('resize', () => { syncLayoutHeight(); rebuildFromTime(video.currentTime); });
       video.addEventListener('play', () => { danmakuManager.resume(); startLineAnimation(); removeInteractionMenu(); });
@@ -1993,7 +2131,7 @@
     const heatmapContent = document.getElementById('heatmap-content');
     const heatmapZoomInput = document.getElementById('heatmap-zoom');
     const heatmapZoomValue = document.getElementById('heatmap-zoom-value');
-    const HEATMAP_ZOOM_STEP = 10;
+    const HEATMAP_ZOOM_STEP = 5;
     const HEATMAP_ZOOM_MIN = 10;
     const HEATMAP_ZOOM_MAX = 200;
     const HEATMAP_ZOOM_VERTICAL_THRESHOLD = 100;
@@ -2104,9 +2242,6 @@
       const anchorRect = anchorInfo ? heatmapContent.getBoundingClientRect() : null;
       const anchorLocalX = anchorInfo ? (anchorInfo.clientX - anchorRect.left) : 0;
       const anchorLocalY = anchorInfo ? (anchorInfo.clientY - anchorRect.top) : 0;
-      const anchorRatio = (anchorInfo && previousScrollWidth)
-        ? (previousScrollLeft + anchorLocalX) / previousScrollWidth
-        : null;
       const anchorRatioY = (anchorInfo && previousScrollHeight)
         ? (previousScrollTop + anchorLocalY) / previousScrollHeight
         : null;
@@ -2130,6 +2265,15 @@
       const compactMode = !heatmapZoomLocked;
 
       const edgePadding = 14;
+      const previousPlotWidth = previousScrollWidth > 0
+        ? Math.max(1, previousScrollWidth - edgePadding * 2)
+        : 0;
+      const anchorTime = (anchorInfo && previousPlotWidth > 0)
+        ? Math.min(
+          duration,
+          Math.max(0, ((previousScrollLeft + anchorLocalX - edgePadding) / previousPlotWidth) * duration)
+        )
+        : null;
       const axisHeight = 26 * zoomScale;
       const height = baseHeight * zoomScale;
       const chartHeight = height - axisHeight;
@@ -2658,11 +2802,11 @@
       heatmapContent.appendChild(svg);
 
       // 恢复横向滚动中心/指向点
-      if (anchorRatio !== null || anchorRatioY !== null) {
-        if (anchorRatio !== null) {
-          const target = anchorRatio * heatmapContent.scrollWidth - anchorLocalX;
+      if (anchorTime !== null || anchorRatioY !== null) {
+        if (anchorTime !== null) {
+          const targetX = edgePadding + (anchorTime / duration) * plotWidth;
           const maxScroll = Math.max(0, heatmapContent.scrollWidth - heatmapContent.clientWidth);
-          heatmapContent.scrollLeft = Math.max(0, Math.min(maxScroll, target));
+          heatmapContent.scrollLeft = Math.max(0, Math.min(maxScroll, targetX - anchorLocalX));
         }
         if (anchorRatioY !== null) {
           const targetY = anchorRatioY * heatmapContent.scrollHeight - anchorLocalY;

@@ -11,6 +11,13 @@
 </head>
 <body>
   <div class="main-content">
+    <div class="video-toolbar">
+      <div class="video-toolbar-count">共 <span id="video-count">0</span> 个视频</div>
+      <div class="video-toolbar-select">
+        <label for="video-selector">切换：</label>
+        <select id="video-selector" aria-label="选择视频"></select>
+      </div>
+    </div>
     <div class="danmaku-container" id="player-container">
       <video
         id="my-video"
@@ -53,7 +60,7 @@
       <div id="heatmap-content"></div>
       <div class="heatmap-controls">
         <label for="heatmap-zoom">时间缩放</label>
-        <input type="range" id="heatmap-zoom" min="10" max="200" step="10" value="20" />
+        <input type="range" id="heatmap-zoom" min="10" max="200" step="5" value="20" />
         <span id="heatmap-zoom-value">20.0x</span>
       </div>
     </div>
