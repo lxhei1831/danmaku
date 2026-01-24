@@ -409,7 +409,7 @@
       danmakuManager = new DanmakuManager(danmakuScreen, NUM_TOTAL_TRACKS, NUM_DIALOGUE_TRACKS, danmakuAreaMode);
       await preloadSubtitleFile(config.captionSrc || captionFilePath);
 
-      dialogueTracks = Array.from({ length: NUM_DIALOGUE_TRACKS }, () => ({ reservedForGroupId: null, releaseAt: 0 }));
+      dialogueTracks = Array.from({ length: NUM_DIALOGUE_TRACKS }, () => ({ releaseAt: 0 }));
 
       rebuildFromTime(0);
       renderBottomHeatmap();
@@ -1325,6 +1325,22 @@
     function startLineAnimation() { if (!lineAnimationId) lineAnimationId = requestAnimationFrame(updateConnectorLines); }
     function stopLineAnimation() { if (lineAnimationId) { cancelAnimationFrame(lineAnimationId); lineAnimationId = null; } }
 
+    function pickDialogueTrack() {
+      if (!danmakuManager || !danmakuManager.trackTimestamps) return null;
+      const trackCount = Math.max(0, danmakuManager.numDialogueTracks || NUM_DIALOGUE_TRACKS);
+      if (trackCount === 0) return null;
+      let bestTrack = 0;
+      let earliestTime = danmakuManager.trackTimestamps[0] ?? 0;
+      for (let i = 1; i < trackCount; i++) {
+        const t = danmakuManager.trackTimestamps[i] ?? 0;
+        if (t < earliestTime) {
+          earliestTime = t;
+          bestTrack = i;
+        }
+      }
+      return bestTrack;
+    }
+
     function addActiveDialogueDanmaku(el, msg) {
         if (!activeDialogueDanmaku.has(msg.groupId)) activeDialogueDanmaku.set(msg.groupId, []);
         const groupDanmakus = activeDialogueDanmaku.get(msg.groupId);
@@ -1361,7 +1377,7 @@
       if (!video.paused) startLineAnimation();
 
       dialogueLaunchQueue = [];
-      dialogueTracks.forEach(track => { track.reservedForGroupId = null; track.releaseAt = 0; });
+      dialogueTracks.forEach(track => { track.releaseAt = 0; });
       dialogueGroups.forEach(group => {
         group.assignedTrack = null;
         const sequence = group.timeline || [];
@@ -1434,44 +1450,31 @@
 
       video.addEventListener('timeupdate', () => {
         const currentTime = video.currentTime;
-        dialogueTracks.forEach(track => {
-          if (track.releaseAt > 0 && currentTime >= track.releaseAt) track.reservedForGroupId = null;
-        });
-
         dialogueGroups.forEach(group => {
-          if (group.startTime <= currentTime && group.assignedTrack === null && !dialogueLaunchQueue.some(g => g.id === group.id)) {
-            dialogueLaunchQueue.push(group);
-            dialogueLaunchQueue.sort((a, b) => a.startTime - b.startTime);
-          }
-        });
-
-        let freeIdx;
-        while (dialogueLaunchQueue.length > 0 && (freeIdx = dialogueTracks.findIndex(t => t.reservedForGroupId === null)) !== -1) {
-          const nextGroup = dialogueLaunchQueue.shift();
-          nextGroup.assignedTrack = freeIdx;
-          dialogueTracks[freeIdx].reservedForGroupId = nextGroup.id;
-        }
-
-        dialogueGroups.forEach(group => {
-          if (group.assignedTrack === null) return;
           const sequence = group.timeline || [];
           while (group.nextIdx < sequence.length && sequence[group.nextIdx].time <= currentTime) {
             const msg = sequence[group.nextIdx];
-            const exitTime = danmakuManager.launch(msg, true, group.assignedTrack);
+            let targetTrack = group.assignedTrack;
+            if (
+              targetTrack === null ||
+              targetTrack === undefined ||
+              targetTrack < 0 ||
+              targetTrack >= (danmakuManager ? danmakuManager.numDialogueTracks : NUM_DIALOGUE_TRACKS)
+            ) {
+              targetTrack = pickDialogueTrack();
+              if (targetTrack === null) break;
+              group.assignedTrack = targetTrack;
+            }
+            const exitTime = danmakuManager.launch(msg, true, targetTrack);
             if (msg.isParent && !group.parentLaunched) {
               group.parentLaunched = true;
             }
-            if (group.nextIdx === sequence.length - 1 && exitTime > 0) {
-              dialogueTracks[group.assignedTrack].releaseAt = exitTime;
+            if (exitTime > 0) {
+              const track = dialogueTracks[targetTrack];
+              if (track) track.releaseAt = exitTime;
               group.completedAt = exitTime;
             }
             group.nextIdx++;
-          }
-        });
-
-        dialogueGroups.forEach(group => {
-          if (group.assignedTrack !== null && group.completedAt && currentTime >= group.completedAt) {
-            group.assignedTrack = null;
           }
         });
 

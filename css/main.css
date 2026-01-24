@@ -163,7 +163,7 @@
     }
     .danmaku-item.is-parent-danmaku {
       cursor: pointer; pointer-events: auto; font-weight: bold;
-      background-color: color-mix(in srgb, var(--dialogue-color, #FFD700) 70%, transparent);
+      background-color: color-mix(in srgb, var(--dialogue-color, #FFD700) 80%, transparent);
       color: #111; text-shadow: none; border-color: rgba(255, 255, 255, 0.7);
     }
     .danmaku-item.is-parent-danmaku:hover {
