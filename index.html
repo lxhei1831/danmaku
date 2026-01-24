@@ -35,12 +35,34 @@
     </div>
 
     <div class="danmaku-controls">
-      <div class="danmaku-input-wrapper">
-        <input type="text" id="danmaku-input" placeholder="输入弹幕内容..." />
-        <button type="button" id="danmaku-ai-toggle" class="danmaku-ai-toggle" aria-pressed="false" title="开启AI自动回复">AI</button>
+      <div class="danmaku-controls-inner">
+        <div class="danmaku-left-tools">
+          <div class="danmaku-count-box" aria-live="polite">
+            已装填 <span id="danmaku-count">0</span> 条
+          </div>
+          <button type="button" class="danmaku-tool-btn" id="danmaku-toggle-btn" aria-pressed="true" title="关闭弹幕">
+            <img id="danmaku-toggle-icon" src="./assets/images/弹幕开.png" alt="弹幕开关" />
+          </button>
+          <button type="button" class="danmaku-tool-btn" id="danmaku-settings-btn" title="弹幕设置">
+            <img src="./assets/images/弹幕设置.png" alt="弹幕设置" />
+          </button>
+          <div class="danmaku-settings-panel" id="danmaku-settings-panel" aria-hidden="true">
+            <div class="danmaku-settings-title">显示区域</div>
+            <input type="range" id="danmaku-area-range" min="1" max="3" step="1" value="2" />
+            <div class="danmaku-settings-labels" aria-hidden="true">
+              <span>回复串</span>
+              <span>半屏</span>
+              <span>全部</span>
+            </div>
+          </div>
+        </div>
+        <div class="danmaku-input-wrapper">
+          <input type="text" id="danmaku-input" placeholder="输入弹幕内容..." />
+          <button type="button" id="danmaku-ai-toggle" class="danmaku-ai-toggle" aria-pressed="false" title="开启AI自动回复">AI</button>
+        </div>
+        <button id="send-danmaku-btn">发送</button>
+        <button class="btn" id="fs-toggle-2">全屏</button>
       </div>
-      <button id="send-danmaku-btn">发送</button>
-      <button class="btn" id="fs-toggle-2">全屏</button>
     </div>
 
     <div class="heatmap-panel is-collapsed" id="heatmap-panel">

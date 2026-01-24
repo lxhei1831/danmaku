@@ -9,7 +9,7 @@
         id: '100dianlu',
         title: '100个电路图',
         videoSrc: './assets/videos/100dianlu.mp4',
-        danmakuSrc: './assets/data/100dianlu/replay_7.xml',
+        danmakuSrc: './assets/data/100dianlu/初三物理_100个电路图_前60秒_增强弹幕.xml',
         captionSrc: './assets/data/100dianlu/caption.srt'
       },
       {
@@ -72,6 +72,12 @@
     const danmakuInput = document.getElementById('danmaku-input');
     const sendDanmakuBtn = document.getElementById('send-danmaku-btn');
     const danmakuAiToggle = document.getElementById('danmaku-ai-toggle');
+    const danmakuCount = document.getElementById('danmaku-count');
+    const danmakuToggleBtn = document.getElementById('danmaku-toggle-btn');
+    const danmakuToggleIcon = document.getElementById('danmaku-toggle-icon');
+    const danmakuSettingsBtn = document.getElementById('danmaku-settings-btn');
+    const danmakuSettingsPanel = document.getElementById('danmaku-settings-panel');
+    const danmakuAreaRange = document.getElementById('danmaku-area-range');
     const videoShelf = document.getElementById('video-shelf');
     const videoShelfList = document.getElementById('video-shelf-list');
     const videoShelfHeader = document.querySelector('.video-shelf-header');
@@ -141,6 +147,14 @@
     let aiSystemStatusText = '';
     let isOrbProcessing = false;
     let orbProcessingLocks = 0;
+    let danmakuVisible = true;
+    let danmakuTotalCount = 0;
+    const DANMAKU_AREA_MODES = {
+      REPLY_ONLY: 1,
+      HALF: 2,
+      FULL: 3
+    };
+    let danmakuAreaMode = DANMAKU_AREA_MODES.HALF;
     const VIDEO_CONTEXT_WINDOW_SECONDS = 60;
     const VIDEO_CONTEXT_INTERVAL_SECONDS = 5;
     const VIDEO_CONTEXT_PROMPT = "请通读以下视频前一分钟的截图与字幕，生成详尽的内容理解，提炼教学要点，供后续问答使用。";
@@ -196,6 +210,45 @@
     function encodeAssetPath(path = '') {
       if (!path) return '';
       return path.split('/').map(segment => encodeURIComponent(segment)).join('/');
+    }
+    function syncDanmakuCount() {
+      if (danmakuCount) {
+        danmakuCount.textContent = `${danmakuTotalCount}`;
+      }
+    }
+    function setDanmakuVisibility(visible) {
+      danmakuVisible = !!visible;
+      if (danmakuScreen) danmakuScreen.classList.toggle('is-hidden', !danmakuVisible);
+      if (connectorSvg) connectorSvg.classList.toggle('is-hidden', !danmakuVisible);
+      if (danmakuToggleBtn) danmakuToggleBtn.setAttribute('aria-pressed', String(danmakuVisible));
+      if (danmakuToggleBtn) danmakuToggleBtn.classList.toggle('is-active', danmakuVisible);
+      if (danmakuToggleBtn) {
+        danmakuToggleBtn.title = danmakuVisible ? '关闭弹幕' : '开启弹幕';
+      }
+      if (danmakuToggleIcon) {
+        danmakuToggleIcon.src = danmakuVisible
+          ? './assets/images/弹幕开.png'
+          : './assets/images/弹幕关.png';
+      }
+    }
+    function setDanmakuAreaMode(mode) {
+      danmakuAreaMode = mode;
+      if (danmakuAreaRange) danmakuAreaRange.value = String(mode);
+      if (danmakuManager) {
+        danmakuManager.setNormalTrackMode(mode);
+        rebuildFromTime(video.currentTime);
+      }
+    }
+    function toggleDanmakuSettingsPanel(forceOpen = null) {
+      if (!danmakuSettingsPanel) return;
+      const shouldOpen = forceOpen !== null
+        ? !!forceOpen
+        : !danmakuSettingsPanel.classList.contains('is-open');
+      danmakuSettingsPanel.classList.toggle('is-open', shouldOpen);
+      danmakuSettingsPanel.setAttribute('aria-hidden', (!shouldOpen).toString());
+      if (danmakuSettingsBtn) {
+        danmakuSettingsBtn.classList.toggle('is-active', shouldOpen);
+      }
     }
     function syncLayoutHeight() {
       const playerHeight = mainContent.clientHeight;
@@ -307,6 +360,8 @@
       dialogueGroups = [];
       danmakuIndex = 0;
       dialogueIndex = 0;
+      danmakuTotalCount = 0;
+      syncDanmakuCount();
       parentDanmakuIds = new Set();
       dialogueDanmakuIds = new Set();
       activeDialogueDanmaku = new Map();
@@ -325,6 +380,8 @@
       captureVideoReadyPromise = null;
 
       resetAiSidebarConversation();
+      setDanmakuVisibility(danmakuVisible);
+      if (danmakuAreaRange) danmakuAreaRange.value = String(danmakuAreaMode);
     }
 
     async function loadVideoBundle(config, { autoPlay = false } = {}) {
@@ -349,7 +406,7 @@
       }
 
       danmakuData = await loadAndProcessDanmaku(config.danmakuSrc || danmakuFilePath);
-      danmakuManager = new DanmakuManager(danmakuScreen, NUM_TOTAL_TRACKS, NUM_DIALOGUE_TRACKS);
+      danmakuManager = new DanmakuManager(danmakuScreen, NUM_TOTAL_TRACKS, NUM_DIALOGUE_TRACKS, danmakuAreaMode);
       await preloadSubtitleFile(config.captionSrc || captionFilePath);
 
       dialogueTracks = Array.from({ length: NUM_DIALOGUE_TRACKS }, () => ({ reservedForGroupId: null, releaseAt: 0 }));
@@ -845,6 +902,8 @@
         });
 
         parsedData.sort((a, b) => a.time - b.time);
+        danmakuTotalCount = parsedData.length;
+        syncDanmakuCount();
 
         const isValidReplyLink = (reply, parent) => {
           if (!reply || !parent) return false;
@@ -858,8 +917,14 @@
             const parent = tempMap.get(d.replyTo);
             if (isValidReplyLink(d, parent)) {
               parent.replies.push(d);
-              if (parent.id) parentDanmakuIds.add(parent.id);
             }
+          }
+        });
+
+        parentDanmakuIds = new Set();
+        parsedData.forEach(d => {
+          if (!d.replyTo && d.id && Number.isFinite(d.replyClusterOrder) && d.replyClusterOrder === 1) {
+            parentDanmakuIds.add(d.id);
           }
         });
 
@@ -1092,11 +1157,16 @@
 
     // 弹幕管理器
     class DanmakuManager {
-      constructor(screenElement, totalTracks, dialogueTracksCount) {
+      constructor(screenElement, totalTracks, dialogueTracksCount, normalTrackMode = DANMAKU_AREA_MODES.HALF) {
         this.screen = screenElement;
         this.numTotalTracks = totalTracks;
         this.numDialogueTracks = dialogueTracksCount;
         this.trackTimestamps = new Array(totalTracks).fill(0);
+        this.normalTrackMode = normalTrackMode;
+      }
+
+      setNormalTrackMode(mode) {
+        this.normalTrackMode = mode;
       }
 
       launch(danmakuObj, isDialogue, forcedTrack = null) {
@@ -1166,8 +1236,16 @@
           if (forcedTrack !== null && forcedTrack >= 0 && forcedTrack < this.numDialogueTracks) targetTrack = forcedTrack;
           else return 0;
         } else {
-          const normalTracks = this.numTotalTracks - this.numDialogueTracks;
-          const usableNormalTracks = Math.max(1, Math.ceil(normalTracks / 2));
+          const normalTracks = Math.max(0, this.numTotalTracks - this.numDialogueTracks);
+          let usableNormalTracks = 0;
+          if (this.normalTrackMode === DANMAKU_AREA_MODES.REPLY_ONLY) {
+            usableNormalTracks = 0;
+          } else if (this.normalTrackMode === DANMAKU_AREA_MODES.FULL) {
+            usableNormalTracks = normalTracks;
+          } else {
+            usableNormalTracks = Math.max(1, Math.ceil(normalTracks / 2));
+          }
+          if (usableNormalTracks <= 0) return 0;
           const firstNormalTrack = this.numDialogueTracks;
           const lastNormalTrack = Math.min(this.numTotalTracks - 1, firstNormalTrack + usableNormalTracks - 1);
           let bestTrack = firstNormalTrack;
@@ -2212,6 +2290,30 @@
     if (danmakuAiToggle) {
       danmakuAiToggle.addEventListener('click', toggleManualAiReply);
     }
+    if (danmakuToggleBtn) {
+      danmakuToggleBtn.addEventListener('click', () => {
+        setDanmakuVisibility(!danmakuVisible);
+      });
+    }
+    if (danmakuSettingsBtn) {
+      danmakuSettingsBtn.addEventListener('click', () => {
+        toggleDanmakuSettingsPanel();
+      });
+    }
+    if (danmakuAreaRange) {
+      danmakuAreaRange.addEventListener('input', (e) => {
+        const value = parseInt(e.target.value, 10);
+        if ([1, 2, 3].includes(value)) {
+          setDanmakuAreaMode(value);
+        }
+      });
+    }
+    document.addEventListener('click', (e) => {
+      if (!danmakuSettingsPanel || !danmakuSettingsBtn) return;
+      const target = e.target;
+      if (danmakuSettingsPanel.contains(target) || danmakuSettingsBtn.contains(target)) return;
+      toggleDanmakuSettingsPanel(false);
+    });
 
     if (sendDanmakuBtn) sendDanmakuBtn.addEventListener('click', sendManualDanmaku);
     if (danmakuInput) {
@@ -3256,4 +3358,5 @@
       });
     }
 
+    setDanmakuVisibility(danmakuVisible);
     initializePlayer();

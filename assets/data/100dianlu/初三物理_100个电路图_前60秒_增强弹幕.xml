@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i>
+  <chatserver>chat.bilibili.com</chatserver>
+  <chatid>31945591098</chatid>
+  <mission>0</mission>
+  <maxlimit>1000</maxlimit>
+  <state>0</state>
+  <real_name>0</real_name>
+  <source>k-v</source>
+  <d p="0.000,1,25,16777215,1759999999,0,bcd98e59,4344278620040250035,10" id="N001">并联：全亮稳了</d>
+  <d p="0.467,1,25,16777215,1760000003,0,4115419b,5252568327695813216,10" id="E11_P01" reply_cluster="emotion_11" reply_cluster_label="情感类" reply_cluster_order="1">主观题写法终于有人教了😭</d>
+  <d p="0.503,1,25,16777215,1760000004,0,e7ec1074,9679214009299793338,10" id="N002">我选 L2 亮</d>
+  <d p="0.581,1,25,16777215,1760000005,0,b7aedf2a,5629367414567785845,10" id="N003">100张电路图：拓扑不变，位置随便挪</d>
+  <d p="0.594,1,25,16777215,1760000005,0,9826b227,8218036556825023648,10" id="E11_R01" reply_cluster="emotion_11" reply_cluster_label="情感类" reply_cluster_order="2" reply_to="E11_P01">以前写一堆废话还扣分</d>
+  <d p="0.714,1,25,16777215,1760000009,0,7891dae1,4085387756956227877,10" id="E11_R02" reply_cluster="emotion_11" reply_cluster_label="情感类" reply_cluster_order="3" reply_to="E11_P01">现在：闭合回路/同一节点/短接✅</d>
+  <d p="0.740,1,25,16777215,1760000006,0,7d711f92,9524864632871085006,10" id="N004">L1、L3 亮</d>
+  <d p="0.911,1,25,16777215,1760000007,0,4cb433e5,8447409502332149478,10" id="N005">全亮稳了</d>
+  <d p="1.015,1,25,16777215,1760000009,0,bdde7845,2102031578997518849,10" id="N006">先打乱接电线的一顿，打完再去拿剪刀</d>
+  <d p="1.043,1,25,16777215,1760000010,0,e9555fba,3062951692685095112,10" id="N007">L1 亮吗？</d>
+  <d p="1.061,1,25,16777215,1760000011,0,f9f0b8f5,8622200767764512986,10" id="E11_M01" reply_cluster="emotion_11" reply_cluster_label="情感类" reply_cluster_order="4" reply_to="E11_P01">中间：关键词写出来就稳</d>
+  <d p="1.175,1,25,16777215,1760000009,0,1aa728ec,2459433016420308764,10" id="N008">我选 L1 亮</d>
+  <d p="1.225,1,25,16777215,1760000011,0,cda83a32,8882128027937068331,10" id="E11_R11" reply_cluster="emotion_11" reply_cluster_label="情感类" reply_cluster_order="5" reply_to="E11_M01">阅卷老师：嗯…这娃懂</d>
+  <d p="1.295,1,25,16777215,1760000013,0,f78ff25f,5256044424064045106,10" id="N009">L1或l2或l3</d>
+  <d p="1.366,1,25,16777215,1760000013,0,d755095a,2781308070385965511,10" id="E11_R12" reply_cluster="emotion_11" reply_cluster_label="情感类" reply_cluster_order="6" reply_to="E11_M01">我：拿分拿分🤣</d>
+  <d p="1.580,1,25,16777215,1760000016,0,4dbcf5e3,9983403649727941449,10" id="N010">我选 L1 亮</d>
+  <d p="1.666,1,25,16777215,1760000017,0,10e21b24,6609860702229984709,10" id="N011">交叉线别当连接！有黑点才连接</d>
+  <d p="1.738,1,25,16777215,1760000018,0,f4edea8e,4028723643747014008,10" id="N012">都不亮</d>
+  <d p="1.755,1,25,16777215,1760000019,0,47a16f03,3732705566489900019,10" id="N013">别急着选灯泡，先看有没有闭合回路</d>
+  <d p="1.798,1,25,16777215,1760000019,0,35a0af6e,6485635043614146218,10" id="E11_M02" reply_cluster="emotion_11" reply_cluster_label="情感类" reply_cluster_order="7" reply_to="E11_P01">希望我别在考场忘词</d>
+  <d p="1.880,1,25,16777215,1760000019,0,7921395f,4329493923032367259,10" id="N014">都亮没毛病</d>
+  <d p="1.946,1,25,16777215,1760000021,0,c6b526d6,1885452261570669834,10" id="N015">并联全亮是常态，别慌</d>
+  <d p="1.971,1,25,16777215,1760000019,0,ede68b30,4909585898679300032,10" id="N016">押一手 L3✅</d>
+  <d p="2.040,1,25,16777215,1760000021,0,409534f9,6323474159145407065,10" id="E11_R21" reply_cluster="emotion_11" reply_cluster_label="情感类" reply_cluster_order="8" reply_to="E11_M02">我已经把模板抄三遍</d>
+  <d p="2.133,1,25,16777215,1760000023,0,dc62d21b,4322462787178063063,10" id="N017">一眼并联</d>
+  <d p="2.245,1,25,16777215,1760000022,0,1c54c0fd,9155354081315132260,10" id="E11_R22" reply_cluster="emotion_11" reply_cluster_label="情感类" reply_cluster_order="9" reply_to="E11_M02">考前再来复刷一遍</d>
+  <d p="2.427,1,25,16777215,1760000025,0,d69e9f8c,6898336541487378702,10" id="N018">L1和l2</d>
+  <d p="2.689,1,25,16777215,1760000026,0,b8feff2b,7659965086495715563,10" id="N019">我选 L1 亮</d>
+  <d p="2.730,1,25,16777215,1760000028,0,0058c6fc,4147077840521156543,10" id="E11_M03" reply_cluster="emotion_11" reply_cluster_label="情感类" reply_cluster_order="10" reply_to="E11_P01">祝大家电路题全对</d>
+  <d p="2.879,1,25,16777215,1760000030,0,7b104046,3250777758665808341,10" id="E11_R31" reply_cluster="emotion_11" reply_cluster_label="情感类" reply_cluster_order="11" reply_to="E11_M03">冲冲冲！</d>
+  <d p="2.894,1,25,16777215,1760000029,0,5d290aa2,4657395617590517088,10" id="N020">这题是并联：全部点亮</d>
+  <d p="2.937,1,25,16777215,1760000029,0,094fc24f,3786401273888777786,10" id="A10_P01" reply_cluster="answer_10" reply_cluster_label="解答类" reply_cluster_order="1">复杂电路也能“同1个方法”秒？</d>
+  <d p="3.111,1,25,16777215,1760000030,0,ff91f91b,1721103946767820750,10" id="A10_R01" reply_cluster="answer_10" reply_cluster_label="解答类" reply_cluster_order="2" reply_to="A10_P01">能！先重画+标节点</d>
+  <d p="3.259,1,25,16777215,1760000034,0,b9575931,6257590040594862276,10" id="N021">电势法真香</d>
+  <d p="3.275,1,25,16777215,1760000032,0,d135417d,1461964379767231741,10" id="A10_R02" reply_cluster="answer_10" reply_cluster_label="解答类" reply_cluster_order="3" reply_to="A10_P01">复杂只是绕线多，本质还是串并</d>
+  <d p="3.663,1,25,16777215,1760000034,0,91dba9c8,4579830012232603446,10" id="A10_M01" reply_cluster="answer_10" reply_cluster_label="解答类" reply_cluster_order="4" reply_to="A10_P01">中间：桥式电路先干啥？</d>
+  <d p="3.921,1,25,16777215,1760000037,0,0e72cb81,4018812622853069906,10" id="A10_R11" reply_cluster="answer_10" reply_cluster_label="解答类" reply_cluster_order="5" reply_to="A10_M01">先找对称/等电位点</d>
+  <d p="3.959,1,25,16777215,1760000037,0,d6e0c6a6,9602061357096336538,10" id="N022">l1吗</d>
+  <d p="4.120,1,25,16777215,1760000043,0,e9a55bf3,4328471431339459499,10" id="A10_R12" reply_cluster="answer_10" reply_cluster_label="解答类" reply_cluster_order="6" reply_to="A10_M01">再判断哪条支路无电流</d>
+  <d p="4.341,1,25,16777215,1760000042,0,a19093b1,6292995186512437562,10" id="A10_M02" reply_cluster="answer_10" reply_cluster_label="解答类" reply_cluster_order="7" reply_to="A10_P01">常见坑在哪里？</d>
+  <d p="4.495,1,25,16777215,1760000042,0,87b09cce,3929535765324033978,10" id="A10_R21" reply_cluster="answer_10" reply_cluster_label="解答类" reply_cluster_order="8" reply_to="A10_M02">把中间支路当串联，其实是分叉</d>
+  <d p="4.511,1,25,16777215,1760000047,0,a111bca5,2454855140443986836,10" id="N023">老杜一号</d>
+  <d p="4.746,1,25,16777215,1760000045,0,496bb9d3,2317374266707996646,10" id="A10_R22" reply_cluster="answer_10" reply_cluster_label="解答类" reply_cluster_order="9" reply_to="A10_M02">重画后立刻暴露真相</d>
+  <d p="4.853,1,25,16777215,1760000050,0,2c82a397,5140148973146814797,10" id="E03_P01" reply_cluster="emotion_03" reply_cluster_label="情感类" reply_cluster_order="1">开局就劝我别算，先看路…太真实</d>
+  <d p="4.961,1,25,16777215,1760000048,0,fa96d1d4,9850428255906031353,10" id="E03_R01" reply_cluster="emotion_03" reply_cluster_label="情感类" reply_cluster_order="2" reply_to="E03_P01">我脑子：算！老师：别算！</d>
+  <d p="5.000,1,25,16777215,1760000048,0,b50b2ceb,2342083396566101358,10" id="N024">12</d>
+  <d p="5.114,1,25,16777215,1760000051,0,4b49c6fc,1891486693728730324,10" id="E03_R02" reply_cluster="emotion_03" reply_cluster_label="情感类" reply_cluster_order="3" reply_to="E03_P01">我：听老师的✅</d>
+  <d p="5.138,1,25,16777215,1760000050,0,ca97d027,8094161702509251543,10" id="A10_M03" reply_cluster="answer_10" reply_cluster_label="解答类" reply_cluster_order="10" reply_to="A10_P01">刷100题的节奏？</d>
+  <d p="5.294,1,25,16777215,1760000051,0,512bb351,6922558123430539436,10" id="A10_R31" reply_cluster="answer_10" reply_cluster_label="解答类" reply_cluster_order="11" reply_to="A10_M03">每题10秒：重画→判路→结论✅</d>
+  <d p="5.295,1,25,16777215,1760000053,0,fee5bdae,2792435642658171379,10" id="N025">同一点电势相同→电压差为0</d>
+  <d p="5.408,1,25,16777215,1760000052,0,d4156dbc,1460228921239230839,10" id="N026">1小时前</d>
+  <d p="5.496,1,25,16777215,1760000054,0,15c34787,1558653491955380392,10" id="E03_M01" reply_cluster="emotion_03" reply_cluster_label="情感类" reply_cluster_order="4" reply_to="E03_P01">中间：并联全亮我已经会背了</d>
+  <d p="5.714,1,25,16777215,1760000055,0,dc134d91,3048364035585691646,10" id="E03_R11" reply_cluster="emotion_03" reply_cluster_label="情感类" reply_cluster_order="5" reply_to="E03_M01">但是一复杂我又不会了😭</d>
+  <d p="5.924,1,25,16777215,1760000060,0,a9ed0656,1301477129340398814,10" id="E03_R12" reply_cluster="emotion_03" reply_cluster_label="情感类" reply_cluster_order="6" reply_to="E03_M01">还好今天学会节点法</d>
+  <d p="6.052,1,25,16777215,1760000062,0,1597153b,2711645986893477363,10" id="N027">实践出真知</d>
+  <d p="6.283,1,25,16777215,1760000064,0,48a8b146,3312522209039695177,10" id="E03_M02" reply_cluster="emotion_03" reply_cluster_label="情感类" reply_cluster_order="7" reply_to="E03_P01">突然感觉物理能学下去</d>
+  <d p="6.421,1,25,16777215,1760000065,0,dcebda7a,4624697459463575085,10" id="E03_R21" reply_cluster="emotion_03" reply_cluster_label="情感类" reply_cluster_order="8" reply_to="E03_M02">这才叫“方法课”！</d>
+  <d p="6.564,1,25,16777215,1760000063,0,0fe51e71,6463812544223249419,10" id="E03_R22" reply_cluster="emotion_03" reply_cluster_label="情感类" reply_cluster_order="9" reply_to="E03_M02">同一个方法刷一百题=爽</d>
+  <d p="6.594,1,25,16777215,1760000067,0,6363b58a,5621289810926253614,10" id="A01_P01" reply_cluster="answer_01" reply_cluster_label="解答类" reply_cluster_order="1">老师说的“同1个方法”到底是啥？</d>
+  <d p="6.717,1,25,16777215,1760000069,0,6d6ee9e0,1026877765083720997,10" id="A01_R01" reply_cluster="answer_01" reply_cluster_label="解答类" reply_cluster_order="2" reply_to="A01_P01">电路重画+看节点！拓扑不变✅</d>
+  <d p="6.814,1,25,16777215,1760000067,0,27356b51,3231567191133430135,10" id="E03_M03" reply_cluster="emotion_03" reply_cluster_label="情感类" reply_cluster_order="10" reply_to="E03_P01">我已经开始截图做笔记</d>
+  <d p="6.877,1,25,16777215,1760000068,0,83dd9d29,8957510420818136678,10" id="A01_R02" reply_cluster="answer_01" reply_cluster_label="解答类" reply_cluster_order="3" reply_to="A01_P01">先把导线拉直，元件挪一挪就清楚</d>
+  <d p="7.079,1,25,16777215,1760000069,0,e27f3155,6630652969732238091,10" id="E03_R31" reply_cluster="emotion_03" reply_cluster_label="情感类" reply_cluster_order="11" reply_to="E03_M03">今晚就拿同桌电路题开刀😎</d>
+  <d p="7.124,1,25,16777215,1760000071,0,432c8571,8678061947894947113,10" id="A01_M01" reply_cluster="answer_01" reply_cluster_label="解答类" reply_cluster_order="4" reply_to="A01_P01">中间：判断串并最关键看什么？</d>
+  <d p="7.191,1,25,16777215,1760000071,0,1cd2b6f5,4741252072744077993,10" id="N028">这题是并联：全部点亮</d>
+  <d p="7.404,1,25,16777215,1760000074,0,dc28ac70,7896015604759612436,10" id="A01_R11" reply_cluster="answer_01" reply_cluster_label="解答类" reply_cluster_order="5" reply_to="A01_M01">看分叉：有没有同一对节点</d>
+  <d p="7.555,1,25,16777215,1760000075,0,79706560,3418018974159654207,10" id="A01_R12" reply_cluster="answer_01" reply_cluster_label="解答类" reply_cluster_order="6" reply_to="A01_M01">并联=两端接同一节点对（A、B）</d>
+  <d p="7.971,1,25,16777215,1760000079,0,f3b2ca3c,4915496298525889134,10" id="A01_M02" reply_cluster="answer_01" reply_cluster_label="解答类" reply_cluster_order="7" reply_to="A01_P01">补充：交叉线算连接吗？</d>
+  <d p="7.981,1,25,16777215,1760000080,0,a155d4c3,9852027117446622655,10" id="N029">全亮啊</d>
+  <d p="8.231,1,25,16777215,1760000083,0,1ba03d1d,5611227672916489213,10" id="A01_R21" reply_cluster="answer_01" reply_cluster_label="解答类" reply_cluster_order="8" reply_to="A01_M02">有黑点才连接！没点就是跨过去</d>
+  <d p="8.382,1,25,16777215,1760000085,0,5c28348b,3806205303250580060,10" id="A01_R22" reply_cluster="answer_01" reply_cluster_label="解答类" reply_cluster_order="9" reply_to="A01_M02">考试最爱坑的就是这个…</d>
+  <d p="8.745,1,25,16777215,1760000089,0,73dda6c2,4995534690009403911,10" id="A01_M03" reply_cluster="answer_01" reply_cluster_label="解答类" reply_cluster_order="10" reply_to="A01_P01">最后：这题先算电阻还是先判？</d>
+  <d p="8.945,1,25,16777215,1760000087,0,3efaa410,5899451739180209020,10" id="A01_R31" reply_cluster="answer_01" reply_cluster_label="解答类" reply_cluster_order="11" reply_to="A01_M03">先判闭合回路，再决定要不要算</d>
+  <d p="9.059,1,25,16777215,1760000092,0,ebf09485,5669051956148880766,10" id="E01_P01" reply_cluster="emotion_01" reply_cluster_label="情感类" reply_cluster_order="1">100个电路图=同1个方法？我先跪为敬🙇‍♂️</d>
+  <d p="9.228,1,25,16777215,1760000094,0,4262faae,2127243425626438982,10" id="E01_R01" reply_cluster="emotion_01" reply_cluster_label="情感类" reply_cluster_order="2" reply_to="E01_P01">别跪！先重画就赢一半</d>
+  <d p="9.311,1,25,16777215,1760000091,0,73d993bf,3255442996534880977,10" id="N030">先标A/B节点，答案自己跳出来</d>
+  <d p="9.412,1,25,16777215,1760000094,0,53182b9b,8122300720867108936,10" id="E01_R02" reply_cluster="emotion_01" reply_cluster_label="情感类" reply_cluster_order="3" reply_to="E01_P01">我以前看到电路题直接摆烂😭</d>
+  <d p="9.841,1,25,16777215,1760000099,0,298ed22b,5072380467665550470,10" id="E01_M01" reply_cluster="emotion_01" reply_cluster_label="情感类" reply_cluster_order="4" reply_to="E01_P01">中间：谁还在“都亮都亮”乱猜？</d>
+  <d p="10.084,1,25,16777215,1760000100,0,c5b716c1,1897746668066273130,10" id="E01_R11" reply_cluster="emotion_01" reply_cluster_label="情感类" reply_cluster_order="5" reply_to="E01_M01">我我我😂（被点名）</d>
+  <d p="10.218,1,25,16777215,1760000104,0,905c73f3,9355484802374421402,10" id="N031">并联所以都亮✅</d>
+  <d p="10.248,1,25,16777215,1760000100,0,6afd0ed0,7926355155702621142,10" id="E01_R12" reply_cluster="emotion_01" reply_cluster_label="情感类" reply_cluster_order="6" reply_to="E01_M01">从今天开始不猜了，用节点法！</d>
+  <d p="10.578,1,25,16777215,1760000105,0,c07dd516,8950473733754056830,10" id="E01_M02" reply_cluster="emotion_01" reply_cluster_label="情感类" reply_cluster_order="7" reply_to="E01_P01">这方法像开挂一样</d>
+  <d p="10.852,1,25,16777215,1760000108,0,dcf52231,3068497747667581902,10" id="E01_R21" reply_cluster="emotion_01" reply_cluster_label="情感类" reply_cluster_order="8" reply_to="E01_M02">物理外挂：去掉直角+标节点✅</d>
+  <d p="11.134,1,25,16777215,1760000113,0,01da8ea2,8890733281162881732,10" id="E01_R22" reply_cluster="emotion_01" reply_cluster_label="情感类" reply_cluster_order="9" reply_to="E01_M02">突然就看懂了，爽！</d>
+  <d p="11.608,1,25,16777215,1760000118,0,5afeedce,8457378397390413987,10" id="E01_M03" reply_cluster="emotion_01" reply_cluster_label="情感类" reply_cluster_order="10" reply_to="E01_P01">冲！今天把电路刷完</d>
+  <d p="11.794,1,25,16777215,1760000118,0,84440b71,8228383917772020660,10" id="E01_R31" reply_cluster="emotion_01" reply_cluster_label="情感类" reply_cluster_order="11" reply_to="E01_M03">考前救命系列+1</d>
+  <d p="11.852,1,25,16777215,1760000119,0,69b2602c,1288387107287478806,10" id="N032">这就是初三物理的爽感：一招通杀</d>
+  <d p="12.883,1,25,16777215,1760000126,0,da51baf5,2896038747696522740,10" id="N033">其实是8分钟</d>
+  <d p="13.012,1,25,16777215,1760000129,0,9677cd04,2136187440166727920,10" id="N034">我以前都靠猜…今天开始用节点法😭</d>
+  <d p="13.118,1,25,16777215,1760000129,0,153c20d5,4889943636330628560,10" id="N035">电路图第一步：把导线拉直，去掉直角！</d>
+  <d p="13.280,1,25,16777215,1760000130,0,51ceea51,6787375623124687131,10" id="N036">电流不会“穿过断点”，别魔法思维</d>
+  <d p="14.059,1,25,16777215,1760000141,0,fb248852,1122702892593523536,10" id="N037">你说的不亮，是怎么个不亮法</d>
+  <d p="14.269,1,25,16777215,1760000144,0,57ca2d36,8896236658989710383,10" id="A07_P01" reply_cluster="answer_07" reply_cluster_label="解答类" reply_cluster_order="1">有的支路看着连着，其实没电流？</d>
+  <d p="14.449,1,25,16777215,1760000145,0,cbedafaa,4236093057704067508,10" id="A07_R01" reply_cluster="answer_07" reply_cluster_label="解答类" reply_cluster_order="2" reply_to="A07_P01">对！断路/短接都会让I=0</d>
+  <d p="14.669,1,25,16777215,1760000148,0,2649429a,5030019083176071929,10" id="A07_R02" reply_cluster="answer_07" reply_cluster_label="解答类" reply_cluster_order="3" reply_to="A07_P01">那条支路可以当不存在</d>
+  <d p="15.110,1,25,16777215,1760000150,0,ec2df751,9238934512799522407,10" id="A07_M01" reply_cluster="answer_07" reply_cluster_label="解答类" reply_cluster_order="4" reply_to="A07_P01">中间：怎么判断“无电流”？</d>
+  <d p="15.306,1,25,16777215,1760000152,0,7dcc84e9,4749051781792385637,10" id="A07_R11" reply_cluster="answer_07" reply_cluster_label="解答类" reply_cluster_order="5" reply_to="A07_M01">闭合回路不成立→I=0</d>
+  <d p="15.518,1,25,16777215,1760000157,0,1c1c220c,4984489169533368203,10" id="A07_R12" reply_cluster="answer_07" reply_cluster_label="解答类" reply_cluster_order="6" reply_to="A07_M01">或者两端同节点→U=0→I=0</d>
+  <d p="15.577,1,25,16777215,1760000155,0,9d691d6c,8957731265865257806,10" id="E08_P01" reply_cluster="emotion_08" reply_cluster_label="情感类" reply_cluster_order="1">电势法？我好像听懂了</d>
+  <d p="15.723,1,25,16777215,1760000155,0,05a8120d,8485360775737314512,10" id="E08_R01" reply_cluster="emotion_08" reply_cluster_label="情感类" reply_cluster_order="2" reply_to="E08_P01">同一导线同电势✅</d>
+  <d p="15.837,1,25,16777215,1760000156,0,1123a8f2,4848504055161591345,10" id="E08_R02" reply_cluster="emotion_08" reply_cluster_label="情感类" reply_cluster_order="3" reply_to="E08_P01">原来我以前是不会标点</d>
+  <d p="15.905,1,25,16777215,1760000161,0,25c0c5e4,7392541576711721721,10" id="A07_M02" reply_cluster="answer_07" reply_cluster_label="解答类" reply_cluster_order="7" reply_to="A07_P01">技巧：删支路有啥好处？</d>
+  <d p="16.130,1,25,16777215,1760000162,0,354554c3,8980864693461702089,10" id="E08_M01" reply_cluster="emotion_08" reply_cluster_label="情感类" reply_cluster_order="4" reply_to="E08_P01">中间：标A/B/C像给电路贴标签</d>
+  <d p="16.174,1,25,16777215,1760000161,0,e3f0cbfe,7809697038043047403,10" id="A07_R21" reply_cluster="answer_07" reply_cluster_label="解答类" reply_cluster_order="8" reply_to="A07_M02">删完电路变简单，串并立刻看出来</d>
+  <d p="16.317,1,25,16777215,1760000162,0,8294339a,1032347940509744392,10" id="N038">会亮的都亮，不会亮的就…不亮😂</d>
+  <d p="16.341,1,25,16777215,1760000163,0,92c7ba27,9684248741432756959,10" id="E08_R11" reply_cluster="emotion_08" reply_cluster_label="情感类" reply_cluster_order="5" reply_to="E08_M01">贴完就不乱了</d>
+  <d p="16.448,1,25,16777215,1760000162,0,72e46fe5,3747390901047666565,10" id="A07_R22" reply_cluster="answer_07" reply_cluster_label="解答类" reply_cluster_order="9" reply_to="A07_M02">做题速度直接翻倍</d>
+  <d p="16.528,1,25,16777215,1760000167,0,bf0f77db,4535453831626515424,10" id="E08_R12" reply_cluster="emotion_08" reply_cluster_label="情感类" reply_cluster_order="6" reply_to="E08_M01">这方法太像整理书包了🤣</d>
+  <d p="16.905,1,25,16777215,1760000171,0,6ce1fe88,8940665515889545701,10" id="E08_M02" reply_cluster="emotion_08" reply_cluster_label="情感类" reply_cluster_order="7" reply_to="E08_P01">以前一团乱麻现在井井有条</d>
+  <d p="16.918,1,25,16777215,1760000169,0,f8f9581d,1680267269961391187,10" id="A07_M03" reply_cluster="answer_07" reply_cluster_label="解答类" reply_cluster_order="10" reply_to="A07_P01">最后一句话？</d>
+  <d p="17.015,1,25,16777215,1760000171,0,0990e2ca,6488287425156121913,10" id="A08_P01" reply_cluster="answer_08" reply_cluster_label="解答类" reply_cluster_order="1">电流到底走哪条路？</d>
+  <d p="17.055,1,25,16777215,1760000170,0,d3e37b72,6070620494939190775,10" id="A07_R31" reply_cluster="answer_07" reply_cluster_label="解答类" reply_cluster_order="11" reply_to="A07_M03">先判路→再删路→再出结论✅</d>
+  <d p="17.070,1,25,16777215,1760000172,0,9cdffed0,3279423939340702417,10" id="E08_R21" reply_cluster="emotion_08" reply_cluster_label="情感类" reply_cluster_order="8" reply_to="E08_M02">电路题终于不恐怖了</d>
+  <d p="17.147,1,25,16777215,1760000172,0,8b31cef6,2491701859815768721,10" id="A08_R01" reply_cluster="answer_08" reply_cluster_label="解答类" reply_cluster_order="2" reply_to="A08_P01">所有闭合支路都会分流</d>
+  <d p="17.308,1,25,16777215,1760000172,0,f4ae7b32,9472965540955743744,10" id="A08_R02" reply_cluster="answer_08" reply_cluster_label="解答类" reply_cluster_order="3" reply_to="A08_P01">分流大小由电阻决定</d>
+  <d p="17.360,1,25,16777215,1760000173,0,57d3deab,1498423766825933071,10" id="E08_R22" reply_cluster="emotion_08" reply_cluster_label="情感类" reply_cluster_order="9" reply_to="E08_M02">能不能所有老师都这样讲</d>
+  <d p="17.637,1,25,16777215,1760000176,0,3c297f6b,2492422362086174862,10" id="E08_M03" reply_cluster="emotion_08" reply_cluster_label="情感类" reply_cluster_order="10" reply_to="E08_P01">物理不难，是方法没学到</d>
+  <d p="17.749,1,25,16777215,1760000175,0,e68cf255,9072749833572591265,10" id="A08_M01" reply_cluster="answer_08" reply_cluster_label="解答类" reply_cluster_order="4" reply_to="A08_P01">中间：为什么不是只走最短路？</d>
+  <d p="17.885,1,25,16777215,1760000176,0,806eaa8c,1091733771668704762,10" id="E08_R31" reply_cluster="emotion_08" reply_cluster_label="情感类" reply_cluster_order="11" reply_to="E08_M03">我悟了🙏</d>
+  <d p="17.934,1,25,16777215,1760000180,0,e8a5b934,9500159882286149008,10" id="A08_R11" reply_cluster="answer_08" reply_cluster_label="解答类" reply_cluster_order="5" reply_to="A08_M01">电流不“挑路”，它按规律分布</d>
+  <d p="18.140,1,25,16777215,1760000182,0,992b65f1,5695981810142659803,10" id="A08_R12" reply_cluster="answer_08" reply_cluster_label="解答类" reply_cluster_order="6" reply_to="A08_M01">并联两路都通就两路都有电流</d>
+  <d p="18.472,1,25,16777215,1760000186,0,14b90cf5,4742676526425946820,10" id="A08_M02" reply_cluster="answer_08" reply_cluster_label="解答类" reply_cluster_order="7" reply_to="A08_P01">亮度和电流啥关系？</d>
+  <d p="18.489,1,25,16777215,1760000183,0,6aacbe32,2095284751998533584,10" id="E10_P01" reply_cluster="emotion_10" reply_cluster_label="情感类" reply_cluster_order="1">这就是初三物理最爽的部分</d>
+  <d p="18.646,1,25,16777215,1760000188,0,b6055ad9,9769927834112034626,10" id="E10_R01" reply_cluster="emotion_10" reply_cluster_label="情感类" reply_cluster_order="2" reply_to="E10_P01">一招通杀，效率拉满</d>
+  <d p="18.666,1,25,16777215,1760000186,0,b49121a5,6844440879299585847,10" id="A08_R21" reply_cluster="answer_08" reply_cluster_label="解答类" reply_cluster_order="8" reply_to="A08_M02">同灯泡：越亮→电流越大</d>
+  <d p="18.824,1,25,16777215,1760000190,0,8d411160,2352432700748946885,10" id="N039">三并</d>
+  <d p="18.865,1,25,16777215,1760000188,0,3e5b3bbc,8907448645889214533,10" id="E10_R02" reply_cluster="emotion_10" reply_cluster_label="情感类" reply_cluster_order="3" reply_to="E10_P01">我已经开始跟着重画了</d>
+  <d p="18.917,1,25,16777215,1760000189,0,a12dbd85,7706540137400622220,10" id="A08_R22" reply_cluster="answer_08" reply_cluster_label="解答类" reply_cluster_order="9" reply_to="A08_M02">但题目不问亮度就别自找麻烦😂</d>
+  <d p="19.163,1,25,16777215,1760000191,0,a60d573a,6402415211391771104,10" id="E10_M01" reply_cluster="emotion_10" reply_cluster_label="情感类" reply_cluster_order="4" reply_to="E10_P01">中间：越画越顺手</d>
+  <d p="19.189,1,25,16777215,1760000191,0,d40b3f9e,5276820882441168894,10" id="N040">12吧</d>
+  <d p="19.337,1,25,16777215,1760000195,0,4ba78f35,6486776702997113165,10" id="A08_M03" reply_cluster="answer_08" reply_cluster_label="解答类" reply_cluster_order="10" reply_to="A08_P01">一句话总结？</d>
+  <d p="19.421,1,25,16777215,1760000195,0,d0f8dba8,9972319224947837653,10" id="E10_R11" reply_cluster="emotion_10" reply_cluster_label="情感类" reply_cluster_order="5" reply_to="E10_M01">手感来了就停不下来😂</d>
+  <d p="19.513,1,25,16777215,1760000197,0,9fd80c9c,8252338427010862718,10" id="A08_R31" reply_cluster="answer_08" reply_cluster_label="解答类" reply_cluster_order="11" reply_to="A08_M03">分流=并联；同流=串联✅</d>
+  <d p="19.666,1,25,16777215,1760000197,0,126144e3,1856397095378036844,10" id="E10_R12" reply_cluster="emotion_10" reply_cluster_label="情感类" reply_cluster_order="6" reply_to="E10_M01">以前30分钟一题，现在30秒</d>
+  <d p="20.139,1,25,16777215,1760000200,0,40c4e5af,1397900322315364723,10" id="N041">物理：画对等效图，比计算快十倍</d>
+  <d p="20.164,1,25,16777215,1760000203,0,9ee51407,1175861384023323818,10" id="E10_M02" reply_cluster="emotion_10" reply_cluster_label="情感类" reply_cluster_order="7" reply_to="E10_P01">同桌：你怎么突然会了？</d>
+  <d p="20.270,1,25,16777215,1760000203,0,c5f86fbc,9218453649915189168,10" id="N042">都亮+1</d>
+  <d p="20.378,1,25,16777215,1760000205,0,cb02873b,2455134009345198452,10" id="E10_R21" reply_cluster="emotion_10" reply_cluster_label="情感类" reply_cluster_order="8" reply_to="E10_M02">我：同1个方法😏</d>
+  <d p="20.693,1,25,16777215,1760000205,0,ed0319a1,5651088753085006911,10" id="E10_R22" reply_cluster="emotion_10" reply_cluster_label="情感类" reply_cluster_order="9" reply_to="E10_M02">谢谢老师带我开悟</d>
+  <d p="21.014,1,25,16777215,1760000210,0,ce79ee24,1415290254507959588,10" id="E10_M03" reply_cluster="emotion_10" reply_cluster_label="情感类" reply_cluster_order="10" reply_to="E10_P01">我要去卷一卷了</d>
+  <d p="21.200,1,25,16777215,1760000212,0,a41e1a1c,8160030477295009207,10" id="N043">全亮！别犹豫</d>
+  <d p="21.262,1,25,16777215,1760000210,0,01bef62c,8983215069008347991,10" id="E10_R31" reply_cluster="emotion_10" reply_cluster_label="情感类" reply_cluster_order="11" reply_to="E10_M03">下次月考见真章📣</d>
+  <d p="21.442,1,25,16777215,1760000216,0,d5f78e86,4326922105709168113,10" id="A05_P01" reply_cluster="answer_05" reply_cluster_label="解答类" reply_cluster_order="1">串联电路中间断一处会怎样？</d>
+  <d p="21.556,1,25,16777215,1760000217,0,7b247f0d,8798938282862406739,10" id="A05_R01" reply_cluster="answer_05" reply_cluster_label="解答类" reply_cluster_order="2" reply_to="A05_P01">一断全断，全灭</d>
+  <d p="21.676,1,25,16777215,1760000218,0,d52d7c27,4533461619513490796,10" id="A05_R02" reply_cluster="answer_05" reply_cluster_label="解答类" reply_cluster_order="3" reply_to="A05_P01">因为电流走同一条路</d>
+  <d p="21.990,1,25,16777215,1760000220,0,71e553f6,9597759415970058543,10" id="A05_M01" reply_cluster="answer_05" reply_cluster_label="解答类" reply_cluster_order="4" reply_to="A05_P01">中间：串联怎么判定？</d>
+  <d p="22.237,1,25,16777215,1760000221,0,8359b351,6562244954418942210,10" id="A05_R11" reply_cluster="answer_05" reply_cluster_label="解答类" reply_cluster_order="5" reply_to="A05_M01">元件首尾相接，中间无分叉</d>
+  <d p="22.455,1,25,16777215,1760000223,0,4487cdfa,8732361771139895396,10" id="A05_R12" reply_cluster="answer_05" reply_cluster_label="解答类" reply_cluster_order="6" reply_to="A05_M01">节点处只有两条线进出=不分流</d>
+  <d p="22.604,1,25,16777215,1760000224,0,1410bd7f,6221746239046168890,10" id="N044">等电势点一标就清楚了</d>
+  <d p="22.940,1,25,16777215,1760000230,0,bb107317,4502578183350398683,10" id="A05_M02" reply_cluster="answer_05" reply_cluster_label="解答类" reply_cluster_order="7" reply_to="A05_P01">灯泡亮度怎么比？</d>
+  <d p="23.165,1,25,16777215,1760000232,0,9d03a7e2,1562267303618561852,10" id="A05_R21" reply_cluster="answer_05" reply_cluster_label="解答类" reply_cluster_order="8" reply_to="A05_M02">相同灯泡串联更暗（电流变小）</d>
+  <d p="23.389,1,25,16777215,1760000233,0,01ee6660,2711792085482869444,10" id="A05_R22" reply_cluster="answer_05" reply_cluster_label="解答类" reply_cluster_order="9" reply_to="A05_M02">但题目先问亮不亮，别急着比亮度</d>
+  <d p="23.616,1,25,16777215,1760000237,0,98271403,4494100973839571514,10" id="A05_M03" reply_cluster="answer_05" reply_cluster_label="解答类" reply_cluster_order="10" reply_to="A05_P01">最后提醒：别被图骗</d>
+  <d p="23.640,1,25,16777215,1760000235,0,3eab20df,4800697931101799998,10" id="E09_P01" reply_cluster="emotion_09" reply_cluster_label="情感类" reply_cluster_order="1">看见桥式电路我直接眼前一黑</d>
+  <d p="23.793,1,25,16777215,1760000237,0,6109ae3d,8474831884492031927,10" id="E09_R01" reply_cluster="emotion_09" reply_cluster_label="情感类" reply_cluster_order="2" reply_to="E09_P01">今天：先找对称！</d>
+  <d p="23.873,1,25,16777215,1760000239,0,ca82263c,7223265357861861490,10" id="A05_R31" reply_cluster="answer_05" reply_cluster_label="解答类" reply_cluster_order="11" reply_to="A05_M03">电路乱画也不变本质（拓扑不变）</d>
+  <d p="24.011,1,25,16777215,1760000241,0,10bc5046,2573989574937062778,10" id="E09_R02" reply_cluster="emotion_09" reply_cluster_label="情感类" reply_cluster_order="3" reply_to="E09_P01">我：好家伙，居然能秒？</d>
+  <d p="24.312,1,25,16777215,1760000244,0,3b2fab63,9982571847657168818,10" id="E09_M01" reply_cluster="emotion_09" reply_cluster_label="情感类" reply_cluster_order="4" reply_to="E09_P01">中间：复杂只是绕线多</d>
+  <d p="24.461,1,25,16777215,1760000245,0,ee5c8c8c,2507481328339318455,10" id="E09_R11" reply_cluster="emotion_09" reply_cluster_label="情感类" reply_cluster_order="5" reply_to="E09_M01">本质还是串并联</d>
+  <d p="24.685,1,25,16777215,1760000246,0,a3376575,1724063355710553780,10" id="E09_R12" reply_cluster="emotion_09" reply_cluster_label="情感类" reply_cluster_order="6" reply_to="E09_M01">听着听着就勇敢了🤣</d>
+  <d p="24.925,1,25,16777215,1760000247,0,32bed954,6812804446719141397,10" id="N045">从电源正极走到负极：能走通才亮</d>
+  <d p="25.133,1,25,16777215,1760000252,0,674c6fc6,1626459544578516239,10" id="N046">开关打上了吗</d>
+  <d p="25.170,1,25,16777215,1760000252,0,ad9ffe4b,6287506901234996646,10" id="E09_M02" reply_cluster="emotion_09" reply_cluster_label="情感类" reply_cluster_order="7" reply_to="E09_P01">感谢老师的“去掉直角”</d>
+  <d p="25.306,1,25,16777215,1760000255,0,f8fcb7c2,8191322329495671630,10" id="A11_P01" reply_cluster="answer_11" reply_cluster_label="解答类" reply_cluster_order="1">主观题怎么写更稳拿分？</d>
+  <d p="25.359,1,25,16777215,1760000251,0,ef8d9481,9772063069711245833,10" id="E09_R21" reply_cluster="emotion_09" reply_cluster_label="情感类" reply_cluster_order="8" reply_to="E09_M02">我这辈子都不画直角导线了</d>
+  <d p="25.466,1,25,16777215,1760000252,0,78288363,2775420010866516376,10" id="A11_R01" reply_cluster="answer_11" reply_cluster_label="解答类" reply_cluster_order="2" reply_to="A11_P01">先写：电路为××连接，是否闭合</d>
+  <d p="25.533,1,25,16777215,1760000257,0,0581c423,8248034742424000595,10" id="E09_R22" reply_cluster="emotion_09" reply_cluster_label="情感类" reply_cluster_order="9" reply_to="E09_M02">收藏+投币走起</d>
+  <d p="25.679,1,25,16777215,1760000255,0,d2a5a77a,5657340745106657880,10" id="A11_R02" reply_cluster="answer_11" reply_cluster_label="解答类" reply_cluster_order="3" reply_to="A11_P01">再写：各元件两端电势差/电流情况</d>
+  <d p="25.794,1,25,16777215,1760000256,0,6a7c6ea7,1450421646850880720,10" id="E09_M03" reply_cluster="emotion_09" reply_cluster_label="情感类" reply_cluster_order="10" reply_to="E09_P01">希望考试别出阴间图</d>
+  <d p="25.953,1,25,16777215,1760000260,0,e4ba855e,6230800221289871726,10" id="E09_R31" reply_cluster="emotion_09" reply_cluster_label="情感类" reply_cluster_order="11" reply_to="E09_M03">我们已经不怕了😎</d>
+  <d p="26.057,1,25,16777215,1760000260,0,758082b0,8333463115963573016,10" id="A11_M01" reply_cluster="answer_11" reply_cluster_label="解答类" reply_cluster_order="4" reply_to="A11_P01">中间：常用关键词有哪些？</d>
+  <d p="26.211,1,25,16777215,1760000263,0,32bd7985,4055019815593450606,10" id="A11_R11" reply_cluster="answer_11" reply_cluster_label="解答类" reply_cluster_order="5" reply_to="A11_M01">同一节点、闭合回路、短接、分流</d>
+  <d p="26.409,1,25,16777215,1760000265,0,8e25fcfb,6351504287055969209,10" id="A11_R12" reply_cluster="answer_11" reply_cluster_label="解答类" reply_cluster_order="6" reply_to="A11_M01">串联同流，并联同压（写出来就稳）</d>
+  <d p="26.705,1,25,16777215,1760000266,0,f4c04578,7375036719181425768,10" id="A11_M02" reply_cluster="answer_11" reply_cluster_label="解答类" reply_cluster_order="7" reply_to="A11_P01">哪里最容易丢分？</d>
+  <d p="26.880,1,25,16777215,1760000270,0,442ce260,2649504620298629631,10" id="N047">六百六十六开关没闭合</d>
+  <d p="26.973,1,25,16777215,1760000271,0,80ad1027,4056414025861284900,10" id="A11_R21" reply_cluster="answer_11" reply_cluster_label="解答类" reply_cluster_order="8" reply_to="A11_M02">忘了说开关状态/漏写断路原因</d>
+  <d p="27.133,1,25,16777215,1760000272,0,561140db,1088078551214923954,10" id="A11_R22" reply_cluster="answer_11" reply_cluster_label="解答类" reply_cluster_order="9" reply_to="A11_M02">写清楚“无电流所以不亮”</d>
+  <d p="27.636,1,25,16777215,1760000276,0,eab349cc,6506079219693454183,10" id="A11_M03" reply_cluster="answer_11" reply_cluster_label="解答类" reply_cluster_order="10" reply_to="A11_P01">给我一个万能模板！</d>
+  <d p="27.847,1,25,16777215,1760000279,0,5538f74d,3247571561840500723,10" id="A11_R31" reply_cluster="answer_11" reply_cluster_label="解答类" reply_cluster_order="11" reply_to="A11_M03">因××导致I=0（或U=0），故灯泡不亮✅</d>
+  <d p="28.403,1,25,16777215,1760000282,0,fd60868f,5601045118218098246,10" id="E02_P01" reply_cluster="emotion_02" reply_cluster_label="情感类" reply_cluster_order="1">老师：一招通杀100图。我：真的假的？</d>
+  <d p="28.505,1,25,16777215,1760000284,0,d7265f5c,1014629453357573098,10" id="E02_R01" reply_cluster="emotion_02" reply_cluster_label="情感类" reply_cluster_order="2" reply_to="E02_P01">听完：真·降维打击</d>
+  <d p="28.674,1,25,16777215,1760000284,0,c8284a65,2589236879239781102,10" id="E02_R02" reply_cluster="emotion_02" reply_cluster_label="情感类" reply_cluster_order="3" reply_to="E02_P01">这节课含金量爆表📈</d>
+  <d p="28.965,1,25,16777215,1760000291,0,cff7ca04,3242722916788975059,10" id="E02_M01" reply_cluster="emotion_02" reply_cluster_label="情感类" reply_cluster_order="4" reply_to="E02_P01">中间：我画电路像拆炸弹…</d>
+  <d p="29.117,1,25,16777215,1760000291,0,84523ccb,4794899868668837895,10" id="E02_R11" reply_cluster="emotion_02" reply_cluster_label="情感类" reply_cluster_order="5" reply_to="E02_M01">线一乱我就崩溃🤣</d>
+  <d p="29.369,1,25,16777215,1760000291,0,e0bdc5c1,3261952524998833687,10" id="E02_R12" reply_cluster="emotion_02" reply_cluster_label="情感类" reply_cluster_order="6" reply_to="E02_M01">重画完：原来这么简单？！</d>
+  <d p="29.814,1,25,16777215,1760000297,0,bc67a984,5469507186547925625,10" id="N048">看到开关先看状态：断=断路</d>
+  <d p="29.849,1,25,16777215,1760000296,0,7d03f66a,4335431996344804507,10" id="E02_M02" reply_cluster="emotion_02" reply_cluster_label="情感类" reply_cluster_order="7" reply_to="E02_P01">以前最怕串并联，现在想笑</d>
+  <d p="29.868,1,25,16777215,1760000299,0,ba0a91d9,2571793324607795217,10" id="N049">我选 L2 亮</d>
+  <d p="29.994,1,25,16777215,1760000299,0,7a23e188,9442973299970298519,10" id="E02_R21" reply_cluster="emotion_02" reply_cluster_label="情感类" reply_cluster_order="8" reply_to="E02_M02">电路重画=物理版“整理桌面”</d>
+  <d p="30.220,1,25,16777215,1760000302,0,6da1244b,9957186415886772756,10" id="E02_R22" reply_cluster="emotion_02" reply_cluster_label="情感类" reply_cluster_order="9" reply_to="E02_M02">整理完就清爽</d>
+  <d p="30.458,1,25,16777215,1760000303,0,b4d61691,2130454134960555654,10" id="E02_M03" reply_cluster="emotion_02" reply_cluster_label="情感类" reply_cluster_order="10" reply_to="E02_P01">希望考试也这么友好</d>
+  <d p="30.663,1,25,16777215,1760000307,0,3e12fd54,2892290190535568074,10" id="E02_R31" reply_cluster="emotion_02" reply_cluster_label="情感类" reply_cluster_order="11" reply_to="E02_M03">谢谢老师救我一命🙏</d>
+  <d p="32.134,1,25,16777215,1760000319,0,dd23e52c,1738832925218482854,10" id="N050">支路无电流可以直接删掉再看</d>
+  <d p="32.906,1,25,16777215,1760000327,0,8f2d3df7,9269671956309095745,10" id="N051">我们老师把这种电路图命名为变态三串联</d>
+  <d p="32.923,1,25,16777215,1760000330,0,98b4ea3d,6054271504709627921,10" id="A02_P01" reply_cluster="answer_02" reply_cluster_label="解答类" reply_cluster_order="1">开关没闭合，灯泡能亮吗？</d>
+  <d p="33.121,1,25,16777215,1760000331,0,7d75b94d,2234836703954093121,10" id="A02_R01" reply_cluster="answer_02" reply_cluster_label="解答类" reply_cluster_order="2" reply_to="A02_P01">断路=没电流→不亮</d>
+  <d p="33.242,1,25,16777215,1760000331,0,d4201eff,4346768830322787409,10" id="A02_R02" reply_cluster="answer_02" reply_cluster_label="解答类" reply_cluster_order="3" reply_to="A02_P01">除非还有别的支路绕过去形成闭合</d>
+  <d p="33.492,1,25,16777215,1760000334,0,aaa08add,2825879025919513519,10" id="A02_M01" reply_cluster="answer_02" reply_cluster_label="解答类" reply_cluster_order="4" reply_to="A02_P01">中间：怎么快速找电流路径？</d>
+  <d p="33.727,1,25,16777215,1760000338,0,61697e32,6912199803056941318,10" id="A02_R11" reply_cluster="answer_02" reply_cluster_label="解答类" reply_cluster_order="5" reply_to="A02_M01">从电源正极走到负极，看能不能走通</d>
+  <d p="33.989,1,25,16777215,1760000340,0,aac041d4,1900912717319218358,10" id="A02_R12" reply_cluster="answer_02" reply_cluster_label="解答类" reply_cluster_order="6" reply_to="A02_M01">走不通的支路=无电流，直接删掉</d>
+  <d p="34.358,1,25,16777215,1760000343,0,2563721f,1294406112231449910,10" id="A02_M02" reply_cluster="answer_02" reply_cluster_label="解答类" reply_cluster_order="7" reply_to="A02_P01">误区：电流只走“捷径”？</d>
+  <d p="34.594,1,25,16777215,1760000347,0,effef9f1,2419663814742207852,10" id="A02_R21" reply_cluster="answer_02" reply_cluster_label="解答类" reply_cluster_order="8" reply_to="A02_M02">不是只走最短路，是按电阻分流！</d>
+  <d p="34.731,1,25,16777215,1760000345,0,eefd94e5,5356548649733230461,10" id="N052">串联：同流；并联：同压（背就完事了）</d>
+  <d p="34.796,1,25,16777215,1760000349,0,26900d37,7528981575688375267,10" id="A02_R22" reply_cluster="answer_02" reply_cluster_label="解答类" reply_cluster_order="9" reply_to="A02_M02">并联两路都通就两路都走</d>
+  <d p="35.049,1,25,16777215,1760000352,0,063f41e9,3756607102333994983,10" id="A02_M03" reply_cluster="answer_02" reply_cluster_label="解答类" reply_cluster_order="10" reply_to="A02_P01">一句话总结？</d>
+  <d p="35.290,1,25,16777215,1760000354,0,f89d8752,6654573535106501215,10" id="A02_R31" reply_cluster="answer_02" reply_cluster_label="解答类" reply_cluster_order="11" reply_to="A02_M03">电流=闭合回路的“通行证”✅</d>
+  <d p="36.506,1,25,16777215,1760000366,0,ec9e0be9,3161961158910234829,10" id="N053">闭合后L1和L3</d>
+  <d p="36.965,1,25,16777215,1760000367,0,3185b698,2298315595864529866,10" id="E07_P01" reply_cluster="emotion_07" reply_cluster_label="情感类" reply_cluster_order="1">电流走捷径这句我背了三年</d>
+  <d p="37.156,1,25,16777215,1760000373,0,654ab418,5065258657441713600,10" id="E07_R01" reply_cluster="emotion_07" reply_cluster_label="情感类" reply_cluster_order="2" reply_to="E07_P01">结果考试被反杀😂</d>
+  <d p="37.289,1,25,16777215,1760000373,0,5c34129e,8499577350552104284,10" id="E07_R02" reply_cluster="emotion_07" reply_cluster_label="情感类" reply_cluster_order="3" reply_to="E07_P01">今天：电流分流！</d>
+  <d p="37.580,1,25,16777215,1760000374,0,8d3d2289,3832443753562293751,10" id="E07_M01" reply_cluster="emotion_07" reply_cluster_label="情感类" reply_cluster_order="4" reply_to="E07_P01">中间：物理真不讲“意志”</d>
+  <d p="37.670,1,25,16777215,1760000375,0,b50115d9,8082452976491030013,10" id="N054">灯泡两端接到同一节点=短接→不亮</d>
+  <d p="37.691,1,25,16777215,1760000375,0,05ea1710,7266081393953137615,10" id="N055">L2 l1一起</d>
+  <d p="37.734,1,25,16777215,1760000379,0,fdf8d5f4,4833819731226091377,10" id="E07_R11" reply_cluster="emotion_07" reply_cluster_label="情感类" reply_cluster_order="5" reply_to="E07_M01">它只讲规律哈哈哈</d>
+  <d p="37.963,1,25,16777215,1760000378,0,cf9d6dbe,7896206437468384212,10" id="E07_R12" reply_cluster="emotion_07" reply_cluster_label="情感类" reply_cluster_order="6" reply_to="E07_M01">以后谁再说捷径我就反驳</d>
+  <d p="38.283,1,25,16777215,1760000383,0,eb0db804,1386225703990688127,10" id="N056">电流不是选最短路，是分流！</d>
+  <d p="38.385,1,25,16777215,1760000384,0,0fc7a76d,6972668317648431215,10" id="E07_M02" reply_cluster="emotion_07" reply_cluster_label="情感类" reply_cluster_order="7" reply_to="E07_P01">并联两路都通就都走</d>
+  <d p="38.542,1,25,16777215,1760000385,0,995f6dba,6565291425994915302,10" id="E07_R21" reply_cluster="emotion_07" reply_cluster_label="情感类" reply_cluster_order="8" reply_to="E07_M02">好像突然理解了生活…</d>
+  <d p="38.779,1,25,16777215,1760000385,0,36f4d0f7,2937011356312584860,10" id="E07_R22" reply_cluster="emotion_07" reply_cluster_label="情感类" reply_cluster_order="9" reply_to="E07_M02">分流的不是电流，是我的焦虑</d>
+  <d p="38.880,1,25,16777215,1760000387,0,73f9bada,8563636684419313578,10" id="N057">开关之后也不一定亮啊！电压不够高就亮不了，南孚能带动探照灯吗？</d>
+  <d p="38.908,1,25,16777215,1760000389,0,53aa14d8,3670384591349133520,10" id="A04_P01" reply_cluster="answer_04" reply_cluster_label="解答类" reply_cluster_order="1">并联电路灯泡为什么都亮？</d>
+  <d p="39.013,1,25,16777215,1760000392,0,b556405e,5971407907526262099,10" id="E07_M03" reply_cluster="emotion_07" reply_cluster_label="情感类" reply_cluster_order="10" reply_to="E07_P01">停止矫情继续刷题💪</d>
+  <d p="39.033,1,25,16777215,1760000389,0,7a226f1c,3694582944482616807,10" id="A04_R01" reply_cluster="answer_04" reply_cluster_label="解答类" reply_cluster_order="2" reply_to="A04_P01">每个支路都接在电源两端</d>
+  <d p="39.190,1,25,16777215,1760000392,0,6ecedd66,3238064627873387852,10" id="A04_R02" reply_cluster="answer_04" reply_cluster_label="解答类" reply_cluster_order="3" reply_to="A04_P01">所以每个灯泡两端都有电压</d>
+  <d p="39.191,1,25,16777215,1760000389,0,b69fe899,1908214899678118075,10" id="E07_R31" reply_cluster="emotion_07" reply_cluster_label="情感类" reply_cluster_order="11" reply_to="E07_M03">今晚必须拿下</d>
+  <d p="39.627,1,25,16777215,1760000395,0,7d6cd6f5,7120207774078496984,10" id="A04_M01" reply_cluster="answer_04" reply_cluster_label="解答类" reply_cluster_order="4" reply_to="A04_P01">中间：亮度一定一样吗？</d>
+  <d p="39.855,1,25,16777215,1760000398,0,d13fbfdf,1644321511991708895,10" id="N058">灯泡亮不亮：看U和I，不看“图像好看”</d>
+  <d p="39.879,1,25,16777215,1760000396,0,ba204f21,1874680517065011728,10" id="A04_R11" reply_cluster="answer_04" reply_cluster_label="解答类" reply_cluster_order="5" reply_to="A04_M01">相同灯泡并联→亮度一样</d>
+  <d p="40.122,1,25,16777215,1760000403,0,152eabcc,5181413871354155787,10" id="A04_R12" reply_cluster="answer_04" reply_cluster_label="解答类" reply_cluster_order="6" reply_to="A04_M01">如果支路电阻不同就不一定了</d>
+  <d p="40.386,1,25,16777215,1760000402,0,f8854b2c,2332706114519203179,10" id="E06_P01" reply_cluster="emotion_06" reply_cluster_label="情感类" reply_cluster_order="1">电路题最怕：灯泡亮不亮</d>
+  <d p="40.489,1,25,16777215,1760000406,0,706136ad,2557340810995450984,10" id="A04_M02" reply_cluster="answer_04" reply_cluster_label="解答类" reply_cluster_order="7" reply_to="A04_P01">并联怎么一眼判？</d>
+  <d p="40.581,1,25,16777215,1760000407,0,2c2d23d0,6252579818942022419,10" id="E06_R01" reply_cluster="emotion_06" reply_cluster_label="情感类" reply_cluster_order="2" reply_to="E06_P01">我以前：瞎猜</d>
+  <d p="40.674,1,25,16777215,1760000407,0,c0339b44,7404700450929195484,10" id="A04_R21" reply_cluster="answer_04" reply_cluster_label="解答类" reply_cluster_order="8" reply_to="A04_M02">两端连到同一对节点=A、B</d>
+  <d p="40.764,1,25,16777215,1760000407,0,d4785411,8036166707800087332,10" id="E06_R02" reply_cluster="emotion_06" reply_cluster_label="情感类" reply_cluster_order="3" reply_to="E06_P01">现在：从电源正极追到负极✅</d>
+  <d p="40.974,1,25,16777215,1760000411,0,7f91c9a8,4037748142250340704,10" id="A04_R22" reply_cluster="answer_04" reply_cluster_label="解答类" reply_cluster_order="9" reply_to="A04_M02">重画后支路像“梳子”一样展开</d>
+  <d p="41.111,1,25,16777215,1760000410,0,6a960d15,8348048428302595852,10" id="N059">标题说同1个方法？我先记：重画+找节点✅</d>
+  <d p="41.212,1,25,16777215,1760000413,0,11075b62,5714347169226231846,10" id="E06_M01" reply_cluster="emotion_06" reply_cluster_label="情感类" reply_cluster_order="4" reply_to="E06_P01">中间：追到一半断了我就笑了</d>
+  <d p="41.314,1,25,16777215,1760000411,0,4ead9d9b,9512344684348977005,10" id="A04_M03" reply_cluster="answer_04" reply_cluster_label="解答类" reply_cluster_order="10" reply_to="A04_P01">口诀给我背！</d>
+  <d p="41.370,1,25,16777215,1760000415,0,73419a34,6485103675223731246,10" id="E06_R11" reply_cluster="emotion_06" reply_cluster_label="情感类" reply_cluster_order="5" reply_to="E06_M01">断路那支路直接删掉！</d>
+  <d p="41.439,1,25,16777215,1760000415,0,c19ec634,8182829677594698188,10" id="A04_R31" reply_cluster="answer_04" reply_cluster_label="解答类" reply_cluster_order="11" reply_to="A04_M03">并联同压；串联同流✅</d>
+  <d p="41.648,1,25,16777215,1760000417,0,a36a30f4,2945356402731132685,10" id="E06_R12" reply_cluster="emotion_06" reply_cluster_label="情感类" reply_cluster_order="6" reply_to="E06_M01">删完世界清净了🤣</d>
+  <d p="41.894,1,25,16777215,1760000418,0,556570aa,3616348323613150339,10" id="E06_M02" reply_cluster="emotion_06" reply_cluster_label="情感类" reply_cluster_order="7" reply_to="E06_P01">这讲法太适合我这种急性子</d>
+  <d p="42.049,1,25,16777215,1760000421,0,bc3c762f,9081918360434079846,10" id="N060">三个都亮</d>
+  <d p="42.112,1,25,16777215,1760000422,0,e86a1346,5377371259150864813,10" id="E06_R21" reply_cluster="emotion_06" reply_cluster_label="情感类" reply_cluster_order="8" reply_to="E06_M02">10秒出结论也太爽</d>
+  <d p="42.387,1,25,16777215,1760000423,0,4946d4db,1812743380004425921,10" id="E06_R22" reply_cluster="emotion_06" reply_cluster_label="情感类" reply_cluster_order="9" reply_to="E06_M02">求老师出个100题合集</d>
+  <d p="42.745,1,25,16777215,1760000428,0,e5387b63,6061896140689652748,10" id="E06_M03" reply_cluster="emotion_06" reply_cluster_label="情感类" reply_cluster_order="10" reply_to="E06_P01">我愿意边吃饭边刷</d>
+  <d p="43.025,1,25,16777215,1760000428,0,5909cb30,5862543102633159428,10" id="E06_R31" reply_cluster="emotion_06" reply_cluster_label="情感类" reply_cluster_order="11" reply_to="E06_M03">谢谢视频治好了我</d>
+  <d p="43.357,1,25,16777215,1760000431,0,8f22755e,9244677574565662146,10" id="N061">别只盯元件位置，盯连接关系</d>
+  <d p="44.590,1,25,16777215,1760000447,0,6d7dd67b,8720399279372759994,10" id="N062">666开关没闭合</d>
+  <d p="45.489,1,25,16777215,1760000455,0,d5890e0f,6526281544348102223,10" id="A09_P01" reply_cluster="answer_09" reply_cluster_label="解答类" reply_cluster_order="1">电路图重画的正确姿势是？</d>
+  <d p="45.640,1,25,16777215,1760000456,0,0a8b82a4,2716892455789105883,10" id="A09_R01" reply_cluster="answer_09" reply_cluster_label="解答类" reply_cluster_order="2" reply_to="A09_P01">导线拉直、去掉直角，只保连接关系</d>
+  <d p="45.850,1,25,16777215,1760000456,0,679ab093,3413640085878081207,10" id="A09_R02" reply_cluster="answer_09" reply_cluster_label="解答类" reply_cluster_order="3" reply_to="A09_P01">元件位置随便挪，但连接绝对不能变</d>
+  <d p="46.151,1,25,16777215,1760000460,0,61562c07,9287606105054164311,10" id="N063">并联所以都亮✅</d>
+  <d p="46.258,1,25,16777215,1760000460,0,797277fd,4713554236797311253,10" id="A09_M01" reply_cluster="answer_09" reply_cluster_label="解答类" reply_cluster_order="4" reply_to="A09_P01">中间：重画最容易错哪？</d>
+  <d p="46.507,1,25,16777215,1760000465,0,f6925473,5305066408478619929,10" id="A09_R11" reply_cluster="answer_09" reply_cluster_label="解答类" reply_cluster_order="5" reply_to="A09_M01">把交叉当连接/把连接当交叉</d>
+  <d p="46.758,1,25,16777215,1760000469,0,887b3e69,2872803445016980791,10" id="A09_R12" reply_cluster="answer_09" reply_cluster_label="解答类" reply_cluster_order="6" reply_to="A09_M01">记住：没点就不连！</d>
+  <d p="46.941,1,25,16777215,1760000467,0,9768319f,5888401155546550791,10" id="E05_P01" reply_cluster="emotion_05" reply_cluster_label="情感类" reply_cluster_order="1">我承认我曾经把交叉线当连接…</d>
+  <d p="46.988,1,25,16777215,1760000469,0,0164ecb3,3650690706910384575,10" id="A09_M02" reply_cluster="answer_09" reply_cluster_label="解答类" reply_cluster_order="7" reply_to="A09_P01">老师的万能布局？</d>
+  <d p="47.067,1,25,16777215,1760000468,0,7a8b25a9,3474122400895880893,10" id="E05_R01" reply_cluster="emotion_05" reply_cluster_label="情感类" reply_cluster_order="2" reply_to="E05_P01">结果整题全错😭</d>
+  <d p="47.183,1,25,16777215,1760000469,0,5b6db7be,6547763502176975408,10" id="E05_R02" reply_cluster="emotion_05" reply_cluster_label="情感类" reply_cluster_order="3" reply_to="E05_P01">今天终于被治好了</d>
+  <d p="47.228,1,25,16777215,1760000473,0,80989854,7697079689524472866,10" id="A09_R21" reply_cluster="answer_09" reply_cluster_label="解答类" reply_cluster_order="8" reply_to="A09_M02">电源两端放左右，支路往中间展开</d>
+  <d p="47.408,1,25,16777215,1760000475,0,fd9d4e0a,3374402362478040819,10" id="A09_R22" reply_cluster="answer_09" reply_cluster_label="解答类" reply_cluster_order="9" reply_to="A09_M02">像树枝一样画出来最清楚</d>
+  <d p="47.421,1,25,16777215,1760000476,0,aaf5f7cc,5685369555929272614,10" id="N064">打卡：今天电路题不靠蒙了</d>
+  <d p="47.520,1,25,16777215,1760000474,0,c1da1ba2,2800088691711396658,10" id="E05_M01" reply_cluster="emotion_05" reply_cluster_label="情感类" reply_cluster_order="4" reply_to="E05_P01">中间：黑点才连接！记住了！</d>
+  <d p="47.633,1,25,16777215,1760000474,0,d2713287,7630757867820233614,10" id="N065">重画电路真的像开挂</d>
+  <d p="47.783,1,25,16777215,1760000476,0,dd2991d6,6562377019028648314,10" id="E05_R11" reply_cluster="emotion_05" reply_cluster_label="情感类" reply_cluster_order="5" reply_to="E05_M01">出题人：我就爱画交叉线😈</d>
+  <d p="47.920,1,25,16777215,1760000481,0,882ff159,3336158379346567828,10" id="A09_M03" reply_cluster="answer_09" reply_cluster_label="解答类" reply_cluster_order="10" reply_to="A09_P01">重画到底图啥？</d>
+  <d p="48.079,1,25,16777215,1760000481,0,7606e9e3,7499994909274297704,10" id="E05_R12" reply_cluster="emotion_05" reply_cluster_label="情感类" reply_cluster_order="6" reply_to="E05_M01">我们：我有节点法😎</d>
+  <d p="48.201,1,25,16777215,1760000484,0,2b94bd7b,7196499803923409880,10" id="A09_R31" reply_cluster="answer_09" reply_cluster_label="解答类" reply_cluster_order="11" reply_to="A09_M03">一眼看串并+闭合回路✅</d>
+  <d p="48.424,1,25,16777215,1760000484,0,57fd7ec8,1152510953558938839,10" id="E05_M02" reply_cluster="emotion_05" reply_cluster_label="情感类" reply_cluster_order="7" reply_to="E05_P01">这就是知识的力量</d>
+  <d p="48.630,1,25,16777215,1760000484,0,99bcf3a4,4118118361037995635,10" id="E05_R21" reply_cluster="emotion_05" reply_cluster_label="情感类" reply_cluster_order="8" reply_to="E05_M02">看懂电路那一刻真的爽</d>
+  <d p="48.826,1,25,16777215,1760000489,0,5c531abb,6565208537711372020,10" id="E05_R22" reply_cluster="emotion_05" reply_cluster_label="情感类" reply_cluster_order="9" reply_to="E05_M02">从“蒙”到“懂”只差一个方法</d>
+  <d p="49.202,1,25,16777215,1760000490,0,91b89f64,5112955124828387138,10" id="E05_M03" reply_cluster="emotion_05" reply_cluster_label="情感类" reply_cluster_order="10" reply_to="E05_P01">今晚刷题不emo了</d>
+  <d p="49.214,1,25,16777215,1760000492,0,9b4b420e,2092101033851393045,10" id="N066">都亮没毛病</d>
+  <d p="49.472,1,25,16777215,1760000495,0,9a123ec1,9359099051786495707,10" id="E05_R31" reply_cluster="emotion_05" reply_cluster_label="情感类" reply_cluster_order="11" reply_to="E05_M03">物理人狂喜🎉</d>
+  <d p="49.715,1,25,16777215,1760000495,0,47cddbf0,8968670670885635306,10" id="A03_P01" reply_cluster="answer_03" reply_cluster_label="解答类" reply_cluster_order="1">灯泡两端被导线直接连住=什么情况？</d>
+  <d p="49.868,1,25,16777215,1760000498,0,65c6323d,3979923871767154197,10" id="A03_R01" reply_cluster="answer_03" reply_cluster_label="解答类" reply_cluster_order="2" reply_to="A03_P01">短接！两端同点势→不亮</d>
+  <d p="50.085,1,25,16777215,1760000502,0,aaf40f54,5781943444625051392,10" id="A03_R02" reply_cluster="answer_03" reply_cluster_label="解答类" reply_cluster_order="3" reply_to="A03_P01">电流绕过灯泡直接走导线</d>
+  <d p="50.444,1,25,16777215,1760000506,0,b1c436d6,5059686479770127787,10" id="A03_M01" reply_cluster="answer_03" reply_cluster_label="解答类" reply_cluster_order="4" reply_to="A03_P01">中间：短路=电源短路吗？</d>
+  <d p="50.719,1,25,16777215,1760000509,0,5cd87831,1338398467112837828,10" id="A03_R11" reply_cluster="answer_03" reply_cluster_label="解答类" reply_cluster_order="5" reply_to="A03_M01">不一定：支路短接也叫短路</d>
+  <d p="50.947,1,25,16777215,1760000511,0,16e91d8a,7634460782831677949,10" id="A03_R12" reply_cluster="answer_03" reply_cluster_label="解答类" reply_cluster_order="6" reply_to="A03_M01">电源两端直接连才是危险短路⚠️</d>
+  <d p="51.321,1,25,16777215,1760000511,0,e10e8abe,4532160099786356372,10" id="A03_M02" reply_cluster="answer_03" reply_cluster_label="解答类" reply_cluster_order="7" reply_to="A03_P01">怎么识别短接最快？</d>
+  <d p="51.484,1,25,16777215,1760000515,0,cabf57d2,7615602789012292527,10" id="A03_R21" reply_cluster="answer_03" reply_cluster_label="解答类" reply_cluster_order="8" reply_to="A03_M02">看灯泡两端是否落在同一节点</d>
+  <d p="51.730,1,25,16777215,1760000518,0,6811c00c,7086495049738740472,10" id="A03_R22" reply_cluster="answer_03" reply_cluster_label="解答类" reply_cluster_order="9" reply_to="A03_M02">重画等效电路，一秒看穿</d>
+  <d p="52.007,1,25,16777215,1760000519,0,7602fedc,3235411293491991912,10" id="A03_M03" reply_cluster="answer_03" reply_cluster_label="解答类" reply_cluster_order="10" reply_to="A03_P01">考试怎么解释“不亮”？</d>
+  <d p="52.171,1,25,16777215,1760000522,0,6f82513d,4040302180903286548,10" id="A03_R31" reply_cluster="answer_03" reply_cluster_label="解答类" reply_cluster_order="11" reply_to="A03_M03">写：两端同电势，电压差0，所以不亮</d>
+  <d p="52.482,1,25,16777215,1760000525,0,054d7fe2,1721602970876606863,10" id="N067">这讲法太适合刷题了</d>
+  <d p="53.204,1,25,16777215,1760000533,0,4ffc0dd0,6541138402527280228,10" id="E04_P01" reply_cluster="emotion_04" reply_cluster_label="情感类" reply_cluster_order="1">这老师讲得像开透视挂</d>
+  <d p="53.390,1,25,16777215,1760000533,0,c8a98bcd,8165399475864466575,10" id="E04_R01" reply_cluster="emotion_04" reply_cluster_label="情感类" reply_cluster_order="2" reply_to="E04_P01">我：线怎么绕都一样？？？</d>
+  <d p="53.563,1,25,16777215,1760000536,0,926b75f2,1895096844506236030,10" id="E04_R02" reply_cluster="emotion_04" reply_cluster_label="情感类" reply_cluster_order="3" reply_to="E04_P01">老师：拓扑不变！</d>
+  <d p="53.892,1,25,16777215,1760000539,0,159304b9,1940278876540520932,10" id="E04_M01" reply_cluster="emotion_04" reply_cluster_label="情感类" reply_cluster_order="4" reply_to="E04_P01">中间：拓扑这词太高级了</d>
+  <d p="54.092,1,25,16777215,1760000542,0,da249f3b,1973548205331774847,10" id="E04_R11" reply_cluster="emotion_04" reply_cluster_label="情感类" reply_cluster_order="5" reply_to="E04_M01">电路题突然有数学味了😂</d>
+  <d p="54.286,1,25,16777215,1760000544,0,58d76f37,8471416795606211681,10" id="E04_R12" reply_cluster="emotion_04" reply_cluster_label="情感类" reply_cluster_order="6" reply_to="E04_M01">懂了：连接关系才是本体</d>
+  <d p="54.567,1,25,16777215,1760000543,0,95876b1e,9924883707114866663,10" id="E04_M02" reply_cluster="emotion_04" reply_cluster_label="情感类" reply_cluster_order="7" reply_to="E04_P01">以后见到电路先拉直</d>
+  <d p="54.778,1,25,16777215,1760000547,0,dfe4e18e,6683116067094837437,10" id="E04_R21" reply_cluster="emotion_04" reply_cluster_label="情感类" reply_cluster_order="8" reply_to="E04_M02">去掉直角我直接起飞✈️</d>
+  <d p="55.081,1,25,16777215,1760000550,0,a7a66dc4,2505751931163374798,10" id="E04_R22" reply_cluster="emotion_04" reply_cluster_label="情感类" reply_cluster_order="9" reply_to="E04_M02">这才是我想要的物理</d>
+  <d p="55.106,1,25,16777215,1760000550,0,ad8192d3,2754026435305373662,10" id="A06_P01" reply_cluster="answer_06" reply_cluster_label="解答类" reply_cluster_order="1">“等电势点”在电路题怎么用？</d>
+  <d p="55.255,1,25,16777215,1760000550,0,4a213ad7,2432485283998651035,10" id="A06_R01" reply_cluster="answer_06" reply_cluster_label="解答类" reply_cluster_order="2" reply_to="A06_P01">同一根导线=同电势，标同一个字母</d>
+  <d p="55.287,1,25,16777215,1760000552,0,841e111e,9065953808388380299,10" id="N068">L3不是短路了吗？</d>
+  <d p="55.435,1,25,16777215,1760000556,0,8aca6006,3718018487315994084,10" id="A06_R02" reply_cluster="answer_06" reply_cluster_label="解答类" reply_cluster_order="3" reply_to="A06_P01">把等电势点合并重画，结构就出来了</d>
+  <d p="55.601,1,25,16777215,1760000555,0,3b3b8e76,8054725011139115539,10" id="E04_M03" reply_cluster="emotion_04" reply_cluster_label="情感类" reply_cluster_order="10" reply_to="E04_P01">我宣布：这视频收藏了</d>
+  <d p="55.828,1,25,16777215,1760000556,0,34afd78c,5483428492980347047,10" id="E04_R31" reply_cluster="emotion_04" reply_cluster_label="情感类" reply_cluster_order="11" reply_to="E04_M03">考前必刷！</d>
+  <d p="55.840,1,25,16777215,1760000558,0,dcb0bc2e,3628340038524799254,10" id="A06_M01" reply_cluster="answer_06" reply_cluster_label="解答类" reply_cluster_order="4" reply_to="A06_P01">中间：等电势会导致什么结论？</d>
+  <d p="56.071,1,25,16777215,1760000560,0,bc2c561f,7853067810256515755,10" id="A06_R11" reply_cluster="answer_06" reply_cluster_label="解答类" reply_cluster_order="5" reply_to="A06_M01">元件两端同电势→电压差0→不工作</d>
+  <d p="56.257,1,25,16777215,1760000561,0,c6ff38ed,6269100754878878436,10" id="A06_R12" reply_cluster="answer_06" reply_cluster_label="解答类" reply_cluster_order="6" reply_to="A06_M01">灯泡不亮往往就是这个原因</d>
+  <d p="56.293,1,25,16777215,1760000564,0,d9b94eab,9162241409661727077,10" id="N069">我宣布：去掉直角=降维打击</d>
+  <d p="56.585,1,25,16777215,1760000565,0,28988fc2,5907313178865907254,10" id="A06_M02" reply_cluster="answer_06" reply_cluster_label="解答类" reply_cluster_order="7" reply_to="A06_P01">标点的正确姿势？</d>
+  <d p="56.743,1,25,16777215,1760000567,0,e5998e82,7587705526695859126,10" id="A06_R21" reply_cluster="answer_06" reply_cluster_label="解答类" reply_cluster_order="8" reply_to="A06_M02">沿导线走不经过元件→点不变</d>
+  <d p="57.028,1,25,16777215,1760000571,0,8f61317e,8389199202036991761,10" id="A06_R22" reply_cluster="answer_06" reply_cluster_label="解答类" reply_cluster_order="9" reply_to="A06_M02">遇到灯泡/电阻/电源→换点</d>
+  <d p="57.534,1,25,16777215,1760000577,0,3bd173b6,1918786052229486216,10" id="A06_M03" reply_cluster="answer_06" reply_cluster_label="解答类" reply_cluster_order="10" reply_to="A06_P01">适用范围？</d>
+  <d p="57.677,1,25,16777215,1760000575,0,91679ded,4693629359005177616,10" id="A06_R31" reply_cluster="answer_06" reply_cluster_label="解答类" reply_cluster_order="11" reply_to="A06_M03">所有电路图都能用✅</d>
+  <d p="59.720,1,25,16777215,1760000597,0,9b38caed,2537088794621820053,10" id="N070">电流不是只走捷径，是按电阻分流！</d>
+</i>

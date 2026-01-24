@@ -340,7 +340,97 @@
     .danmaku-screen.paused .danmaku-item { animation-play-state: paused; }
 
     .danmaku-controls {
-      width: 100%; margin: 10px 0; display: flex; box-sizing: border-box; flex-shrink: 0; gap: 10px; align-items: center;
+      width: 100%; margin: 10px 0; display: flex; box-sizing: border-box; flex-shrink: 0; align-items: center;
+    }
+    .danmaku-controls-inner {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px;
+      border: 1px solid #e2e2e2;
+      border-radius: 8px;
+      background: #fafafa;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      box-sizing: border-box;
+    }
+    .danmaku-left-tools {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+      position: relative;
+    }
+    .danmaku-count-box {
+      font-size: 12px;
+      color: #666;
+      padding: 4px 8px;
+      border-radius: 6px;
+      background: #f0f0f0;
+      border: 1px solid #e0e0e0;
+      white-space: nowrap;
+    }
+    .danmaku-tool-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 6px;
+      border: 1px solid #d7d7d7;
+      background: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      padding: 0;
+      transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
+    }
+    .danmaku-tool-btn:hover {
+      background: #f3f6ff;
+      border-color: #bcd0ff;
+    }
+    .danmaku-tool-btn.is-active {
+      border-color: #5a7ff0;
+      background-color: #eef2ff;
+    }
+    .danmaku-tool-btn:active {
+      transform: translateY(1px);
+    }
+    .danmaku-tool-btn img {
+      width: 22px;
+      height: 22px;
+      display: block;
+    }
+
+    .danmaku-settings-panel {
+      position: absolute;
+      left: 0;
+      bottom: calc(100% + 8px);
+      min-width: 220px;
+      padding: 10px;
+      border-radius: 8px;
+      background: #ffffff;
+      border: 1px solid #e1e1e1;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+      display: none;
+      z-index: 8;
+    }
+    .danmaku-settings-panel.is-open {
+      display: block;
+    }
+    .danmaku-settings-title {
+      font-size: 12px;
+      color: #444;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    #danmaku-area-range {
+      width: 100%;
+    }
+    .danmaku-settings-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      color: #777;
+      margin-top: 4px;
     }
     .danmaku-input-wrapper {
       position: relative;
@@ -356,11 +446,17 @@
       width: 100%;
       padding: 8px 58px 8px 8px;
       font-size: 16px;
-      border: 1px solid #ccc;
+      border: 1px solid #d1d1d1;
       border-radius: 4px;
       box-sizing: border-box;
-      background: #fff;
+      background: #e8eaed;
       box-shadow: none;
+    }
+
+    .danmaku-screen.is-hidden,
+    .dialogue-connector-svg.is-hidden {
+      opacity: 0;
+      pointer-events: none;
     }
     .danmaku-ai-toggle {
       position: absolute;
