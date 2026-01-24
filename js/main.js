@@ -2235,9 +2235,10 @@
     const heatmapOverviewBtn = document.getElementById('heatmap-overview-btn');
     const HEATMAP_ZOOM_STEP = 1;
     const HEATMAP_ZOOM_MIN = 1;
-    const HEATMAP_ZOOM_MAX = 200;
+    const HEATMAP_ZOOM_MAX = 100;
     const HEATMAP_OVERVIEW_THRESHOLD = 50;
-    const HEATMAP_ZOOM_VERTICAL_THRESHOLD = 100;
+    const HEATMAP_ZOOM_VERTICAL_THRESHOLD = 46;
+    const HEATMAP_NODE_MAX_MODE_ZOOM = 26;
     let heatmapZoom = 20;
     let heatmapOverviewFit = false;
     let heatmapZoomAnchor = null;
@@ -2263,12 +2264,16 @@
       if (!config) return '';
       return config.id || config.videoSrc || config.danmakuSrc || '';
     };
+    const getHeatmapZoomStep = (value) => (value > 5 ? 10 : 1);
 
     const syncHeatmapZoomUI = () => {
       if (heatmapOverviewBtn) {
         const isOverviewMode = !!heatmapOverviewFit;
         heatmapOverviewBtn.classList.toggle('is-active', isOverviewMode);
         heatmapOverviewBtn.setAttribute('aria-pressed', isOverviewMode.toString());
+      }
+      if (heatmapContent) {
+        heatmapContent.classList.toggle('is-overview', !!heatmapOverviewFit);
       }
       if (heatmapZoomInput && Number(heatmapZoomInput.value) !== heatmapZoom) {
         heatmapZoomInput.value = heatmapZoom.toString();
@@ -2294,7 +2299,7 @@
       if (!state) return false;
       heatmapZoom = state.zoom;
       heatmapZoomLocked = !!state.locked;
-      heatmapOverviewFit = !!state.overviewFit;
+      heatmapOverviewFit = !!state.overviewFit || heatmapZoom <= HEATMAP_ZOOM_MIN;
       heatmapPendingRestore = {
         scrollLeft: state.scrollLeft || 0,
         scrollTop: state.scrollTop || 0,
@@ -2347,13 +2352,10 @@
     }
 
     function getHeatmapRenderHeight() {
-      if (!heatmapPanel) return heatmapContent ? heatmapContent.clientHeight : 0;
-      const expandedValue = getComputedStyle(heatmapPanel).getPropertyValue('--heatmap-expanded-height').trim();
-      const expandedHeight = parseFloat(expandedValue);
-      if (Number.isFinite(expandedHeight) && expandedHeight > 0) {
-        return expandedHeight;
+      if (heatmapContent) {
+        return heatmapContent.clientHeight;
       }
-      return heatmapContent ? heatmapContent.clientHeight : 0;
+      return 0;
     }
 
     function scheduleHeatmapRender() {
@@ -2388,6 +2390,8 @@
       return null;
     }
     function getHeatmapAxisStep(duration) {
+      if (heatmapZoom > 35) return 1;
+      if (heatmapZoom > 5) return 15;
       if (duration <= 60) return 5;
       if (duration <= 180) return 10;
       if (duration <= 600) return 30;
@@ -2473,9 +2477,10 @@
           : 1
       );
       const zoomScale = getZoomScale(heatmapZoom);
-      const isOverviewMode = heatmapOverviewFit || heatmapZoom < HEATMAP_OVERVIEW_THRESHOLD;
-      const compactMode = !heatmapZoomLocked || isOverviewMode;
+      const forceMaxNodeMode = heatmapZoom > HEATMAP_NODE_MAX_MODE_ZOOM;
+      const isOverviewMode = (heatmapOverviewFit || heatmapZoom < HEATMAP_OVERVIEW_THRESHOLD) && !forceMaxNodeMode;
       const overviewFitMode = !!heatmapOverviewFit;
+      const compactMode = forceMaxNodeMode ? false : (!heatmapZoomLocked || isOverviewMode);
 
       const edgePadding = 14;
       const previousPlotWidth = previousScrollWidth > 0
@@ -2488,8 +2493,8 @@
         )
         : null;
       const axisHeight = 26 * zoomScale;
-      const height = baseHeight * zoomScale;
-      const chartHeight = height - axisHeight;
+      let height = baseHeight * zoomScale;
+      let chartHeight = height - axisHeight;
       if (chartHeight <= 0) return;
 
       // === 1) 挑选要展示的回复串 ===
@@ -2839,10 +2844,24 @@
           : Math.max(minRowH, Math.min(maxRowH, rawRowH));
       }
       const rowStep = rowH + rowGap;
-      const rowCount = overviewFitMode
+      let rowCount = overviewFitMode
         ? neededRows
         : Math.min(neededRows, Math.floor((chartHeight + rowGap) / rowStep));
       if (rowCount <= 0) return;
+
+      if (!overviewFitMode) {
+        rowCount = neededRows;
+        const neededChartHeight = rowStep * neededRows;
+        if (neededChartHeight > chartHeight) {
+          chartHeight = neededChartHeight;
+          height = chartHeight + axisHeight;
+          svg.setAttribute("viewBox", `0 0 ${svgWidth} ${height}`);
+          svg.setAttribute("height", String(height));
+          svg.dataset.chartHeight = String(chartHeight);
+          playheadLine.setAttribute("y2", String(chartHeight));
+        }
+      }
+
       const visibleLayouts = overviewFitMode
         ? layouts
         : layouts.filter(layout => layout.rowIdx < rowCount);
@@ -3189,7 +3208,8 @@
         if (!e.ctrlKey) return;
         e.preventDefault();
         heatmapZoomAnchor = { clientX: e.clientX, clientY: e.clientY };
-        const step = e.deltaY > 0 ? -HEATMAP_ZOOM_STEP : HEATMAP_ZOOM_STEP;
+        const baseStep = getHeatmapZoomStep(heatmapZoom);
+        const step = e.deltaY > 0 ? -baseStep : baseStep;
         updateHeatmapZoom(heatmapZoom + step, { lock: true, overview: false });
       }, { passive: false });
       // 初始化时尝试渲染一次
@@ -3206,7 +3226,11 @@
       }
       if (lock === true) heatmapZoomLocked = true;
       if (lock === false) heatmapZoomLocked = false;
-      heatmapOverviewFit = !!overview;
+      if (overview === true || heatmapZoom <= HEATMAP_ZOOM_MIN) {
+        heatmapOverviewFit = true;
+      } else if (overview === false) {
+        heatmapOverviewFit = false;
+      }
       syncHeatmapZoomUI();
       renderBottomHeatmap();
     }

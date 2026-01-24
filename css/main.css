@@ -848,6 +848,15 @@
       overflow-y: auto;
       position: relative;
       background-color: #fcfcfc;
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* IE/Edge legacy */
+    }
+    #heatmap-content.is-overview {
+      overflow-y: hidden;
+    }
+    #heatmap-content::-webkit-scrollbar {
+      width: 0;
+      height: 0;
     }
     #heatmap-content.heatmap-panning,
     #heatmap-content.heatmap-panning .heatmap-svg {
@@ -858,6 +867,7 @@
     .heatmap-svg {
       height: auto;
       display: block;
+      vertical-align: middle;
       overflow: visible;
       cursor: crosshair;
       min-width: 100%;
