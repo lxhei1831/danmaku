@@ -2594,7 +2594,7 @@
       const defs = document.createElementNS(svgNS, "defs");
 
       // arrow marker
-      const arrowSize = 8 * zoomScale;
+      const arrowSize = 4 * zoomScale;
       const arrowHalf = arrowSize / 2;
       const marker = document.createElementNS(svgNS, "marker");
       marker.setAttribute("id", "threadriver-arrow");
