@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i>
+  <chatserver>chat.bilibili.com</chatserver>
+  <chatid>302666700</chatid>
+  <mission>0</mission>
+  <maxlimit>312</maxlimit>
+  <state>0</state>
+  <real_name>0</real_name>
+  <source>k-v</source>
+  <d p="0.02,1,25,16777215,1733570074,0,2a676324,690477787356552656" id="N001">标题好狠😂我先试试</d>
+  <d p="0.37,1,25,16777215,1733573510,0,b5a63ec0,687819103364160007" id="A01_P01" reply_cluster="answer_01" reply_cluster_label="解答类" reply_cluster_order="1">先别急着喊 e，先读题：趋近点是什么？</d>
+  <d p="0.48,1,25,16777215,1733573628,0,6299e8eb,319702302413997138" id="A01_R01" reply_cluster="answer_01" reply_cluster_label="解答类" reply_cluster_order="2" reply_to="A01_P01">x→0≠n→∞，结构不对就别套</d>
+  <d p="0.83,1,25,16777215,1733573747,0,d703fcb2,930662708645450113" id="A01_R02" reply_cluster="answer_01" reply_cluster_label="解答类" reply_cluster_order="3" reply_to="A01_P01">先看是不是 0/0 或 1^∞ 形式</d>
+  <d p="0.96,1,25,16777215,1733573254,0,9f6442c0,823179908401551485" id="N037">求老师给个口诀</d>
+  <d p="1.24,1,25,16777215,1733573260,0,7a7428b5,423614442320213494" id="E01_P01" reply_cluster="emotion_01" reply_cluster_label="情感类" reply_cluster_order="1">标题：95%算不对…我：那我就是95%😭</d>
+  <d p="1.37,1,25,16777215,1733573799,0,659df0bc,728692625780263648" id="A01_M01" reply_cluster="answer_01" reply_cluster_label="解答类" reply_cluster_order="4" reply_to="A01_P01">中间：第一步怎么做？</d>
+  <d p="1.42,1,25,16777215,1733573361,0,0bc58e51,403667550036556183" id="E01_R01" reply_cluster="emotion_01" reply_cluster_label="情感类" reply_cluster_order="2" reply_to="E01_P01">我第一眼：1</d>
+  <d p="1.58,1,25,16777215,1733573860,0,71c43818,189433131490861566" id="A01_R11" reply_cluster="answer_01" reply_cluster_label="解答类" reply_cluster_order="5" reply_to="A01_M01">拆左右极限：看定义域</d>
+  <d p="1.60,1,25,16777215,1733573468,0,592d79bc,140273162320723023" id="E01_R02" reply_cluster="emotion_01" reply_cluster_label="情感类" reply_cluster_order="3" reply_to="E01_P01">我第二眼：e</d>
+  <d p="2.01,1,25,16777215,1733573973,0,0cf904e0,544929378151950316" id="A01_R12" reply_cluster="answer_01" reply_cluster_label="解答类" reply_cluster_order="6" reply_to="A01_M01">右边能算先算右边</d>
+  <d p="2.11,1,25,16777215,1733573597,0,b9865853,185247184701892923" id="E01_M01" reply_cluster="emotion_01" reply_cluster_label="情感类" reply_cluster_order="4" reply_to="E01_P01">我第三眼：不存在🤣</d>
+  <d p="2.47,1,25,16777215,1733573659,0,2403b794,911041870831112632" id="E01_R11" reply_cluster="emotion_01" reply_cluster_label="情感类" reply_cluster_order="5" reply_to="E01_M01">中间：我到底学了啥</d>
+  <d p="2.56,1,25,16777215,1733574041,0,0fb0baee,664157484802436370" id="A01_M02" reply_cluster="answer_01" reply_cluster_label="解答类" reply_cluster_order="7" reply_to="A01_M01">中间2：能不能取 ln？</d>
+  <d p="2.85,1,25,16777215,1733573741,0,02be7621,362448529352971714" id="E01_R12" reply_cluster="emotion_01" reply_cluster_label="情感类" reply_cluster_order="6" reply_to="E01_M01">老师：你学得很6（指离谱）</d>
+  <d p="2.89,1,25,16777215,1733574155,0,8a8fcad1,103375403200729247" id="A01_R21" reply_cluster="answer_01" reply_cluster_label="解答类" reply_cluster_order="8" reply_to="A01_M02">能！把幂拉下来会清爽很多</d>
+  <d p="3.14,1,25,16777215,1733574190,0,4cf6162e,139469936404316169" id="A01_R22" reply_cluster="answer_01" reply_cluster_label="解答类" reply_cluster_order="9" reply_to="A01_M02">再用等价无穷小/泰勒就行</d>
+  <d p="3.44,1,25,16777215,1733573874,0,cd3e295e,932262193831288688" id="E01_M02" reply_cluster="emotion_01" reply_cluster_label="情感类" reply_cluster_order="7" reply_to="E01_M01">中间2：评论区要吵起来了</d>
+  <d p="3.74,1,25,16777215,1733573962,0,11892dbf,773370442257765049" id="E01_R21" reply_cluster="emotion_01" reply_cluster_label="情感类" reply_cluster_order="8" reply_to="E01_M02">1派集合🙋</d>
+  <d p="3.87,1,25,16777215,1733574264,0,114568b9,864554262849216692" id="A01_R03" reply_cluster="answer_01" reply_cluster_label="解答类" reply_cluster_order="10" reply_to="A01_P01">最后别忘了核对条件！</d>
+  <d p="3.90,1,25,16777215,1733576440,0,150b5eae,525887532991392870" id="A02_P01" reply_cluster="answer_02" reply_cluster_label="解答类" reply_cluster_order="1">左右极限统一吗？不统一就直接‘不存在’。</d>
+  <d p="4.10,1,25,16777215,1733576565,0,dadc0faa,658508681940819640" id="A02_R01" reply_cluster="answer_02" reply_cluster_label="解答类" reply_cluster_order="2" reply_to="A02_P01">右极限我算到 1</d>
+  <d p="4.11,1,25,16777215,1733574040,0,12976165,555191098383455027" id="E01_R22" reply_cluster="emotion_01" reply_cluster_label="情感类" reply_cluster_order="9" reply_to="E01_M02">e派集合🙋</d>
+  <d p="4.34,1,25,16777215,1733576624,0,08b9a7a4,431687508535294922" id="A02_R02" reply_cluster="answer_02" reply_cluster_label="解答类" reply_cluster_order="3" reply_to="A02_P01">左极限我这边直接没定义😅</d>
+  <d p="4.50,1,25,16777215,1733574330,0,7449bde1,209622246028879935" id="A01_R23" reply_cluster="answer_01" reply_cluster_label="解答类" reply_cluster_order="11" reply_to="A01_M02">总结：先判断型，再选工具</d>
+  <d p="4.75,1,25,16777215,1733574065,0,52c315c2,795078110135592459" id="E01_R03" reply_cluster="emotion_01" reply_cluster_label="情感类" reply_cluster_order="10" reply_to="E01_P01">不存在派集合🙋</d>
+  <d p="4.89,1,25,16777215,1733576692,0,eafcae98,147011770546281816" id="A02_M01" reply_cluster="answer_02" reply_cluster_label="解答类" reply_cluster_order="4" reply_to="A02_P01">中间：所以结论？</d>
+  <d p="5.16,1,25,16777215,1733576761,0,4a134d65,738839351431739355" id="A02_R11" reply_cluster="answer_02" reply_cluster_label="解答类" reply_cluster_order="5" reply_to="A02_M01">左右不一致=极限不存在</d>
+  <d p="5.33,1,25,16777215,1733574143,0,163f796e,392384917651576669" id="E01_R23" reply_cluster="emotion_01" reply_cluster_label="情感类" reply_cluster_order="11" reply_to="E01_M02">弹幕比题还精彩</d>
+  <d p="5.56,1,25,16777215,1733576884,0,42a55ebd,647911416888990186" id="A02_R12" reply_cluster="answer_02" reply_cluster_label="解答类" reply_cluster_order="6" reply_to="A02_M01">别硬算一个数出来交卷</d>
+  <d p="5.98,1,25,16777215,1733571595,0,40beca99,881463861500989250" id="N019">看成“你学极限得6吗”笑死🤣</d>
+  <d p="6.14,1,25,16777215,1733576980,0,2e927210,296417365627047301" id="A02_M02" reply_cluster="answer_02" reply_cluster_label="解答类" reply_cluster_order="7" reply_to="A02_M01">中间2：那视频里为啥有人说 e？</d>
+  <d p="6.40,1,25,16777215,1733576446,0,eec34b71,381037713810360618" id="E02_P01" reply_cluster="emotion_02" reply_cluster_label="情感类" reply_cluster_order="1">我刚写完答案，视频下一秒：‘错’</d>
+  <d p="6.41,1,25,16777215,1733577115,0,591593e6,380222879143454350" id="A02_R21" reply_cluster="answer_02" reply_cluster_label="解答类" reply_cluster_order="8" reply_to="A02_M02">把 x→0 当成 →∞ 了</d>
+  <d p="6.54,1,25,16777215,1733576500,0,e8d5a583,532041539443273025" id="E02_R01" reply_cluster="emotion_02" reply_cluster_label="情感类" reply_cluster_order="2" reply_to="E02_P01">我：稳了</d>
+  <d p="6.67,1,25,16777215,1733576282,0,6e294bd9,658062285895228519" id="N069">别把 x→0 看成 x→∞！</d>
+  <d p="6.76,1,25,16777215,1733577198,0,60ca5a9c,609123358252582924" id="A02_R22" reply_cluster="answer_02" reply_cluster_label="解答类" reply_cluster_order="9" reply_to="A02_M02">e 的定义要有 n→∞ 或 1+1/n</d>
+  <d p="6.77,1,25,16777215,1733571307,0,0b717f64,499446916665212341" id="N016">一眼don’t know（我装的）</d>
+  <d p="6.88,1,25,16777215,1733576584,0,e49546f1,999391671035843888" id="E02_R02" reply_cluster="emotion_02" reply_cluster_label="情感类" reply_cluster_order="3" reply_to="E02_P01">视频：不，你不稳</d>
+  <d p="7.38,1,25,16777215,1733570790,0,efdd252f,982782358877834964" id="N011">别把 x→0 看成 x→∞！</d>
+  <d p="7.39,1,25,16777215,1733576674,0,1baf698c,239651074023211532" id="E02_M01" reply_cluster="emotion_02" reply_cluster_label="情感类" reply_cluster_order="4" reply_to="E02_P01">中间：瞬间破防</d>
+  <d p="7.49,1,25,16777215,1733577239,0,c7edc15b,436744913769463492" id="A02_R03" reply_cluster="answer_02" reply_cluster_label="解答类" reply_cluster_order="10" reply_to="A02_P01">这题不是那个结构！</d>
+  <d p="7.61,1,25,16777215,1733572052,0,b89c6a5f,722188790694581975" id="N024">好好往后看吧！</d>
+  <d p="7.65,1,25,16777215,1733576716,0,c756da68,418337553481684136" id="E02_R11" reply_cluster="emotion_02" reply_cluster_label="情感类" reply_cluster_order="5" reply_to="E02_M01">纸都要被我擦穿了</d>
+  <d p="8.05,1,25,16777215,1733576774,0,0a1eff5a,280080652209968995" id="E02_R12" reply_cluster="emotion_02" reply_cluster_label="情感类" reply_cluster_order="6" reply_to="E02_M01">我恨极限😭</d>
+  <d p="8.10,1,25,16777215,1733579144,0,20f68906,522814088137763019" id="A03_P01" reply_cluster="answer_03" reply_cluster_label="解答类" reply_cluster_order="1">0^0/1^∞ 别慌：先取 ln，再转成 0/0。</d>
+  <d p="8.10,1,25,16777215,1733577369,0,11fe5026,153379089330100027" id="A02_R23" reply_cluster="answer_02" reply_cluster_label="解答类" reply_cluster_order="11" reply_to="A02_M02">记住这个坑就赚了</d>
+  <d p="8.32,1,25,16777215,1733579201,0,151d40c9,404767209441287089" id="A03_R01" reply_cluster="answer_03" reply_cluster_label="解答类" reply_cluster_order="2" reply_to="A03_P01">ln 后变成乘法/除法好处理</d>
+  <d p="8.58,1,25,16777215,1733579244,0,2961fb96,637208120238709325" id="A03_R02" reply_cluster="answer_03" reply_cluster_label="解答类" reply_cluster_order="3" reply_to="A03_P01">然后再用等价无穷小</d>
+  <d p="8.66,1,25,16777215,1733576867,0,5d5ec66d,439790354941739258" id="E02_M02" reply_cluster="emotion_02" reply_cluster_label="情感类" reply_cluster_order="7" reply_to="E02_M01">中间2：但又有点爽</d>
+  <d p="8.91,1,25,16777215,1733576972,0,2e0b554c,719770269434123189" id="E02_R21" reply_cluster="emotion_02" reply_cluster_label="情感类" reply_cluster_order="8" reply_to="E02_M02">这种打脸题最上头</d>
+  <d p="9.06,1,25,16777215,1733579329,0,a968f97f,806082039380707396" id="A03_M01" reply_cluster="answer_03" reply_cluster_label="解答类" reply_cluster_order="4" reply_to="A03_P01">中间：等价无穷小用哪些？</d>
+  <d p="9.17,1,25,16777215,1733572793,0,a9813ee8,860136502756188495" id="N032">有人跟我一样把E写成1了吗</d>
+  <d p="9.25,1,25,16777215,1733576451,0,99c62c08,977689541093363388" id="N070">经典陷阱：以为是(1+1/n)^n</d>
+  <d p="9.27,1,25,16777215,1733577095,0,ba189588,100349676027180761" id="E02_R22" reply_cluster="emotion_02" reply_cluster_label="情感类" reply_cluster_order="9" reply_to="E02_M02">看懂了：懂了但不会</d>
+  <d p="9.39,1,25,16777215,1733579368,0,c0d048eb,790334720472824202" id="A03_R11" reply_cluster="answer_03" reply_cluster_label="解答类" reply_cluster_order="5" reply_to="A03_M01">sinx~x，ln(1+x)~x</d>
+  <d p="9.67,1,25,16777215,1733579474,0,5110ea28,661820462587001859" id="A03_R12" reply_cluster="answer_03" reply_cluster_label="解答类" reply_cluster_order="6" reply_to="A03_M01">1-cosx~x^2/2 也常用</d>
+  <d p="9.96,1,25,16777215,1733577125,0,cd2d8be6,766848987718600884" id="E02_R03" reply_cluster="emotion_02" reply_cluster_label="情感类" reply_cluster_order="10" reply_to="E02_P01">会了：会了但写不出</d>
+  <d p="10.36,1,25,16777215,1733579519,0,ceb230c7,345666664103902910" id="A03_M02" reply_cluster="answer_03" reply_cluster_label="解答类" reply_cluster_order="7" reply_to="A03_M01">中间2：需要洛必达吗？</d>
+  <d p="10.54,1,25,16777215,1733577228,0,f63f001f,172403758161637349" id="E02_R23" reply_cluster="emotion_02" reply_cluster_label="情感类" reply_cluster_order="11" reply_to="E02_M02">考场：直接摆烂</d>
+  <d p="10.62,1,25,16777215,1733579577,0,8dfd7d27,468471634894218549" id="A03_R21" reply_cluster="answer_03" reply_cluster_label="解答类" reply_cluster_order="8" reply_to="A03_M02">能不用就不用，展开更快</d>
+  <d p="10.66,1,25,16777215,1733582311,0,038ef40f,345411857683687936" id="A04_P01" reply_cluster="answer_04" reply_cluster_label="解答类" reply_cluster_order="1">泰勒展开到二阶：别只背一阶就停。</d>
+  <d p="10.74,1,25,16777215,1733582367,0,3612b8c7,244600767272049291" id="A04_R01" reply_cluster="answer_04" reply_cluster_label="解答类" reply_cluster_order="2" reply_to="A04_P01">一阶全抵消了才是关键</d>
+  <d p="10.90,1,25,16777215,1733579708,0,5cc20640,575810130414526875" id="A03_R22" reply_cluster="answer_03" reply_cluster_label="解答类" reply_cluster_order="9" reply_to="A03_M02">如果要用，先确认 0/0 形式</d>
+  <d p="11.04,1,25,16777215,1733582460,0,ee6bc3f9,594237393835193101" id="A04_R02" reply_cluster="answer_04" reply_cluster_label="解答类" reply_cluster_order="3" reply_to="A04_P01">二阶项决定极限值</d>
+  <d p="11.36,1,25,16777215,1733573447,0,efe29eaa,725676834904683825" id="N039">我怀疑我学的是假极限</d>
+  <d p="11.60,1,25,16777215,1733582517,0,7d3a41c9,149833140785768905" id="A04_M01" reply_cluster="answer_04" reply_cluster_label="解答类" reply_cluster_order="4" reply_to="A04_P01">中间：展开谁？</d>
+  <d p="11.73,1,25,16777215,1733579803,0,11c5ec86,767829804044917255" id="A03_R03" reply_cluster="answer_03" reply_cluster_label="解答类" reply_cluster_order="10" reply_to="A03_P01">最后把 ln 结果再 exponent 回去</d>
+  <d p="11.77,1,25,16777215,1733582636,0,08674a3d,850769392539428596" id="A04_R11" reply_cluster="answer_04" reply_cluster_label="解答类" reply_cluster_order="5" reply_to="A04_M01">ln(1+x)、e^x、sinx 都可能</d>
+  <d p="11.90,1,25,16777215,1733575157,0,f2f3c964,486289431988865280" id="N058">这就是你们说的‘一眼题’吗</d>
+  <d p="12.00,1,25,16777215,1733579297,0,892445d8,162909103234496726" id="E03_P01" reply_cluster="emotion_03" reply_cluster_label="情感类" reply_cluster_order="1">‘一眼题’三个字把我骗麻了</d>
+  <d p="12.20,1,25,16777215,1733579846,0,e9b750d8,115468708058873342" id="A03_R23" reply_cluster="answer_03" reply_cluster_label="解答类" reply_cluster_order="11" reply_to="A03_M02">答案一下就出来了</d>
+  <d p="12.21,1,25,16777215,1733579337,0,8826874c,999823616825491749" id="E03_R01" reply_cluster="emotion_03" reply_cluster_label="情感类" reply_cluster_order="2" reply_to="E03_P01">一眼=看一眼就错</d>
+  <d p="12.26,1,25,16777215,1733572670,0,3c5993c4,560995407694210418" id="N030">纸上推了三行，心态崩了</d>
+  <d p="12.27,1,25,16777215,1733582750,0,c942e7c9,845106579283445717" id="A04_R12" reply_cluster="answer_04" reply_cluster_label="解答类" reply_cluster_order="6" reply_to="A04_M01">看题型选展开对象</d>
+  <d p="12.50,1,25,16777215,1733579457,0,6cd80399,618531998924427144" id="E03_R02" reply_cluster="emotion_03" reply_cluster_label="情感类" reply_cluster_order="3" reply_to="E03_P01">题目：你好自信哦</d>
+  <d p="12.85,1,25,16777215,1733582888,0,5123874a,822739214290594910" id="A04_M02" reply_cluster="answer_04" reply_cluster_label="解答类" reply_cluster_order="7" reply_to="A04_M01">中间2：我展开完怎么合并？</d>
+  <d p="12.90,1,25,16777215,1733573153,0,fd586b44,638404236122729514" id="N036">我只会写：趋于…然后卡住</d>
+  <d p="13.01,1,25,16777215,1733579521,0,178380c1,176458379739327537" id="E03_M01" reply_cluster="emotion_03" reply_cluster_label="情感类" reply_cluster_order="4" reply_to="E03_P01">中间：我收回刚才的笑</d>
+  <d p="13.11,1,25,16777215,1733583021,0,be17cfff,297845806060748567" id="A04_R21" reply_cluster="answer_04" reply_cluster_label="解答类" reply_cluster_order="8" reply_to="A04_M02">把同阶项收集：x、x^2…</d>
+  <d p="13.29,1,25,16777215,1733579650,0,f86b1340,474278327723497728" id="E03_R11" reply_cluster="emotion_03" reply_cluster_label="情感类" reply_cluster_order="5" reply_to="E03_M01">出题人太会拿捏了</d>
+  <d p="13.46,1,25,16777215,1733583152,0,bd5ff9e4,671186221225214900" id="A04_R22" reply_cluster="answer_04" reply_cluster_label="解答类" reply_cluster_order="9" reply_to="A04_M02">剩下高阶项忽略（o(x^2)）</d>
+  <d p="13.70,1,25,16777215,1733579718,0,d99c625a,676234814347804113" id="E03_R12" reply_cluster="emotion_03" reply_cluster_label="情感类" reply_cluster_order="6" reply_to="E03_M01">我开始怀疑人生</d>
+  <d p="14.18,1,25,16777215,1733579847,0,835888ae,817439721801291572" id="E03_M02" reply_cluster="emotion_03" reply_cluster_label="情感类" reply_cluster_order="7" reply_to="E03_M01">中间2：继续看，别逃</d>
+  <d p="14.22,1,25,16777215,1733583203,0,4a319158,843692356092998158" id="A04_R03" reply_cluster="answer_04" reply_cluster_label="解答类" reply_cluster_order="10" reply_to="A04_P01">注意系数别写错！</d>
+  <d p="14.41,1,25,16777215,1733579879,0,2d77ff22,575272708960675688" id="E03_R21" reply_cluster="emotion_03" reply_cluster_label="情感类" reply_cluster_order="8" reply_to="E03_M02">别眨眼👀</d>
+  <d p="14.71,1,25,16777215,1733583336,0,16420d1b,344013830076515063" id="A04_R23" reply_cluster="answer_04" reply_cluster_label="解答类" reply_cluster_order="11" reply_to="A04_M02">二阶系数错了就全错</d>
+  <d p="14.87,1,25,16777215,1733579954,0,7606f618,995108746602393325" id="E03_R22" reply_cluster="emotion_03" reply_cluster_label="情感类" reply_cluster_order="9" reply_to="E03_M02">我跟不上😭</d>
+  <d p="14.94,1,25,16777215,1733582436,0,779756ed,903763572262481168" id="E04_P01" reply_cluster="emotion_04" reply_cluster_label="情感类" reply_cluster_order="1">洛必达：又是我背锅</d>
+  <d p="15.09,1,25,16777215,1733582517,0,19142204,858618272669408402" id="E04_R01" reply_cluster="emotion_04" reply_cluster_label="情感类" reply_cluster_order="2" reply_to="E04_P01">看到分式就喊我？</d>
+  <d p="15.16,1,25,16777215,1733575511,0,6e856744,896137452882360711" id="N061">别急，先看趋近点：x→0 还是 n→∞？</d>
+  <d p="15.17,1,25,16777215,1733570637,0,05c76cd2,865591779738069534" id="N009">这题一眼像1，一算像e，再算像不存在…</d>
+  <d p="15.35,1,25,16777215,1733582646,0,8694b1d3,939074080792806542" id="E04_R02" reply_cluster="emotion_04" reply_cluster_label="情感类" reply_cluster_order="3" reply_to="E04_P01">我只是个方法不是信仰</d>
+  <d p="15.52,1,25,16777215,1733580058,0,5444227c,803386242410747687" id="E03_R03" reply_cluster="emotion_03" reply_cluster_label="情感类" reply_cluster_order="10" reply_to="E03_P01">但我想学会</d>
+  <d p="15.80,1,25,16777215,1733582757,0,02d2eb9a,995353844467370030" id="E04_M01" reply_cluster="emotion_04" reply_cluster_label="情感类" reply_cluster_order="4" reply_to="E04_P01">中间：笑死</d>
+  <d p="15.86,1,25,16777215,1733576151,0,904a6c64,866596521841073911" id="N068">等价无穷小用起来！sinx~x</d>
+  <d p="16.12,1,25,16777215,1733582859,0,ac6b0763,462805830819311852" id="E04_R11" reply_cluster="emotion_04" reply_cluster_label="情感类" reply_cluster_order="5" reply_to="E04_M01">洛必达：先确认0/0好吗</d>
+  <d p="16.19,1,25,16777215,1733580152,0,11b6e669,723043360741600828" id="E03_R23" reply_cluster="emotion_03" reply_cluster_label="情感类" reply_cluster_order="11" reply_to="E03_M02">冲！</d>
+  <d p="16.30,1,25,16777215,1733585385,0,49c43fb9,427605326586504999" id="A05_P01" reply_cluster="answer_05" reply_cluster_label="解答类" reply_cluster_order="1">洛必达不是万能钥匙：先判断能不能用。</d>
+  <d p="16.30,1,25,16777215,1733572585,0,47b36806,727700168276397410" id="N029">这题阴得很，出题人太会了</d>
+  <d p="16.48,1,25,16777215,1733585458,0,0d58b08b,771800738859100854" id="A05_R01" reply_cluster="answer_05" reply_cluster_label="解答类" reply_cluster_order="2" reply_to="A05_P01">只能用于 0/0 或 ∞/∞</d>
+  <d p="16.54,1,25,16777215,1733574300,0,d717f59d,505388858351899445" id="N049">好了我承认我算错了😢</d>
+  <d p="16.57,1,25,16777215,1733582958,0,42abb3bc,348250322064736210" id="E04_R12" reply_cluster="emotion_04" reply_cluster_label="情感类" reply_cluster_order="6" reply_to="E04_M01">同学：我不管我就要导</d>
+  <d p="16.79,1,25,16777215,1733585584,0,2f3f3b92,889746507264357147" id="A05_R02" reply_cluster="answer_05" reply_cluster_label="解答类" reply_cluster_order="3" reply_to="A05_P01">别看到分式就想求导</d>
+  <d p="17.18,1,25,16777215,1733582993,0,f52880ea,935600367983729131" id="E04_M02" reply_cluster="emotion_04" reply_cluster_label="情感类" reply_cluster_order="7" reply_to="E04_M01">中间2：导完更乱了</d>
+  <d p="17.32,1,25,16777215,1733585651,0,6d8e6d3a,864110687598829553" id="A05_M01" reply_cluster="answer_05" reply_cluster_label="解答类" reply_cluster_order="4" reply_to="A05_P01">中间：这题能用吗？</d>
+  <d p="17.39,1,25,16777215,1733583091,0,5399f5e8,493275602063155029" id="E04_R21" reply_cluster="emotion_04" reply_cluster_label="情感类" reply_cluster_order="8" reply_to="E04_M02">越导越离谱</d>
+  <d p="17.48,1,25,16777215,1733585741,0,d311f711,938403937013640805" id="A05_R11" reply_cluster="answer_05" reply_cluster_label="解答类" reply_cluster_order="5" reply_to="A05_M01">有时候一变形就能用</d>
+  <d p="17.53,1,25,16777215,1733572381,0,c5ce6d79,188990166576854002" id="N027">初三开始准备考研，来的及吗</d>
+  <d p="17.80,1,25,16777215,1733583168,0,788a5b7d,883057860674536122" id="E04_R22" reply_cluster="emotion_04" reply_cluster_label="情感类" reply_cluster_order="9" reply_to="E04_M02">老师：停！</d>
+  <d p="17.98,1,25,16777215,1733585821,0,aff45c5c,991539654175616888" id="A05_R12" reply_cluster="answer_05" reply_cluster_label="解答类" reply_cluster_order="6" reply_to="A05_M01">但更推荐等价无穷小/展开</d>
+  <d p="17.98,1,25,16777215,1733575994,0,2ee7050c,209396608595448682" id="N067">这题一眼像1，一算像e，再算像不存在…</d>
+  <d p="18.48,1,25,16777215,1733583251,0,f00d0bf7,854192885538772275" id="E04_R03" reply_cluster="emotion_04" reply_cluster_label="情感类" reply_cluster_order="10" reply_to="E04_P01">我：好的（但手停不住）</d>
+  <d p="18.49,1,25,16777215,1733585919,0,d8b7434d,495928677648641502" id="A05_M02" reply_cluster="answer_05" reply_cluster_label="解答类" reply_cluster_order="7" reply_to="A05_M01">中间2：用几次才够？</d>
+  <d p="18.79,1,25,16777215,1733585970,0,ca466a70,186947751126818481" id="A05_R21" reply_cluster="answer_05" reply_cluster_label="解答类" reply_cluster_order="8" reply_to="A05_M02">次数不固定，别硬刷</d>
+  <d p="19.01,1,25,16777215,1733583300,0,d9f9b342,390369520881898553" id="E04_R23" reply_cluster="emotion_04" reply_cluster_label="情感类" reply_cluster_order="11" reply_to="E04_M02">救命</d>
+  <d p="19.10,1,25,16777215,1733586028,0,1c3cd6df,364819584968062802" id="A05_R22" reply_cluster="answer_05" reply_cluster_label="解答类" reply_cluster_order="9" reply_to="A05_M02">刷到不定型消失为止</d>
+  <d p="19.43,1,25,16777215,1733573684,0,09a1ffca,389276399077721933" id="N042">我妈问我为什么对着屏幕喊‘一’</d>
+  <d p="19.64,1,25,16777215,1733571238,0,a1cfd4d3,967686995054723880" id="N015">我算到一半：‘nb’ 另一半：‘我不会’</d>
+  <d p="19.70,1,25,16777215,1733585354,0,14b19494,114365712904950844" id="E05_P01" reply_cluster="emotion_05" reply_cluster_label="情感类" reply_cluster_order="1">我妈问我为啥对着屏幕喊‘1’</d>
+  <d p="19.86,1,25,16777215,1733586093,0,23746784,881580880041620496" id="A05_R03" reply_cluster="answer_05" reply_cluster_label="解答类" reply_cluster_order="10" reply_to="A05_P01">每次求导都要检查还是否不定</d>
+  <d p="19.95,1,25,16777215,1733585387,0,f0373469,271861275455412232" id="E05_R01" reply_cluster="emotion_05" reply_cluster_label="情感类" reply_cluster_order="2" reply_to="E05_P01">我：因为我觉得它是1</d>
+  <d p="20.14,1,25,16777215,1733585495,0,65875a94,407269799081754892" id="E05_R02" reply_cluster="emotion_05" reply_cluster_label="情感类" reply_cluster_order="3" reply_to="E05_P01">视频：不一定哦</d>
+  <d p="20.41,1,25,16777215,1733586209,0,71ccc923,456871701843463597" id="A05_R23" reply_cluster="answer_05" reply_cluster_label="解答类" reply_cluster_order="11" reply_to="A05_M02">别忘了定义域！</d>
+  <d p="20.43,1,25,16777215,1733574972,0,7cbe6d09,147621211291843707" id="N056">我站不存在派🙋（保命）</d>
+  <d p="20.70,1,25,16777215,1733585630,0,37adcf55,319637759854217750" id="E05_M01" reply_cluster="emotion_05" reply_cluster_label="情感类" reply_cluster_order="4" reply_to="E05_P01">中间：尴尬了</d>
+  <d p="20.86,1,25,16777215,1733585768,0,f66dd008,496169212424424859" id="E05_R11" reply_cluster="emotion_05" reply_cluster_label="情感类" reply_cluster_order="5" reply_to="E05_M01">我妈：那到底几？</d>
+  <d p="21.08,1,25,16777215,1733588242,0,b37cd654,456544691774487883" id="A06_P01" reply_cluster="answer_06" reply_cluster_label="解答类" reply_cluster_order="1">秒杀套路：化成 (1+u)^{1/u} 的影子，但别瞎化。</d>
+  <d p="21.14,1,25,16777215,1733588312,0,ea8bcad7,532599721095466300" id="A06_R01" reply_cluster="answer_06" reply_cluster_label="解答类" reply_cluster_order="2" reply_to="A06_P01">真·e 结构：u→0 且指数是 1/u</d>
+  <d p="21.28,1,25,16777215,1733573483,0,db415e1f,840452794943316807" id="N040">这题适合拿来筛选自信</d>
+  <d p="21.32,1,25,16777215,1733574900,0,ee0a06fe,610120490734572670" id="N055">我站e派🙋（感觉要翻车）</d>
+  <d p="21.39,1,25,16777215,1733585801,0,2edd0f38,827180907527507157" id="E05_R12" reply_cluster="emotion_05" reply_cluster_label="情感类" reply_cluster_order="6" reply_to="E05_M01">我：等视频说…</d>
+  <d p="21.44,1,25,16777215,1733588373,0,43671195,873334405398390377" id="A06_R02" reply_cluster="answer_06" reply_cluster_label="解答类" reply_cluster_order="3" reply_to="A06_P01">没有 1/u 就不是 e</d>
+  <d p="21.52,1,25,16777215,1733575547,0,0161b851,404260883920401901" id="N062">看到“e”先别激动，结构不对别硬套</d>
+  <d p="21.94,1,25,16777215,1733585846,0,62c3faa2,124112863068208489" id="E05_M02" reply_cluster="emotion_05" reply_cluster_label="情感类" reply_cluster_order="7" reply_to="E05_M01">中间2：家人们别笑</d>
+  <d p="21.97,1,25,16777215,1733574361,0,dc4cea4e,144380355748654371" id="N050">这题讲完我终于懂了…一半</d>
+  <d p="21.98,1,25,16777215,1733588416,0,4749e394,169886013176011204" id="A06_M01" reply_cluster="answer_06" reply_cluster_label="解答类" reply_cluster_order="4" reply_to="A06_P01">中间：那这题像不像？</d>
+  <d p="22.20,1,25,16777215,1733574513,0,362ab32e,225479270277205271" id="N052">谢谢老师，终于分清套路了</d>
+  <d p="22.22,1,25,16777215,1733585876,0,d0030e9d,669365631036204383" id="E05_R21" reply_cluster="emotion_05" reply_cluster_label="情感类" reply_cluster_order="8" reply_to="E05_M02">这题真的会装</d>
+  <d p="22.25,1,25,16777215,1733588529,0,99bc6a96,203254345777855215" id="A06_R11" reply_cluster="answer_06" reply_cluster_label="解答类" reply_cluster_order="5" reply_to="A06_M01">像，但差一个关键条件</d>
+  <d p="22.53,1,25,16777215,1733585967,0,78b2287f,550665919182786965" id="E05_R22" reply_cluster="emotion_05" reply_cluster_label="情感类" reply_cluster_order="9" reply_to="E05_M02">装成简单的样子</d>
+  <d p="22.64,1,25,16777215,1733588647,0,60765ff2,271204056820764649" id="A06_R12" reply_cluster="answer_06" reply_cluster_label="解答类" reply_cluster_order="6" reply_to="A06_M01">所以最后不会是 e（大概率）</d>
+  <d p="23.24,1,25,16777215,1733588779,0,92a14499,715420442351820661" id="A06_M02" reply_cluster="answer_06" reply_cluster_label="解答类" reply_cluster_order="7" reply_to="A06_M01">中间2：那结论常见是啥？</d>
+  <d p="23.27,1,25,16777215,1733586021,0,2b02d00f,791071079558435936" id="E05_R03" reply_cluster="emotion_05" reply_cluster_label="情感类" reply_cluster_order="10" reply_to="E05_P01">然后反手打脸</d>
+  <d p="23.44,1,25,16777215,1733588815,0,704b8171,595535815546051594" id="A06_R21" reply_cluster="answer_06" reply_cluster_label="解答类" reply_cluster_order="8" reply_to="A06_M02">往往是 1 或 不存在</d>
+  <d p="23.79,1,25,16777215,1733586088,0,9915d09f,223358776232858566" id="E05_R23" reply_cluster="emotion_05" reply_cluster_label="情感类" reply_cluster_order="11" reply_to="E05_M02">太阴了</d>
+  <d p="23.80,1,25,16777215,1733588175,0,d141240d,159332913930098896" id="E06_P01" reply_cluster="emotion_06" reply_cluster_label="情感类" reply_cluster_order="1">考研人路过：这题好熟悉又好陌生</d>
+  <d p="23.82,1,25,16777215,1733574762,0,5859180f,488378309187103122" id="N054">我站1派🙋（先不看答案）</d>
+  <d p="23.84,1,25,16777215,1733588898,0,a32eeb4f,274671369136072842" id="A06_R22" reply_cluster="answer_06" reply_cluster_label="解答类" reply_cluster_order="9" reply_to="A06_M02">看左右、看抵消、看定义域</d>
+  <d p="23.97,1,25,16777215,1733588286,0,516054b6,211110357003023472" id="E06_R01" reply_cluster="emotion_06" reply_cluster_label="情感类" reply_cluster_order="2" reply_to="E06_P01">熟悉：套路像见过</d>
+  <d p="24.27,1,25,16777215,1733588334,0,1e839b53,479142854561588827" id="E06_R02" reply_cluster="emotion_06" reply_cluster_label="情感类" reply_cluster_order="3" reply_to="E06_P01">陌生：我还是不会</d>
+  <d p="24.51,1,25,16777215,1733589024,0,58ba5ea9,122716269694340894" id="A06_R03" reply_cluster="answer_06" reply_cluster_label="解答类" reply_cluster_order="10" reply_to="A06_P01">别被‘长得像’骗了</d>
+  <d p="24.72,1,25,16777215,1733574421,0,23d14c9d,807067904267170976" id="N051">写完：‘等于1’ 再看：‘我错了’</d>
+  <d p="24.77,1,25,16777215,1733588444,0,3edcd9c0,493684813700195744" id="E06_M01" reply_cluster="emotion_06" reply_cluster_label="情感类" reply_cluster_order="4" reply_to="E06_P01">中间：痛并快乐</d>
+  <d p="25.01,1,25,16777215,1733588526,0,2c3b52b3,112767253076009458" id="E06_R11" reply_cluster="emotion_06" reply_cluster_label="情感类" reply_cluster_order="5" reply_to="E06_M01">这就是刷题的意义吗</d>
+  <d p="25.19,1,25,16777215,1733589123,0,b110014e,898619976694944871" id="A06_R23" reply_cluster="answer_06" reply_cluster_label="解答类" reply_cluster_order="11" reply_to="A06_M02">出题人就爱这一手</d>
+  <d p="25.39,1,25,16777215,1733588568,0,0ed718f2,450661291311884045" id="E06_R12" reply_cluster="emotion_06" reply_cluster_label="情感类" reply_cluster_order="6" reply_to="E06_M01">我选择再刷10遍</d>
+  <d p="25.40,1,25,16777215,1733591490,0,b9735375,216897076891598311" id="A07_P01" reply_cluster="answer_07" reply_cluster_label="解答类" reply_cluster_order="1">换元有时候比硬算快：把复杂趋近变简单。</d>
+  <d p="25.40,1,25,16777215,1733575304,0,c0722c65,390546711393363228" id="N059">标题好狠😂我先试试</d>
+  <d p="25.63,1,25,16777215,1733591610,0,fffcf1d7,414604524610284313" id="A07_R01" reply_cluster="answer_07" reply_cluster_label="解答类" reply_cluster_order="2" reply_to="A07_P01">比如设 t=1/x 或 t=ln(1+x)</d>
+  <d p="25.77,1,25,16777215,1733591699,0,5ca71299,464709982959040874" id="A07_R02" reply_cluster="answer_07" reply_cluster_label="解答类" reply_cluster_order="3" reply_to="A07_P01">让 t→0/∞ 更清楚</d>
+  <d p="26.05,1,25,16777215,1733588594,0,a45eefc8,643220708831248809" id="E06_M02" reply_cluster="emotion_06" reply_cluster_label="情感类" reply_cluster_order="7" reply_to="E06_M01">中间2：然后继续错</d>
+  <d p="26.36,1,25,16777215,1733588705,0,32b5bf9e,497368005341074408" id="E06_R21" reply_cluster="emotion_06" reply_cluster_label="情感类" reply_cluster_order="8" reply_to="E06_M02">错着错着就会了？</d>
+  <d p="26.38,1,25,16777215,1733591829,0,1a35507c,169876941853282769" id="A07_M01" reply_cluster="answer_07" reply_cluster_label="解答类" reply_cluster_order="4" reply_to="A07_P01">中间：换元后要注意啥？</d>
+  <d p="26.65,1,25,16777215,1733591936,0,8dd09ef7,640909375647114812" id="A07_R11" reply_cluster="answer_07" reply_cluster_label="解答类" reply_cluster_order="5" reply_to="A07_M01">单调性/对应区间别丢</d>
+  <d p="26.66,1,25,16777215,1733588815,0,7d24f367,587076590152136891" id="E06_R22" reply_cluster="emotion_06" reply_cluster_label="情感类" reply_cluster_order="9" reply_to="E06_M02">希望是这样</d>
+  <d p="27.01,1,25,16777215,1733592040,0,6c9eaf32,394311131281820780" id="A07_R12" reply_cluster="answer_07" reply_cluster_label="解答类" reply_cluster_order="6" reply_to="A07_M01">别把 t→0 写错成 t→∞</d>
+  <d p="27.20,1,25,16777215,1733591393,0,c8fa6352,541686355885631160" id="E07_P01" reply_cluster="emotion_07" reply_cluster_label="情感类" reply_cluster_order="1">右极限算出来了，左极限：‘我不存在’</d>
+  <d p="27.29,1,25,16777215,1733588891,0,719ca9b5,776715470449322435" id="E06_R03" reply_cluster="emotion_06" reply_cluster_label="情感类" reply_cluster_order="10" reply_to="E06_P01">不然我真要哭了</d>
+  <d p="27.41,1,25,16777215,1733572313,0,5a983f4b,115253837836689992" id="N026">我厦门大学刘超旭实名开卷（doge）</d>
+  <d p="27.44,1,25,16777215,1733591518,0,bcc52ddc,184219854814698650" id="E07_R01" reply_cluster="emotion_07" reply_cluster_label="情感类" reply_cluster_order="2" reply_to="E07_P01">左边：你别来</d>
+  <d p="27.58,1,25,16777215,1733592173,0,1c4b5d82,140690019273999426" id="A07_M02" reply_cluster="answer_07" reply_cluster_label="解答类" reply_cluster_order="7" reply_to="A07_M01">中间2：换元完还要还原吗？</d>
+  <d p="27.64,1,25,16777215,1733575093,0,94ca0599,796092202721114652" id="N057">别吵了，视频马上揭晓</d>
+  <d p="27.69,1,25,16777215,1733591559,0,8af0ea9b,995729587327580612" id="E07_R02" reply_cluster="emotion_07" reply_cluster_label="情感类" reply_cluster_order="3" reply_to="E07_P01">我：我偏要来</d>
+  <d p="27.87,1,25,16777215,1733592237,0,114a1efe,112872562118539675" id="A07_R21" reply_cluster="answer_07" reply_cluster_label="解答类" reply_cluster_order="8" reply_to="A07_M02">最后要回到原变量结论</d>
+  <d p="27.94,1,25,16777215,1733588997,0,d9f857de,642765392842079192" id="E06_R23" reply_cluster="emotion_06" reply_cluster_label="情感类" reply_cluster_order="11" reply_to="E06_M02">继续看讲解</d>
+  <d p="28.23,1,25,16777215,1733591662,0,c9c2904e,516272603763988638" id="E07_M01" reply_cluster="emotion_07" reply_cluster_label="情感类" reply_cluster_order="4" reply_to="E07_P01">中间：然后卡住</d>
+  <d p="28.31,1,25,16777215,1733592332,0,efb0b596,468521188606614906" id="A07_R22" reply_cluster="answer_07" reply_cluster_label="解答类" reply_cluster_order="9" reply_to="A07_M02">别只写 t 的极限</d>
+  <d p="28.37,1,25,16777215,1733591767,0,18498657,808334831301216182" id="E07_R11" reply_cluster="emotion_07" reply_cluster_label="情感类" reply_cluster_order="5" reply_to="E07_M01">定义域：不欢迎你</d>
+  <d p="28.92,1,25,16777215,1733591814,0,623f3bc2,301851209739429175" id="E07_R12" reply_cluster="emotion_07" reply_cluster_label="情感类" reply_cluster_order="6" reply_to="E07_M01">我：行吧我认</d>
+  <d p="29.03,1,25,16777215,1733592432,0,f5157c02,424727503015648772" id="A07_R03" reply_cluster="answer_07" reply_cluster_label="解答类" reply_cluster_order="10" reply_to="A07_P01">还原时别漏绝对值/符号</d>
+  <d p="29.45,1,25,16777215,1733591869,0,94137962,810495080137658887" id="E07_M02" reply_cluster="emotion_07" reply_cluster_label="情感类" reply_cluster_order="7" reply_to="E07_M01">中间2：但同学还在硬算</d>
+  <d p="29.47,1,25,16777215,1733592484,0,4589ad54,106108485109670352" id="A07_R23" reply_cluster="answer_07" reply_cluster_label="解答类" reply_cluster_order="11" reply_to="A07_M02">细节决定成败</d>
+  <d p="29.66,1,25,16777215,1733592007,0,b1190b61,107451031649478841" id="E07_R21" reply_cluster="emotion_07" reply_cluster_label="情感类" reply_cluster_order="8" reply_to="E07_M02">硬算派：一定有值</d>
+  <d p="30.02,1,25,16777215,1733592101,0,1e14e157,498501205959870131" id="E07_R22" reply_cluster="emotion_07" reply_cluster_label="情感类" reply_cluster_order="9" reply_to="E07_M02">定义域派：没有！</d>
+  <d p="30.62,1,25,16777215,1733594257,0,6784a37b,359503920893126959" id="A08_P01" reply_cluster="answer_08" reply_cluster_label="解答类" reply_cluster_order="1">图像直觉：先问连续吗？能不能直接代？</d>
+  <d p="30.68,1,25,16777215,1733573939,0,b8f8a940,765636952011162147" id="N045">你要展开到二阶才看得见差别</d>
+  <d p="30.78,1,25,16777215,1733592184,0,12df9a3e,610048006628348665" id="E07_R03" reply_cluster="emotion_07" reply_cluster_label="情感类" reply_cluster_order="10" reply_to="E07_P01">吵起来了🤣</d>
+  <d p="30.81,1,25,16777215,1733594368,0,aed1fa55,509795481433391989" id="A08_R01" reply_cluster="answer_08" reply_cluster_label="解答类" reply_cluster_order="2" reply_to="A08_P01">能代就别绕弯</d>
+  <d p="31.11,1,25,16777215,1733594495,0,8b828eac,273440367170037507" id="A08_R02" reply_cluster="answer_08" reply_cluster_label="解答类" reply_cluster_order="3" reply_to="A08_P01">不能代再考虑变形</d>
+  <d p="31.36,1,25,16777215,1733592250,0,d64c7844,263905376290542144" id="E07_R23" reply_cluster="emotion_07" reply_cluster_label="情感类" reply_cluster_order="11" reply_to="E07_M02">弹幕开庭</d>
+  <d p="31.49,1,25,16777215,1733594555,0,5c2f32ab,306962662304060803" id="A08_M01" reply_cluster="answer_08" reply_cluster_label="解答类" reply_cluster_order="4" reply_to="A08_P01">中间：这题能代吗？</d>
+  <d p="31.60,1,25,16777215,1733573385,0,d77eae65,592609779932093611" id="N038">我把1写出来了但不敢交</d>
+  <d p="31.81,1,25,16777215,1733594685,0,c508a45d,115250021033443423" id="A08_R11" reply_cluster="answer_08" reply_cluster_label="解答类" reply_cluster_order="5" reply_to="A08_M01">有的点代不了，因为没定义</d>
+  <d p="32.21,1,25,16777215,1733594764,0,129e129a,696918007089912105" id="A08_R12" reply_cluster="answer_08" reply_cluster_label="解答类" reply_cluster_order="6" reply_to="A08_M01">所以才要左右极限</d>
+  <d p="32.78,1,25,16777215,1733594816,0,790e5ed0,912992244061074086" id="A08_M02" reply_cluster="answer_08" reply_cluster_label="解答类" reply_cluster_order="7" reply_to="A08_M01">中间2：那我怎么看左右？</d>
+  <d p="33.07,1,25,16777215,1733571679,0,476c3473,741512458046488140" id="N020">注意 x→0！注意！</d>
+  <d p="33.10,1,25,16777215,1733597398,0,e9c7eefa,746997188605947435" id="A09_P01" reply_cluster="answer_09" reply_cluster_label="解答类" reply_cluster_order="1">常见错法合集：一眼 e、一眼 1、一眼不存在…</d>
+  <d p="33.13,1,25,16777215,1733594851,0,aa20f3ab,162741671992482336" id="A08_R21" reply_cluster="answer_08" reply_cluster_label="解答类" reply_cluster_order="8" reply_to="A08_M02">从趋近区间看函数是否存在</d>
+  <d p="33.15,1,25,16777215,1733575919,0,eae6d0f3,652813378301527439" id="N066">取对数再算，很多题就顺了</d>
+  <d p="33.28,1,25,16777215,1733597514,0,1513aabc,609256714473019473" id="A09_R01" reply_cluster="answer_09" reply_cluster_label="解答类" reply_cluster_order="2" reply_to="A09_P01">第一错：把 x→0 当成 n→∞</d>
+  <d p="33.41,1,25,16777215,1733594955,0,bfec3543,627041950138516499" id="A08_R22" reply_cluster="answer_08" reply_cluster_label="解答类" reply_cluster_order="9" reply_to="A08_M02">存在但不相等=不存在</d>
+  <d p="33.57,1,25,16777215,1733597651,0,20a6b540,774828447494643722" id="A09_R02" reply_cluster="answer_09" reply_cluster_label="解答类" reply_cluster_order="3" reply_to="A09_P01">第二错：忽略定义域（左边没法取）</d>
+  <d p="33.61,1,25,16777215,1733573059,0,ce348d04,895452948047623147" id="N035">答案就一个字：稳</d>
+  <d p="34.09,1,25,16777215,1733597788,0,0f4b40dc,372054378558734362" id="A09_M01" reply_cluster="answer_09" reply_cluster_label="解答类" reply_cluster_order="4" reply_to="A09_P01">中间：第三错呢？</d>
+  <d p="34.12,1,25,16777215,1733595038,0,09bd8b27,838977911325141604" id="A08_R03" reply_cluster="answer_08" reply_cluster_label="解答类" reply_cluster_order="10" reply_to="A08_P01">两边都存在且相等=那个值</d>
+  <d p="34.34,1,25,16777215,1733597918,0,700d49d4,767439892946262327" id="A09_R11" reply_cluster="answer_09" reply_cluster_label="解答类" reply_cluster_order="5" reply_to="A09_M01">第三错：展开只写一阶就停</d>
+  <d p="34.70,1,25,16777215,1733598054,0,6ef1301d,409025223168334948" id="A09_R12" reply_cluster="answer_09" reply_cluster_label="解答类" reply_cluster_order="6" reply_to="A09_M01">第四错：洛必达用到天荒地老</d>
+  <d p="34.75,1,25,16777215,1733595178,0,07623e5a,816651904545290948" id="A08_R23" reply_cluster="answer_08" reply_cluster_label="解答类" reply_cluster_order="11" reply_to="A08_M02">先做判断再算值</d>
+  <d p="35.08,1,25,16777215,1733575837,0,7f076293,213959990387424102" id="N065">洛必达：我能用，但别滥用😅</d>
+  <d p="35.09,1,25,16777215,1733594181,0,c4f30d13,377773957913609957" id="E08_P01" reply_cluster="emotion_08" reply_cluster_label="情感类" reply_cluster_order="1">看到‘取对数’我就知道要开卷了</d>
+  <d p="35.18,1,25,16777215,1733594222,0,7e8b1885,225538329056445427" id="E08_R01" reply_cluster="emotion_08" reply_cluster_label="情感类" reply_cluster_order="2" reply_to="E08_P01">ln：我来拯救不定式</d>
+  <d p="35.40,1,25,16777215,1733598114,0,b6682565,131013360406285427" id="A09_M02" reply_cluster="answer_09" reply_cluster_label="解答类" reply_cluster_order="7" reply_to="A09_M01">中间2：怎么避免？</d>
+  <d p="35.43,1,25,16777215,1733594351,0,1e682b3a,931277107851929672" id="E08_R02" reply_cluster="emotion_08" reply_cluster_label="情感类" reply_cluster_order="3" reply_to="E08_P01">我：我来拯救自己</d>
+  <d p="35.58,1,25,16777215,1733598143,0,242dcc70,958861759705171008" id="A09_R21" reply_cluster="answer_09" reply_cluster_label="解答类" reply_cluster_order="8" reply_to="A09_M02">三步：看趋近点→看型→选工具</d>
+  <d p="35.89,1,25,16777215,1733594404,0,14d204aa,639809980783118311" id="E08_M01" reply_cluster="emotion_08" reply_cluster_label="情感类" reply_cluster_order="4" reply_to="E08_P01">中间：开始认真</d>
+  <d p="36.00,1,25,16777215,1733598179,0,8a764fdd,259780873769762363" id="A09_R22" reply_cluster="answer_09" reply_cluster_label="解答类" reply_cluster_order="9" reply_to="A09_M02">最后检查：左右一致吗？</d>
+  <d p="36.30,1,25,16777215,1733594494,0,2e72e65f,614009054866223693" id="E08_R11" reply_cluster="emotion_08" reply_cluster_label="情感类" reply_cluster_order="5" reply_to="E08_M01">结果：还是看不懂</d>
+  <d p="36.52,1,25,16777215,1733573801,0,b9387c6b,325393634587011207" id="N043">右边能算出来，左边先看能不能取</d>
+  <d p="36.64,1,25,16777215,1733594618,0,d9e4e73e,130290157680806398" id="E08_R12" reply_cluster="emotion_08" reply_cluster_label="情感类" reply_cluster_order="6" reply_to="E08_M01">但我装作看懂</d>
+  <d p="36.72,1,25,16777215,1733598207,0,ab6b580a,652431250691049062" id="A09_R03" reply_cluster="answer_09" reply_cluster_label="解答类" reply_cluster_order="10" reply_to="A09_P01">再检查：条件满足吗？</d>
+  <d p="37.18,1,25,16777215,1733594743,0,dbbb58a2,199765190619930210" id="E08_M02" reply_cluster="emotion_08" reply_cluster_label="情感类" reply_cluster_order="7" reply_to="E08_M01">中间2：别拆穿我</d>
+  <d p="37.30,1,25,16777215,1733598274,0,7f5dfcba,544524079432575602" id="A09_R23" reply_cluster="answer_09" reply_cluster_label="解答类" reply_cluster_order="11" reply_to="A09_M02">做题像走流程，少翻车</d>
+  <d p="37.45,1,25,16777215,1733594819,0,4ccb600b,781856770053755383" id="E08_R21" reply_cluster="emotion_08" reply_cluster_label="情感类" reply_cluster_order="8" reply_to="E08_M02">等我暂停三次</d>
+  <d p="37.89,1,25,16777215,1733594887,0,ea8e0906,980666718428106904" id="E08_R22" reply_cluster="emotion_08" reply_cluster_label="情感类" reply_cluster_order="9" reply_to="E08_M02">再倒回去两次</d>
+  <d p="38.40,1,25,16777215,1733597172,0,d12f5e52,488871186115647388" id="E09_P01" reply_cluster="emotion_09" reply_cluster_label="情感类" reply_cluster_order="1">‘泰勒展开’：我脑子自动关机</d>
+  <d p="38.54,1,25,16777215,1733597270,0,5a4a1d71,690357561264217606" id="E09_R01" reply_cluster="emotion_09" reply_cluster_label="情感类" reply_cluster_order="2" reply_to="E09_P01">一看到展开就想睡</d>
+  <d p="38.63,1,25,16777215,1733595019,0,dd617d7f,822485043481343575" id="E08_R03" reply_cluster="emotion_08" reply_cluster_label="情感类" reply_cluster_order="10" reply_to="E08_P01">我就会了（大概）</d>
+  <d p="38.91,1,25,16777215,1733597380,0,2f307923,589272510804401747" id="E09_R02" reply_cluster="emotion_09" reply_cluster_label="情感类" reply_cluster_order="3" reply_to="E09_P01">但展开完真的香</d>
+  <d p="39.15,1,25,16777215,1733595055,0,302b93f4,352846587260641622" id="E08_R23" reply_cluster="emotion_08" reply_cluster_label="情感类" reply_cluster_order="11" reply_to="E08_M02">加油！</d>
+  <d p="39.35,1,25,16777215,1733597482,0,a488ece2,440489519236814742" id="E09_M01" reply_cluster="emotion_09" reply_cluster_label="情感类" reply_cluster_order="4" reply_to="E09_P01">中间：矛盾</d>
+  <d p="39.51,1,25,16777215,1733571157,0,df28dc48,785027150197459464" id="N014">有人算出1/e的吗？我刚写了又划掉</d>
+  <d p="39.56,1,25,16777215,1733597597,0,2c3846e3,670394453322539050" id="E09_R11" reply_cluster="emotion_09" reply_cluster_label="情感类" reply_cluster_order="5" reply_to="E09_M01">会背不会用=0分</d>
+  <d p="40.09,1,25,16777215,1733597726,0,915e889f,465294497781157328" id="E09_R12" reply_cluster="emotion_09" reply_cluster_label="情感类" reply_cluster_order="6" reply_to="E09_M01">要会用才行</d>
+  <d p="40.63,1,25,16777215,1733571048,0,a87ec66c,172538227819436410" id="N013">别忘了定义域，左边可能根本没法取</d>
+  <d p="40.71,1,25,16777215,1733597812,0,cac14a04,177220755800123598" id="E09_M02" reply_cluster="emotion_09" reply_cluster_label="情感类" reply_cluster_order="7" reply_to="E09_M01">中间2：我先收藏</d>
+  <d p="40.86,1,25,16777215,1733597854,0,0baf707f,124520321951077635" id="E09_R21" reply_cluster="emotion_09" reply_cluster_label="情感类" reply_cluster_order="8" reply_to="E09_M02">收藏=我会了（幻觉）</d>
+  <d p="41.19,1,25,16777215,1733575373,0,94bc582a,452294416107654600" id="N060">95%算不对？那我先站队：我可能是95%</d>
+  <d p="41.28,1,25,16777215,1733597934,0,6a268468,710957901979785082" id="E09_R22" reply_cluster="emotion_09" reply_cluster_label="情感类" reply_cluster_order="9" reply_to="E09_M02">下次再看（鸽）</d>
+  <d p="41.28,1,25,16777215,1733572135,0,3da0440c,497891440174128349" id="N025">别眨眼👀</d>
+  <d p="41.49,1,25,16777215,1733570677,0,0c6795c4,510581691371615118" id="N010">等价无穷小用起来！sinx~x</d>
+  <d p="41.70,1,25,16777215,1733600219,0,4ecf736b,106115215767321504" id="A10_P01" reply_cluster="answer_10" reply_cluster_label="解答类" reply_cluster_order="1">考场写法：步骤别省，阅卷老师才给分。</d>
+  <d p="41.94,1,25,16777215,1733600280,0,d944ed2c,596403319303716288" id="A10_R01" reply_cluster="answer_10" reply_cluster_label="解答类" reply_cluster_order="2" reply_to="A10_P01">先写‘考察左右极限’</d>
+  <d p="41.98,1,25,16777215,1733574196,0,bd4f8b9b,105176663094206572" id="N047">我来蹲一个标准解</d>
+  <d p="42.00,1,25,16777215,1733598020,0,88170d5c,967330230464444103" id="E09_R03" reply_cluster="emotion_09" reply_cluster_label="情感类" reply_cluster_order="10" reply_to="E09_P01">别骂了别骂了</d>
+  <d p="42.15,1,25,16777215,1733600345,0,5f8e13c8,121584394238190117" id="A10_R02" reply_cluster="answer_10" reply_cluster_label="解答类" reply_cluster_order="3" reply_to="A10_P01">再写‘若定义域不含左侧则…’</d>
+  <d p="42.25,1,25,16777215,1733570429,0,fb536ffa,766889218811174280" id="N006">右极限=？左极限=？先拆开看</d>
+  <d p="42.55,1,25,16777215,1733598067,0,a06352e3,753690198211353019" id="E09_R23" reply_cluster="emotion_09" reply_cluster_label="情感类" reply_cluster_order="11" reply_to="E09_M02">我学我学</d>
+  <d p="42.62,1,25,16777215,1733600429,0,db5365c3,912483550911364059" id="A10_M01" reply_cluster="answer_10" reply_cluster_label="解答类" reply_cluster_order="4" reply_to="A10_P01">中间：值怎么算？</d>
+  <d p="42.94,1,25,16777215,1733600558,0,f77cd5f8,606036392856001785" id="A10_R11" reply_cluster="answer_10" reply_cluster_label="解答类" reply_cluster_order="5" reply_to="A10_M01">用等价无穷小/泰勒给出主项</d>
+  <d p="43.37,1,25,16777215,1733600651,0,63836f39,257069804059767689" id="A10_R12" reply_cluster="answer_10" reply_cluster_label="解答类" reply_cluster_order="6" reply_to="A10_M01">把 o(x) 写出来更稳</d>
+  <d p="43.87,1,25,16777215,1733600761,0,60e079de,790081397323028067" id="A10_M02" reply_cluster="answer_10" reply_cluster_label="解答类" reply_cluster_order="7" reply_to="A10_M01">中间2：最后一句怎么写？</d>
+  <d p="44.10,1,25,16777215,1733570160,0,31512967,162714181065617340" id="N002">95%算不对？那我先站队：我可能是95%</d>
+  <d p="44.22,1,25,16777215,1733600869,0,3e4124c1,137946267714541629" id="A10_R21" reply_cluster="answer_10" reply_cluster_label="解答类" reply_cluster_order="8" reply_to="A10_M02">因此极限=… 或 极限不存在</d>
+  <d p="44.55,1,25,16777215,1733600990,0,c674865a,207886396841599958" id="A10_R22" reply_cluster="answer_10" reply_cluster_label="解答类" reply_cluster_order="9" reply_to="A10_M02">别忘了写理由：左右不等/无定义</d>
+  <d p="45.29,1,25,16777215,1733601104,0,0757229d,955910840598457061" id="A10_R03" reply_cluster="answer_10" reply_cluster_label="解答类" reply_cluster_order="10" reply_to="A10_P01">写清楚比写快更重要</d>
+  <d p="45.76,1,25,16777215,1733571881,0,a35a0c5a,108007261202345709" id="N022">答案如果是1我就信了</d>
+  <d p="45.81,1,25,16777215,1733601242,0,42832393,172466054755494251" id="A10_R23" reply_cluster="answer_10" reply_cluster_label="解答类" reply_cluster_order="11" reply_to="A10_M02">这题拿分点很多</d>
+  <d p="45.90,1,25,16777215,1733600373,0,fa073b34,350671044932960031" id="E10_P01" reply_cluster="emotion_10" reply_cluster_label="情感类" reply_cluster_order="1">评论区统一口径：我错了</d>
+  <d p="46.16,1,25,16777215,1733600473,0,d26eca18,581119622354498349" id="E10_R01" reply_cluster="emotion_10" reply_cluster_label="情感类" reply_cluster_order="2" reply_to="E10_P01">错的很整齐</d>
+  <d p="46.35,1,25,16777215,1733600561,0,7210a69c,102546656161733648" id="E10_R02" reply_cluster="emotion_10" reply_cluster_label="情感类" reply_cluster_order="3" reply_to="E10_P01">但很有参与感</d>
+  <d p="46.83,1,25,16777215,1733600695,0,3106a6ef,631909641596540352" id="E10_M01" reply_cluster="emotion_10" reply_cluster_label="情感类" reply_cluster_order="4" reply_to="E10_P01">中间：哈哈哈</d>
+  <d p="47.11,1,25,16777215,1733600818,0,286d1e48,471860515073130792" id="E10_R11" reply_cluster="emotion_10" reply_cluster_label="情感类" reply_cluster_order="5" reply_to="E10_M01">老师：你们都很努力</d>
+  <d p="47.54,1,25,16777215,1733600853,0,ec9c0cb0,410434846476981129" id="E10_R12" reply_cluster="emotion_10" reply_cluster_label="情感类" reply_cluster_order="6" reply_to="E10_M01">我们：谢谢但还是不会</d>
+  <d p="48.17,1,25,16777215,1733600928,0,630e57a4,463752044856653952" id="E10_M02" reply_cluster="emotion_10" reply_cluster_label="情感类" reply_cluster_order="7" reply_to="E10_M01">中间2：求一个秒杀法</d>
+  <d p="48.37,1,25,16777215,1733600955,0,1ba29865,751118837124944524" id="E10_R21" reply_cluster="emotion_10" reply_cluster_label="情感类" reply_cluster_order="8" reply_to="E10_M02">老师：先读题</d>
+  <d p="48.74,1,25,16777215,1733601032,0,c6121b95,802616186942552115" id="E10_R22" reply_cluster="emotion_10" reply_cluster_label="情感类" reply_cluster_order="9" reply_to="E10_M02">我们：读了但不懂</d>
+  <d p="49.48,1,25,16777215,1733601172,0,e3bba8da,175698812511084291" id="E10_R03" reply_cluster="emotion_10" reply_cluster_label="情感类" reply_cluster_order="10" reply_to="E10_P01">老师：再读一遍</d>
+  <d p="49.50,1,25,16777215,1733570305,0,e71e193a,134183212419668447" id="N004">看到“e”先别激动，结构不对别硬套</d>
+  <d p="50.00,1,25,16777215,1733601274,0,73ef5f29,467599162726180151" id="E10_R23" reply_cluster="emotion_10" reply_cluster_label="情感类" reply_cluster_order="11" reply_to="E10_M02">我们：好…</d>
+  <d p="50.60,1,25,16777215,1733603370,0,ec15efef,989872293948629451" id="A11_P01" reply_cluster="answer_11" reply_cluster_label="解答类" reply_cluster_order="1">总结一条：别看答案，先看‘条件’。</d>
+  <d p="50.73,1,25,16777215,1733603423,0,d424c4de,846927393121629162" id="A11_R01" reply_cluster="answer_11" reply_cluster_label="解答类" reply_cluster_order="2" reply_to="A11_P01">趋近点、定义域、左右极限</d>
+  <d p="50.95,1,25,16777215,1733572758,0,707b5c1e,142932601443240285" id="N031">看到“不存在”我瞬间安心了（不对）</d>
+  <d p="51.09,1,25,16777215,1733603537,0,fe683754,253906978100108393" id="A11_R02" reply_cluster="answer_11" reply_cluster_label="解答类" reply_cluster_order="3" reply_to="A11_P01">工具：ln/展开/等价/洛必达</d>
+  <d p="51.41,1,25,16777215,1733575615,0,1ed9126a,547068898152779818" id="N063">我盲猜1（但先不立flag）</d>
+  <d p="51.49,1,25,16777215,1733603652,0,5a7a373a,963755537549920538" id="A11_M01" reply_cluster="answer_11" reply_cluster_label="解答类" reply_cluster_order="4" reply_to="A11_P01">中间：一句话口诀？</d>
+  <d p="51.79,1,25,16777215,1733603698,0,8073d89b,558249025919976233" id="A11_R11" reply_cluster="answer_11" reply_cluster_label="解答类" reply_cluster_order="5" reply_to="A11_M01">‘先判后算，先域后值’</d>
+  <d p="52.18,1,25,16777215,1733603748,0,07ad1bf7,548211961195164699" id="A11_R12" reply_cluster="answer_11" reply_cluster_label="解答类" reply_cluster_order="6" reply_to="A11_M01">‘像 e 不一定是 e’</d>
+  <d p="52.87,1,25,16777215,1733572889,0,b80623c5,773560522842695451" id="N033">先化成标准型，再判断</d>
+  <d p="52.90,1,25,16777215,1733603824,0,c809b60e,453017080721236949" id="A11_M02" reply_cluster="answer_11" reply_cluster_label="解答类" reply_cluster_order="7" reply_to="A11_M01">中间2：这题给我的教训？</d>
+  <d p="53.03,1,25,16777215,1733603945,0,702ccabd,597571430296284236" id="A11_R21" reply_cluster="answer_11" reply_cluster_label="解答类" reply_cluster_order="8" reply_to="A11_M02">不读题=白学</d>
+  <d p="53.22,1,25,16777215,1733572973,0,2ce192fa,554504204165380085" id="N034">这题关键：左右极限是否一致</d>
+  <d p="53.27,1,25,16777215,1733571966,0,e92a2eac,684315331506095637" id="N023">我：秒杀；下一秒：被秒杀</d>
+  <d p="53.38,1,25,16777215,1733604034,0,7465208b,534041577289295759" id="A11_R22" reply_cluster="answer_11" reply_cluster_label="解答类" reply_cluster_order="9" reply_to="A11_M02">读题=省一半时间</d>
+  <d p="53.43,1,25,16777215,1733571436,0,67b08ad4,396548641429864867" id="N017">这不就是我小学入学考试原题吗（确信）</d>
+  <d p="54.23,1,25,16777215,1733604121,0,9afe3488,220319093744195395" id="A11_R03" reply_cluster="answer_11" reply_cluster_label="解答类" reply_cluster_order="10" reply_to="A11_P01">最后：祝你不是95%😂</d>
+  <d p="54.33,1,25,16777215,1733570476,0,a0c2c301,664452614485156370" id="N007">洛必达：我能用，但别滥用😅</d>
+  <d p="54.48,1,25,16777215,1733574222,0,8a784b8d,193228951740909468" id="N048">要不是标题，我还真以为简单</d>
+  <d p="54.77,1,25,16777215,1733604257,0,98cc325f,260220381793080857" id="A11_R23" reply_cluster="answer_11" reply_cluster_label="解答类" reply_cluster_order="11" reply_to="A11_M02">下题继续！</d>
+  <d p="54.78,1,25,16777215,1733570550,0,330cb1d4,471671296985529135" id="N008">取对数再算，很多题就顺了</d>
+  <d p="55.28,1,25,16777215,1733574075,0,12a5248e,236382311011501862" id="N046">这题要用 ln 转化</d>
+  <d p="55.33,1,25,16777215,1733575700,0,db0a3fca,333679426864881192" id="N064">右极限=？左极限=？先拆开看</d>
+  <d p="55.68,1,25,16777215,1733573510,0,18796601,310983093095421640" id="N041">别用计算器，会更痛苦</d>
+  <d p="56.23,1,25,16777215,1733603144,0,6a1fc0cd,633209796141544478" id="E11_P01" reply_cluster="emotion_11" reply_cluster_label="情感类" reply_cluster_order="1">我愿称之为：极限版狼人杀</d>
+  <d p="56.43,1,25,16777215,1733603180,0,ed64bda5,687158648285190058" id="E11_R01" reply_cluster="emotion_11" reply_cluster_label="情感类" reply_cluster_order="2" reply_to="E11_P01">1是狼人？</d>
+  <d p="56.61,1,25,16777215,1733603267,0,ba068388,982343104868673854" id="E11_R02" reply_cluster="emotion_11" reply_cluster_label="情感类" reply_cluster_order="3" reply_to="E11_P01">e是狼人？</d>
+  <d p="57.19,1,25,16777215,1733603330,0,56a4519d,135555413567459137" id="E11_M01" reply_cluster="emotion_11" reply_cluster_label="情感类" reply_cluster_order="4" reply_to="E11_P01">不存在才是真相？</d>
+  <d p="57.20,1,25,16777215,1733573915,0,c9528192,829836852960709235" id="N044">别忘记泰勒展开！</d>
+  <d p="57.25,1,25,16777215,1733574644,0,fead367e,865782172692416443" id="N053">求个结论：到底1还是e？</d>
+  <d p="57.49,1,25,16777215,1733603368,0,eab1f83f,988006642970237294" id="E11_R11" reply_cluster="emotion_11" reply_cluster_label="情感类" reply_cluster_order="5" reply_to="E11_M01">中间：信息量爆炸</d>
+  <d p="57.79,1,25,16777215,1733603428,0,90eaf960,552677489614122668" id="E11_R12" reply_cluster="emotion_11" reply_cluster_label="情感类" reply_cluster_order="6" reply_to="E11_M01">我投票投错了</d>
+  <d p="57.86,1,25,16777215,1733572478,0,22f970da,367505472120400746" id="N028">上个视频过来的，继续挨打</d>
+  <d p="58.49,1,25,16777215,1733603500,0,e553bb49,992552138390314597" id="E11_M02" reply_cluster="emotion_11" reply_cluster_label="情感类" reply_cluster_order="7" reply_to="E11_M01">中间2：重开一局</d>
+  <d p="58.62,1,25,16777215,1733603579,0,c7b708d1,527548436380840250" id="E11_R21" reply_cluster="emotion_11" reply_cluster_label="情感类" reply_cluster_order="8" reply_to="E11_M02">看讲解再投</d>
+  <d p="59.01,1,25,16777215,1733570213,0,6970afd1,550828294585064365" id="N003">别急，先看趋近点：x→0 还是 n→∞？</d>
+  <d p="59.01,1,25,16777215,1733603621,0,8af8197d,613461133231776446" id="E11_R22" reply_cluster="emotion_11" reply_cluster_label="情感类" reply_cluster_order="9" reply_to="E11_M02">投对一次算我赢</d>
+  <d p="59.09,1,25,16777215,1733570393,0,775817d7,598542883973435149" id="N005">我盲猜1（但先不立flag）</d>
+  <d p="59.14,1,25,16777215,1733570904,0,61ba02df,194012274899660405" id="N012">经典陷阱：以为是(1+1/n)^n</d>
+  <d p="59.19,1,25,16777215,1733571731,0,2d9435da,690390632851500377" id="N021">不是e，是1：条件没到</d>
+  <d p="59.58,1,25,16777215,1733571464,0,902afe4d,684427749382432777" id="N018">评论区：1派 vs e派 vs 不存在派，开战！</d>
+  <d p="59.74,1,25,16777215,1733603691,0,1a959f9e,747214344836881464" id="E11_R03" reply_cluster="emotion_11" reply_cluster_label="情感类" reply_cluster_order="10" reply_to="E11_P01">下次别骗我了😭</d>
+  <d p="59.85,1,25,16777215,1733603718,0,cd5ca456,869304577446705516" id="E11_R23" reply_cluster="emotion_11" reply_cluster_label="情感类" reply_cluster_order="11" reply_to="E11_M02">好了我去写作业</d>
+</i>

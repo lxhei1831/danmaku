@@ -23,7 +23,7 @@
         id: 'jixian',
         title: '你极限学得6吗？我打赌95%的同学算不对',
         videoSrc: './assets/videos/你极限学得6吗？我打赌95%的同学算不对.mp4',
-        danmakuSrc: './assets/data/jixian/极限学得6_前60秒_多线程回复集弹幕.xml',
+        danmakuSrc: './assets/data/jixian/极限学得6_前60秒_增强弹幕.xml',
         captionSrc: './assets/data/jixian/你极限学得6吗？我打赌95%的同学算不对.json'
       }
     ];
