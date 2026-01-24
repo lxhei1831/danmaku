@@ -1018,3 +1018,23 @@
       stroke: #f4a9c6;
     }
 
+    /* 全览模式：节点缩成实心点 */
+    .threadriver-node-dot {
+      stroke: none;
+    }
+    .threadriver-node-dot-leaf {
+      fill: #1f1f1f;
+    }
+    .threadriver-node-dot-mid {
+      fill: #4a90e2;
+    }
+    .threadriver-node-dot.threadriver-node-root {
+      fill: #3b3b3b;
+    }
+    .threadriver-node-dot.threadriver-node-root.threadriver-node-answer {
+      fill: #e28a1b;
+    }
+    .threadriver-node-dot.threadriver-node-root.threadriver-node-emotion {
+      fill: #f4a9c6;
+    }
+
