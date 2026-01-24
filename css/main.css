@@ -422,8 +422,36 @@
       margin-bottom: 8px;
       font-weight: 600;
     }
+    .danmaku-settings-group + .danmaku-settings-group {
+      margin-top: 12px;
+    }
     #danmaku-area-range {
       width: 100%;
+    }
+    .danmaku-segmented {
+      display: flex;
+      gap: 6px;
+    }
+    .danmaku-segmented-btn {
+      flex: 1;
+      padding: 6px 4px;
+      font-size: 12px;
+      border-radius: 6px;
+      border: 1px solid #d6dbe8;
+      background: #f7f8fb;
+      color: #3a3a3a;
+      cursor: pointer;
+      transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    }
+    .danmaku-segmented-btn.is-active {
+      background: #e6eeff;
+      border-color: #5a7ff0;
+      color: #2f4aa6;
+      font-weight: 600;
+    }
+    .danmaku-segmented-btn:focus-visible {
+      outline: 2px solid #5a7ff0;
+      outline-offset: 2px;
     }
     .danmaku-settings-labels {
       display: flex;

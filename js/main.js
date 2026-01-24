@@ -77,6 +77,7 @@
     const danmakuToggleIcon = document.getElementById('danmaku-toggle-icon');
     const danmakuSettingsBtn = document.getElementById('danmaku-settings-btn');
     const danmakuSettingsPanel = document.getElementById('danmaku-settings-panel');
+    const danmakuModeButtons = Array.from(document.querySelectorAll('.danmaku-mode-btn'));
     const danmakuAreaRange = document.getElementById('danmaku-area-range');
     const videoShelf = document.getElementById('video-shelf');
     const videoShelfList = document.getElementById('video-shelf-list');
@@ -149,11 +150,17 @@
     let orbProcessingLocks = 0;
     let danmakuVisible = true;
     let danmakuTotalCount = 0;
+    const DANMAKU_DISPLAY_MODES = {
+      DEFAULT: 1,
+      REPLY_CLUSTER: 2,
+      NORMAL_ONLY: 3
+    };
     const DANMAKU_AREA_MODES = {
-      REPLY_ONLY: 1,
+      TOP: 1,
       HALF: 2,
       FULL: 3
     };
+    let danmakuDisplayMode = DANMAKU_DISPLAY_MODES.DEFAULT;
     let danmakuAreaMode = DANMAKU_AREA_MODES.HALF;
     const VIDEO_CONTEXT_WINDOW_SECONDS = 60;
     const VIDEO_CONTEXT_INTERVAL_SECONDS = 5;
@@ -231,11 +238,44 @@
           : './assets/images/弹幕关.png';
       }
     }
+    function getActiveTrackCount(areaMode, totalTracks, baseDialogueTracks) {
+      const safeBase = Math.max(0, Math.min(totalTracks, baseDialogueTracks));
+      if (areaMode === DANMAKU_AREA_MODES.TOP) return Math.max(1, safeBase || 1);
+      if (areaMode === DANMAKU_AREA_MODES.HALF) {
+        const normalTracks = Math.max(0, totalTracks - safeBase);
+        const halfNormal = Math.max(1, Math.ceil(normalTracks / 2));
+        return Math.min(totalTracks, safeBase + halfNormal);
+      }
+      return totalTracks;
+    }
+    function syncDialogueTracks() {
+      const targetCount = danmakuManager ? danmakuManager.numDialogueTracks : NUM_DIALOGUE_TRACKS;
+      dialogueTracks = Array.from({ length: Math.max(0, targetCount) }, () => ({ releaseAt: 0 }));
+    }
+    function syncDanmakuModeButtons() {
+      if (!danmakuModeButtons.length) return;
+      danmakuModeButtons.forEach(btn => {
+        const mode = parseInt(btn.dataset.mode, 10);
+        const isActive = mode === danmakuDisplayMode;
+        btn.classList.toggle('is-active', isActive);
+        btn.setAttribute('aria-pressed', String(isActive));
+      });
+    }
+    function setDanmakuDisplayMode(mode) {
+      danmakuDisplayMode = mode;
+      syncDanmakuModeButtons();
+      if (danmakuManager) {
+        danmakuManager.setDisplayMode(mode);
+        syncDialogueTracks();
+        rebuildFromTime(video.currentTime);
+      }
+    }
     function setDanmakuAreaMode(mode) {
       danmakuAreaMode = mode;
       if (danmakuAreaRange) danmakuAreaRange.value = String(mode);
       if (danmakuManager) {
-        danmakuManager.setNormalTrackMode(mode);
+        danmakuManager.setAreaMode(mode);
+        syncDialogueTracks();
         rebuildFromTime(video.currentTime);
       }
     }
@@ -381,6 +421,7 @@
 
       resetAiSidebarConversation();
       setDanmakuVisibility(danmakuVisible);
+      syncDanmakuModeButtons();
       if (danmakuAreaRange) danmakuAreaRange.value = String(danmakuAreaMode);
     }
 
@@ -406,10 +447,16 @@
       }
 
       danmakuData = await loadAndProcessDanmaku(config.danmakuSrc || danmakuFilePath);
-      danmakuManager = new DanmakuManager(danmakuScreen, NUM_TOTAL_TRACKS, NUM_DIALOGUE_TRACKS, danmakuAreaMode);
+      danmakuManager = new DanmakuManager(
+        danmakuScreen,
+        NUM_TOTAL_TRACKS,
+        NUM_DIALOGUE_TRACKS,
+        danmakuDisplayMode,
+        danmakuAreaMode
+      );
       await preloadSubtitleFile(config.captionSrc || captionFilePath);
 
-      dialogueTracks = Array.from({ length: NUM_DIALOGUE_TRACKS }, () => ({ releaseAt: 0 }));
+      syncDialogueTracks();
 
       rebuildFromTime(0);
       renderBottomHeatmap();
@@ -1157,16 +1204,49 @@
 
     // 弹幕管理器
     class DanmakuManager {
-      constructor(screenElement, totalTracks, dialogueTracksCount, normalTrackMode = DANMAKU_AREA_MODES.HALF) {
+      constructor(
+        screenElement,
+        totalTracks,
+        dialogueTracksCount,
+        displayMode = DANMAKU_DISPLAY_MODES.DEFAULT,
+        areaMode = DANMAKU_AREA_MODES.HALF
+      ) {
         this.screen = screenElement;
         this.numTotalTracks = totalTracks;
-        this.numDialogueTracks = dialogueTracksCount;
+        this.baseDialogueTracks = dialogueTracksCount;
         this.trackTimestamps = new Array(totalTracks).fill(0);
-        this.normalTrackMode = normalTrackMode;
+        this.displayMode = displayMode;
+        this.areaMode = areaMode;
+        this.numDialogueTracks = 0;
+        this.numNormalTracks = 0;
+        this.activeTrackCount = totalTracks;
+        this.updateTrackPlan();
       }
 
-      setNormalTrackMode(mode) {
-        this.normalTrackMode = mode;
+      setDisplayMode(mode) {
+        this.displayMode = mode;
+        this.updateTrackPlan();
+      }
+
+      setAreaMode(mode) {
+        this.areaMode = mode;
+        this.updateTrackPlan();
+      }
+
+      updateTrackPlan() {
+        const activeTrackCount = getActiveTrackCount(this.areaMode, this.numTotalTracks, this.baseDialogueTracks);
+        this.activeTrackCount = activeTrackCount;
+        if (this.displayMode === DANMAKU_DISPLAY_MODES.REPLY_CLUSTER) {
+          this.numDialogueTracks = activeTrackCount;
+          this.numNormalTracks = 0;
+        } else if (this.displayMode === DANMAKU_DISPLAY_MODES.NORMAL_ONLY) {
+          this.numDialogueTracks = 0;
+          this.numNormalTracks = activeTrackCount;
+        } else {
+          const dialogueTracks = Math.min(this.baseDialogueTracks, activeTrackCount);
+          this.numDialogueTracks = dialogueTracks;
+          this.numNormalTracks = Math.max(0, activeTrackCount - dialogueTracks);
+        }
       }
 
       launch(danmakuObj, isDialogue, forcedTrack = null) {
@@ -1236,18 +1316,10 @@
           if (forcedTrack !== null && forcedTrack >= 0 && forcedTrack < this.numDialogueTracks) targetTrack = forcedTrack;
           else return 0;
         } else {
-          const normalTracks = Math.max(0, this.numTotalTracks - this.numDialogueTracks);
-          let usableNormalTracks = 0;
-          if (this.normalTrackMode === DANMAKU_AREA_MODES.REPLY_ONLY) {
-            usableNormalTracks = 0;
-          } else if (this.normalTrackMode === DANMAKU_AREA_MODES.FULL) {
-            usableNormalTracks = normalTracks;
-          } else {
-            usableNormalTracks = Math.max(1, Math.ceil(normalTracks / 2));
-          }
-          if (usableNormalTracks <= 0) return 0;
+          const normalTracks = this.numNormalTracks;
+          if (normalTracks <= 0) return 0;
           const firstNormalTrack = this.numDialogueTracks;
-          const lastNormalTrack = Math.min(this.numTotalTracks - 1, firstNormalTrack + usableNormalTracks - 1);
+          const lastNormalTrack = firstNormalTrack + normalTracks - 1;
           let bestTrack = firstNormalTrack;
           let earliestFreeTime = this.trackTimestamps[bestTrack];
           for (let i = firstNormalTrack + 1; i <= lastNormalTrack; i++) {
@@ -1450,38 +1522,45 @@
 
       video.addEventListener('timeupdate', () => {
         const currentTime = video.currentTime;
-        dialogueGroups.forEach(group => {
-          const sequence = group.timeline || [];
-          while (group.nextIdx < sequence.length && sequence[group.nextIdx].time <= currentTime) {
-            const msg = sequence[group.nextIdx];
-            let targetTrack = group.assignedTrack;
-            if (
-              targetTrack === null ||
-              targetTrack === undefined ||
-              targetTrack < 0 ||
-              targetTrack >= (danmakuManager ? danmakuManager.numDialogueTracks : NUM_DIALOGUE_TRACKS)
-            ) {
-              targetTrack = pickDialogueTrack();
-              if (targetTrack === null) break;
-              group.assignedTrack = targetTrack;
-            }
-            const exitTime = danmakuManager.launch(msg, true, targetTrack);
-            if (msg.isParent && !group.parentLaunched) {
-              group.parentLaunched = true;
-            }
-            if (exitTime > 0) {
-              const track = dialogueTracks[targetTrack];
-              if (track) track.releaseAt = exitTime;
-              group.completedAt = exitTime;
-            }
-            group.nextIdx++;
-          }
-        });
+        const allowDialogue = danmakuDisplayMode !== DANMAKU_DISPLAY_MODES.NORMAL_ONLY;
+        const allowNormal = danmakuDisplayMode !== DANMAKU_DISPLAY_MODES.REPLY_CLUSTER;
 
-        while (danmakuIndex < danmakuData.length && danmakuData[danmakuIndex].time <= currentTime) {
-          const item = danmakuData[danmakuIndex];
-          if (!isDialogueDanmaku(item)) danmakuManager.launch(item, false);
-          danmakuIndex++;
+        if (allowDialogue) {
+          dialogueGroups.forEach(group => {
+            const sequence = group.timeline || [];
+            while (group.nextIdx < sequence.length && sequence[group.nextIdx].time <= currentTime) {
+              const msg = sequence[group.nextIdx];
+              let targetTrack = group.assignedTrack;
+              if (
+                targetTrack === null ||
+                targetTrack === undefined ||
+                targetTrack < 0 ||
+                targetTrack >= (danmakuManager ? danmakuManager.numDialogueTracks : NUM_DIALOGUE_TRACKS)
+              ) {
+                targetTrack = pickDialogueTrack();
+                if (targetTrack === null) break;
+                group.assignedTrack = targetTrack;
+              }
+              const exitTime = danmakuManager.launch(msg, true, targetTrack);
+              if (msg.isParent && !group.parentLaunched) {
+                group.parentLaunched = true;
+              }
+              if (exitTime > 0) {
+                const track = dialogueTracks[targetTrack];
+                if (track) track.releaseAt = exitTime;
+                group.completedAt = exitTime;
+              }
+              group.nextIdx++;
+            }
+          });
+        }
+
+        if (allowNormal) {
+          while (danmakuIndex < danmakuData.length && danmakuData[danmakuIndex].time <= currentTime) {
+            const item = danmakuData[danmakuIndex];
+            if (!isDialogueDanmaku(item)) danmakuManager.launch(item, false);
+            danmakuIndex++;
+          }
         }
 
         while (dialogueIndex < dialogueGroups.length && dialogueGroups[dialogueIndex].startTime <= currentTime) {
@@ -2301,6 +2380,16 @@
     if (danmakuSettingsBtn) {
       danmakuSettingsBtn.addEventListener('click', () => {
         toggleDanmakuSettingsPanel();
+      });
+    }
+    if (danmakuModeButtons.length) {
+      danmakuModeButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const value = parseInt(btn.dataset.mode, 10);
+          if ([1, 2, 3].includes(value)) {
+            setDanmakuDisplayMode(value);
+          }
+        });
       });
     }
     if (danmakuAreaRange) {
