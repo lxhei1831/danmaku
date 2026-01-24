@@ -330,6 +330,11 @@
     async function loadVideoBundle(config, { autoPlay = false } = {}) {
       if (!config || !video) return;
       resetVideoState();
+      heatmapActiveVideoKey = getHeatmapVideoKey(config);
+      heatmapFirstOpenPending = !heatmapViewStates.has(heatmapActiveVideoKey);
+      if (heatmapFirstOpenPending) heatmapForceScrollToStart = true;
+      heatmapPendingRestore = null;
+      applyHeatmapViewState(heatmapViewStates.get(heatmapActiveVideoKey));
 
       const nextSource = encodeAssetPath(config.videoSrc || '');
       if (nextSource) {
@@ -351,6 +356,10 @@
 
       rebuildFromTime(0);
       renderBottomHeatmap();
+      if (heatmapPanel && !heatmapPanel.classList.contains(HEATMAP_COLLAPSED_CLASS) && heatmapFirstOpenPending) {
+        enterHeatmapOverview({ forceScroll: true });
+        heatmapFirstOpenPending = false;
+      }
 
       if (autoPlay) {
         video.play().catch(() => {});
@@ -364,6 +373,7 @@
         : 0;
       if (safeIndex === activeVideoIndex && activeVideoConfig) return;
 
+      saveHeatmapViewState();
       activeVideoIndex = safeIndex;
       activeVideoConfig = VIDEO_CATALOG[activeVideoIndex];
       captionFilePath = activeVideoConfig ? activeVideoConfig.captionSrc : '';
@@ -2222,9 +2232,11 @@
     const heatmapContent = document.getElementById('heatmap-content');
     const heatmapZoomInput = document.getElementById('heatmap-zoom');
     const heatmapZoomValue = document.getElementById('heatmap-zoom-value');
+    const heatmapOverviewBtn = document.getElementById('heatmap-overview-btn');
     const HEATMAP_ZOOM_STEP = 5;
     const HEATMAP_ZOOM_MIN = 10;
     const HEATMAP_ZOOM_MAX = 200;
+    const HEATMAP_OVERVIEW_THRESHOLD = 50;
     const HEATMAP_ZOOM_VERTICAL_THRESHOLD = 100;
     let heatmapZoom = 20;
     let heatmapZoomAnchor = null;
@@ -2234,11 +2246,64 @@
     let heatmapPanStartScrollLeft = 0;
     let heatmapPanStartY = 0;
     let heatmapPanStartScrollTop = 0;
+    let heatmapForceScrollToStart = false;
+    let heatmapFirstOpenPending = true;
+    const heatmapViewStates = new Map();
+    let heatmapPendingRestore = null;
+    let heatmapActiveVideoKey = activeVideoConfig
+      ? (activeVideoConfig.id || activeVideoConfig.videoSrc || activeVideoConfig.danmakuSrc || '')
+      : '';
 
     const heatmapPanel = document.getElementById('heatmap-panel');
     const heatmapHeader = heatmapPanel ? heatmapPanel.querySelector('.heatmap-header') : null;
     const HEATMAP_COLLAPSED_CLASS = 'is-collapsed';
     let heatmapRenderTimeout = null;
+    const getHeatmapVideoKey = (config) => {
+      if (!config) return '';
+      return config.id || config.videoSrc || config.danmakuSrc || '';
+    };
+
+    const syncHeatmapZoomUI = () => {
+      if (heatmapOverviewBtn) {
+        const isOverviewMode = heatmapZoom < HEATMAP_OVERVIEW_THRESHOLD;
+        heatmapOverviewBtn.classList.toggle('is-active', isOverviewMode);
+        heatmapOverviewBtn.setAttribute('aria-pressed', isOverviewMode.toString());
+      }
+      if (heatmapZoomInput && Number(heatmapZoomInput.value) !== heatmapZoom) {
+        heatmapZoomInput.value = heatmapZoom.toString();
+      }
+      if (heatmapZoomValue) {
+        heatmapZoomValue.textContent = `${heatmapZoom.toFixed(1)}x`;
+      }
+    };
+
+    const saveHeatmapViewState = () => {
+      if (!heatmapContent || !heatmapActiveVideoKey) return;
+      if (!heatmapContent.querySelector('.heatmap-svg')) return;
+      heatmapViewStates.set(heatmapActiveVideoKey, {
+        zoom: heatmapZoom,
+        locked: heatmapZoomLocked,
+        scrollLeft: heatmapContent.scrollLeft,
+        scrollTop: heatmapContent.scrollTop,
+      });
+    };
+
+    const applyHeatmapViewState = (state) => {
+      if (!state) return false;
+      heatmapZoom = state.zoom;
+      heatmapZoomLocked = !!state.locked;
+      heatmapPendingRestore = {
+        scrollLeft: state.scrollLeft || 0,
+        scrollTop: state.scrollTop || 0,
+      };
+      syncHeatmapZoomUI();
+      return true;
+    };
+
+    const enterHeatmapOverview = ({ forceScroll = false } = {}) => {
+      updateHeatmapZoom(HEATMAP_ZOOM_MIN, { lock: true });
+      if (forceScroll) heatmapForceScrollToStart = true;
+    };
 
     function updateHeatmapCollapsedHeight() {
       if (!heatmapPanel || !heatmapHeader) return;
@@ -2255,7 +2320,19 @@
       if (heatmapHeader) {
         heatmapHeader.setAttribute('aria-expanded', (!collapsed).toString());
       }
+      if (collapsed) {
+        saveHeatmapViewState();
+      }
       if (!collapsed) {
+        const savedState = heatmapActiveVideoKey
+          ? heatmapViewStates.get(heatmapActiveVideoKey)
+          : null;
+        if (!applyHeatmapViewState(savedState)) {
+          enterHeatmapOverview({ forceScroll: heatmapFirstOpenPending });
+          heatmapFirstOpenPending = false;
+        } else {
+          heatmapFirstOpenPending = false;
+        }
         scheduleHeatmapRender();
       }
     }
@@ -2390,7 +2467,7 @@
           : 1
       );
       const zoomScale = getZoomScale(heatmapZoom);
-      const isOverviewMode = heatmapZoom < 50;
+      const isOverviewMode = heatmapZoom < HEATMAP_OVERVIEW_THRESHOLD;
       const compactMode = !heatmapZoomLocked || isOverviewMode;
 
       const edgePadding = 14;
@@ -2951,8 +3028,23 @@
       heatmapContent.appendChild(svg);
       updateHeatmapPlayhead(video.currentTime);
 
+      const pendingRestore = heatmapPendingRestore;
+      heatmapPendingRestore = null;
+      const shouldForceScrollToStart = heatmapForceScrollToStart;
+      heatmapForceScrollToStart = false;
+
       // 恢复横向滚动中心/指向点
-      if (anchorTime !== null || anchorRatioY !== null) {
+      if (pendingRestore) {
+        const maxScrollX = Math.max(0, heatmapContent.scrollWidth - heatmapContent.clientWidth);
+        const maxScrollY = Math.max(0, heatmapContent.scrollHeight - heatmapContent.clientHeight);
+        heatmapContent.scrollLeft = Math.max(0, Math.min(maxScrollX, pendingRestore.scrollLeft || 0));
+        heatmapContent.scrollTop = Math.max(0, Math.min(maxScrollY, pendingRestore.scrollTop || 0));
+        heatmapZoomAnchor = null;
+      } else if (shouldForceScrollToStart) {
+        heatmapContent.scrollLeft = 0;
+        heatmapContent.scrollTop = 0;
+        heatmapZoomAnchor = null;
+      } else if (anchorTime !== null || anchorRatioY !== null) {
         if (anchorTime !== null) {
           const targetX = edgePadding + (anchorTime / duration) * plotWidth;
           const maxScroll = Math.max(0, heatmapContent.scrollWidth - heatmapContent.clientWidth);
@@ -3039,7 +3131,7 @@
       setTimeout(handleHeatmapResize, 1000);
     }
 
-    function updateHeatmapZoom(value, { lock = false } = {}) {
+    function updateHeatmapZoom(value, { lock = null } = {}) {
       const nextZoom = Number(value);
       if (Number.isFinite(nextZoom)) {
         const snapped = Math.round(nextZoom / HEATMAP_ZOOM_STEP) * HEATMAP_ZOOM_STEP;
@@ -3047,13 +3139,9 @@
       } else {
         heatmapZoom = HEATMAP_ZOOM_MIN;
       }
-      if (lock) heatmapZoomLocked = true;
-      if (heatmapZoomInput && Number(heatmapZoomInput.value) !== heatmapZoom) {
-        heatmapZoomInput.value = heatmapZoom.toString();
-      }
-      if (heatmapZoomValue) {
-        heatmapZoomValue.textContent = `${heatmapZoom.toFixed(1)}x`;
-      }
+      if (lock === true) heatmapZoomLocked = true;
+      if (lock === false) heatmapZoomLocked = false;
+      syncHeatmapZoomUI();
       renderBottomHeatmap();
     }
 
@@ -3062,6 +3150,18 @@
         updateHeatmapZoom(e.target.value, { lock: true });
       });
       updateHeatmapZoom(heatmapZoomInput.value);
+    }
+
+    if (heatmapOverviewBtn) {
+      heatmapOverviewBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        updateHeatmapZoom(HEATMAP_ZOOM_MIN, { lock: true });
+      });
+      heatmapOverviewBtn.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.stopPropagation();
+        }
+      });
     }
 
     initializePlayer();

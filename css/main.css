@@ -770,19 +770,35 @@
       justify-content: center;
       cursor: pointer;
     }
+    .heatmap-overview-btn {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 22px;
+      padding: 0 8px;
+      border: 1px solid #cfcfcf;
+      border-radius: 12px;
+      background-color: #fff;
+      color: #555;
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 1;
+      cursor: pointer;
+      transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    }
+    .heatmap-overview-btn.is-active {
+      border-color: #5a7ff0;
+      color: #3058e5;
+      background-color: #eef2ff;
+    }
+    .heatmap-overview-btn:focus-visible {
+      outline: 2px solid #4d90fe;
+      outline-offset: 2px;
+    }
     .heatmap-header:focus-visible {
       outline: 2px solid #4d90fe;
       outline-offset: -2px;
-    }
-    .heatmap-header::after {
-      content: "-";
-      position: absolute;
-      left: 12px;
-      font-size: 16px;
-      color: #666;
-    }
-    .heatmap-panel.is-collapsed .heatmap-header::after {
-      content: "+";
     }
     .heatmap-title {
       pointer-events: none;
