@@ -2390,7 +2390,8 @@
           : 1
       );
       const zoomScale = getZoomScale(heatmapZoom);
-      const compactMode = !heatmapZoomLocked;
+      const isOverviewMode = heatmapZoom < 50;
+      const compactMode = !heatmapZoomLocked || isOverviewMode;
 
       const edgePadding = 14;
       const previousPlotWidth = previousScrollWidth > 0
@@ -2466,10 +2467,10 @@
         return nodes;
       };
 
-      const MIN_GAP_BASE = compactMode ? 4 : 6;
-      const ROW_SPAN_GAP_BASE = compactMode ? 6 : 8;
-      const MIN_ROW_H_BASE = compactMode ? 10 : 22;
-      const MAX_ROW_H_BASE = compactMode ? 28 : 40;
+      const MIN_GAP_BASE = isOverviewMode ? 1 : (compactMode ? 4 : 6);
+      const ROW_SPAN_GAP_BASE = isOverviewMode ? 2 : (compactMode ? 6 : 8);
+      const MIN_ROW_H_BASE = isOverviewMode ? 8 : (compactMode ? 10 : 22);
+      const MAX_ROW_H_BASE = isOverviewMode ? 20 : (compactMode ? 28 : 40);
       const ROW_GAP_BASE = compactMode ? 2 : 6;
       const NODE_CIRCLE_BASE = compactMode ? 10 : 14;
       const NODE_CAPSULE_H_BASE = compactMode ? 8 : 12;
@@ -2536,7 +2537,8 @@
             const isRoot = !!node.isParent || (!!rootId && node.id === rootId);
             const isMidNode = (hasReplies || replyTargetIds.has(node.id)) && !isRoot;
             const isCircleNode = isMidNode || isRoot;
-            const nodeW = (isCircleNode ? NODE_CIRCLE_BASE : getNodeW(node.text || "")) * scale;
+            const baseW = isOverviewMode ? 8 : (isCircleNode ? NODE_CIRCLE_BASE : getNodeW(node.text || ""));
+            const nodeW = baseW * scale;
             const halfW = nodeW / 2;
 
             const isAnchor = node.id === anchorId;
@@ -2683,8 +2685,11 @@
           const isMidNode = (hasReplies || replyTargetIds.has(node.id)) && !isRoot;
           const isCluster = !!node.isClusterNode;
           const isCircleNode = isMidNode || isRoot;
-          const nodeW = (isCircleNode ? NODE_CIRCLE_BASE : getNodeW(node.text || "")) * zoomScale;
-          const nodeH = isCircleNode ? nodeW : NODE_CAPSULE_H_BASE * zoomScale;
+          const baseW = isOverviewMode ? 8 : (isCircleNode ? NODE_CIRCLE_BASE : getNodeW(node.text || ""));
+          const nodeW = baseW * zoomScale;
+          const nodeH = isOverviewMode
+            ? (isCircleNode ? nodeW : 6 * zoomScale)
+            : (isCircleNode ? nodeW : NODE_CAPSULE_H_BASE * zoomScale);
           const halfW = nodeW / 2;
 
           const isAnchor = node.id === anchorId;
