@@ -972,6 +972,10 @@
     .threadriver-play:hover {
       transform: scale(1.06);
     }
+    .threadriver-play-mini {
+      fill: rgba(0,0,0,0.6);
+      pointer-events: none;
+    }
 
     /* 节点通用 */
     .threadriver-node {

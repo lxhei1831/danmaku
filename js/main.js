@@ -2890,6 +2890,19 @@
               video.play();
             });
             nodeLayer.appendChild(play);
+          } else if (isRoot && overviewFitMode) {
+            const miniScale = Math.max(0.6, 0.6 * layoutScale);
+            const miniSize = Math.max(2, 3.2 * miniScale);
+            const playX = timeToX(group.startTime) - 3.5 * miniSize;
+            const play = document.createElementNS(svgNS, "path");
+            play.setAttribute(
+              "d",
+              `M ${playX - miniSize} ${baselineY - miniSize * 0.8} ` +
+              `L ${playX - miniSize} ${baselineY + miniSize * 0.8} ` +
+              `L ${playX + miniSize * 0.6} ${baselineY} Z`
+            );
+            play.setAttribute("class", "threadriver-play-mini");
+            nodeLayer.appendChild(play);
           }
 
           // 节点形状：
