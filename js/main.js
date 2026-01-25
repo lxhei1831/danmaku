@@ -73,6 +73,7 @@
     const sendDanmakuBtn = document.getElementById('send-danmaku-btn');
     const danmakuAiToggle = document.getElementById('danmaku-ai-toggle');
     const danmakuCount = document.getElementById('danmaku-count');
+    const danmakuThreadCount = document.getElementById('danmaku-thread-count');
     const danmakuToggleBtn = document.getElementById('danmaku-toggle-btn');
     const danmakuToggleIcon = document.getElementById('danmaku-toggle-icon');
     const danmakuSettingsBtn = document.getElementById('danmaku-settings-btn');
@@ -221,6 +222,10 @@
     function syncDanmakuCount() {
       if (danmakuCount) {
         danmakuCount.textContent = `${danmakuTotalCount}`;
+      }
+      if (danmakuThreadCount) {
+        const threadCount = dialogueGroups.filter(group => !group.isNestedParent).length;
+        danmakuThreadCount.textContent = `${threadCount}`;
       }
     }
     function setDanmakuVisibility(visible) {
@@ -1041,6 +1046,8 @@
             msg.dialogueIndex = index;
           });
         });
+
+        syncDanmakuCount();
 
         const mergedData = mergeFloodDanmaku(parsedData);
         console.log(`加载完成: ${parsedData.length}条弹幕, ${dialogueGroups.length}个对话集（刷屏合并后剩余${mergedData.length}条）。`);
