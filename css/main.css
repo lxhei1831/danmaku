@@ -1,4 +1,4 @@
-﻿/* ===== 布局与样式 ===== */
+/* ===== 布局与样式 ===== */
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       background-color: #f4f5f7;
@@ -961,6 +961,9 @@
     .heatmap-legend-dot-answer {
       background-color: #e28a1b;
     }
+    .heatmap-legend-dot-social {
+      background-color: #95d475;
+    }
 
     #heatmap-content {
       flex: 1;
@@ -1015,6 +1018,10 @@
     .heatmap-line-answer {
       stroke: #FF8C00; /* 解答线 */
       filter: drop-shadow(0 2px 4px rgba(255, 140, 0, 0.35));
+    }
+    .heatmap-line-social {
+      stroke: #73c45a; /* 社交线 */
+      filter: drop-shadow(0 2px 4px rgba(115, 196, 90, 0.35));
     }
     .heatmap-line-emotion {
       stroke: #1E88E5; /* 情感线 */
@@ -1134,7 +1141,8 @@
       stroke: #4a90e2;
     }
     .threadriver-node-mid.threadriver-node-answer,
-    .threadriver-node-mid.threadriver-node-emotion {
+    .threadriver-node-mid.threadriver-node-emotion,
+    .threadriver-node-mid.threadriver-node-social {
       stroke: #4a90e2;
     }
 
@@ -1144,6 +1152,9 @@
     .threadriver-node-root.threadriver-node-answer {
       fill: #e28a1b;
     }
+    .threadriver-node-root.threadriver-node-social {
+      fill: #95d475;
+    }
     .threadriver-node-root.threadriver-node-emotion {
       fill: #f4a9c6;
     }
@@ -1151,6 +1162,9 @@
     /* 回复类型颜色 */
     .threadriver-node-answer {
       stroke: #e28a1b;
+    }
+    .threadriver-node-social {
+      stroke: #73c45a;
     }
     .threadriver-node-emotion {
       stroke: #f4a9c6;
@@ -1171,6 +1185,9 @@
     }
     .threadriver-node-dot.threadriver-node-root.threadriver-node-answer {
       fill: #e28a1b;
+    }
+    .threadriver-node-dot.threadriver-node-root.threadriver-node-social {
+      fill: #95d475;
     }
     .threadriver-node-dot.threadriver-node-root.threadriver-node-emotion {
       fill: #f4a9c6;

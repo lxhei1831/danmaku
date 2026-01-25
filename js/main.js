@@ -1,17 +1,17 @@
-﻿// ===== 全局状态 =====
+// ===== 全局状态 =====
     const SILICONFLOW_API_KEY = "sk-csblnlipczusnmuoocqrrqdbbuskicjtxteonucqidqxxahv"; // <--- 在这里替换成您自己的 SiliconFlow API 密钥
     const SILICONFLOW_API_URL = "https://api.siliconflow.cn/v1/chat/completions";
     const MULTIMODAL_API_URL = "https://api.siliconflow.cn/v1/chat/completions";
     const MULTIMODAL_MODEL = "Qwen/Qwen3-VL-32B-Instruct";
     const MAX_SUBTITLE_SNIPPET_CHARS = 20000;
     const VIDEO_CATALOG = [
-      {
-        id: '100dianlu',
-        title: '100个电路图',
-        videoSrc: './assets/videos/100dianlu.mp4',
-        danmakuSrc: './assets/data/100dianlu/初三物理_100个电路图_前60秒_增强弹幕.xml',
-        captionSrc: './assets/data/100dianlu/caption.srt'
-      },
+        {
+          id: '100dianlu',
+          title: '100个电路图',
+          videoSrc: './assets/videos/100dianlu.mp4',
+          danmakuSrc: './assets/data/100dianlu/part_完善弹幕_合并.xml',
+          captionSrc: './assets/data/100dianlu/caption.srt'
+        },
       {
         id: 'zhengzhi',
         title: '中美关系、中法关系、中俄关系、中欧关系，全部考点区别，10分钟搞定！',
@@ -23,7 +23,7 @@
         id: 'jixian',
         title: '你极限学得6吗？我打赌95%的同学算不对',
         videoSrc: './assets/videos/你极限学得6吗？我打赌95%的同学算不对.mp4',
-        danmakuSrc: './assets/data/jixian/极限学得6_前60秒_增强弹幕.xml',
+        danmakuSrc: './assets/data/jixian/merged.xml',
         captionSrc: './assets/data/jixian/你极限学得6吗？我打赌95%的同学算不对.json'
       }
     ];
@@ -2581,6 +2581,7 @@
       const label = (item.replyClusterLabel || '').toLowerCase();
       if (label.includes('情感') || label.includes('emotion')) return 'emotion';
       if (label.includes('解答') || label.includes('answer')) return 'answer';
+      if (label.includes('社交') || label.includes('social')) return 'social';
       return null;
     }
     function getHeatmapAxisStep(duration) {
@@ -3078,7 +3079,9 @@
             ? 'threadriver-node-emotion'
             : replyType === 'answer'
               ? 'threadriver-node-answer'
-              : '';
+              : replyType === 'social'
+                ? 'threadriver-node-social'
+                : '';
 
           // 播放键：只画一次（thread 起点）
           // 你说串开头是播放键：对齐 group.startTime
@@ -3271,7 +3274,16 @@
       for (let t = 0; t <= duration; t += tickStep) tickTimes.push(t);
       if (tickTimes[tickTimes.length - 1] < duration) tickTimes.push(duration);
 
-      tickTimes.forEach((time) => {
+      const estimateLabelWidth = (text) => {
+        const avgCharWidth = 6;
+        return Math.max(10, text.length * avgCharWidth + 4);
+      };
+      const labelGap = 6;
+      let lastLabelRight = -Infinity;
+      let lastLabelPrevRight = -Infinity;
+      let lastLabelNode = null;
+
+      tickTimes.forEach((time, index) => {
         const tickX = edgePadding + (time / duration) * plotWidth;
 
         const tick = document.createElementNS(svgNS, "line");
@@ -3282,13 +3294,42 @@
         tick.setAttribute("y2", String(chartHeight + 6));
         axisGroup.appendChild(tick);
 
-        const label = document.createElementNS(svgNS, "text");
-        label.classList.add("heatmap-axis-text");
-        label.setAttribute("x", String(tickX));
-        label.setAttribute("y", String(chartHeight + axisHeight - 6));
-        label.setAttribute("text-anchor", time <= 0 ? "start" : time >= duration ? "end" : "middle");
-        label.textContent = formatTime(time);
-        axisGroup.appendChild(label);
+        const labelText = formatTime(time);
+        const labelWidth = estimateLabelWidth(labelText);
+        const labelAnchor = time <= 0 ? "start" : time >= duration ? "end" : "middle";
+        const labelLeft = labelAnchor === "start"
+          ? tickX
+          : labelAnchor === "end"
+            ? tickX - labelWidth
+            : tickX - labelWidth / 2;
+        const labelRight = labelAnchor === "start"
+          ? tickX + labelWidth
+          : labelAnchor === "end"
+            ? tickX
+            : tickX + labelWidth / 2;
+        const isLastLabel = index === tickTimes.length - 1;
+        let overlaps = labelLeft <= lastLabelRight + labelGap;
+
+        if (isLastLabel && overlaps && lastLabelNode) {
+          axisGroup.removeChild(lastLabelNode);
+          lastLabelNode = null;
+          lastLabelRight = lastLabelPrevRight;
+          lastLabelPrevRight = -Infinity;
+          overlaps = labelLeft <= lastLabelRight + labelGap;
+        }
+
+        if (!overlaps) {
+          const label = document.createElementNS(svgNS, "text");
+          label.classList.add("heatmap-axis-text");
+          label.setAttribute("x", String(tickX));
+          label.setAttribute("y", String(chartHeight + axisHeight - 6));
+          label.setAttribute("text-anchor", labelAnchor);
+          label.textContent = labelText;
+          axisGroup.appendChild(label);
+          lastLabelPrevRight = lastLabelRight;
+          lastLabelRight = labelRight;
+          lastLabelNode = label;
+        }
       });
 
       svg.appendChild(axisGroup);
