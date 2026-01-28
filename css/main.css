@@ -1074,6 +1074,25 @@
       dominant-baseline: middle;
       pointer-events: none;
     }
+    .heatmap-topic-label {
+      cursor: pointer;
+    }
+    .heatmap-topic-label rect {
+      fill: rgba(59, 130, 246, 0.16);
+      stroke: rgba(59, 130, 246, 0.7);
+      stroke-width: 1;
+      transition: fill 0.2s ease, stroke 0.2s ease;
+    }
+    .heatmap-topic-label:hover rect {
+      fill: rgba(59, 130, 246, 0.3);
+      stroke: rgba(59, 130, 246, 0.9);
+    }
+    .heatmap-topic-label text {
+      fill: #1d4ed8;
+      font-size: 12px;
+      font-weight: 600;
+      pointer-events: none;
+    }
     .heatmap-axis-wave-fill {
       fill: rgba(207, 212, 219, 0.35);
       pointer-events: none;

@@ -2444,6 +2444,9 @@
     const HEATMAP_OVERVIEW_THRESHOLD = 50;
     const HEATMAP_ZOOM_VERTICAL_THRESHOLD = 46;
     const HEATMAP_NODE_MAX_MODE_ZOOM = 26;
+    const HEATMAP_HOT_TOPIC_INTERVAL = 30;
+    const HEATMAP_TOPIC_MAX_CHARS = 8;
+    const HEATMAP_TOPIC_MIN_TOKEN_LEN = 2;
     let heatmapZoom = 20;
     let heatmapOverviewFit = false;
     let heatmapWaveEnabled = true;
@@ -2471,6 +2474,118 @@
       return config.id || config.videoSrc || config.danmakuSrc || '';
     };
     const getHeatmapZoomStep = (value) => (value > 5 ? 10 : 1);
+
+    const HOT_TOPIC_STOPWORDS = new Set([
+      '的', '了', '是', '我', '你', '他', '她', '它', '这', '那', '有', '在',
+      '吗', '啊', '哦', '呢', '吧', '嗯', '好', '不', '也', '就', '都', '和',
+      '与', '或', '但', '而', '因', '为', '所以', '如果', '虽然', '可以',
+      '什么', '怎么', '为什么', '哪', '谁', '多少', '几', '很', '太', '真',
+      '还', '会', '能', '要', '想', '去', '来', '让', '把', '被', '给',
+      '到', '从', '上', '下', '中', '对', '一个', '没有', '已经', '我们',
+      '你们', '他们', '她们', '它们', '不是', '不要', '还是', '就是',
+      '比较', '因为', '所以', '如果', '而且', '但是', '然后', '之后', '之前',
+      '现在', '可能', '时候', '这个', '那个', '这些', '那些', '还有', '以及',
+      'the', 'and', 'for', 'with', 'that', 'this', 'you', 'your', 'are', 'was',
+      'were', 'can', 'will', 'just', 'have', 'has', 'had'
+    ]);
+
+    let hotTopicSegmenter = null;
+
+    function getHotTopicSegmenter() {
+      if (hotTopicSegmenter) return hotTopicSegmenter;
+      if (!window.Segmentit || !window.Segmentit.Segment || !window.Segmentit.useDefault) return null;
+      const segment = new window.Segmentit.Segment();
+      hotTopicSegmenter = window.Segmentit.useDefault(segment);
+      return hotTopicSegmenter;
+    }
+
+    if (typeof window !== 'undefined') {
+      window.addEventListener('load', () => {
+        const isReady = !!getHotTopicSegmenter();
+        console.log(`[heatmap] segmentit loaded: ${isReady}`);
+      }, { once: true });
+    }
+
+    function normalizeHotTopicToken(token = '') {
+      const cleaned = token
+        .toString()
+        .replace(/[^0-9a-zA-Z\u4e00-\u9fa5]/g, '')
+        .trim();
+      if (!cleaned) return '';
+      return cleaned.toLowerCase();
+    }
+
+    function tokenizeHotTopicText(text = '') {
+      const segmenter = getHotTopicSegmenter();
+      if (segmenter && typeof segmenter.doSegment === 'function') {
+        const result = segmenter.doSegment(text) || [];
+        return result
+          .map((item) => (typeof item === 'string' ? item : (item && item.w ? item.w : '')))
+          .filter(Boolean);
+      }
+      const fallback = text.match(/[0-9a-zA-Z\u4e00-\u9fa5]+/g);
+      return fallback || [];
+    }
+
+    function formatHotTopicLabel(word) {
+      if (!word) return '';
+      const trimmed = word.trim();
+      if (trimmed.length <= HEATMAP_TOPIC_MAX_CHARS) return trimmed;
+      return `${trimmed.slice(0, HEATMAP_TOPIC_MAX_CHARS)}...`;
+    }
+
+    function extractHotTopics(sourceList, duration, intervalSeconds = HEATMAP_HOT_TOPIC_INTERVAL) {
+      if (!Array.isArray(sourceList) || sourceList.length === 0) return [];
+      if (!Number.isFinite(duration) || duration <= 0) return [];
+      if (!Number.isFinite(intervalSeconds) || intervalSeconds <= 0) return [];
+
+      const binCount = Math.ceil(duration / intervalSeconds);
+      const bins = Array.from({ length: binCount }, (_, i) => ({
+        startTime: i * intervalSeconds,
+        endTime: Math.min((i + 1) * intervalSeconds, duration),
+        texts: []
+      }));
+
+      sourceList.forEach((item) => {
+        const time = item && Number.isFinite(item.time) ? item.time : NaN;
+        if (!Number.isFinite(time)) return;
+        const index = Math.min(binCount - 1, Math.max(0, Math.floor(time / intervalSeconds)));
+        const text = item && item.text ? String(item.text) : '';
+        if (text) bins[index].texts.push(text);
+      });
+
+      return bins.map((bin) => {
+        if (!bin.texts.length) return null;
+        const wordCount = new Map();
+        bin.texts.forEach((text) => {
+          const tokens = tokenizeHotTopicText(text);
+          tokens.forEach((token) => {
+            const normalized = normalizeHotTopicToken(token);
+            if (!normalized) return;
+            if (normalized.length < HEATMAP_TOPIC_MIN_TOKEN_LEN) return;
+            if (HOT_TOPIC_STOPWORDS.has(normalized)) return;
+            wordCount.set(normalized, (wordCount.get(normalized) || 0) + 1);
+          });
+        });
+        if (!wordCount.size) return null;
+        let topWord = '';
+        let topCount = 0;
+        wordCount.forEach((count, word) => {
+          if (count > topCount) {
+            topWord = word;
+            topCount = count;
+          }
+        });
+        if (!topWord) return null;
+        return {
+          time: (bin.startTime + bin.endTime) / 2,
+          word: topWord,
+          count: topCount,
+          startTime: bin.startTime,
+          endTime: bin.endTime
+        };
+      }).filter(Boolean);
+    }
 
     const syncHeatmapZoomUI = () => {
       if (heatmapOverviewBtn) {
@@ -3403,6 +3518,73 @@
       });
 
       svg.appendChild(axisGroup);
+
+      const hotTopics = extractHotTopics(allDanmakuRaw, duration, HEATMAP_HOT_TOPIC_INTERVAL)
+        .sort((a, b) => a.time - b.time);
+      if (hotTopics.length) {
+        const topicsLayer = document.createElementNS(svgNS, "g");
+        topicsLayer.setAttribute("class", "heatmap-topics-layer");
+        const topicScale = Math.max(0.75, Math.min(1.1, layoutScale));
+        const topicFontSize = 11 * topicScale;
+        const topicHeight = 20 * topicScale;
+        const topicPaddingX = 10 * topicScale;
+        const topicOffset = 6 * topicScale;
+        const topicY = Math.max(4, chartHeight - topicHeight - topicOffset);
+        const labelGap = 8 * topicScale;
+        let lastLabelRight = -Infinity;
+
+        hotTopics.forEach((topic) => {
+          const labelText = formatHotTopicLabel(topic.word);
+          if (!labelText) return;
+          const charWidth = topicFontSize * 0.92;
+          const labelWidth = Math.max(topicHeight, labelText.length * charWidth + topicPaddingX * 2);
+          const halfW = labelWidth / 2;
+          let x = timeToX(topic.time);
+          x = Math.max(edgePadding + halfW, Math.min(edgePadding + plotWidth - halfW, x));
+          const labelLeft = x - halfW;
+          const labelRight = x + halfW;
+          if (labelLeft <= lastLabelRight + labelGap) return;
+
+          const labelGroup = document.createElementNS(svgNS, "g");
+          labelGroup.setAttribute("class", "heatmap-topic-label");
+
+          const rect = document.createElementNS(svgNS, "rect");
+          rect.setAttribute("x", String(labelLeft));
+          rect.setAttribute("y", String(topicY));
+          rect.setAttribute("width", String(labelWidth));
+          rect.setAttribute("height", String(topicHeight));
+          rect.setAttribute("rx", String(topicHeight / 2));
+          rect.setAttribute("ry", String(topicHeight / 2));
+
+          const text = document.createElementNS(svgNS, "text");
+          text.setAttribute("x", String(x));
+          text.setAttribute("y", String(topicY + topicHeight / 2));
+          text.setAttribute("text-anchor", "middle");
+          text.setAttribute("dominant-baseline", "middle");
+          text.setAttribute("font-size", String(topicFontSize));
+          text.textContent = labelText;
+
+          const title = document.createElementNS(svgNS, "title");
+          title.textContent = `[${formatTime(topic.startTime)}-${formatTime(topic.endTime)}] ${topic.word}`;
+          labelGroup.appendChild(title);
+
+          labelGroup.appendChild(rect);
+          labelGroup.appendChild(text);
+
+          labelGroup.addEventListener("click", (e) => {
+            e.stopPropagation();
+            video.currentTime = topic.time;
+            video.play();
+          });
+
+          topicsLayer.appendChild(labelGroup);
+          lastLabelRight = labelRight;
+        });
+
+        if (topicsLayer.childNodes.length) {
+          svg.appendChild(topicsLayer);
+        }
+      }
 
       // === 6) 空白点击：跳转视频时间 ===
       svg.addEventListener('click', (e) => {
