@@ -2758,7 +2758,7 @@
         return nodes;
       };
 
-      const DOT_BASE = 3;
+      const DOT_BASE = 7;
       const MIN_GAP_BASE = isOverviewMode ? 1 : (compactMode ? 4 : 6);
       const ROW_SPAN_GAP_BASE = isOverviewMode ? 2 : (compactMode ? 6 : 8);
       const MIN_ROW_H_BASE = isOverviewMode ? 8 : (compactMode ? 10 : 22);
@@ -3115,7 +3115,7 @@
             nodeLayer.appendChild(play);
           } else if (isRoot && overviewFitMode) {
             const miniScale = Math.max(0.6, 0.6 * layoutScale);
-            const miniSize = Math.max(2, 3.2 * miniScale);
+            const miniSize = Math.max(2, 6.4 * miniScale);
             const playX = timeToX(group.startTime) - 3.5 * miniSize;
             const play = document.createElementNS(svgNS, "path");
             play.setAttribute(
