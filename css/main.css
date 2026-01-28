@@ -867,17 +867,9 @@
       transform-origin: center;
       will-change: transform, opacity;
     }
-    .heatmap-controls {
-      transition: opacity 0.25s ease, transform 0.25s ease;
-    }
     .heatmap-panel.is-collapsed #heatmap-content {
       opacity: 0;
       transform: scaleY(0.12);
-      pointer-events: none;
-    }
-    .heatmap-panel.is-collapsed .heatmap-controls {
-      opacity: 0;
-      transform: translateY(-6px);
       pointer-events: none;
     }
 
@@ -1063,25 +1055,6 @@
       filter: drop-shadow(0 0 4px rgba(235, 87, 87, 0.45));
     }
 
-    .heatmap-controls {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 8px 12px;
-      border-top: 1px solid #eee;
-      background-color: #fafafa;
-      font-size: 13px;
-      color: #333;
-    }
-    .heatmap-controls input[type="range"] {
-      width: 220px;
-    }
-    #heatmap-zoom-value {
-      min-width: 44px;
-      text-align: right;
-      font-variant-numeric: tabular-nums;
-    }
 
     /* ===== Thread River 风格底部视图 ===== */
     .threadriver-link {

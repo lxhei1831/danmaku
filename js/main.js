@@ -9,7 +9,7 @@
           id: '100dianlu',
           title: '100个电路图',
           videoSrc: './assets/videos/100dianlu.mp4',
-          danmakuSrc: './assets/data/100dianlu/part_完善弹幕_合并.xml',
+          danmakuSrc: './assets/data/100dianlu/完整.xml',
           captionSrc: './assets/data/100dianlu/caption.srt'
         },
       {
