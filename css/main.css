@@ -925,12 +925,38 @@
       cursor: pointer;
       transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
     }
+    .heatmap-topic-toggle-btn {
+      position: absolute;
+      left: 150px;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 22px;
+      padding: 0 8px;
+      border: 1px solid #cfcfcf;
+      border-radius: 12px;
+      background-color: #fff;
+      color: #555;
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 1;
+      cursor: pointer;
+      transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    }
     .heatmap-wave-toggle-btn.is-active {
       border-color: #5a7ff0;
       color: #3058e5;
       background-color: #eef2ff;
     }
+    .heatmap-topic-toggle-btn.is-active {
+      border-color: #5a7ff0;
+      color: #3058e5;
+      background-color: #eef2ff;
+    }
     .heatmap-wave-toggle-btn:focus-visible {
+      outline: 2px solid #4d90fe;
+      outline-offset: 2px;
+    }
+    .heatmap-topic-toggle-btn:focus-visible {
       outline: 2px solid #4d90fe;
       outline-offset: 2px;
     }
@@ -1076,21 +1102,24 @@
     }
     .heatmap-topic-label {
       cursor: pointer;
+      filter: drop-shadow(0 2px 6px rgba(15, 23, 42, 0.14));
     }
-    .heatmap-topic-label rect {
-      fill: rgba(59, 130, 246, 0.16);
-      stroke: rgba(59, 130, 246, 0.7);
+    .heatmap-topic-label rect,
+    .heatmap-topic-label .heatmap-topic-pointer {
+      fill: #f8fafc;
+      stroke: #cbd5e1;
       stroke-width: 1;
       transition: fill 0.2s ease, stroke 0.2s ease;
     }
-    .heatmap-topic-label:hover rect {
-      fill: rgba(59, 130, 246, 0.3);
-      stroke: rgba(59, 130, 246, 0.9);
+    .heatmap-topic-label:hover rect,
+    .heatmap-topic-label:hover .heatmap-topic-pointer {
+      fill: #eef2f7;
+      stroke: #94a3b8;
     }
     .heatmap-topic-label text {
-      fill: #1d4ed8;
-      font-size: 12px;
+      fill: #1f2937;
       font-weight: 600;
+      letter-spacing: 0.2px;
       pointer-events: none;
     }
     .heatmap-axis-wave-fill {

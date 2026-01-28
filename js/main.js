@@ -9,7 +9,7 @@
           id: '100dianlu',
           title: '100个电路图',
           videoSrc: './assets/videos/100dianlu.mp4',
-          danmakuSrc: './assets/data/100dianlu/完整.xml',
+          danmakuSrc: './assets/data/100dianlu/真实合并弹幕.xml',
           captionSrc: './assets/data/100dianlu/caption.srt'
         },
       {
@@ -23,7 +23,7 @@
         id: 'jixian',
         title: '你极限学得6吗？我打赌95%的同学算不对',
         videoSrc: './assets/videos/你极限学得6吗？我打赌95%的同学算不对.mp4',
-        danmakuSrc: './assets/data/jixian/merged.xml',
+        danmakuSrc: './assets/data/jixian/极限学得6_全程_增强弹幕.xml',
         captionSrc: './assets/data/jixian/你极限学得6吗？我打赌95%的同学算不对.json'
       }
     ];
@@ -2438,6 +2438,7 @@
     const heatmapZoomValue = document.getElementById('heatmap-zoom-value');
     const heatmapOverviewBtn = document.getElementById('heatmap-overview-btn');
     const heatmapWaveToggleBtn = document.getElementById('heatmap-wave-toggle-btn');
+    const heatmapTopicToggleBtn = document.getElementById('heatmap-topic-toggle-btn');
     const HEATMAP_ZOOM_STEP = 1;
     const HEATMAP_ZOOM_MIN = 1;
     const HEATMAP_ZOOM_MAX = 100;
@@ -2450,6 +2451,7 @@
     let heatmapZoom = 20;
     let heatmapOverviewFit = false;
     let heatmapWaveEnabled = true;
+    let heatmapTopicsEnabled = true;
     let heatmapZoomAnchor = null;
     let heatmapZoomLocked = false;
     let heatmapPanActive = false;
@@ -2596,6 +2598,10 @@
       if (heatmapWaveToggleBtn) {
         heatmapWaveToggleBtn.classList.toggle('is-active', !!heatmapWaveEnabled);
         heatmapWaveToggleBtn.setAttribute('aria-pressed', (!!heatmapWaveEnabled).toString());
+      }
+      if (heatmapTopicToggleBtn) {
+        heatmapTopicToggleBtn.classList.toggle('is-active', !!heatmapTopicsEnabled);
+        heatmapTopicToggleBtn.setAttribute('aria-pressed', (!!heatmapTopicsEnabled).toString());
       }
       if (heatmapContent) {
         heatmapContent.classList.toggle('is-overview', !!heatmapOverviewFit);
@@ -2818,7 +2824,14 @@
           Math.max(0, ((previousScrollLeft + anchorLocalX - edgePadding) / previousPlotWidth) * duration)
         )
         : null;
-      const axisHeight = 26 * zoomScale;
+      const baseAxisHeight = 26 * zoomScale;
+      const topicScaleEstimate = Math.max(0.75, Math.min(1.1, zoomScale));
+      const topicHeightEstimate = 20 * topicScaleEstimate;
+      const topicOffsetEstimate = 6 * topicScaleEstimate;
+      const extraAxisHeight = heatmapTopicsEnabled
+        ? (topicHeightEstimate + topicOffsetEstimate + 6)
+        : 0;
+      const axisHeight = baseAxisHeight + extraAxisHeight;
       let height = baseHeight * zoomScale;
       let chartHeight = height - axisHeight;
       if (chartHeight <= 0) return;
@@ -3519,8 +3532,9 @@
 
       svg.appendChild(axisGroup);
 
-      const hotTopics = extractHotTopics(allDanmakuRaw, duration, HEATMAP_HOT_TOPIC_INTERVAL)
-        .sort((a, b) => a.time - b.time);
+      const hotTopics = heatmapTopicsEnabled
+        ? extractHotTopics(allDanmakuRaw, duration, HEATMAP_HOT_TOPIC_INTERVAL).sort((a, b) => a.time - b.time)
+        : [];
       if (hotTopics.length) {
         const topicsLayer = document.createElementNS(svgNS, "g");
         topicsLayer.setAttribute("class", "heatmap-topics-layer");
@@ -3529,7 +3543,12 @@
         const topicHeight = 20 * topicScale;
         const topicPaddingX = 10 * topicScale;
         const topicOffset = 6 * topicScale;
-        const topicY = Math.max(4, chartHeight - topicHeight - topicOffset);
+        const axisTop = chartHeight;
+        const axisBottom = chartHeight + axisHeight;
+        let topicY = axisTop + topicOffset;
+        const maxTopicY = axisBottom - topicHeight - 6;
+        if (topicY > maxTopicY) topicY = maxTopicY;
+        if (topicY < axisTop + 2) topicY = axisTop + 2;
         const labelGap = 8 * topicScale;
         let lastLabelRight = -Infinity;
 
@@ -3547,6 +3566,25 @@
 
           const labelGroup = document.createElementNS(svgNS, "g");
           labelGroup.setAttribute("class", "heatmap-topic-label");
+
+          const pointerHeight = 6 * topicScale;
+          const pointerWidth = 12 * topicScale;
+          const pointerBaseY = topicY + 1;
+          const pointerTipY = Math.max(axisTop + 1, pointerBaseY - pointerHeight);
+          const pointerSpan = Math.max(0, pointerBaseY - pointerTipY);
+          if (pointerSpan > 1) {
+            const pointer = document.createElementNS(svgNS, "polygon");
+            pointer.setAttribute("class", "heatmap-topic-pointer");
+            const leftX = x - pointerWidth / 2;
+            const rightX = x + pointerWidth / 2;
+            const points = [
+              `${leftX} ${pointerBaseY}`,
+              `${rightX} ${pointerBaseY}`,
+              `${x} ${pointerTipY}`
+            ];
+            pointer.setAttribute("points", points.join(' '));
+            labelGroup.appendChild(pointer);
+          }
 
           const rect = document.createElementNS(svgNS, "rect");
           rect.setAttribute("x", String(labelLeft));
@@ -3573,7 +3611,7 @@
 
           labelGroup.addEventListener("click", (e) => {
             e.stopPropagation();
-            video.currentTime = topic.time;
+            video.currentTime = Math.max(0, topic.startTime || 0);
             video.play();
           });
 
@@ -3755,6 +3793,24 @@
           e.stopPropagation();
           e.preventDefault();
           heatmapWaveEnabled = !heatmapWaveEnabled;
+          syncHeatmapZoomUI();
+          renderBottomHeatmap();
+        }
+      });
+    }
+
+    if (heatmapTopicToggleBtn) {
+      heatmapTopicToggleBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        heatmapTopicsEnabled = !heatmapTopicsEnabled;
+        syncHeatmapZoomUI();
+        renderBottomHeatmap();
+      });
+      heatmapTopicToggleBtn.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.stopPropagation();
+          e.preventDefault();
+          heatmapTopicsEnabled = !heatmapTopicsEnabled;
           syncHeatmapZoomUI();
           renderBottomHeatmap();
         }
