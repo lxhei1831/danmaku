@@ -41,6 +41,7 @@
     const ENABLE_AUTO_VIDEO_CONTEXT = false; // true 自动上传视频截图，false 不自动上传，只有在第一次发送消息时才会上传
 
     let danmakuData = [], dialogueGroups = [], danmakuIndex = 0, dialogueIndex = 0;
+    let allDanmakuRaw = [];
     const SCROLL_THRESHOLD = 5;
     let parentDanmakuIds = new Set();
     let dialogueDanmakuIds = new Set();
@@ -402,6 +403,7 @@
       if (heatmapContent) heatmapContent.innerHTML = '';
 
       danmakuData = [];
+      allDanmakuRaw = [];
       dialogueGroups = [];
       danmakuIndex = 0;
       dialogueIndex = 0;
@@ -954,6 +956,7 @@
         });
 
         parsedData.sort((a, b) => a.time - b.time);
+        allDanmakuRaw = parsedData.slice();
         danmakuTotalCount = parsedData.length;
         syncDanmakuCount();
 
@@ -2434,6 +2437,7 @@
     const heatmapZoomInput = document.getElementById('heatmap-zoom');
     const heatmapZoomValue = document.getElementById('heatmap-zoom-value');
     const heatmapOverviewBtn = document.getElementById('heatmap-overview-btn');
+    const heatmapWaveToggleBtn = document.getElementById('heatmap-wave-toggle-btn');
     const HEATMAP_ZOOM_STEP = 1;
     const HEATMAP_ZOOM_MIN = 1;
     const HEATMAP_ZOOM_MAX = 100;
@@ -2442,6 +2446,7 @@
     const HEATMAP_NODE_MAX_MODE_ZOOM = 26;
     let heatmapZoom = 20;
     let heatmapOverviewFit = false;
+    let heatmapWaveEnabled = true;
     let heatmapZoomAnchor = null;
     let heatmapZoomLocked = false;
     let heatmapPanActive = false;
@@ -2472,6 +2477,10 @@
         const isOverviewMode = !!heatmapOverviewFit;
         heatmapOverviewBtn.classList.toggle('is-active', isOverviewMode);
         heatmapOverviewBtn.setAttribute('aria-pressed', isOverviewMode.toString());
+      }
+      if (heatmapWaveToggleBtn) {
+        heatmapWaveToggleBtn.classList.toggle('is-active', !!heatmapWaveEnabled);
+        heatmapWaveToggleBtn.setAttribute('aria-pressed', (!!heatmapWaveEnabled).toString());
       }
       if (heatmapContent) {
         heatmapContent.classList.toggle('is-overview', !!heatmapOverviewFit);
@@ -3094,7 +3103,7 @@
           // 你说串开头是播放键：对齐 group.startTime
           if (isRoot && !overviewFitMode) {
             const playScale = layoutScale;
-            const playX = timeToX(group.startTime) - 6 * playScale;
+            const playX = timeToX(group.startTime) - 0.8 * playScale;
             const play = document.createElementNS(svgNS, "path");
             play.setAttribute(
               "d",
@@ -3116,7 +3125,7 @@
           } else if (isRoot && overviewFitMode) {
             const miniScale = Math.max(0.6, 0.6 * layoutScale);
             const miniSize = Math.max(2, 6.4 * miniScale);
-            const playX = timeToX(group.startTime) - 3.5 * miniSize;
+            const playX = timeToX(group.startTime) - 1.5 * miniSize;
             const play = document.createElementNS(svgNS, "path");
             play.setAttribute(
               "d",
@@ -3275,6 +3284,60 @@
       axisLine.setAttribute("y1", String(chartHeight + 0.5));
       axisLine.setAttribute("y2", String(chartHeight + 0.5));
       axisGroup.appendChild(axisLine);
+
+      let waveBottom = chartHeight - 2;
+      const waveMin = 20;
+      const waveMax = 45;
+      let waveHeight = Math.min(waveMax, Math.max(waveMin, Math.round(chartHeight * 0.3)));
+      let waveTop = waveBottom - waveHeight;
+      if (waveTop < 0) {
+        waveTop = 0;
+        waveHeight = waveBottom - waveTop;
+      }
+      if (heatmapWaveEnabled && waveHeight > 6 && Array.isArray(allDanmakuRaw) && allDanmakuRaw.length) {
+        const binCount = Math.max(30, Math.min(400, Math.round(plotWidth / 8)));
+        const bins = new Array(binCount).fill(0);
+        const timeFactor = duration > 0 ? binCount / duration : 0;
+        allDanmakuRaw.forEach((item) => {
+          const time = item && Number.isFinite(item.time) ? item.time : NaN;
+          if (!Number.isFinite(time)) return;
+          if (time < 0 || time > duration) return;
+          const idx = Math.min(binCount - 1, Math.max(0, Math.floor(time * timeFactor)));
+          bins[idx] += 1;
+        });
+        const maxCount = bins.reduce((max, value) => (value > max ? value : max), 0);
+        if (maxCount > 0) {
+          const points = [];
+          const span = binCount > 1 ? (plotWidth / (binCount - 1)) : 0;
+          for (let i = 0; i < binCount; i += 1) {
+            const ratio = bins[i] / maxCount;
+            const x = edgePadding + (span * i);
+            const y = waveBottom - ratio * waveHeight;
+            points.push({ x, y });
+          }
+          const firstPoint = points[0];
+          const areaPath = [`M ${edgePadding} ${waveBottom}`, `L ${firstPoint.x} ${firstPoint.y}`];
+          points.slice(1).forEach((pt) => {
+            areaPath.push(`L ${pt.x} ${pt.y}`);
+          });
+          areaPath.push(`L ${edgePadding + plotWidth} ${waveBottom}`, 'Z');
+
+          const linePath = [`M ${firstPoint.x} ${firstPoint.y}`];
+          points.slice(1).forEach((pt) => {
+            linePath.push(`L ${pt.x} ${pt.y}`);
+          });
+
+          const waveFill = document.createElementNS(svgNS, "path");
+          waveFill.setAttribute("class", "heatmap-axis-wave-fill");
+          waveFill.setAttribute("d", areaPath.join(' '));
+          axisGroup.appendChild(waveFill);
+
+          const waveLine = document.createElementNS(svgNS, "path");
+          waveLine.setAttribute("class", "heatmap-axis-wave-line");
+          waveLine.setAttribute("d", linePath.join(' '));
+          axisGroup.appendChild(waveLine);
+        }
+      }
 
       const tickStep = getHeatmapAxisStep(duration);
       const tickTimes = [];
@@ -3494,6 +3557,24 @@
           e.stopPropagation();
           e.preventDefault();
           enterHeatmapOverview({ forceScroll: true });
+        }
+      });
+    }
+
+    if (heatmapWaveToggleBtn) {
+      heatmapWaveToggleBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        heatmapWaveEnabled = !heatmapWaveEnabled;
+        syncHeatmapZoomUI();
+        renderBottomHeatmap();
+      });
+      heatmapWaveToggleBtn.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.stopPropagation();
+          e.preventDefault();
+          heatmapWaveEnabled = !heatmapWaveEnabled;
+          syncHeatmapZoomUI();
+          renderBottomHeatmap();
         }
       });
     }

@@ -908,6 +908,32 @@
       color: #3058e5;
       background-color: #eef2ff;
     }
+    .heatmap-wave-toggle-btn {
+      position: absolute;
+      left: 66px;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 22px;
+      padding: 0 8px;
+      border: 1px solid #cfcfcf;
+      border-radius: 12px;
+      background-color: #fff;
+      color: #555;
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 1;
+      cursor: pointer;
+      transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    }
+    .heatmap-wave-toggle-btn.is-active {
+      border-color: #5a7ff0;
+      color: #3058e5;
+      background-color: #eef2ff;
+    }
+    .heatmap-wave-toggle-btn:focus-visible {
+      outline: 2px solid #4d90fe;
+      outline-offset: 2px;
+    }
     .heatmap-overview-btn:focus-visible {
       outline: 2px solid #4d90fe;
       outline-offset: 2px;
@@ -1046,6 +1072,16 @@
       font-size: 11px;
       font-family: inherit;
       dominant-baseline: middle;
+      pointer-events: none;
+    }
+    .heatmap-axis-wave-fill {
+      fill: rgba(207, 212, 219, 0.35);
+      pointer-events: none;
+    }
+    .heatmap-axis-wave-line {
+      fill: none;
+      stroke: #cfd4db;
+      stroke-width: 1.2;
       pointer-events: none;
     }
     .heatmap-playhead-layer { pointer-events: none; }
